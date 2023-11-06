@@ -1,27 +1,80 @@
-# AVRPlayground
-To implement the requirements using a microcontroller, here is a step-by-step approach:
+# Light Sensing and Room Temperature Adaptation
 
-### 1. Set Threshold Value for LDR Using Keypad:
-- Use the keypad to input and set the threshold value for the Light Dependent Resistor (LDR). The value entered through the keypad will be the threshold for the LDR sensor.
+## Description
+This project is designed to sense light using an LDR (Light Dependent Resistor), display the intensity on an LCD, and adapt room temperature using a PWM-controlled LED.
 
-### 2. Read the LDR Value Using ADC Channel 0:
-- Connect the LDR sensor to an analog pin (ADC Channel 0) on the microcontroller.
-- Read the analog voltage using the Analog-to-Digital Converter (ADC) module.
+## Features
+- Threshold configuration for LDR using a keypad input.
+- Read LDR values using ADC (Analog-to-Digital Converter).
+- Display the light percentage on an LCD.
+- Adjust LED brightness using PWM based on the light intensity.
 
-### 3. Display the Percentage of Light on the LCD:
-- Map the ADC readings to a percentage scale to represent the light intensity.
-- Display this percentage on an LCD connected to the microcontroller.
+## Setup
+### Hardware Requirements
+- Microcontroller (model and specifications)
+- LDR Sensor
+- Keypad
+- LCD Display
+- LED (for PWM control)
+- Necessary connecting wires
 
-### 4. Adapt Room Temperature Using PWM and LED:
-- If the light intensity is above the set threshold:
-  - Control a PWM-driven LED to adjust the room temperature.
-  - For instance, increase the LED's brightness using PWM to mimic heating or cooling processes.
+### Software Requirements
+- C/C++ Compiler compatible with the microcontroller
+- Required libraries and drivers for the peripherals (provided in the project folders)
 
-### Implementation Notes:
-- Ensure proper interfacing of the keypad, LDR sensor, ADC, LCD, and PWM module with the microcontroller.
-- Design a mapping function to convert ADC readings to a percentage for the display.
-- The PWM duty cycle can be adjusted according to the light intensity to manage the LED brightness, simulating room temperature adjustment.
+## Implementation
 
-This implementation involves integrating multiple components like the keypad, LDR sensor, ADC, LCD, and PWM module with the microcontroller. Accurate integration, calibration, and proper data handling are crucial for successful execution.
+### Hardware Connections
+- LDR Sensor: Connect to ADC Channel 0.
+- Keypad: Used to set LDR threshold.
+- LCD Display: To show LDR threshold and light intensity.
+- LED: Controlled by PWM to adjust room temperature.
 
-Please note that the specifics may vary depending on the microcontroller, the interface used, and the components' characteristics. For the most accurate and efficient implementation, you may need to consult the datasheets and technical documentation of the components and the microcontroller you are using.
+### Software Implementation
+- Initialization of necessary GPIO pins and modules.
+- Configuration and setup of ADC, LCD, Keypad, and PWM.
+- Keypad Input: Set LDR threshold through keypad input.
+- Read LDR: ADC used to read LDR values.
+- Light Percentage Display: Map ADC readings to a percentage displayed on the LCD.
+- PWM Control: Adjust LED brightness based on light intensity.
+
+## Usage
+1. Upon starting the program, input the LDR threshold using the keypad.
+2. View the LDR threshold on the LCD.
+3. The program continuously senses light, displaying the LDR value on the LCD.
+4. LED brightness changes according to the light intensity, affecting room temperature.
+
+## Libraries and Resources Used
+
+### Libraries
+- **MCAL/DIO/DIO_interface.h:** Used for Digital I/O functionality.
+- **MCAL/PORT/PORT.h:** Utilized for port initialization and configurations.
+- **MCAL/PORT/PORT_cnf.h:** Configuration header for ports.
+- **MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:** Timer library for Timer0 functionalities.
+- **MCAL/ADC/includes/ADC_interface.h:** ADC library for analog-to-digital conversion.
+
+### External Components
+- **HAL/LCD/LCD.h:** Library used for interfacing with the LCD display.
+- **HAL/KEYPAD/KP_interface.h:** Library handling the keypad inputs.
+
+The project extensively utilized these libraries and resources for handling peripheral interfaces, setting up components, and facilitating functionalities within the microcontroller environment.
+
+## Credits
+- **Author:** Ahmed Abogabl
+
+## Acknowledgments
+
+The development of this project utilized the following libraries and resources:
+
+### Libraries
+- **MCAL/DIO/DIO_interface.h:** Used for Digital I/O functionality.
+- **MCAL/PORT/PORT.h:** Utilized for port initialization and configurations.
+- **MCAL/PORT/PORT_cnf.h:** Configuration header for ports.
+- **MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:** Timer library for Timer0 functionalities.
+- **MCAL/ADC/includes/ADC_interface.h:** ADC library for analog-to-digital conversion.
+
+### External Components
+- **HAL/LCD/LCD.h:** Library used for interfacing with the LCD display.
+- **HAL/KEYPAD/KP_interface.h:** Library handling the keypad inputs.
+
+The project extensively utilized these libraries and resources for handling peripheral interfaces, setting up components, and facilitating functionalities within the microcontroller environment.
