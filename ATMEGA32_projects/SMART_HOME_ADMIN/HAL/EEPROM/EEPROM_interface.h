@@ -7,7 +7,7 @@
 
 #ifndef HAL_EEPROM_EEPROM_INTERFACE_H_
 #define HAL_EEPROM_EEPROM_INTERFACE_H_
-
+#include "../../utils/STD_TYPES.h"
 /**
  * @brief Initialize EEPROM
  *

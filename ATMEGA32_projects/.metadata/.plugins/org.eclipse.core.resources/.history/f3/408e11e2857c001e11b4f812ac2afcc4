@@ -1,0 +1,165 @@
+/*
+ * UART_program.c
+ *
+ *  Created on: Oct 28, 2023
+ *      Author: AhmedAbogabl
+ */
+
+
+#include "../includes/UART_interface.h"
+#include <stdbool.h>
+#include <stdlib.h>
+
+
+//#define NULLPTR '\0'
+//static void(*UART_RX_Fptr)(void)=NULLPTR;
+//static void(*UART_TX_Fptr)(void)=NULLPTR;
+
+
+void UART_Init(void)
+{
+	//baud rate 9600
+	UBRRL=(1000000/(BAUDRATE))-1;
+
+	//normal speed
+	CLR_BIT(UCSRA,U2X);
+
+	//frame (stop ,data ,parity) 1 STOP NO PARITY 8 DATA
+
+	// ENABLE RX TX
+	SET_BIT(UCSRB,RXEN);
+	SET_BIT(UCSRB,TXEN);
+}
+void UART_Send(u8 data)
+{
+	while(!GET_BIT(UCSRA,UDRE));
+	UDR=data;
+}
+
+void UART_SendNoBlock(u8 data)
+{
+	UDR=data;
+}
+
+u8 UART_ReceiveNoBlock(void)
+{
+	return UDR;
+}
+
+
+
+
+u8 UART_Receive(void)
+{
+	while(!GET_BIT(UCSRA,RXC));
+	return UDR;
+}
+
+
+u8 UART_ReceivePerodic(u8*pdata)
+{
+	if (GET_BIT(UCSRA,RXC))
+	{
+
+		*pdata=UDR;
+		return 1;
+	}
+	return 0;
+}
+
+void UART_TransmitString(const u8* str) {
+    // Iterate over each character in the string until the null terminator is reached
+    for (u8 i = 0; str[i] != '\0'; i++) {
+        UART_TransmitData(str[i]); // Transmit each character
+    }
+}
+
+// Function to receive a number over UART, terminated by '\r' (Enter key)
+int UART_ReceiveNumber() {
+    char rxBuffer[20];  // A buffer to store received characters
+    int rxIndex = 0;    // Index for the buffer
+    char receivedChar;
+    u8 endOfNumber = 0;
+
+    // Read characters until Enter ('\r') is received
+    while (!endOfNumber) {
+        while (!GET_BIT(_UCSRA, 7));  // Wait for a character to be received
+        receivedChar = _UDR;          // Read the received character
+
+        if (receivedChar == '\r' || receivedChar == '\n') {
+            // If Enter key is received, mark the end of the number
+            endOfNumber = 1;
+        } else {
+            // Store the character in the buffer
+            rxBuffer[rxIndex] = receivedChar;
+            rxIndex++;
+
+            // Check if the buffer is full (adjust the buffer size as needed)
+            if (rxIndex >= sizeof(rxBuffer)) {
+                rxIndex = sizeof(rxBuffer) - 1;
+            }
+        }
+    }
+
+    // Null-terminate the string in the buffer
+    rxBuffer[rxIndex] = '\0';
+
+    // Convert the received string to an integer
+    int receivedNumber = atoi(rxBuffer);
+
+    return receivedNumber;
+}
+
+void UART_TransmitString(const char* str) {
+    // Iterate over each character in the string until the null terminator is reached
+    for (int i = 0; str[i] != '\0'; i++) {
+        UART_TransmitData(str[i]); // Transmit each character
+    }
+}
+
+//void UART_RX_InterruptEnable(void)
+//{
+//	SET_BIT(UCSRB,RXCIE);
+//}
+
+//void UART_RX_InterruptDisable(void)
+//{
+//	CLR_BIT(UCSRB,RXCIE);
+//}
+//
+//void UART_TX_InterruptEnable(void)
+//{
+//	SET_BIT(UCSRB,TXCIE);
+//}
+//
+//void UART_TX_InterruptDisable(void)
+//{
+//	CLR_BIT(UCSRB,TXCIE);
+//}
+//
+//void UART_RX_SetCallBack(void (*LocalFptr)(void))
+//{
+//	UART_RX_Fptr = LocalFptr;
+//}
+//
+//void UART_TX_SetCallBack(void (*LocalFptr)(void))
+//{
+//	UART_TX_Fptr = LocalFptr;
+//}
+
+//
+//ISR(UART_RX_vect)
+//{
+//	if (UART_RX_Fptr!=NULLPTR)
+//	{
+//		UART_RX_Fptr();
+//	}
+//}
+//
+//ISR(UART_TX_vect)
+//{
+//	if (UART_TX_Fptr!=NULLPTR)
+//	{
+//		UART_TX_Fptr();
+//	}
+//}

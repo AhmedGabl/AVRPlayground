@@ -35,9 +35,19 @@ int main(){
 	SPI_voidInit();
 
 	//u8 Local_u8RXData;
-	while(1){
-	SPI_voidTransmitAsynchronous(70,&Action);
-		_delay_ms(300);
+	while(1)
+	{
+		_delay_ms(100);
+
+	SPI_voidTransmitAsynchronous(1,&Action);
+	_delay_ms(100);
+	SPI_voidTransmitAsynchronous(1,&Action);
+	_delay_ms(100);
+	SPI_voidTransmitAsynchronous(2,&Action);
+	_delay_ms(100);
+
+	SPI_voidTransmitAsynchronous(3,&Action);
+	//	_delay_ms(100);
 
 }
 	return 0;

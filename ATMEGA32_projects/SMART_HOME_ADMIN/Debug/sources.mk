@@ -20,8 +20,9 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+HAL/EEPROM \
 HAL/LCD \
-HAL/SEVEN_SEGMENT \
+HAL/SRVM \
 MCAL/DIO \
 MCAL/EXTI/src \
 MCAL/GI \
@@ -30,5 +31,7 @@ MCAL/SPI/src \
 MCAL/TIMERS/TIMER0/src \
 MCAL/TIMERS/TIMER1/src \
 MCAL/TIMERS/TIMER2/src \
+MCAL/TWI/src \
+MCAL/UART/src \
 . \
 

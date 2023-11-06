@@ -9,9 +9,10 @@
 #include "../../utils/STD_TYPES.h"
 
 #include "../../MCAL/TWI/includes/TWI_interface.h"
-#include "EEPROM_interface.h"
-#include "EEPROM_private.h"
 #include "util/delay.h"
+
+#include "../EEPROM/EEPROM_interface.h"
+#include "../EEPROM/EEPROM_private.h"
 
 void EEPROM_voidInit(void) {
     // Initialize the I2C (TWI) as a master with a specified slave address

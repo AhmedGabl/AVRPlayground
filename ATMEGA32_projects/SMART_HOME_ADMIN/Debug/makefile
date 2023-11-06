@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include MCAL/UART/src/subdir.mk
+-include MCAL/TWI/src/subdir.mk
 -include MCAL/TIMERS/TIMER2/src/subdir.mk
 -include MCAL/TIMERS/TIMER1/src/subdir.mk
 -include MCAL/TIMERS/TIMER0/src/subdir.mk
@@ -16,8 +18,9 @@ RM := rm -rf
 -include MCAL/GI/subdir.mk
 -include MCAL/EXTI/src/subdir.mk
 -include MCAL/DIO/subdir.mk
--include HAL/SEVEN_SEGMENT/subdir.mk
+-include HAL/SRVM/subdir.mk
 -include HAL/LCD/subdir.mk
+-include HAL/EEPROM/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -40,47 +43,47 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-SPI_MASTER.lss \
+SMART_HOME_ADMIN.lss \
 
 FLASH_IMAGE += \
-SPI_MASTER.hex \
+SMART_HOME_ADMIN.hex \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: SPI_MASTER.elf secondary-outputs
+all: SMART_HOME_ADMIN.elf secondary-outputs
 
 # Tool invocations
-SPI_MASTER.elf: $(OBJS) $(USER_OBJS)
+SMART_HOME_ADMIN.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,SPI_MASTER.map -mmcu=atmega32 -o "SPI_MASTER.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,SMART_HOME_ADMIN.map -mmcu=atmega32 -o "SMART_HOME_ADMIN.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-SPI_MASTER.lss: SPI_MASTER.elf
+SMART_HOME_ADMIN.lss: SMART_HOME_ADMIN.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S SPI_MASTER.elf  >"SPI_MASTER.lss"
+	-avr-objdump -h -S SMART_HOME_ADMIN.elf  >"SMART_HOME_ADMIN.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SPI_MASTER.hex: SPI_MASTER.elf
+SMART_HOME_ADMIN.hex: SMART_HOME_ADMIN.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_MASTER.elf  "SPI_MASTER.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SMART_HOME_ADMIN.elf  "SMART_HOME_ADMIN.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: SPI_MASTER.elf
+sizedummy: SMART_HOME_ADMIN.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 SPI_MASTER.elf
+	-avr-size --format=avr --mcu=atmega32 SMART_HOME_ADMIN.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) SPI_MASTER.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) SMART_HOME_ADMIN.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
