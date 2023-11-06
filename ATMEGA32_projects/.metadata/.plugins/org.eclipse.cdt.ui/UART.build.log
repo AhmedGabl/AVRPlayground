@@ -1,0 +1,20 @@
+07:15:14 **** Build of configuration Debug for project UART ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 UART.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13952 bytes (42.6% Full)
+(.text + .data + .bootloader)
+
+Data:        145 bytes (7.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:15:15 Build Finished (took 255ms)
+

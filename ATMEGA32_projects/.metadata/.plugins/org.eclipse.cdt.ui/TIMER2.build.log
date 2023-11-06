@@ -1,0 +1,20 @@
+07:15:22 **** Build of configuration Debug for project TIMER2 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TIMER2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8362 bytes (25.5% Full)
+(.text + .data + .bootloader)
+
+Data:        142 bytes (6.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:15:22 Build Finished (took 199ms)
+

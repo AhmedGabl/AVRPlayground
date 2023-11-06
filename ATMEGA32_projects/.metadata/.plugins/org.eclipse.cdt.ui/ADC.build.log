@@ -1,0 +1,108 @@
+07:15:02 **** Incremental Build of configuration Debug for project ADC ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:10:
+../MCAL/DIO/DIO_interface.h:70: warning: no semicolon at end of struct or union
+In file included from ../main.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../main.c:16:
+../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:16:1: warning: "TCCR0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:148:1: warning: this is the location of the previous definition
+In file included from ../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../main.c:16:
+../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:27:1: warning: "TCNT0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:147:1: warning: this is the location of the previous definition
+In file included from ../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../main.c:16:
+../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:30:1: warning: "OCR0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:165:1: warning: this is the location of the previous definition
+In file included from ../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../main.c:16:
+../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:33:1: warning: "TIMSK" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:159:1: warning: this is the location of the previous definition
+In file included from ../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../main.c:16:
+../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:38:1: warning: "TIFR" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:158:1: warning: this is the location of the previous definition
+In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
+                 from ../main.c:19:
+../MCAL/ADC/includes/../includes/ADC_register.h:12:1: warning: "ADMUX" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:66:1: warning: this is the location of the previous definition
+In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
+                 from ../main.c:19:
+../MCAL/ADC/includes/../includes/ADC_register.h:24:1: warning: "ADCSRA" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:65:1: warning: this is the location of the previous definition
+In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
+                 from ../main.c:19:
+../MCAL/ADC/includes/../includes/ADC_register.h:36:1: warning: "ADCH" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:64:1: warning: this is the location of the previous definition
+In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
+                 from ../main.c:19:
+../MCAL/ADC/includes/../includes/ADC_register.h:38:1: warning: "ADCL" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:10:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:63:1: warning: this is the location of the previous definition
+Finished building: ../main.c
+ 
+Building target: ADC.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC.map -mmcu=atmega32 -o "ADC.elf"  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI_program.o  ./MCAL/EXTI/src/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./MCAL/ADC/src/ADC_program.o  ./HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.o  ./HAL/LCD/LCD_program.o  ./HAL/KEYPAD/KP_program.o  ./HAL/DC_MOTOR_H_BRIDGE/DCM_program.o  ./main.o   
+Finished building target: ADC.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC.elf  >"ADC.lss"
+Finished building: ADC.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC.elf  "ADC.hex"
+Finished building: ADC.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13860 bytes (42.3% Full)
+(.text + .data + .bootloader)
+
+Data:        145 bytes (7.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:15:04 Build Finished (took 1s.896ms)
+

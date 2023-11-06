@@ -86,9 +86,9 @@ if (access == 1)
 
 	LCD_PutString("WELCOME IN");
 	LCD_GoTo(2,1);
-	LCD_PutString("closes");
-	LCD_GoTo(3,1);
-	LCD_PutString("in:");
+	LCD_PutString("Door closes in:");
+	//LCD_GoTo(3,1);
+	//LCD_PutString("in:");
 	LCD_PutInt(i);
 	}
 	SRVM_voidOn(90);

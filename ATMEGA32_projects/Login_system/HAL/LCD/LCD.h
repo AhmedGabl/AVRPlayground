@@ -124,9 +124,9 @@ void LCD_PutString_at_X_Y(u8* data, u8 row, u8 col);
 /**
  * @brief Displays an integer on the LCD.
  *
- * @param num The integer to display.
+ * @param Number The integer to display.
  */
-void LCD_PutInt(u16 num);
+void LCD_PutInt(u32 Number);
 
 /**
  * @brief Displays a custom character on the LCD.

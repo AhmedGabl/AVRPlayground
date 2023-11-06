@@ -83,7 +83,7 @@ void LCD_Init(void) {
 
     LCD_SendCMD(LCD_DISPLAY_ON_UNDER_LINE_CURSOR_OFF_BLOCK_CURSOR_OFF);
 
-    LCD_SendCMD(LCD_DDRAM_START);  // Set the cursor to the start of the Display Data RAM (DDRAM)
+//    LCD_SendCMD(LCD_DDRAM_START);  // Set the cursor to the start of the Display Data RAM (DDRAM)
 }
 
 // Clears the LCD display
@@ -94,44 +94,15 @@ void LCD_CLR(void) {
 
 // Displays a character on the LCD
 void LCD_PutChar(const u8 character) {
-    if (current_pos == 20) {
-        LCD_GoTo(2, 1);
-        current_pos = 21;
-    } else if (current_pos == 40) {
-        LCD_GoTo(3, 1);
-        current_pos = 41;
-    } else if (current_pos == 60) {
-        LCD_GoTo(4, 1);
-        current_pos = 61;
-    } else if (current_pos == 80) {
-        LCD_GoTo(1, 1);
-        current_pos = 0;
-    } else if (current_pos % 20 == 0) {
-        LCD_GoTo((current_pos / 20) + 1, 1);
-    }
-
     LCD_SendData(character);
     current_pos++;
 }
 
-
 // Displays a text string on the LCD
 void LCD_PutString(const u8 *str) {
     while (*str) {
-        if (current_pos == 20) {
-            LCD_GoTo(2, 1);
-        } else if (current_pos == 40) {
-            LCD_GoTo(3, 1);
-        } else if (current_pos == 60) {
-            LCD_GoTo(4, 1);
-        } else if (current_pos == 80) {
-            LCD_GoTo(1, 1);
-            current_pos = 0;
-        }
-
-        LCD_SendData(*str);
+        LCD_PutChar(*str);
         str++;
-        current_pos++;
     }
 }
 
@@ -148,13 +119,12 @@ void LCD_PutString_at_X_Y(u8 *data, u8 row, u8 col) {
 }
 
 // Displays an integer value on the LCD
-void LCD_PutInt(u16 num) {
-    char num_str[7];
-    snprintf(num_str, sizeof(num_str), "%d", num);
-
-    for (int i = 0; num_str[i] != '\0'; i++) {
-        LCD_PutChar(num_str[i]);
-    }
+void LCD_PutInt(u32 Number) {
+	if(Number == 0 )
+	return ;
+	else
+	LCD_PutInt(Number/10);
+	LCD_PutChar((Number%10)+0x30);
 }
 
 // Displays a custom character at a specific row and column on the LCD
@@ -173,13 +143,13 @@ void LCD_GoTo(u8 row, u8 col) {
         case ROW1:
             LCD_SendCMD(0x80 + col);
             break;
-        case ROW2:
+        case ROW2://C0
             LCD_SendCMD(0xC0 + col);
             break;
         case ROW3:
             LCD_SendCMD(0x94 + col);
             break;
-        case ROW4:
+        case ROW4://D4
             LCD_SendCMD(0xD4 + col);
             break;
         default:

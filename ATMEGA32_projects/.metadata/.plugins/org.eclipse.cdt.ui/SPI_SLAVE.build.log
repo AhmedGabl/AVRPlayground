@@ -1,0 +1,20 @@
+07:15:17 **** Build of configuration Debug for project SPI_SLAVE ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SPI_SLAVE.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   17702 bytes (54.0% Full)
+(.text + .data + .bootloader)
+
+Data:        400 bytes (19.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:15:18 Build Finished (took 255ms)
+

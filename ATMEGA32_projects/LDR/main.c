@@ -64,14 +64,14 @@ int main()
     LCD_PutString_at_X_Y("LDR threshold=", 2, 1);
     LCD_GoTo(3, 8);
     LCD_PutInt(LDR_thredshold);
-    _delay_ms(2000);
+    _delay_ms(1000);
 
 
     //ADC read value check thredshol
     while (1)
     {
     	//for stable LCD limit the update in case of noisey changes in range of 10
-        while (temp / 10 == ADC_ReadChannel(ADC0) / 10);
+        while (temp /10 == ADC_ReadChannel(ADC0) / 10);
         ADC_readValue = ADC_ReadChannel(ADC0);  //read adc
         temp = ADC_readValue;//keep current value for later check if changed that will limit working the lcd if not necessery
 
@@ -83,12 +83,20 @@ int main()
         }//shutdown the pwm if under limit
         else if (ADC_readValue < LDR_thredshold)
         {
+        	PWM_value =0;
             TMR0_voidSetDutyCycleForPWM(0);
         }
+        _delay_ms(10);
         //put the ADC value on the lcd
         LCD_CLR();
         LCD_PutString("LDR:");
         LCD_PutInt(ADC_readValue);
+//        LCD_GoTo(2,1);
+//        LCD_PutString("LED Intensity");
+//        LCD_GoTo(3,1);
+//        LCD_PutInt(PWM_value);
+//        LCD_PutChar('%');
+
         _delay_ms(10);
     }
 

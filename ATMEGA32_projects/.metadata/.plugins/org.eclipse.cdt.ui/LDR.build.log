@@ -1,0 +1,20 @@
+07:15:09 **** Build of configuration Debug for project LDR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LDR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   15310 bytes (46.7% Full)
+(.text + .data + .bootloader)
+
+Data:        451 bytes (22.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+07:15:09 Build Finished (took 309ms)
+

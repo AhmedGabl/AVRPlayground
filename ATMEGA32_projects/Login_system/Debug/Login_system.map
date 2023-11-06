@@ -1,7 +1,5 @@
 Archive member included because of file (symbol)
 
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                              ./HAL/LCD/LCD.o (__udivmodqi4)
 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
                               ./MCAL/TIMERS/TIMER2/src/TMR2_program.o (__udivmodhi4)
 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
@@ -52,18 +50,6 @@ d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                               d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o) (__fpcmp_parts_f)
 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
                               d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o) (__clz_tab)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o)
-                              ./HAL/LCD/LCD.o (snprintf)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                              d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o) (vfprintf)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                              d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                              d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
-                              d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (fputc)
-d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                              d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (__ultoa_invert)
 
 Memory Configuration
 
@@ -183,7 +169,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x41aa
+.text           0x00000000     0x3b28
  *(.vectors)
  .vectors       0x00000000       0x54 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -266,7 +252,6 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .text          0x00000092        0x0 ./HAL/LCD/LCD.o
  .text          0x00000092        0x0 ./HAL/KEYPAD/KP_program.o
  .text          0x00000092        0x0 ./main.o
- .text          0x00000092        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
  .text          0x00000092        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .text          0x00000092        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
  .text          0x00000092        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
@@ -309,12 +294,6 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .text          0x00000ef8       0xb2 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
                 0x00000ef8                __fpcmp_parts_f
  .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
- .text          0x00000faa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
                 0x00000faa                . = ALIGN (0x2)
  *(.text.*)
  .text.TMR2_voidSetDelay_ms_usingCTC
@@ -426,74 +405,54 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00002818      0x472 ./HAL/LCD/LCD.o
                 0x00002818                LCD_SendCMD
  .text.LCD_Init
-                0x00002c8a      0x4f6 ./HAL/LCD/LCD.o
+                0x00002c8a      0x4f0 ./HAL/LCD/LCD.o
                 0x00002c8a                LCD_Init
- .text.LCD_CLR  0x00003180       0x18 ./HAL/LCD/LCD.o
-                0x00003180                LCD_CLR
+ .text.LCD_CLR  0x0000317a       0x18 ./HAL/LCD/LCD.o
+                0x0000317a                LCD_CLR
  .text.LCD_PutChar
-                0x00003198       0xa8 ./HAL/LCD/LCD.o
-                0x00003198                LCD_PutChar
+                0x00003192       0x24 ./HAL/LCD/LCD.o
+                0x00003192                LCD_PutChar
  .text.LCD_PutString
-                0x00003240       0x8c ./HAL/LCD/LCD.o
-                0x00003240                LCD_PutString
+                0x000031b6       0x38 ./HAL/LCD/LCD.o
+                0x000031b6                LCD_PutString
  .text.LCD_PutChar_at_X_Y
-                0x000032cc       0x2c ./HAL/LCD/LCD.o
-                0x000032cc                LCD_PutChar_at_X_Y
+                0x000031ee       0x2c ./HAL/LCD/LCD.o
+                0x000031ee                LCD_PutChar_at_X_Y
  .text.LCD_PutString_at_X_Y
-                0x000032f8       0x32 ./HAL/LCD/LCD.o
-                0x000032f8                LCD_PutString_at_X_Y
+                0x0000321a       0x32 ./HAL/LCD/LCD.o
+                0x0000321a                LCD_PutString_at_X_Y
  .text.LCD_PutInt
-                0x0000332a       0xac ./HAL/LCD/LCD.o
-                0x0000332a                LCD_PutInt
+                0x0000324c       0x78 ./HAL/LCD/LCD.o
+                0x0000324c                LCD_PutInt
  .text.LCD_PutCustomChar
-                0x000033d6       0x80 ./HAL/LCD/LCD.o
-                0x000033d6                LCD_PutCustomChar
+                0x000032c4       0x80 ./HAL/LCD/LCD.o
+                0x000032c4                LCD_PutCustomChar
  .text.LCD_GoTo
-                0x00003456       0x8a ./HAL/LCD/LCD.o
-                0x00003456                LCD_GoTo
- .text.KP_Init  0x000034e0       0x2e ./HAL/KEYPAD/KP_program.o
-                0x000034e0                KP_Init
+                0x00003344       0x8a ./HAL/LCD/LCD.o
+                0x00003344                LCD_GoTo
+ .text.KP_Init  0x000033ce       0x2e ./HAL/KEYPAD/KP_program.o
+                0x000033ce                KP_Init
  .text.KP_GetKey
-                0x0000350e      0x11e ./HAL/KEYPAD/KP_program.o
-                0x0000350e                KP_GetKey
- .text.main     0x0000362c      0x52c ./main.o
-                0x0000362c                main
- .text.libgcc   0x00003b58       0x18 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x00003b58                __udivmodqi4
- .text.libgcc   0x00003b70       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00003b70                __udivmodhi4
- .text.libgcc   0x00003b98       0x44 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00003b98                __udivmodsi4
- .text.libgcc   0x00003bdc        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00003bdc        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00003bdc        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00003bdc       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00003bdc                __prologue_saves__
- .text.libgcc   0x00003c14       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00003c14                __epilogue_restores__
- .text.avr-libc
-                0x00003c4a       0x62 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o)
-                0x00003c4a                snprintf
- .text.avr-libc
-                0x00003cac      0x3ba d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00003cac                vfprintf
- .text.avr-libc
-                0x00004066       0x16 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00004066                strnlen_P
- .text.avr-libc
-                0x0000407c       0x16 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x0000407c                strnlen
- .text.avr-libc
-                0x00004092       0x58 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00004092                fputc
- .text.avr-libc
-                0x000040ea       0xbc d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x000040ea                __ultoa_invert
-                0x000041a6                . = ALIGN (0x2)
+                0x000033fc      0x11e ./HAL/KEYPAD/KP_program.o
+                0x000033fc                KP_GetKey
+ .text.main     0x0000351a      0x530 ./main.o
+                0x0000351a                main
+ .text.libgcc   0x00003a4a       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00003a4a                __udivmodhi4
+ .text.libgcc   0x00003a72       0x44 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00003a72                __udivmodsi4
+ .text.libgcc   0x00003ab6        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00003ab6        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003ab6        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00003ab6       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00003ab6                __prologue_saves__
+ .text.libgcc   0x00003aee       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00003aee                __epilogue_restores__
+                0x00003b24                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000041a6        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000041a6                exit
-                0x000041a6                _exit
+ .fini9         0x00003b24        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00003b24                exit
+                0x00003b24                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -512,11 +471,11 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000041a6        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003b24        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000041aa                _etext = .
+                0x00003b28                _etext = .
 
-.data           0x00800060      0x1c6 load address 0x000041aa
+.data           0x00800060      0x1c8 load address 0x00003b28
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -527,140 +486,126 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .data          0x00800060        0x0 ./MCAL/PORT/PORT_cnf.o
  .data          0x00800060        0x0 ./MCAL/DIO/DIO_program.o
  .data          0x00800060        0x0 ./HAL/SRVM/SRVM_program.o
- .data          0x00800060        0x3 ./HAL/LCD/LCD.o
- .data          0x00800063        0x0 ./HAL/KEYPAD/KP_program.o
- .data          0x00800063       0x3f ./main.o
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
- .data          0x008000a2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x008000a2        0x8 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x008000a2                __thenan_sf
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x008000aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .data          0x008000aa      0x100 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
-                0x008000aa                __clz_tab
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o)
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
- .data          0x008001aa        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .data          0x00800060        0x0 ./HAL/LCD/LCD.o
+ .data          0x00800060        0x0 ./HAL/KEYPAD/KP_program.o
+ .data          0x00800060       0x44 ./main.o
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
+ .data          0x008000a4        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x008000a4        0x8 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x008000a4                __thenan_sf
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x008000ac        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x008000ac      0x100 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+                0x008000ac                __clz_tab
  *(.data*)
- .data.pin_cfg  0x008001aa       0x63 ./MCAL/PORT/PORT_cnf.o
-                0x008001aa                pin_cfg
- .data.rows     0x0080020d        0x4 ./HAL/KEYPAD/KP_program.o
-                0x0080020d                rows
- .data.columns  0x00800211        0x4 ./HAL/KEYPAD/KP_program.o
-                0x00800211                columns
+ .data.pin_cfg  0x008001ac       0x63 ./MCAL/PORT/PORT_cnf.o
+                0x008001ac                pin_cfg
+ .data.rows     0x0080020f        0x4 ./HAL/KEYPAD/KP_program.o
+                0x0080020f                rows
+ .data.columns  0x00800213        0x4 ./HAL/KEYPAD/KP_program.o
+                0x00800213                columns
  *(.rodata)
  *(.rodata*)
- .rodata.Keys   0x00800215       0x10 ./HAL/KEYPAD/KP_program.o
+ .rodata.Keys   0x00800217       0x10 ./HAL/KEYPAD/KP_program.o
  *(.gnu.linkonce.d*)
-                0x00800226                . = ALIGN (0x2)
- *fill*         0x00800225        0x1 00
-                0x00800226                _edata = .
-                0x00800226                PROVIDE (__data_end, .)
+                0x00800228                . = ALIGN (0x2)
+ *fill*         0x00800227        0x1 00
+                0x00800228                _edata = .
+                0x00800228                PROVIDE (__data_end, .)
 
-.bss            0x00800226       0x1e
-                0x00800226                PROVIDE (__bss_start, .)
+.bss            0x00800228       0x1e
+                0x00800228                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800226        0x0 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
- .bss           0x00800226        0x0 ./MCAL/TIMERS/TIMER1/src/TMR1_program.o
- .bss           0x00800226        0x0 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss           0x00800226        0x0 ./MCAL/PORT/PORT.o
- .bss           0x00800226        0x0 ./MCAL/PORT/PORT_cnf.o
- .bss           0x00800226        0x0 ./MCAL/DIO/DIO_program.o
- .bss           0x00800226        0x0 ./HAL/SRVM/SRVM_program.o
- .bss           0x00800226        0x0 ./HAL/LCD/LCD.o
- .bss           0x00800226        0x0 ./HAL/KEYPAD/KP_program.o
- .bss           0x00800226        0x0 ./main.o
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(snprintf.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
- .bss           0x00800226        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800228        0x0 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+ .bss           0x00800228        0x0 ./MCAL/TIMERS/TIMER1/src/TMR1_program.o
+ .bss           0x00800228        0x0 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .bss           0x00800228        0x0 ./MCAL/PORT/PORT.o
+ .bss           0x00800228        0x0 ./MCAL/PORT/PORT_cnf.o
+ .bss           0x00800228        0x0 ./MCAL/DIO/DIO_program.o
+ .bss           0x00800228        0x0 ./HAL/SRVM/SRVM_program.o
+ .bss           0x00800228        0x0 ./HAL/LCD/LCD.o
+ .bss           0x00800228        0x0 ./HAL/KEYPAD/KP_program.o
+ .bss           0x00800228        0x0 ./main.o
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x00800228        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
  *(.bss*)
  .bss.TMR2_privatePtrToCAllBackOVF
-                0x00800226        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
- .bss.TMR2_privatePtrToCAllBackCTC
                 0x00800228        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
- .bss.local_u16ovCounter.1296
+ .bss.TMR2_privatePtrToCAllBackCTC
                 0x0080022a        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+ .bss.local_u16ovCounter.1296
+                0x0080022c        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.local_u32CTCCounter.1312
-                0x0080022c        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x0080022e        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.private_ctcCounter
-                0x00800230        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x00800232        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.TMR0_privatePtrToCAllBackOVF
-                0x00800234        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss.TMR0_privatePtrToCAllBackCTC
                 0x00800236        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss.local_u16ovCounter.1291
+ .bss.TMR0_privatePtrToCAllBackCTC
                 0x00800238        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .bss.local_u16ovCounter.1291
+                0x0080023a        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.local_u32CTCCounter.1307
-                0x0080023a        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+                0x0080023c        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.private_ctcCounter
-                0x0080023e        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss.flag      0x00800242        0x1 ./HAL/SRVM/SRVM_program.o
+                0x00800240        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .bss.flag      0x00800244        0x1 ./HAL/SRVM/SRVM_program.o
  .bss.current_pos
-                0x00800243        0x1 ./HAL/LCD/LCD.o
+                0x00800245        0x1 ./HAL/LCD/LCD.o
  *(COMMON)
-                0x00800244                PROVIDE (__bss_end, .)
-                0x000041aa                __data_load_start = LOADADDR (.data)
-                0x00004370                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800246                PROVIDE (__bss_end, .)
+                0x00003b28                __data_load_start = LOADADDR (.data)
+                0x00003cf0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800244        0x0
-                0x00800244                PROVIDE (__noinit_start, .)
+.noinit         0x00800246        0x0
+                0x00800246                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800244                PROVIDE (__noinit_end, .)
-                0x00800244                _end = .
-                0x00800244                PROVIDE (__heap_start, .)
+                0x00800246                PROVIDE (__noinit_end, .)
+                0x00800246                _end = .
+                0x00800246                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -678,7 +623,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x38c4
+.stab           0x00000000     0x372c
  *(.stab)
  .stab          0x00000000      0x528 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .stab          0x00000528      0x360 ./MCAL/TIMERS/TIMER1/src/TMR1_program.o
@@ -693,16 +638,16 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                 0x690 (size before relaxing)
  .stab          0x000019ec      0x234 ./HAL/SRVM/SRVM_program.o
                                 0x240 (size before relaxing)
- .stab          0x00001c20     0x126c ./HAL/LCD/LCD.o
-                               0x1428 (size before relaxing)
- .stab          0x00002e8c      0x3a8 ./HAL/KEYPAD/KP_program.o
+ .stab          0x00001c20     0x10ec ./HAL/LCD/LCD.o
+                               0x12a8 (size before relaxing)
+ .stab          0x00002d0c      0x3a8 ./HAL/KEYPAD/KP_program.o
                                 0x564 (size before relaxing)
- .stab          0x00003234      0x690 ./main.o
-                                0x978 (size before relaxing)
+ .stab          0x000030b4      0x678 ./main.o
+                                0x960 (size before relaxing)
 
-.stabstr        0x00000000     0x2220
+.stabstr        0x00000000     0x21f3
  *(.stabstr)
- .stabstr       0x00000000     0x2220 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+ .stabstr       0x00000000     0x21f3 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
 
 .stab.excl
  *(.stab.excl)
