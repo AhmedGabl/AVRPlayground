@@ -1,4 +1,4 @@
-00:36:43 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
+08:19:09 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -15,6 +15,9 @@ In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../av
                  from ../MCAL/DIO/DIO_interface.h:13,
                  from ../main.c:11:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:54: warning: implicit declaration of function 'exit'
+../main.c:54: warning: incompatible implicit declaration of built-in function 'exit'
 Finished building: ../main.c
  
 Building target: SPI_SLAVE.elf
@@ -36,7 +39,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   18422 bytes (56.2% Full)
+Program:   19424 bytes (59.3% Full)
 (.text + .data + .bootloader)
 
 Data:        400 bytes (19.5% Full)
@@ -46,5 +49,5 @@ Data:        400 bytes (19.5% Full)
 Finished building: sizedummy
  
 
-00:36:43 Build Finished (took 603ms)
+08:19:10 Build Finished (took 1s.60ms)
 

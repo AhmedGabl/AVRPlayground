@@ -33,20 +33,34 @@ int main(){
 	GI_voidEnable();
 
 	SPI_voidInit();
+	_delay_ms(100);
+	_delay_ms(100);
 
-	//u8 Local_u8RXData;
-	while(1)
+	u8 Local_u8RXData;
+//	while(1)
 	{
+
+
 		_delay_ms(100);
+		SPI_voidTransieve(0,&Local_u8RXData);
+		_delay_ms(100);
+		SPI_voidTransieve(1,&Local_u8RXData);
+		_delay_ms(100);
+		SPI_voidTransieve(2,&Local_u8RXData);
+		_delay_ms(100);
+		SPI_voidTransieve(3,&Local_u8RXData);
 
-	SPI_voidTransmitAsynchronous(1,&Action);
-	_delay_ms(100);
-	SPI_voidTransmitAsynchronous(1,&Action);
-	_delay_ms(100);
-	SPI_voidTransmitAsynchronous(2,&Action);
-	_delay_ms(100);
+		_delay_ms(1000);
+		exit(0);
 
-	SPI_voidTransmitAsynchronous(3,&Action);
+//	SPI_voidTransmitAsynchronous(0,&Action);
+//	_delay_ms(100);
+//	SPI_voidTransmitAsynchronous(1,&Action);
+//	_delay_ms(100);
+//	SPI_voidTransmitAsynchronous(2,&Action);
+//	_delay_ms(100);
+//
+//	SPI_voidTransmitAsynchronous(3,&Action);
 	//	_delay_ms(100);
 
 }

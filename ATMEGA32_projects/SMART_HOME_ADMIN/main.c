@@ -1,4 +1,4 @@
-/*
+/*ND
  * main.c
 
  *
@@ -31,11 +31,11 @@ void ADD_user(){
 
 	u8 user[4];
 
-	UART_TransmitString("\r\n Enter user id (1-20):");
+	UART_TransmitString("\r\n Enter user id (0-9):");
 
 	user[0] =(u8)UART_Receive();
 
-	UART_TransmitString("\r\n Enter user password(****):");
+	UART_TransmitString("\r\n Enter user password(***):");
 
 	user[1] =(u8)UART_Receive();
 	user[2] = (u8)UART_Receive();
@@ -91,22 +91,25 @@ switch (Users_Pick) {
 
 //////////////////////////////////////SPI
 u8 RX_USER[4];
-u8 INDEX=0;
 
 void check_user(void)
 {
 	u8 fetch_UserPW[3];
-	EEPROM_voidSequentialRead((0x00+(USERS[RX_USER[0]]*4)+1),fetch_UserPW,3);
-	Lcd_PutChar(fetch_UserPW[0]);
-	Lcd_PutChar(fetch_UserPW[1]);
-	Lcd_PutChar(fetch_UserPW[2]);
-	//ched user id in eeprom
-if(USERS[RX_USER[0]] != 99)
-{	Lcd_PutChar('D');
 
-Lcd_PutChar(RX_USER[0]);
-Lcd_PutChar(RX_USER[2]);
-Lcd_PutChar(RX_USER[3]);
+	EEPROM_voidSequentialRead((0x00+(USERS[RX_USER[0]]*4)+1),fetch_UserPW,3);
+	_delay_ms(50);
+//	Lcd_PutChar(RX_USER[1]);//fetch_UserPW[0]);
+//	Lcd_PutChar(RX_USER[2]);//fetch_UserPW[1]);
+//	Lcd_PutChar(RX_USER[3]);//fetch_UserPW[2]);
+//	//ched user id in eeprom
+
+if(USERS[RX_USER[0]] != 99)
+{
+Lcd_PutChar('D');
+
+Lcd_PutInt(RX_USER[1]);
+Lcd_PutInt(RX_USER[2]);
+Lcd_PutInt(RX_USER[3]);
 
 Lcd_PutChar('D');
 
@@ -115,9 +118,9 @@ Lcd_PutChar(fetch_UserPW[1]);
 Lcd_PutChar(fetch_UserPW[2]);
 
 Lcd_PutChar('F');
-
-	if( (RX_USER[1] == fetch_UserPW[0]) && (RX_USER[2]==fetch_UserPW[1])&&(RX_USER[3]==fetch_UserPW[2]) )
-	{Lcd_PutChar('T');
+	if( (RX_USER[1]+'0' == fetch_UserPW[0]) && (RX_USER[2]+'0'==fetch_UserPW[1])&&(RX_USER[3]+'0'==fetch_UserPW[2]) )
+	{
+		Lcd_PutChar('T');
 		SRVM_voidOn(0);
 
 	UART_TransmitString("USER ID :");
@@ -125,50 +128,79 @@ Lcd_PutChar('F');
 	UART_TransmitString("GOT ACCESS");
 	_delay_ms(1000);
 	SRVM_voidOn(90);
-	SRVM_voidOff();
+
+	//SRVM_voidOff();
 	}
-		//Dio_FlipChannel(PA_5);
+		Dio_FlipChannel(PA_5);
 }	//check user pw in eeprom
 }
 
 void get_user(u8 copy_u8RxData){
-//	Lcd_PutInt(copy_u8RxData);
-//	Dio_FlipChannel(PA_5);
-	//Dio_WriteChannel(PA_5,STD_HIGH);
+//Lcd_PutChar(copy_u8RxData+'0');
+static u8 INDEX=0;
 
-	if(INDEX==0){
+switch (INDEX) {
+	case 0:
+	//	Lcd_PutChar('A');
+	//	Lcd_PutChar(INDEX+'0');
 		RX_USER[0] = copy_u8RxData ;//data
-Lcd_PutInt(RX_USER[0]);
-Lcd_PutInt(copy_u8RxData);
-Lcd_PutChar('F');
+
+	//	Lcd_PutInt(RX_USER[0]);
 
 		INDEX++;
-	}
-	else if (INDEX ==1) {
-		Lcd_PutInt(RX_USER[1]);
-	//	Lcd_PutInt(copy_u8RxData);
-//		Lcd_PutChar('F');
-		RX_USER[1]=copy_u8RxData;
+		break;
+	case 1:
+	//	Lcd_PutChar('b');
+	//	Lcd_PutChar(INDEX+'0');
+		RX_USER[1] = copy_u8RxData ;//data
+
+//		Lcd_PutInt(RX_USER[1]);
+
 		INDEX++;
-	}
-	else if (INDEX ==2) {
-		Lcd_PutInt(RX_USER[2]);
-	//	Lcd_PutInt(copy_u8RxData);
-	//	Lcd_PutChar('F');
-		RX_USER[2]=copy_u8RxData;
+		break;
+	case 2:
+//		Lcd_PutChar('C');
+	//	Lcd_PutChar(INDEX+'0');
+		RX_USER[2] = copy_u8RxData ;//data
+
+		//Lcd_PutInt(RX_USER[2]);
+
 		INDEX++;
-	}
+		break;
+	case 3:
+	//	Lcd_PutChar('D');
+	//	Lcd_PutChar(INDEX+'0');
+		RX_USER[3] = copy_u8RxData ;//data
 
-	else if (INDEX == 3) {
-		Lcd_PutInt(RX_USER[3]);
-	//	Lcd_PutInt(copy_u8RxData);
-	//	Lcd_PutChar('F');
-		RX_USER[3] = copy_u8RxData;
-		INDEX=0;
-//		check_user();
-	}
+	//	Lcd_PutInt(RX_USER[3]);
 
-
+		check_user();
+		INDEX++;
+		break;
+	default:
+		break;
+}
+//	if(INDEX==0){
+//		Lcd_PutChar('A');
+//		Lcd_PutChar(INDEX+'0');
+//		RX_USER[0] = copy_u8RxData ;//data
+//		INDEX++;
+//	}
+//	else if (INDEX ==1) {
+//		Lcd_PutChar('H');
+//		Lcd_PutInt(INDEX);
+//		RX_USER[1]=copy_u8RxData;
+//		INDEX++;
+//	}
+//	else if (INDEX ==2) {Lcd_PutChar('M');Lcd_PutInt(INDEX);
+//		RX_USER[2]=(u8)copy_u8RxData;
+//		INDEX++;
+//	}
+//	else if (INDEX == 3) {Lcd_PutChar('E');Lcd_PutInt(INDEX);
+//		RX_USER[3] = (u8)copy_u8RxData;
+//		INDEX=0;
+//		//check_user();
+//	}
 }
 
 
@@ -177,8 +209,13 @@ void RunForUsers(void)
 //	UART_TransmitString("");
 	while(1)
 	{
-		_delay_ms(100);
-		SPI_voidTransmitAsynchronous(2,get_user);
+		_delay_ms(200);
+	SPI_voidTransmitAsynchronous(2,get_user);
+//if(INDEX==3)INDEX=0;
+//		SPI_voidTransieve(2,&RX_USER[INDEX]);
+//		Lcd_PutChar(U)
+//		INDEX++;
+
 	}
 }
 
