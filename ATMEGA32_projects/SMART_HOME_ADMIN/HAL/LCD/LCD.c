@@ -15,7 +15,7 @@ void Lcd_SendCMD(u8 cmd) {
 	Dio_WriteChannel(PB_0, GET_BIT(cmd, 4));
 	Dio_WriteChannel(PB_1, GET_BIT(cmd, 5));
 	Dio_WriteChannel(PB_2, GET_BIT(cmd, 6));
-	Dio_WriteChannel(PB_3, GET_BIT(cmd, 7));
+	Dio_WriteChannel(PB_4, GET_BIT(cmd, 7));
 
 	Dio_WriteChannel(LCD_EN, STD_HIGH);
 	_delay_us(1);
@@ -26,7 +26,7 @@ void Lcd_SendCMD(u8 cmd) {
 	Dio_WriteChannel(PB_0, GET_BIT(cmd, 0));
 	Dio_WriteChannel(PB_1, GET_BIT(cmd, 1));
 	Dio_WriteChannel(PB_2, GET_BIT(cmd, 2));
-	Dio_WriteChannel(PB_3, GET_BIT(cmd, 3));
+	Dio_WriteChannel(PB_4, GET_BIT(cmd, 3));
 
 	Dio_WriteChannel(LCD_EN, STD_HIGH);
 	_delay_us(1);
@@ -44,7 +44,7 @@ void Lcd_SendData(u8 data) {
 	Dio_WriteChannel(PB_0, GET_BIT(data, 4));
 	Dio_WriteChannel(PB_1, GET_BIT(data, 5));
 	Dio_WriteChannel(PB_2, GET_BIT(data, 6));
-	Dio_WriteChannel(PB_3, GET_BIT(data, 7));
+	Dio_WriteChannel(PB_4, GET_BIT(data, 7));
 	Dio_WriteChannel(LCD_EN, STD_HIGH);
 	_delay_us(1);
 	Dio_WriteChannel(LCD_EN, STD_LOW);
@@ -53,7 +53,7 @@ void Lcd_SendData(u8 data) {
 	Dio_WriteChannel(PB_0, GET_BIT(data, 0));
 	Dio_WriteChannel(PB_1, GET_BIT(data, 1));
 	Dio_WriteChannel(PB_2, GET_BIT(data, 2));
-	Dio_WriteChannel(PB_3, GET_BIT(data, 3));
+	Dio_WriteChannel(PB_4, GET_BIT(data, 3));
 
 	Dio_WriteChannel(LCD_EN, STD_HIGH);
 	_delay_us(1);

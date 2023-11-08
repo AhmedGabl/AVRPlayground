@@ -26,7 +26,7 @@ void Action(u8 copy_u8RxData)
 
 int main(){
 	Port_Init(pin_cfg);
-
+Lcd_Init();
 	//slave select low
 //	Dio_WriteChannel(PB_4,STD_LOW);
 	Dio_WriteChannel(PA_4,STD_LOW);
@@ -37,12 +37,11 @@ int main(){
 	_delay_ms(100);
 
 	u8 Local_u8RXData;
-//	while(1)
+ 	while(1)
 	{
-
-
+		Lcd_PutChar("H");
 		_delay_ms(100);
-		SPI_voidTransieve(0,&Local_u8RXData);
+		SPI_voidTransieve(3,&Local_u8RXData);
 		_delay_ms(100);
 		SPI_voidTransieve(1,&Local_u8RXData);
 		_delay_ms(100);
@@ -50,8 +49,12 @@ int main(){
 		_delay_ms(100);
 		SPI_voidTransieve(3,&Local_u8RXData);
 
-		_delay_ms(1000);
-		exit(0);
+		if (Local_u8RXData == 2) {
+			Dio_WriteChannel(PA_4,STD_HIGH);
+		}
+	//	exit(1);
+		_delay_ms(5000);
+	//	exit(0);
 
 //	SPI_voidTransmitAsynchronous(0,&Action);
 //	_delay_ms(100);

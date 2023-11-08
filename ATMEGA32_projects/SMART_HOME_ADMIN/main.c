@@ -27,26 +27,47 @@ u8 ids_index=0;
 //u8 pws_index=0;
 
 
-void ADD_user(){
+void ADD_user() {
+    u8 user[4];
+    u16 pw_rx = 0;
+    u8 data;
 
-	u8 user[4];
+    UART_TransmitString("\r\n Enter user id (0-9):");
 
-	UART_TransmitString("\r\n Enter user id (0-9):");
+    // Assuming the Bluetooth module sends each digit separately
+    while (1) {
+        data = UART_Receive(); // Receive data from Bluetooth module
 
-	user[0] =(u8)UART_Receive();
+        if (data != '\n' && data != '\r') {
+            user[0] = data;
+           // Lcd_PutChar(user[0]);
+            break;
+        }
+    }
 
-	UART_TransmitString("\r\n Enter user password(***):");
+    UART_TransmitString("\r\n Enter user password (***):");
 
-	user[1] =(u8)UART_Receive();
-	user[2] = (u8)UART_Receive();
-	user[3] = (u8)UART_Receive();
+    // Receive password digits
+    for (u8 i = 1; i < 4; ++i) {
+        while (1) {
+            data = UART_Receive(); // Receive data from Bluetooth module
 
-//	if(USERS[user[0]] != NULL)
-	USERS[user[0]] =ids_index;
+            if (data != '\n' && data != '\r') {
+                user[i] = data;
+                pw_rx = (pw_rx * 10) + (data - '0'); // Convert received digits to a number
+          //      Lcd_PutChar(user[ i]);
+                break;
+            }
+        }
+    }
 
-	EEPROM_voidWritePage(0x00+(ids_index*4),user,4);
-	ids_index++;//decrement in delete
+    USERS[user[0]] = ids_index;
+
+    // Store the user ID and password in EEPROM
+    EEPROM_voidWritePage(0x00 + (ids_index * 4), user, 4);
+    ids_index++; // Increment index for the next user
 }
+
 
 
 void EDIT_user(){
@@ -66,7 +87,6 @@ void DELETE_user(){
 	    UART_TransmitString("\r\n Enter user id to delete (1-20):");
 		user[0] =(u8)UART_Receive();
 		USERS[user[0]] = 99;
-//		EEPROM_voidWritePage(0x00+USERS[user[0]]*4,user,4);
 }
 
 
@@ -91,131 +111,77 @@ switch (Users_Pick) {
 
 //////////////////////////////////////SPI
 u8 RX_USER[4];
+static u8 INDEX=0;
 
 void check_user(void)
 {
 	u8 fetch_UserPW[3];
-
 	EEPROM_voidSequentialRead((0x00+(USERS[RX_USER[0]]*4)+1),fetch_UserPW,3);
 	_delay_ms(50);
-//	Lcd_PutChar(RX_USER[1]);//fetch_UserPW[0]);
-//	Lcd_PutChar(RX_USER[2]);//fetch_UserPW[1]);
-//	Lcd_PutChar(RX_USER[3]);//fetch_UserPW[2]);
-//	//ched user id in eeprom
-
 if(USERS[RX_USER[0]] != 99)
 {
-Lcd_PutChar('D');
 
-Lcd_PutInt(RX_USER[1]);
-Lcd_PutInt(RX_USER[2]);
-Lcd_PutInt(RX_USER[3]);
+//Lcd_PutChar('D');
+//
+//Lcd_PutInt(RX_USER[1]);
+//Lcd_PutInt(RX_USER[2]);
+//Lcd_PutInt(RX_USER[3]);
+//
+//Lcd_PutChar('D');
+//
+//Lcd_PutChar(fetch_UserPW[0]);
+//Lcd_PutChar(fetch_UserPW[1]);
+//Lcd_PutChar(fetch_UserPW[2]);
 
-Lcd_PutChar('D');
+//Lcd_PutChar('F');
 
-Lcd_PutChar(fetch_UserPW[0]);
-Lcd_PutChar(fetch_UserPW[1]);
-Lcd_PutChar(fetch_UserPW[2]);
-
-Lcd_PutChar('F');
 	if( (RX_USER[1]+'0' == fetch_UserPW[0]) && (RX_USER[2]+'0'==fetch_UserPW[1])&&(RX_USER[3]+'0'==fetch_UserPW[2]) )
-	{
-		Lcd_PutChar('T');
-		SRVM_voidOn(0);
+	{Lcd_PutString("GOT HERE");
 
-	UART_TransmitString("USER ID :");
-	UART_Send(RX_USER[0]);
-	UART_TransmitString("GOT ACCESS");
-	_delay_ms(1000);
+	//	Lcd_PutChar('T');
+	SRVM_voidOn(0);
+	UART_TransmitString("USER ID : ");
+	UART_Send(RX_USER[0]+'0');
+	UART_TransmitString("\r\n GOT ACCESS");
+	_delay_ms(5000);
 	SRVM_voidOn(90);
-
-	//SRVM_voidOff();
 	}
-		Dio_FlipChannel(PA_5);
-}	//check user pw in eeprom
+
+}
 }
 
-void get_user(u8 copy_u8RxData){
-//Lcd_PutChar(copy_u8RxData+'0');
-static u8 INDEX=0;
 
+void get_user(u8 copy_u8RxData){
 switch (INDEX) {
 	case 0:
-	//	Lcd_PutChar('A');
-	//	Lcd_PutChar(INDEX+'0');
 		RX_USER[0] = copy_u8RxData ;//data
-
-	//	Lcd_PutInt(RX_USER[0]);
-
 		INDEX++;
 		break;
 	case 1:
-	//	Lcd_PutChar('b');
-	//	Lcd_PutChar(INDEX+'0');
 		RX_USER[1] = copy_u8RxData ;//data
-
-//		Lcd_PutInt(RX_USER[1]);
-
 		INDEX++;
 		break;
 	case 2:
-//		Lcd_PutChar('C');
-	//	Lcd_PutChar(INDEX+'0');
 		RX_USER[2] = copy_u8RxData ;//data
-
-		//Lcd_PutInt(RX_USER[2]);
-
 		INDEX++;
 		break;
 	case 3:
-	//	Lcd_PutChar('D');
-	//	Lcd_PutChar(INDEX+'0');
 		RX_USER[3] = copy_u8RxData ;//data
-
-	//	Lcd_PutInt(RX_USER[3]);
-
-		check_user();
 		INDEX++;
+		check_user();
 		break;
 	default:
 		break;
 }
-//	if(INDEX==0){
-//		Lcd_PutChar('A');
-//		Lcd_PutChar(INDEX+'0');
-//		RX_USER[0] = copy_u8RxData ;//data
-//		INDEX++;
-//	}
-//	else if (INDEX ==1) {
-//		Lcd_PutChar('H');
-//		Lcd_PutInt(INDEX);
-//		RX_USER[1]=copy_u8RxData;
-//		INDEX++;
-//	}
-//	else if (INDEX ==2) {Lcd_PutChar('M');Lcd_PutInt(INDEX);
-//		RX_USER[2]=(u8)copy_u8RxData;
-//		INDEX++;
-//	}
-//	else if (INDEX == 3) {Lcd_PutChar('E');Lcd_PutInt(INDEX);
-//		RX_USER[3] = (u8)copy_u8RxData;
-//		INDEX=0;
-//		//check_user();
-//	}
 }
 
 
 void RunForUsers(void)
 {
-//	UART_TransmitString("");
 	while(1)
 	{
 		_delay_ms(200);
 	SPI_voidTransmitAsynchronous(2,get_user);
-//if(INDEX==3)INDEX=0;
-//		SPI_voidTransieve(2,&RX_USER[INDEX]);
-//		Lcd_PutChar(U)
-//		INDEX++;
-
 	}
 }
 
@@ -226,18 +192,20 @@ int main(){
     u8	Users_Pick=0;
 
 
-    Port_Init(pin_cfg);Lcd_Init();
+    Port_Init(pin_cfg);
+
+    Lcd_Init();
     UART_Init();
 	SPI_voidInit();
 	EEPROM_voidInit();
-	Dio_WriteChannel(PA_5,STD_LOW);
+	//Dio_WriteChannel(PA_5,STD_LOW);
 	GI_voidEnable();
 
 	while(1)
-	{   Lcd_PutString("lets start:");
-	//	UART_TransmitString("\033[2J");
+	{
 		UART_TransmitString("ENTER PASSWORD:");
 		admin = UART_ReceiveNumber();
+
 		if(admin == ADMIN_PW)
 			{
 			access =1;
@@ -259,6 +227,7 @@ int main(){
 
 	if(access==1){
 		while(1){
+		//	Lcd_PutString("here to check :");
 		//handle admin functionality
 		UART_TransmitString("\r\n 1 FOR ADDING NEW USER:\r\n");
 		UART_TransmitString(" 2 FOR DELETING A USER:\r\n");
@@ -279,11 +248,15 @@ int main(){
 		UART_TransmitString("CLS\r\n");
 		UART_TransmitString("\r\n OUT OF TRIALS :\r\n");
 		UART_TransmitString("\r\n SYSTEM LOCKED :\r\n");
+
+		Dio_WriteChannel(PA_4,STD_HIGH);
 		exit(1);
 	}
 
-	UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+//	UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
 	RunForUsers();
+//	INDEX =0;
 
+//	}
 	return 0;
 }
