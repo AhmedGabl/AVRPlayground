@@ -1,4 +1,4 @@
-/*
+/*ND
  * main.c
 
  *
@@ -6,7 +6,6 @@
  *      Author: AhmedAbogabl
  */
 //#define F_CPU 16000000UL
-
 #include <avr/delay.h>
 
 #include "HAL/EEPROM/EEPROM_interface.h"
@@ -112,9 +111,7 @@ switch (Users_Pick)
 //////////////////////////////////////SPI
 u8 RX_USER[4];
 static u8 INDEX=0;
-void NoAction(u8 copy_u8RxData){
 
-}
 void check_user(void)
 {
 	u8 fetch_UserPW[3];
@@ -127,8 +124,8 @@ if(USERS[RX_USER[0]] != 99)
 	if( (RX_USER[1]+'0' == fetch_UserPW[0]) && (RX_USER[2]+'0'==fetch_UserPW[1])&&(RX_USER[3]+'0'==fetch_UserPW[2]) )
 	{
 	//Lcd_PutString("GOT HERE");
-//SPI_voidTransieve()
-//	SPI_voidTransieve(1,&i);
+
+	SPI_voidTransieve(1,&i);
 
 	SRVM_voidOn(0);
 
@@ -136,12 +133,11 @@ if(USERS[RX_USER[0]] != 99)
 	UART_Send(RX_USER[0]+'0');
 	UART_TransmitString("\r\n GOT ACCESS");
 	UART_TransmitString("\r\n DOOR OPEN FOR 5 SECONDS");
-	SPI_voidTransmitAsynchronous(1,NoAction);
+//	SPI_voidTransmitAsynchronous(2,NULL);
 	_delay_ms(5000);
 	SRVM_voidOn(90);
 	}
-	else {		SPI_voidTransmitAsynchronous(2,NoAction);
-
+	else {	SPI_voidTransieve(2,&i);
 
 		UART_TransmitString("USER ID : ");
 			UART_Send(RX_USER[0]+'0');
@@ -182,7 +178,7 @@ void RunForUsers(void)
 	while(1)
 	{
 		_delay_ms(200);
-	SPI_voidTransmitAsynchronous(3,get_user);
+	SPI_voidTransmitAsynchronous(2,get_user);
 	}
 }
 
@@ -209,10 +205,12 @@ int main(){
 			access =1;
 			break;
 			}
+
 		else
 		{
 			access=0;
 		}
+
 		if(trials == 3)
 		{
 			access=0;

@@ -1,4 +1,4 @@
-15:00:26 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
+13:33:24 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -18,8 +18,8 @@ d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h
 ../main.c: In function 'main':
 ../main.c:29: warning: implicit declaration of function 'Lcd_Init'
 ../main.c:42: warning: implicit declaration of function 'Lcd_PutChar'
-../main.c:55: warning: implicit declaration of function 'exit'
-../main.c:55: warning: incompatible implicit declaration of built-in function 'exit'
+../main.c:57: warning: implicit declaration of function 'exit'
+../main.c:57: warning: incompatible implicit declaration of built-in function 'exit'
 Finished building: ../main.c
  
 Building target: SPI_SLAVE.elf
@@ -41,7 +41,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   19100 bytes (58.3% Full)
+Program:   19472 bytes (59.4% Full)
 (.text + .data + .bootloader)
 
 Data:        402 bytes (19.6% Full)
@@ -51,5 +51,5 @@ Data:        402 bytes (19.6% Full)
 Finished building: sizedummy
  
 
-15:00:27 Build Finished (took 741ms)
+13:33:25 Build Finished (took 800ms)
 

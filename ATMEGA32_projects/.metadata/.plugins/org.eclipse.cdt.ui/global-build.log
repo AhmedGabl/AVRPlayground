@@ -1,60 +1,60 @@
-15:13:46 **** Incremental Build of configuration Debug for project SMART_HOME_ADMIN ****
+18:51:15 **** Incremental Build of configuration Debug for project SMART_HOME_ADMIN ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:9:
+In file included from ../main.c:10:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
-                 from ../main.c:9:
+                 from ../main.c:10:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
 In file included from ../MCAL/GI/GI_interface.h:11,
-                 from ../main.c:15:
+                 from ../main.c:16:
 ../MCAL/GI/GI_register.h:13:1: warning: "SREG" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:410,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
 In file included from ../MCAL/UART/includes/UART_interface.h:12,
-                 from ../main.c:16:
+                 from ../main.c:17:
 ../MCAL/UART/includes/UART_register.h:11:1: warning: "UBRRL" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:72:1: warning: this is the location of the previous definition
 In file included from ../MCAL/UART/includes/UART_interface.h:12,
-                 from ../main.c:16:
+                 from ../main.c:17:
 ../MCAL/UART/includes/UART_register.h:13:1: warning: "UCSRA" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:74:1: warning: this is the location of the previous definition
 In file included from ../MCAL/UART/includes/UART_interface.h:12,
-                 from ../main.c:16:
+                 from ../main.c:17:
 ../MCAL/UART/includes/UART_register.h:14:1: warning: "UCSRB" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:73:1: warning: this is the location of the previous definition
 In file included from ../MCAL/UART/includes/UART_interface.h:12,
-                 from ../main.c:16:
+                 from ../main.c:17:
 ../MCAL/UART/includes/UART_register.h:15:1: warning: "UCSRC" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:114:1: warning: this is the location of the previous definition
 In file included from ../MCAL/UART/includes/UART_interface.h:12,
-                 from ../main.c:16:
+                 from ../main.c:17:
 ../MCAL/UART/includes/UART_register.h:16:1: warning: "UDR" redefined
 In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
                  from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:12:
+                 from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:75:1: warning: this is the location of the previous definition
 ../main.c: In function 'check_user':
-../main.c:139: warning: pointer targets in passing argument 1 of 'Lcd_PutString' differ in signedness
+../main.c:123: warning: unused variable 'i'
 ../main.c: In function 'main':
-../main.c:253: warning: implicit declaration of function 'exit'
-../main.c:253: warning: incompatible implicit declaration of built-in function 'exit'
+../main.c:245: warning: implicit declaration of function 'exit'
+../main.c:245: warning: incompatible implicit declaration of built-in function 'exit'
 Finished building: ../main.c
  
 Building target: SMART_HOME_ADMIN.elf
@@ -76,10 +76,10 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   21406 bytes (65.3% Full)
+Program:   21560 bytes (65.8% Full)
 (.text + .data + .bootloader)
 
-Data:        773 bytes (37.7% Full)
+Data:        845 bytes (41.3% Full)
 (.data + .bss + .noinit)
 
 

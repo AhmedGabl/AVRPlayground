@@ -1,4 +1,4 @@
-/*
+/*ND
  * main.c
 
  *
@@ -6,7 +6,6 @@
  *      Author: AhmedAbogabl
  */
 //#define F_CPU 16000000UL
-
 #include <avr/delay.h>
 
 #include "HAL/EEPROM/EEPROM_interface.h"
@@ -182,7 +181,7 @@ void RunForUsers(void)
 	while(1)
 	{
 		_delay_ms(200);
-	SPI_voidTransmitAsynchronous(3,get_user);
+	SPI_voidTransmitAsynchronous(2,get_user);
 	}
 }
 
@@ -209,10 +208,12 @@ int main(){
 			access =1;
 			break;
 			}
+
 		else
 		{
 			access=0;
 		}
+
 		if(trials == 3)
 		{
 			access=0;

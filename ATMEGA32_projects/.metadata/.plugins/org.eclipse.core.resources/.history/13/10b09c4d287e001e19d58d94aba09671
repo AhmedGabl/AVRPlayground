@@ -51,7 +51,7 @@ Lcd_Init();
 		_delay_ms(100);
 
 		SPI_voidTransieve(0,&Local_u8RXData);
-		if (Local_u8RXData == 1) {
+		if (Local_u8RXData == 2) {
 			Dio_WriteChannel(PA_4,STD_HIGH);
 		}
 		exit(1);
