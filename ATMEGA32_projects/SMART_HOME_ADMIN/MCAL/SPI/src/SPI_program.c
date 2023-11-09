@@ -43,6 +43,8 @@ void SPI_voidInit(void){
 
 void SPI_voidTransieve(u8 copy_u8TXdata , u8* copy_pu8_RXdata){
 
+	//Disable SPI Interrrupt
+	CLR_BIT(SPI->SPCR,SPIE);
 	if(copy_pu8_RXdata != NULL){
 		while(1 == GET_BIT(SPI->SPSR,WCOL));
 		SPI->SPDR = copy_u8TXdata;

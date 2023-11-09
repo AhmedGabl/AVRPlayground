@@ -22,6 +22,7 @@ Port_ConfigType pin_cfg[33] = {
 		{Dio_PORTB ,PORT_PIN7 ,PORT_PIN_IN},
 //led
 		{Dio_PORTA ,PORT_PIN4 ,PORT_PIN_OUT},
+		{Dio_PORTA ,PORT_PIN6 ,PORT_PIN_OUT},
 
 		//timer1
 		{Dio_PORTD ,PORT_PIN5 ,PORT_PIN_OUT},

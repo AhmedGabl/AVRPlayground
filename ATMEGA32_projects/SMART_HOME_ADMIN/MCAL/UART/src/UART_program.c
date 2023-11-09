@@ -12,9 +12,9 @@
 
 
 #define NULLPTR '\0'
-static void(*UART_RX_Fptr)(void)=NULLPTR;
-static void(*UART_TX_Fptr)(void)=NULLPTR;
-
+//static void(*UART_RX_Fptr)(void)=NULLPTR;
+//static void(*UART_TX_Fptr)(void)=NULLPTR;
+//
 
 void UART_Init(void)
 {

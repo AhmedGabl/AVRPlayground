@@ -1,4 +1,4 @@
-18:51:15 **** Incremental Build of configuration Debug for project SMART_HOME_ADMIN ****
+14:48:35 **** Incremental Build of configuration Debug for project SMART_HOME_ADMIN ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -50,11 +50,9 @@ In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../av
                  from ../MCAL/DIO/DIO_interface.h:13,
                  from ../main.c:13:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:75:1: warning: this is the location of the previous definition
-../main.c: In function 'check_user':
-../main.c:123: warning: unused variable 'i'
 ../main.c: In function 'main':
-../main.c:245: warning: implicit declaration of function 'exit'
-../main.c:245: warning: incompatible implicit declaration of built-in function 'exit'
+../main.c:209: warning: implicit declaration of function 'exit'
+../main.c:209: warning: incompatible implicit declaration of built-in function 'exit'
 Finished building: ../main.c
  
 Building target: SMART_HOME_ADMIN.elf
@@ -76,10 +74,10 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   21560 bytes (65.8% Full)
+Program:   22208 bytes (67.8% Full)
 (.text + .data + .bootloader)
 
-Data:        845 bytes (41.3% Full)
+Data:        885 bytes (43.2% Full)
 (.data + .bss + .noinit)
 
 

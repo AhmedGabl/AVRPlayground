@@ -22,8 +22,10 @@ void Action(u8 copy_u8RxData)
 		Dio_FlipChannel(PA_4);
 //	_delay_ms(300);
 }
-
-
+u8 forAll;
+void NOaction(u8 data){
+	forAll = data;
+}
 int main(){
 	Port_Init(pin_cfg);
 Lcd_Init();
@@ -37,37 +39,32 @@ Lcd_Init();
 	_delay_ms(100);
 
 	u8 Local_u8RXData;
- //	while(1)
+	u8 counter=0;
+ 	while(1)
 	{
-		Lcd_PutChar("H");
-		_delay_ms(100);
+ 		Dio_WriteChannel(PA_6,STD_HIGH);
+ 		_delay_ms(100);
 		SPI_voidTransieve(3,&Local_u8RXData);
 		_delay_ms(100);
-		SPI_voidTransieve(1,&Local_u8RXData);
+		SPI_voidTransieve(2,&Local_u8RXData);
 		_delay_ms(100);
 		SPI_voidTransieve(2,&Local_u8RXData);
 		_delay_ms(100);
 		SPI_voidTransieve(3,&Local_u8RXData);
 		_delay_ms(100);
 
-		SPI_voidTransieve(0,&Local_u8RXData);
-		if (Local_u8RXData == 1) {
+		SPI_voidTransieve(counter++,&Local_u8RXData);
+
+		Dio_WriteChannel(PA_6,STD_HIGH);
+
+		if (Local_u8RXData == 2) {
 			Dio_WriteChannel(PA_4,STD_HIGH);
 		}
-		exit(1);
-		_delay_ms(5000);
-	//	exit(0);
+		_delay_ms(1000);
 
-//	SPI_voidTransmitAsynchronous(0,&Action);
-//	_delay_ms(100);
-//	SPI_voidTransmitAsynchronous(1,&Action);
-//	_delay_ms(100);
-//	SPI_voidTransmitAsynchronous(2,&Action);
-//	_delay_ms(100);
-//
-//	SPI_voidTransmitAsynchronous(3,&Action);
-	//	_delay_ms(100);
+		Dio_WriteChannel(PA_4,STD_LOW);
 
+//		counter++;
 }
 	return 0;
 }

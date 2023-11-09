@@ -2,16 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="LCD" key="selection"/>
+		<item value="Users_Pick" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Users_Pick"/>
+			<item value="0x00"/>
 			<item value="lcd"/>
 			<item value="PB_3"/>
 			<item value="got"/>
-			<item value="Users_Pick"/>
 			<item value="Lcd"/>
 			<item value="LCD"/>
 			<item value="PA_5"/>
