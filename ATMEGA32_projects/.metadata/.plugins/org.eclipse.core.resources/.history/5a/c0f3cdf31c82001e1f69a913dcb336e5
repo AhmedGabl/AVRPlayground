@@ -1,0 +1,13 @@
+/*
+ * HICU_registers.h
+ *
+ *  Created on: Nov 13, 2023
+ *      Author: AhmedAbogabl
+ */
+
+#ifndef MCAL_HICU_INCLUDES_HICU_REGISTERS_H_
+#define MCAL_HICU_INCLUDES_HICU_REGISTERS_H_
+
+
+
+#endif /* MCAL_HICU_INCLUDES_HICU_REGISTERS_H_ */

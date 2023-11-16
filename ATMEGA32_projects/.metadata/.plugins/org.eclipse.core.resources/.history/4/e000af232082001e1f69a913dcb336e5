@@ -1,0 +1,26 @@
+/*
+ * HICU_program.c
+ *
+ *  Created on: Nov 13, 2023
+ *      Author: AhmedAbogabl
+ */
+
+
+#include "../includes/HICU_interface.h"
+#include "../includes/HICU_registers.h"
+#include "../../../utils/BIT_MATH.h"
+#include "../../../utils/STD_TYPES.h"
+
+
+void ICU_voidInit(void)
+{
+	    CLR_BIT(TCCR1A, WGM10);
+		CLR_BIT(TCCR1A, WGM11);
+		CLR_BIT(TCCR1B, WGM12);
+		CLR_BIT(TCCR1B, WGM13);
+}
+void ICU_voidStart(void);
+
+void ICU_voidGetDutyCycle(u8* copy_pu8Duty);
+void ICU_voidGetFrequency(u32* copy_pu32Frequency_hz);
+

@@ -1,0 +1,99 @@
+13:48:05 **** Incremental Build of configuration Debug for project WATCHDOG ****
+make all 
+Building file: ../MCAL/WDT/src/WDT_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/WDT/src/WDT_program.d" -MT"MCAL/WDT/src/WDT_program.o" -c -o "MCAL/WDT/src/WDT_program.o" "../MCAL/WDT/src/WDT_program.c"
+Finished building: ../MCAL/WDT/src/WDT_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER2/src/TMR2_program.d" -MT"MCAL/TIMERS/TIMER2/src/TMR2_program.o" -c -o "MCAL/TIMERS/TIMER2/src/TMR2_program.o" "../MCAL/TIMERS/TIMER2/src/TMR2_program.c"
+Finished building: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER1/src/TMR1_program.d" -MT"MCAL/TIMERS/TIMER1/src/TMR1_program.o" -c -o "MCAL/TIMERS/TIMER1/src/TMR1_program.o" "../MCAL/TIMERS/TIMER1/src/TMR1_program.c"
+Finished building: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER0/src/TMR0_program.d" -MT"MCAL/TIMERS/TIMER0/src/TMR0_program.o" -c -o "MCAL/TIMERS/TIMER0/src/TMR0_program.o" "../MCAL/TIMERS/TIMER0/src/TMR0_program.c"
+Finished building: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
+ 
+Building file: ../MCAL/PORT/PORT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT.d" -MT"MCAL/PORT/PORT.o" -c -o "MCAL/PORT/PORT.o" "../MCAL/PORT/PORT.c"
+In file included from ../MCAL/PORT/PORT_cnf.h:11,
+                 from ../MCAL/PORT/PORT.h:13,
+                 from ../MCAL/PORT/PORT.c:7:
+../MCAL/PORT/../DIO/DIO_interface.h:70: warning: no semicolon at end of struct or union
+Finished building: ../MCAL/PORT/PORT.c
+ 
+Building file: ../MCAL/PORT/PORT_cnf.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT_cnf.d" -MT"MCAL/PORT/PORT_cnf.o" -c -o "MCAL/PORT/PORT_cnf.o" "../MCAL/PORT/PORT_cnf.c"
+In file included from ../MCAL/PORT/PORT_cnf.h:11,
+                 from ../MCAL/PORT/PORT_cnf.c:8:
+../MCAL/PORT/../DIO/DIO_interface.h:70: warning: no semicolon at end of struct or union
+Finished building: ../MCAL/PORT/PORT_cnf.c
+ 
+Building file: ../MCAL/GI/GI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/GI/GI_program.d" -MT"MCAL/GI/GI_program.o" -c -o "MCAL/GI/GI_program.o" "../MCAL/GI/GI_program.c"
+Finished building: ../MCAL/GI/GI_program.c
+ 
+Building file: ../MCAL/EXTI/src/EXTI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/EXTI/src/EXTI_program.d" -MT"MCAL/EXTI/src/EXTI_program.o" -c -o "MCAL/EXTI/src/EXTI_program.o" "../MCAL/EXTI/src/EXTI_program.c"
+Finished building: ../MCAL/EXTI/src/EXTI_program.c
+ 
+Building file: ../MCAL/DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/DIO/DIO_program.d" -MT"MCAL/DIO/DIO_program.o" -c -o "MCAL/DIO/DIO_program.o" "../MCAL/DIO/DIO_program.c"
+In file included from ../MCAL/DIO/DIO_program.c:8:
+../MCAL/DIO/DIO_interface.h:70: warning: no semicolon at end of struct or union
+Finished building: ../MCAL/DIO/DIO_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:14:
+../MCAL/DIO/DIO_interface.h:70: warning: no semicolon at end of struct or union
+In file included from ../main.c:17:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:17:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: WATCHDOG.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,WATCHDOG.map -mmcu=atmega32 -o "WATCHDOG.elf"  ./MCAL/WDT/src/WDT_program.o  ./MCAL/TIMERS/TIMER2/src/TMR2_program.o  ./MCAL/TIMERS/TIMER1/src/TMR1_program.o  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI_program.o  ./MCAL/EXTI/src/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./main.o   
+Finished building target: WATCHDOG.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S WATCHDOG.elf  >"WATCHDOG.lss"
+Finished building: WATCHDOG.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex WATCHDOG.elf  "WATCHDOG.hex"
+Finished building: WATCHDOG.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 WATCHDOG.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10826 bytes (33.0% Full)
+(.text + .data + .bootloader)
+
+Data:        398 bytes (19.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:48:07 Build Finished (took 1s.553ms)
+

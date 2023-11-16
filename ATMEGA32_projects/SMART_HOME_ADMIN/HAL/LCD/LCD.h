@@ -42,7 +42,7 @@
 #define LCD_DATA4   PB_0   // Data bit 4
 #define LCD_DATA5   PB_1   // Data bit 5
 #define LCD_DATA6   PB_2   // Data bit 6
-#define LCD_DATA7   PB_4   // Data bit 7
+#define LCD_DATA7   PB_3   // Data bit 7
 
 //
 //// Define bit masks and shift values for data pins and command nibbles

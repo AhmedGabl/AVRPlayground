@@ -2,22 +2,25 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Users_Pick" key="selection"/>
+		<item value="users" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="lcd4_disply_string"/>
+			<item value="USERS"/>
+			<item value="_PORTD"/>
+			<item value="_PORTB"/>
+			<item value="_PORTA"/>
+			<item value="KEY"/>
 			<item value="Users_Pick"/>
 			<item value="0x00"/>
-			<item value="lcd"/>
-			<item value="PB_3"/>
-			<item value="got"/>
-			<item value="Lcd"/>
-			<item value="LCD"/>
-			<item value="PA_5"/>
 		</list>
 		<list key="replacehistory">
+			<item value="PORTD"/>
+			<item value="PORTB"/>
+			<item value="PORTA"/>
 			<item value="PB_4"/>
 		</list>
 	</section>

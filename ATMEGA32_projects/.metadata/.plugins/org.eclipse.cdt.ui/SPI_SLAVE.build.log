@@ -1,4 +1,4 @@
-14:07:38 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
+18:33:26 **** Incremental Build of configuration Debug for project SPI_SLAVE ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -16,7 +16,7 @@ In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../av
                  from ../main.c:11:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
 ../main.c: In function 'main':
-../main.c:31: warning: implicit declaration of function 'Lcd_Init'
+../main.c:29: warning: implicit declaration of function 'Lcd_Init'
 Finished building: ../main.c
  
 Building target: SPI_SLAVE.elf
@@ -38,15 +38,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   19898 bytes (60.7% Full)
+Program:   19830 bytes (60.5% Full)
 (.text + .data + .bootloader)
 
-Data:        401 bytes (19.6% Full)
+Data:        400 bytes (19.5% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-14:07:39 Build Finished (took 798ms)
+18:33:27 Build Finished (took 1s.645ms)
 
