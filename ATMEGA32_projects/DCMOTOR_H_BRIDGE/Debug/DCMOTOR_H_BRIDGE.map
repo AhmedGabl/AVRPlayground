@@ -149,7 +149,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1dc6
+.text           0x00000000     0x1fe0
  *(.vectors)
  .vectors       0x00000000       0x54 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -314,22 +314,25 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .text.DCM_voidOff
                 0x000017cc       0x1a ./HAL/DC_MOTOR_H_BRIDGE/DCM_program.o
                 0x000017cc                DCM_voidOff
- .text.main     0x000017e6      0x546 ./main.o
-                0x000017e6                main
- .text.libgcc   0x00001d2c       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001d2c                __udivmodhi4
- .text.libgcc   0x00001d54        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001d54        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001d54        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001d54       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001d54                __prologue_saves__
- .text.libgcc   0x00001d8c       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00001d8c                __epilogue_restores__
-                0x00001dc2                . = ALIGN (0x2)
+ .text.TEST_SPEED
+                0x000017e6      0x546 ./main.o
+                0x000017e6                TEST_SPEED
+ .text.main     0x00001d2c      0x21a ./main.o
+                0x00001d2c                main
+ .text.libgcc   0x00001f46       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00001f46                __udivmodhi4
+ .text.libgcc   0x00001f6e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001f6e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001f6e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001f6e       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00001f6e                __prologue_saves__
+ .text.libgcc   0x00001fa6       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001fa6                __epilogue_restores__
+                0x00001fdc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001dc2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001dc2                exit
-                0x00001dc2                _exit
+ .fini9         0x00001fdc        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001fdc                exit
+                0x00001fdc                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -348,11 +351,11 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001dc2        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001fdc        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001dc6                _etext = .
+                0x00001fe0                _etext = .
 
-.data           0x00800060       0x6c load address 0x00001dc6
+.data           0x00800060       0x6c load address 0x00001fe0
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -431,8 +434,8 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x008000d6        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  *(COMMON)
                 0x008000da                PROVIDE (__bss_end, .)
-                0x00001dc6                __data_load_start = LOADADDR (.data)
-                0x00001e32                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001fe0                __data_load_start = LOADADDR (.data)
+                0x0000204c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000da        0x0
                 0x008000da                PROVIDE (__noinit_start, .)
@@ -457,7 +460,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x1968
+.stab           0x00000000     0x1b84
  *(.stab)
  .stab          0x00000000      0x51c ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .stab          0x0000051c      0x564 ./MCAL/PORT/PORT.o
@@ -468,12 +471,12 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                 0x6c0 (size before relaxing)
  .stab          0x000010c8      0x2f4 ./HAL/DC_MOTOR_H_BRIDGE/DCM_program.o
                                 0x4b0 (size before relaxing)
- .stab          0x000013bc      0x5ac ./main.o
-                                0x894 (size before relaxing)
+ .stab          0x000013bc      0x7c8 ./main.o
+                                0xab0 (size before relaxing)
 
-.stabstr        0x00000000     0x160d
+.stabstr        0x00000000     0x161f
  *(.stabstr)
- .stabstr       0x00000000     0x160d ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .stabstr       0x00000000     0x161f ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
 
 .stab.excl
  *(.stab.excl)

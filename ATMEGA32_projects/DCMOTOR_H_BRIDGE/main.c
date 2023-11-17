@@ -10,11 +10,18 @@
 #include "MCAL/TIMERS/TIMER0/includes/TMR0_interface.h"
 #include "HAL/DC_MOTOR_H_BRIDGE/DCM_interface.h"
 
-int main() {
+//#define TEST_SPEED main
+
+#define TEST_STEERING main
+
+
+
+int TEST_SPEED() {
     Port_Init(pin_cfg);
     TMR0_voidInit();
 
     u8 speed = 0;
+
     while (1) {
         // Rotate the motor in Counter Clockwise (CCW) direction
         DCM_voidOn(DCM_CCW);
@@ -43,6 +50,52 @@ int main() {
         DCM_voidOff();   // Turn off the motor
         _delay_ms(3000); // Delay for 3 seconds
         speed = 0;       // Reset speed
+    }
+
+    return 0;
+}
+
+
+
+///TEST_STEERING
+
+int TEST_STEERING() {
+    Port_Init(pin_cfg);
+    TMR0_voidInit();
+
+    u8 speed = 10;
+
+    //while (1)
+    {
+        // Rotate the motor in Counter Clockwise (CCW) direction
+        DCM_voidOn(DCM_CCW);
+        // Increase speed gradually up to 100
+        //while (speed <= 100)
+        {
+            DCM_voidControlSpeed(speed); // Control the motor speed
+            _delay_ms(50);               // Delay
+            speed++;                     // Increment speed
+        }
+            DCM_voidOff();
+
+        speed = 0; // Reset speed
+        _delay_ms(200);
+
+//        // Rotate the motor in Clockwise (CW) direction
+//        DCM_voidOn(DCM_CW);
+//
+//        // Increase speed gradually up to 100
+//        while (speed <= 100) {
+//            DCM_voidControlSpeed(speed); // Control the motor speed
+//            _delay_ms(50);
+//            speed++;                     // Increment speed
+//        }
+//
+//        // Turn off the motor and wait for 3 seconds
+//        _delay_ms(50);
+//        DCM_voidOff();   // Turn off the motor
+//        _delay_ms(3000); // Delay for 3 seconds
+//        speed = 0;       // Reset speed
     }
 
     return 0;

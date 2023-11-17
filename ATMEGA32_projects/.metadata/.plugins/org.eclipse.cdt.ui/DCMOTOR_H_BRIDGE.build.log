@@ -1,4 +1,4 @@
-07:15:07 **** Build of configuration Debug for project DCMOTOR_H_BRIDGE ****
+10:58:55 **** Incremental Build of configuration Debug for project DCMOTOR_H_BRIDGE ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 DCMOTOR_H_BRIDGE.elf
@@ -6,7 +6,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    7730 bytes (23.6% Full)
+Program:    8268 bytes (25.2% Full)
 (.text + .data + .bootloader)
 
 Data:        122 bytes (6.0% Full)
@@ -16,5 +16,5 @@ Data:        122 bytes (6.0% Full)
 Finished building: sizedummy
  
 
-07:15:07 Build Finished (took 265ms)
+10:58:56 Build Finished (took 993ms)
 
