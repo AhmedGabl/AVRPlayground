@@ -1,56 +1,11 @@
-14:36:26 **** Incremental Build of configuration Debug for project OS_RTOS ****
+14:56:43 **** Incremental Build of configuration Debug for project OS_RTOS ****
 make all 
-Building file: ../FreeRTOS/Source/portable/MemMang/heap_1.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/portable/MemMang/heap_1.d" -MT"FreeRTOS/Source/portable/MemMang/heap_1.o" -c -o "FreeRTOS/Source/portable/MemMang/heap_1.o" "../FreeRTOS/Source/portable/MemMang/heap_1.c"
-Finished building: ../FreeRTOS/Source/portable/MemMang/heap_1.c
- 
-Building file: ../FreeRTOS/Source/portable/GCC/ATMega323/port.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/portable/GCC/ATMega323/port.d" -MT"FreeRTOS/Source/portable/GCC/ATMega323/port.o" -c -o "FreeRTOS/Source/portable/GCC/ATMega323/port.o" "../FreeRTOS/Source/portable/GCC/ATMega323/port.c"
-Finished building: ../FreeRTOS/Source/portable/GCC/ATMega323/port.c
- 
-Building file: ../FreeRTOS/Source/croutine.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/croutine.d" -MT"FreeRTOS/Source/croutine.o" -c -o "FreeRTOS/Source/croutine.o" "../FreeRTOS/Source/croutine.c"
-Finished building: ../FreeRTOS/Source/croutine.c
- 
-Building file: ../FreeRTOS/Source/event_groups.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/event_groups.d" -MT"FreeRTOS/Source/event_groups.o" -c -o "FreeRTOS/Source/event_groups.o" "../FreeRTOS/Source/event_groups.c"
-Finished building: ../FreeRTOS/Source/event_groups.c
- 
-Building file: ../FreeRTOS/Source/list.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/list.d" -MT"FreeRTOS/Source/list.o" -c -o "FreeRTOS/Source/list.o" "../FreeRTOS/Source/list.c"
-Finished building: ../FreeRTOS/Source/list.c
- 
-Building file: ../FreeRTOS/Source/queue.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/queue.d" -MT"FreeRTOS/Source/queue.o" -c -o "FreeRTOS/Source/queue.o" "../FreeRTOS/Source/queue.c"
-Finished building: ../FreeRTOS/Source/queue.c
- 
-Building file: ../FreeRTOS/Source/stream_buffer.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/stream_buffer.d" -MT"FreeRTOS/Source/stream_buffer.o" -c -o "FreeRTOS/Source/stream_buffer.o" "../FreeRTOS/Source/stream_buffer.c"
-Finished building: ../FreeRTOS/Source/stream_buffer.c
- 
-Building file: ../FreeRTOS/Source/tasks.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/tasks.d" -MT"FreeRTOS/Source/tasks.o" -c -o "FreeRTOS/Source/tasks.o" "../FreeRTOS/Source/tasks.c"
-Finished building: ../FreeRTOS/Source/tasks.c
- 
-Building file: ../FreeRTOS/Source/timers.c
-Invoking: AVR Compiler
-avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/timers.d" -MT"FreeRTOS/Source/timers.o" -c -o "FreeRTOS/Source/timers.o" "../FreeRTOS/Source/timers.c"
-Finished building: ../FreeRTOS/Source/timers.c
- 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 ../main.c: In function 'main':
-../main.c:33: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
-../main.c:36: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
+../main.c:29: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
+../main.c:31: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
 Finished building: ../main.c
  
 Building target: OS_RTOS.elf
@@ -72,10 +27,10 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   22324 bytes (68.1% Full)
+Program:   22370 bytes (68.3% Full)
 (.text + .data + .bootloader)
 
-Data:       1620 bytes (79.1% Full)
+Data:       1621 bytes (79.2% Full)
 (.data + .bss + .noinit)
 
 

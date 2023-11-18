@@ -131,7 +131,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x5722
+.text           0x00000000     0x5750
  *(.vectors)
  .vectors       0x00000000       0x54 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -530,30 +530,30 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00005456                ulTaskGenericNotifyValueClear
  .text.prvAddCurrentTaskToDelayedList
                 0x0000555a       0xcc ./FreeRTOS/Source/tasks.o
- .text.main     0x00005626       0x6c ./main.o
+ .text.main     0x00005626       0x7a ./main.o
                 0x00005626                main
- .text.LedOn_code
-                0x00005692       0x1e ./main.o
-                0x00005692                LedOn_code
- .text.LedOFF_code
-                0x000056b0       0x26 ./main.o
-                0x000056b0                LedOFF_code
- .text.libgcc   0x000056d6       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000056d6                __udivmodhi4
- .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.LedIntro_code
+                0x000056a0       0x34 ./main.o
+                0x000056a0                LedIntro_code
+ .text.ButtonIntro_code
+                0x000056d4       0x30 ./main.o
+                0x000056d4                ButtonIntro_code
+ .text.libgcc   0x00005704       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00005704                __udivmodhi4
+ .text.libgcc   0x0000572c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000572c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000572c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x000056fe       0x12 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x000056fe                memcpy
+                0x0000572c       0x12 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x0000572c                memcpy
  .text.avr-libc
-                0x00005710        0xe d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
-                0x00005710                memset
-                0x0000571e                . = ALIGN (0x2)
+                0x0000573e        0xe d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x0000573e                memset
+                0x0000574c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000571e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000571e                exit
-                0x0000571e                _exit
+ .fini9         0x0000574c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000574c                exit
+                0x0000574c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -572,11 +572,11 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000571e        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000574c        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00005722                _etext = .
+                0x00005750                _etext = .
 
-.data           0x00800060       0x12 load address 0x00005722
+.data           0x00800060       0x12 load address 0x00005750
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -607,7 +607,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00800072                _edata = .
                 0x00800072                PROVIDE (__data_end, .)
 
-.bss            0x00800072      0x642
+.bss            0x00800072      0x643
                 0x00800072                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -680,17 +680,19 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .bss.Task2Hand
                 0x008006b2        0x2 ./main.o
                 0x008006b2                Task2Hand
+ .bss.flag      0x008006b4        0x1 ./main.o
+                0x008006b4                flag
  *(COMMON)
-                0x008006b4                PROVIDE (__bss_end, .)
-                0x00005722                __data_load_start = LOADADDR (.data)
-                0x00005734                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008006b5                PROVIDE (__bss_end, .)
+                0x00005750                __data_load_start = LOADADDR (.data)
+                0x00005762                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008006b4        0x0
-                0x008006b4                PROVIDE (__noinit_start, .)
+.noinit         0x008006b5        0x0
+                0x008006b5                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008006b4                PROVIDE (__noinit_end, .)
-                0x008006b4                _end = .
-                0x008006b4                PROVIDE (__heap_start, .)
+                0x008006b5                PROVIDE (__noinit_end, .)
+                0x008006b5                _end = .
+                0x008006b5                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -708,7 +710,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x7cd4
+.stab           0x00000000     0x7d28
  *(.stab)
  .stab          0x00000000      0x738 ./FreeRTOS/Source/portable/MemMang/heap_1.o
  .stab          0x00000738      0x894 ./FreeRTOS/Source/portable/GCC/ATMega323/port.o
@@ -727,12 +729,12 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                0x29ac (size before relaxing)
  .stab          0x00007920      0x168 ./FreeRTOS/Source/timers.o
                                 0x630 (size before relaxing)
- .stab          0x00007a88      0x24c ./main.o
-                                0x6cc (size before relaxing)
+ .stab          0x00007a88      0x2a0 ./main.o
+                                0x720 (size before relaxing)
 
-.stabstr        0x00000000     0x4b95
+.stabstr        0x00000000     0x4ba9
  *(.stabstr)
- .stabstr       0x00000000     0x4b95 ./FreeRTOS/Source/portable/MemMang/heap_1.o
+ .stabstr       0x00000000     0x4ba9 ./FreeRTOS/Source/portable/MemMang/heap_1.o
 
 .stab.excl
  *(.stab.excl)
