@@ -2,7 +2,7 @@
  * LCD.h
  *
  *  Created on: Oct 21, 2023
- *      Author: Mahmoud El Arabi
+ *      Author: Ahmed Abogabl
  */
 
 #ifndef HAL_7SEGMENTS_LCD_H_
@@ -81,74 +81,26 @@
 #define LCD_DDRAM_START                                           	0x80
 
 
-/* ----------------- Section : Software Interfaces Declaration -----------------*/
 
-/**
- * lcd4_Init : This function initializes the LCD 4bit
- * @param	void
- * @return	void
- */
 void lcd4_Init(void);
 
-/**
- * lcd4_Init : This function Clears the LCD 4bit
- * @param	void
- * @return	void
- */
+
 void lcd4_CLR(void);
 
-/**
- * lcd4_disply_char : This function displays a character on the LCD 4bit
- * @param	data which is the character to display Ex: 'A'
- * @return	void
- */
+
 void lcd4_disply_char (const u8 data);
 
-/**
- * lcd4_disply_string : This function displays whole string on the LCD 4bit
- * @param	data which is the string to display Ex: "Mahmoud El Arabi"
- * @return	void
- */
+
 void lcd4_disply_string (const u8* data);
 
-/**
- * lcd4_disply_char_at_X_Y : This function displays a character on the LCD 4bit at specific position
- * @param	1- data which is the character to display
- * 			2- row : the Row position of the character
- * 			3- col : the Column position of the character
- * 			Ex ('A', 2, 3) -> will display A @ [2,3]
- * @return	void
- */
+
 void lcd4_disply_char_at_X_Y (u8 data, u8 row, u8 col);
 
-/**
- * lcd4_disply_string_at_X_Y : This function displays a whole string on the LCD 4bit at specific position
- * @param	1- data which is the string to display Ex: "Mahmoud El Arabi"
- * 			2- row : the Row position of the 1st character of the string which is 'M' here
- * 			3- col : the Column position of the 1st character of the string which is 'M' here
- * 			Ex ("Mahmoud El Arabi", 2, 3) -> will display "Mahmoud El Arabi" @ [2,3]
- * @return	void
- */
+
 void lcd4_disply_string_at_X_Y(u8* data, u8 row, u8 col);
 
-/**
- * lcd4_disply_num : This function converts the nu,ber to string and displays it on the LCD 4bit
- * @param	num which is the number to display
- * @return	void
- */
 void lcd4_disply_num (u32 Number);
 
-/**
- * lcd4_disply_CustomCharacter : This function displays a custom on the LCD 4bit
- * @param	1- row : The row where the custom character will be displayed (0 to 3).
- * 			2- col : The column where the custom character will be displayed (0 to 19).
- * 			3- CustomCharacter:  Pointer to the custom character data in memory (an array of 8 bytes).
- * 			4- MemoryPos : The memory position where the custom character is stored in the LCD module (0 to 7).
- *
- * 			Ex: u8 customChar[] = {0x0E, 0x1B, 0x1F, 0x1F, 0x1F, 0x1F, 0x1B, 0x0E};
- * 				lcd4_disply_CustomCharacter(1, 5, customChar, 0);
- * @return	void
- */
 void lcd4_disply_CustomCharacter(u8 row, u8 col, u8* CustomCharacter, u8 MemoryPos);
 
 #endif /* HAL_7SEGMENTS_LCD_H_ */

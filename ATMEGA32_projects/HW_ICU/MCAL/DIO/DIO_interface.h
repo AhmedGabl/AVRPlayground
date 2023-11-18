@@ -52,11 +52,11 @@ typedef enum{
 	PC_6,
 	PC_7,
 	PD_0,
-	PD_5,
 	PD_1,
 	PD_2,
 	PD_3,
 	PD_4,
+	PD_5,
 	PD_6,
 	PD_7
 }Dio_ChannelType;

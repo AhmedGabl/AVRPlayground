@@ -2,7 +2,7 @@
  * LCD.c
  *
  *  Created on: Oct 21, 2023
- *      Author: Mahmoud El Arabi
+ *      Author: Ahmed abo gabl
  */
 
 /* ----------------- Section : includes -----------------*/
@@ -77,7 +77,7 @@ void lcd4_disply_char (const u8 character)
 
 /**
  * lcd4_disply_string : This function displays whole string on the LCD 4bit
- * @param	data which is the string to display Ex: "Mahmoud El Arabi"
+ * @param	data which is the string to display Ex: "Ahmed abo gabl"
  * @return	void
  */
 void lcd4_disply_string (const u8* str)
@@ -104,10 +104,10 @@ void lcd4_disply_char_at_X_Y (u8 data, u8 row, u8 col)
 
 /**
  * lcd4_disply_string_at_X_Y : This function displays a whole string on the LCD 4bit at specific position
- * @param	1- data which is the string to display Ex: "Mahmoud El Arabi"
+ * @param	1- data which is the string to display Ex: "Ahmed abo gabl"
  * 			2- row : the Row position of the 1st character of the string which is 'M' here
  * 			3- col : the Column position of the 1st character of the string which is 'M' here
- * 			Ex ("Mahmoud El Arabi", 2, 3) -> will display "Mahmoud El Arabi" @ [2,3]
+ * 			Ex ("Ahmed abo gabl", 2, 3) -> will display "Ahmed abo gabl" @ [2,3]
  * @return	void
  */
 void lcd4_disply_string_at_X_Y(u8* data, u8 row, u8 col)

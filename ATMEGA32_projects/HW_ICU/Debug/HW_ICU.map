@@ -171,7 +171,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x41c0
+.text           0x00000000     0x3cda
  *(.vectors)
  .vectors       0x00000000       0x54 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -386,103 +386,105 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00001d4a       0x8c ./MCAL/HICU/src/HICU_program.o
                 0x00001d4a                ICU_voidInit
  .text.ICU_voidGetDutyCycle
-                0x00001dd6       0xa6 ./MCAL/HICU/src/HICU_program.o
+                0x00001dd6       0x7e ./MCAL/HICU/src/HICU_program.o
                 0x00001dd6                ICU_voidGetDutyCycle
  .text.ICU_voidGetFrequency
-                0x00001e7c       0x5a ./MCAL/HICU/src/HICU_program.o
-                0x00001e7c                ICU_voidGetFrequency
+                0x00001e54       0x5a ./MCAL/HICU/src/HICU_program.o
+                0x00001e54                ICU_voidGetFrequency
  .text.__vector_6
-                0x00001ed6       0xf2 ./MCAL/HICU/src/HICU_program.o
-                0x00001ed6                __vector_6
+                0x00001eae       0xea ./MCAL/HICU/src/HICU_program.o
+                0x00001eae                __vector_6
  .text.GI_voidEnable
-                0x00001fc8       0x1c ./MCAL/GI/GI_program.o
-                0x00001fc8                GI_voidEnable
+                0x00001f98       0x1c ./MCAL/GI/GI_program.o
+                0x00001f98                GI_voidEnable
  .text.GI_voidDisable
-                0x00001fe4       0x1c ./MCAL/GI/GI_program.o
-                0x00001fe4                GI_voidDisable
+                0x00001fb4       0x1c ./MCAL/GI/GI_program.o
+                0x00001fb4                GI_voidDisable
  .text.EXTI_voidInit
-                0x00002000      0x1bc ./MCAL/EXTI/src/EXTI_program.o
-                0x00002000                EXTI_voidInit
+                0x00001fd0      0x1bc ./MCAL/EXTI/src/EXTI_program.o
+                0x00001fd0                EXTI_voidInit
  .text.EXTI_voidEnable
-                0x000021bc       0x6e ./MCAL/EXTI/src/EXTI_program.o
-                0x000021bc                EXTI_voidEnable
+                0x0000218c       0x6e ./MCAL/EXTI/src/EXTI_program.o
+                0x0000218c                EXTI_voidEnable
  .text.EXTI_voidDisable
-                0x0000222a       0x6e ./MCAL/EXTI/src/EXTI_program.o
-                0x0000222a                EXTI_voidDisable
+                0x000021fa       0x6e ./MCAL/EXTI/src/EXTI_program.o
+                0x000021fa                EXTI_voidDisable
  .text.EXTRI_voidSetCallBackINT
-                0x00002298       0x7a ./MCAL/EXTI/src/EXTI_program.o
-                0x00002298                EXTRI_voidSetCallBackINT
+                0x00002268       0x7a ./MCAL/EXTI/src/EXTI_program.o
+                0x00002268                EXTRI_voidSetCallBackINT
  .text.__vector_1
-                0x00002312       0x66 ./MCAL/EXTI/src/EXTI_program.o
-                0x00002312                __vector_1
+                0x000022e2       0x66 ./MCAL/EXTI/src/EXTI_program.o
+                0x000022e2                __vector_1
  .text.__vector_2
-                0x00002378       0x66 ./MCAL/EXTI/src/EXTI_program.o
-                0x00002378                __vector_2
+                0x00002348       0x66 ./MCAL/EXTI/src/EXTI_program.o
+                0x00002348                __vector_2
  .text.__vector_3
-                0x000023de       0x66 ./MCAL/EXTI/src/EXTI_program.o
-                0x000023de                __vector_3
+                0x000023ae       0x66 ./MCAL/EXTI/src/EXTI_program.o
+                0x000023ae                __vector_3
  .text.Dio_WriteChannel
-                0x00002444      0x1f2 ./MCAL/DIO/DIO_program.o
-                0x00002444                Dio_WriteChannel
+                0x00002414      0x1f2 ./MCAL/DIO/DIO_program.o
+                0x00002414                Dio_WriteChannel
  .text.Dio_ReadChannel
-                0x00002636      0x108 ./MCAL/DIO/DIO_program.o
-                0x00002636                Dio_ReadChannel
+                0x00002606      0x108 ./MCAL/DIO/DIO_program.o
+                0x00002606                Dio_ReadChannel
  .text.Dio_FlipChannel
-                0x0000273e      0x1a6 ./MCAL/DIO/DIO_program.o
-                0x0000273e                Dio_FlipChannel
+                0x0000270e      0x1a6 ./MCAL/DIO/DIO_program.o
+                0x0000270e                Dio_FlipChannel
  .text.Dio_WritePort
-                0x000028e4       0x82 ./MCAL/DIO/DIO_program.o
-                0x000028e4                Dio_WritePort
- .text.Lcd_SendCMD
-                0x00002966      0x828 ./HAL/LCD/LCD.o
-                0x00002966                Lcd_SendCMD
- .text.Lcd_SendData
-                0x0000318e      0x828 ./HAL/LCD/LCD.o
-                0x0000318e                Lcd_SendData
- .text.Lcd_GoTo
-                0x000039b6       0x8a ./HAL/LCD/LCD.o
-                0x000039b6                Lcd_GoTo
- .text.Lcd_PutChar
-                0x00003a40       0x1a ./HAL/LCD/LCD.o
-                0x00003a40                Lcd_PutChar
- .text.Lcd_PutInt
-                0x00003a5a       0x78 ./HAL/LCD/LCD.o
-                0x00003a5a                Lcd_PutInt
- .text.Lcd_Init
-                0x00003ad2      0x4f6 ./HAL/LCD/LCD.o
-                0x00003ad2                Lcd_Init
- .text.Lcd_Clear
-                0x00003fc8       0x14 ./HAL/LCD/LCD.o
-                0x00003fc8                Lcd_Clear
- .text.Lcd_PutString
-                0x00003fdc       0x38 ./HAL/LCD/LCD.o
-                0x00003fdc                Lcd_PutString
- .text.lcd4_disply_char_at_X_Y
-                0x00004014       0x2c ./HAL/LCD/LCD.o
-                0x00004014                lcd4_disply_char_at_X_Y
- .text.Lcd_PutString_x_Y
-                0x00004040       0x32 ./HAL/LCD/LCD.o
-                0x00004040                Lcd_PutString_x_Y
- .text.main     0x00004072       0x32 ./main.o
-                0x00004072                main
- .text.libgcc   0x000040a4       0x3e d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x000040a4                __mulsi3
- .text.libgcc   0x000040e2       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000040e2                __udivmodhi4
- .text.libgcc   0x0000410a       0x44 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x0000410a                __udivmodsi4
- .text.libgcc   0x0000414e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000414e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000414e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000414e       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x0000414e                __prologue_saves__
- .text.libgcc   0x00004186       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00004186                __epilogue_restores__
-                0x000041bc                . = ALIGN (0x2)
+                0x000028b4       0x82 ./MCAL/DIO/DIO_program.o
+                0x000028b4                Dio_WritePort
+ .text.LCD_SendData
+                0x00002936      0x472 ./HAL/LCD/LCD.o
+                0x00002936                LCD_SendData
+ .text.LCD_SendCMD
+                0x00002da8      0x472 ./HAL/LCD/LCD.o
+                0x00002da8                LCD_SendCMD
+ .text.LCD_Init
+                0x0000321a      0x4f0 ./HAL/LCD/LCD.o
+                0x0000321a                LCD_Init
+ .text.LCD_CLR  0x0000370a       0x14 ./HAL/LCD/LCD.o
+                0x0000370a                LCD_CLR
+ .text.LCD_PutChar
+                0x0000371e       0x1a ./HAL/LCD/LCD.o
+                0x0000371e                LCD_PutChar
+ .text.LCD_PutString
+                0x00003738       0x38 ./HAL/LCD/LCD.o
+                0x00003738                LCD_PutString
+ .text.LCD_PutChar_at_X_Y
+                0x00003770       0x2c ./HAL/LCD/LCD.o
+                0x00003770                LCD_PutChar_at_X_Y
+ .text.LCD_PutString_at_X_Y
+                0x0000379c       0x32 ./HAL/LCD/LCD.o
+                0x0000379c                LCD_PutString_at_X_Y
+ .text.LCD_PutInt
+                0x000037ce       0x78 ./HAL/LCD/LCD.o
+                0x000037ce                LCD_PutInt
+ .text.LCD_PutCustomChar
+                0x00003846       0x80 ./HAL/LCD/LCD.o
+                0x00003846                LCD_PutCustomChar
+ .text.LCD_GoTo
+                0x000038c6       0x8a ./HAL/LCD/LCD.o
+                0x000038c6                LCD_GoTo
+ .text.main     0x00003950      0x26e ./main.o
+                0x00003950                main
+ .text.libgcc   0x00003bbe       0x3e d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00003bbe                __mulsi3
+ .text.libgcc   0x00003bfc       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00003bfc                __udivmodhi4
+ .text.libgcc   0x00003c24       0x44 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00003c24                __udivmodsi4
+ .text.libgcc   0x00003c68        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00003c68        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003c68        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00003c68       0x38 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00003c68                __prologue_saves__
+ .text.libgcc   0x00003ca0       0x36 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00003ca0                __epilogue_restores__
+                0x00003cd6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000041bc        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000041bc                exit
-                0x000041bc                _exit
+ .fini9         0x00003cd6        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00003cd6                exit
+                0x00003cd6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -501,11 +503,11 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000041bc        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003cd6        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000041c0                _etext = .
+                0x00003cda                _etext = .
 
-.data           0x00800060      0x182 load address 0x000041c0
+.data           0x00800060      0x16e load address 0x00003cda
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -515,139 +517,140 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .data          0x00800060        0x0 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .data          0x00800060        0x0 ./MCAL/PORT/PORT.o
  .data          0x00800060        0x0 ./MCAL/PORT/PORT_cnf.o
- .data          0x00800060       0x15 ./MCAL/HICU/src/HICU_program.o
- .data          0x00800075        0x0 ./MCAL/GI/GI_program.o
- .data          0x00800075        0x0 ./MCAL/EXTI/src/EXTI_program.o
- .data          0x00800075        0x0 ./MCAL/DIO/DIO_program.o
- .data          0x00800075        0x0 ./HAL/LCD/LCD.o
- .data          0x00800075        0x0 ./main.o
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
- .data          0x00800075        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x00800075        0x8 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x00800075                __thenan_sf
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x0080007d        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .data          0x0080007d      0x100 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
-                0x0080007d                __clz_tab
+ .data          0x00800060        0x0 ./MCAL/HICU/src/HICU_program.o
+ .data          0x00800060        0x0 ./MCAL/GI/GI_program.o
+ .data          0x00800060        0x0 ./MCAL/EXTI/src/EXTI_program.o
+ .data          0x00800060        0x0 ./MCAL/DIO/DIO_program.o
+ .data          0x00800060        0x0 ./HAL/LCD/LCD.o
+ .data          0x00800060        0x2 ./main.o
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
+ .data          0x00800062        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x00800062        0x8 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x00800062                __thenan_sf
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x0080006a        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x0080006a      0x100 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+                0x0080006a                __clz_tab
  *(.data*)
- .data.pin_cfg  0x0080017d       0x63 ./MCAL/PORT/PORT_cnf.o
-                0x0080017d                pin_cfg
- .data.Local_u8EdgeFlag.1269
-                0x008001e0        0x1 ./MCAL/HICU/src/HICU_program.o
+ .data.pin_cfg  0x0080016a       0x63 ./MCAL/PORT/PORT_cnf.o
+                0x0080016a                pin_cfg
+ .data.Local_u8EdgeFlag.1265
+                0x008001cd        0x1 ./MCAL/HICU/src/HICU_program.o
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008001e2                . = ALIGN (0x2)
- *fill*         0x008001e1        0x1 00
-                0x008001e2                _edata = .
-                0x008001e2                PROVIDE (__data_end, .)
+                0x008001ce                . = ALIGN (0x2)
+                0x008001ce                _edata = .
+                0x008001ce                PROVIDE (__data_end, .)
 
-.bss            0x008001e2       0x2a
-                0x008001e2                PROVIDE (__bss_start, .)
+.bss            0x008001ce       0x2b
+                0x008001ce                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x008001e2        0x0 ./MCAL/WDT/src/WDT_program.o
- .bss           0x008001e2        0x0 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
- .bss           0x008001e2        0x0 ./MCAL/TIMERS/TIMER1/src/TMR1_program.o
- .bss           0x008001e2        0x0 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss           0x008001e2        0x0 ./MCAL/PORT/PORT.o
- .bss           0x008001e2        0x0 ./MCAL/PORT/PORT_cnf.o
- .bss           0x008001e2        0x0 ./MCAL/HICU/src/HICU_program.o
- .bss           0x008001e2        0x0 ./MCAL/GI/GI_program.o
- .bss           0x008001e2        0x0 ./MCAL/EXTI/src/EXTI_program.o
- .bss           0x008001e2        0x0 ./MCAL/DIO/DIO_program.o
- .bss           0x008001e2        0x0 ./HAL/LCD/LCD.o
- .bss           0x008001e2        0x0 ./main.o
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x008001e2        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008001ce        0x0 ./MCAL/WDT/src/WDT_program.o
+ .bss           0x008001ce        0x0 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+ .bss           0x008001ce        0x0 ./MCAL/TIMERS/TIMER1/src/TMR1_program.o
+ .bss           0x008001ce        0x0 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .bss           0x008001ce        0x0 ./MCAL/PORT/PORT.o
+ .bss           0x008001ce        0x0 ./MCAL/PORT/PORT_cnf.o
+ .bss           0x008001ce        0x0 ./MCAL/HICU/src/HICU_program.o
+ .bss           0x008001ce        0x0 ./MCAL/GI/GI_program.o
+ .bss           0x008001ce        0x0 ./MCAL/EXTI/src/EXTI_program.o
+ .bss           0x008001ce        0x0 ./MCAL/DIO/DIO_program.o
+ .bss           0x008001ce        0x0 ./HAL/LCD/LCD.o
+ .bss           0x008001ce        0x0 ./main.o
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_eq_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_le_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x008001ce        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
  *(.bss*)
  .bss.TMR2_privatePtrToCAllBackOVF
-                0x008001e2        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x008001ce        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.TMR2_privatePtrToCAllBackCTC
-                0x008001e4        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x008001d0        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.local_u16ovCounter.1296
-                0x008001e6        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x008001d2        0x2 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.local_u32CTCCounter.1312
-                0x008001e8        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x008001d4        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.private_ctcCounter
-                0x008001ec        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
+                0x008001d8        0x4 ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
  .bss.TMR0_privatePtrToCAllBackOVF
-                0x008001f0        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+                0x008001dc        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.TMR0_privatePtrToCAllBackCTC
-                0x008001f2        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+                0x008001de        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.local_u16ovCounter.1291
-                0x008001f4        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+                0x008001e0        0x2 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.local_u32CTCCounter.1307
-                0x008001f6        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+                0x008001e2        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
  .bss.private_ctcCounter
-                0x008001fa        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
- .bss.Local_u16CounterValue.1271
-                0x008001fe        0x2 ./MCAL/HICU/src/HICU_program.o
- .bss.Local_u16OldValue.1270
-                0x00800200        0x2 ./MCAL/HICU/src/HICU_program.o
+                0x008001e6        0x4 ./MCAL/TIMERS/TIMER0/src/TMR0_program.o
+ .bss.Local_u16CounterValue.1267
+                0x008001ea        0x2 ./MCAL/HICU/src/HICU_program.o
+ .bss.Local_u16OldValue.1266
+                0x008001ec        0x2 ./MCAL/HICU/src/HICU_program.o
  .bss.Private_u16OnPeriod
-                0x00800202        0x2 ./MCAL/HICU/src/HICU_program.o
+                0x008001ee        0x2 ./MCAL/HICU/src/HICU_program.o
  .bss.Private_u16OffPeriod
-                0x00800204        0x2 ./MCAL/HICU/src/HICU_program.o
+                0x008001f0        0x2 ./MCAL/HICU/src/HICU_program.o
  .bss.private_pCallBackINT0
-                0x00800206        0x2 ./MCAL/EXTI/src/EXTI_program.o
+                0x008001f2        0x2 ./MCAL/EXTI/src/EXTI_program.o
  .bss.private_pCallBackINT1
-                0x00800208        0x2 ./MCAL/EXTI/src/EXTI_program.o
+                0x008001f4        0x2 ./MCAL/EXTI/src/EXTI_program.o
  .bss.private_pCallBackINT2
-                0x0080020a        0x2 ./MCAL/EXTI/src/EXTI_program.o
+                0x008001f6        0x2 ./MCAL/EXTI/src/EXTI_program.o
+ .bss.current_pos
+                0x008001f8        0x1 ./HAL/LCD/LCD.o
  *(COMMON)
-                0x0080020c                PROVIDE (__bss_end, .)
-                0x000041c0                __data_load_start = LOADADDR (.data)
-                0x00004342                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008001f9                PROVIDE (__bss_end, .)
+                0x00003cda                __data_load_start = LOADADDR (.data)
+                0x00003e48                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080020c        0x0
-                0x0080020c                PROVIDE (__noinit_start, .)
+.noinit         0x008001f9        0x0
+                0x008001f9                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080020c                PROVIDE (__noinit_end, .)
-                0x0080020c                _end = .
-                0x0080020c                PROVIDE (__heap_start, .)
+                0x008001f9                PROVIDE (__noinit_end, .)
+                0x008001f9                _end = .
+                0x008001f9                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -665,7 +668,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x3bdc
+.stab           0x00000000     0x3b10
  *(.stab)
  .stab          0x00000000      0x300 ./MCAL/WDT/src/WDT_program.o
  .stab          0x00000300      0x51c ./MCAL/TIMERS/TIMER2/src/TMR2_program.o
@@ -678,22 +681,22 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                 0x570 (size before relaxing)
  .stab          0x000015e4      0x144 ./MCAL/PORT/PORT_cnf.o
                                 0x420 (size before relaxing)
- .stab          0x00001728      0x3cc ./MCAL/HICU/src/HICU_program.o
-                                0x3d8 (size before relaxing)
- .stab          0x00001af4      0x1c8 ./MCAL/GI/GI_program.o
+ .stab          0x00001728      0x390 ./MCAL/HICU/src/HICU_program.o
+                                0x39c (size before relaxing)
+ .stab          0x00001ab8      0x1c8 ./MCAL/GI/GI_program.o
                                 0x1d4 (size before relaxing)
- .stab          0x00001cbc      0x4a4 ./MCAL/EXTI/src/EXTI_program.o
+ .stab          0x00001c80      0x4a4 ./MCAL/EXTI/src/EXTI_program.o
                                 0x4b0 (size before relaxing)
- .stab          0x00002160      0x504 ./MCAL/DIO/DIO_program.o
+ .stab          0x00002124      0x504 ./MCAL/DIO/DIO_program.o
                                 0x6c0 (size before relaxing)
- .stab          0x00002664     0x1338 ./HAL/LCD/LCD.o
-                               0x14e8 (size before relaxing)
- .stab          0x0000399c      0x240 ./main.o
-                                0x4bc (size before relaxing)
+ .stab          0x00002628     0x10d4 ./HAL/LCD/LCD.o
+                               0x1290 (size before relaxing)
+ .stab          0x000036fc      0x414 ./main.o
+                                0x690 (size before relaxing)
 
-.stabstr        0x00000000     0x2248
+.stabstr        0x00000000     0x23c9
  *(.stabstr)
- .stabstr       0x00000000     0x2248 ./MCAL/WDT/src/WDT_program.o
+ .stabstr       0x00000000     0x23c9 ./MCAL/WDT/src/WDT_program.o
 
 .stab.excl
  *(.stab.excl)

@@ -15,28 +15,38 @@
 #include "MCAL/PORT/PORT.h"
 #include "MCAL/PORT/PORT_cnf.h"
 #include "avr/delay.h"
-
+#include "HAL/LCD/LCD.h"
 
 int main() {
 
 	u8 duty ; u16 freq;
 	Port_Init(pin_cfg);
 
+	LCD_Init();
 	GI_voidEnable();
-	Lcd_Init();
+
 	ICU_voidInit();
+	_delay_ms(20);
 
 	ICU_voidGetDutyCycle(&duty);
-	//Lcd_Clear();
-	//Lcd_PutString("Back from duty ");
+
 	ICU_voidGetFrequency(&freq);
 
-	//Lcd_Clear();
-//	Lcd_PutInt(duty);
-	//Lcd_PutChar("-");
-	//Lcd_PutInt(freq);
+	LCD_PutInt(duty);
+	LCD_PutString("F");
+	LCD_PutInt(freq);
+
 	while (1)
-	{
+	{	_delay_ms(10);
+
+		LCD_CLR();
+		ICU_voidGetDutyCycle(&duty);
+
+		ICU_voidGetFrequency(&freq);
+
+		LCD_PutInt(duty);
+		LCD_PutString("F");
+		LCD_PutInt(freq);
 
 	}
 

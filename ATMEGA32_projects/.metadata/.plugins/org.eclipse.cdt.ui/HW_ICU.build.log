@@ -1,12 +1,8 @@
-13:11:16 **** Incremental Build of configuration Debug for project HW_ICU ****
+19:24:46 **** Incremental Build of configuration Debug for project HW_ICU ****
 make all 
 Building file: ../MCAL/HICU/src/HICU_program.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/HICU/src/HICU_program.d" -MT"MCAL/HICU/src/HICU_program.o" -c -o "MCAL/HICU/src/HICU_program.o" "../MCAL/HICU/src/HICU_program.c"
-../MCAL/HICU/src/HICU_program.c:26:7: warning: extra tokens at end of #else directive
-../MCAL/HICU/src/HICU_program.c: In function 'ICU_voidGetDutyCycle':
-../MCAL/HICU/src/HICU_program.c:47: warning: implicit declaration of function 'Lcd_PutString'
-../MCAL/HICU/src/HICU_program.c:49: warning: implicit declaration of function 'Lcd_PutInt'
 Finished building: ../MCAL/HICU/src/HICU_program.c
  
 Building target: HW_ICU.elf
@@ -28,15 +24,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   17218 bytes (52.5% Full)
+Program:   15944 bytes (48.7% Full)
 (.text + .data + .bootloader)
 
-Data:        428 bytes (20.9% Full)
+Data:        409 bytes (20.0% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-13:11:17 Build Finished (took 865ms)
+19:24:47 Build Finished (took 739ms)
 

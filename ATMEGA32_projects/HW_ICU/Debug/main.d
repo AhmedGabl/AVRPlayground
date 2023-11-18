@@ -4,7 +4,8 @@ main.o main.o: ../main.c ../utils/BIT_MATH.h ../utils/STD_TYPES.h \
   ../MCAL/DIO/DIO_interface.h ../MCAL/DIO/../../utils/BIT_MATH.h \
   ../MCAL/DIO/../../utils/STD_TYPES.h ../MCAL/PORT/PORT.h \
   ../MCAL/PORT/PORT_cnf.h ../MCAL/PORT/../DIO/DIO_interface.h \
-  ../MCAL/PORT/PORT_cnf.h
+  ../MCAL/PORT/PORT_cnf.h ../HAL/LCD/LCD.h \
+  ../HAL/LCD/../../MCAL/PORT/PORT.h
 
 ../utils/BIT_MATH.h:
 
@@ -27,3 +28,7 @@ main.o main.o: ../main.c ../utils/BIT_MATH.h ../utils/STD_TYPES.h \
 ../MCAL/PORT/../DIO/DIO_interface.h:
 
 ../MCAL/PORT/PORT_cnf.h:
+
+../HAL/LCD/LCD.h:
+
+../HAL/LCD/../../MCAL/PORT/PORT.h:
