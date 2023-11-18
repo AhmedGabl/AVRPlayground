@@ -131,7 +131,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x56fc
+.text           0x00000000     0x5722
  *(.vectors)
  .vectors       0x00000000       0x54 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -530,27 +530,30 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                 0x00005456                ulTaskGenericNotifyValueClear
  .text.prvAddCurrentTaskToDelayedList
                 0x0000555a       0xcc ./FreeRTOS/Source/tasks.o
- .text.main     0x00005626       0x4e ./main.o
+ .text.main     0x00005626       0x6c ./main.o
                 0x00005626                main
- .text.LedIntro_code
-                0x00005674       0x3c ./main.o
-                0x00005674                LedIntro_code
- .text.libgcc   0x000056b0       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000056b0                __udivmodhi4
- .text.libgcc   0x000056d8        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000056d8        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000056d8        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.LedOn_code
+                0x00005692       0x1e ./main.o
+                0x00005692                LedOn_code
+ .text.LedOFF_code
+                0x000056b0       0x26 ./main.o
+                0x000056b0                LedOFF_code
+ .text.libgcc   0x000056d6       0x28 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000056d6                __udivmodhi4
+ .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000056fe        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x000056d8       0x12 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x000056d8                memcpy
+                0x000056fe       0x12 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x000056fe                memcpy
  .text.avr-libc
-                0x000056ea        0xe d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
-                0x000056ea                memset
-                0x000056f8                . = ALIGN (0x2)
+                0x00005710        0xe d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+                0x00005710                memset
+                0x0000571e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000056f8        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000056f8                exit
-                0x000056f8                _exit
+ .fini9         0x0000571e        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000571e                exit
+                0x0000571e                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -569,11 +572,11 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000056f8        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000571e        0x4 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000056fc                _etext = .
+                0x00005722                _etext = .
 
-.data           0x00800060        0xc load address 0x000056fc
+.data           0x00800060       0x12 load address 0x00005722
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -586,105 +589,108 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
  .data          0x00800060        0x0 ./FreeRTOS/Source/stream_buffer.o
  .data          0x00800060        0x5 ./FreeRTOS/Source/tasks.o
  .data          0x00800065        0x0 ./FreeRTOS/Source/timers.o
- .data          0x00800065        0x6 ./main.o
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
- .data          0x0080006b        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .data          0x00800065        0xc ./main.o
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .data          0x00800071        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
  *(.data*)
  .data.uxTopUsedPriority
-                0x0080006b        0x1 ./FreeRTOS/Source/tasks.o
-                0x0080006b                uxTopUsedPriority
+                0x00800071        0x1 ./FreeRTOS/Source/tasks.o
+                0x00800071                uxTopUsedPriority
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0080006c                . = ALIGN (0x2)
-                0x0080006c                _edata = .
-                0x0080006c                PROVIDE (__data_end, .)
+                0x00800072                . = ALIGN (0x2)
+                0x00800072                _edata = .
+                0x00800072                PROVIDE (__data_end, .)
 
-.bss            0x0080006c      0x640
-                0x0080006c                PROVIDE (__bss_start, .)
+.bss            0x00800072      0x642
+                0x00800072                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/portable/MemMang/heap_1.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/portable/GCC/ATMega323/port.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/croutine.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/event_groups.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/list.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/queue.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/stream_buffer.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/tasks.o
- .bss           0x0080006c        0x0 ./FreeRTOS/Source/timers.o
- .bss           0x0080006c        0x0 ./main.o
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
- .bss           0x0080006c        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/portable/MemMang/heap_1.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/portable/GCC/ATMega323/port.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/croutine.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/event_groups.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/list.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/queue.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/stream_buffer.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/tasks.o
+ .bss           0x00800072        0x0 ./FreeRTOS/Source/timers.o
+ .bss           0x00800072        0x0 ./main.o
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memcpy.o)
+ .bss           0x00800072        0x0 d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(memset.o)
  *(.bss*)
  .bss.xNextFreeByte
-                0x0080006c        0x2 ./FreeRTOS/Source/portable/MemMang/heap_1.o
+                0x00800072        0x2 ./FreeRTOS/Source/portable/MemMang/heap_1.o
  .bss.pucAlignedHeap.1666
-                0x0080006e        0x2 ./FreeRTOS/Source/portable/MemMang/heap_1.o
- .bss.ucHeap    0x00800070      0x5dc ./FreeRTOS/Source/portable/MemMang/heap_1.o
+                0x00800074        0x2 ./FreeRTOS/Source/portable/MemMang/heap_1.o
+ .bss.ucHeap    0x00800076      0x5dc ./FreeRTOS/Source/portable/MemMang/heap_1.o
  .bss.pxCurrentTCB
-                0x0080064c        0x2 ./FreeRTOS/Source/tasks.o
-                0x0080064c                pxCurrentTCB
+                0x00800652        0x2 ./FreeRTOS/Source/tasks.o
+                0x00800652                pxCurrentTCB
  .bss.uxDeletedTasksWaitingCleanUp
-                0x0080064e        0x1 ./FreeRTOS/Source/tasks.o
+                0x00800654        0x1 ./FreeRTOS/Source/tasks.o
  .bss.uxCurrentNumberOfTasks
-                0x0080064f        0x1 ./FreeRTOS/Source/tasks.o
+                0x00800655        0x1 ./FreeRTOS/Source/tasks.o
  .bss.xTickCount
-                0x00800650        0x2 ./FreeRTOS/Source/tasks.o
+                0x00800656        0x2 ./FreeRTOS/Source/tasks.o
  .bss.uxTopReadyPriority
-                0x00800652        0x1 ./FreeRTOS/Source/tasks.o
- .bss.xSchedulerRunning
-                0x00800653        0x1 ./FreeRTOS/Source/tasks.o
- .bss.xPendedTicks
-                0x00800654        0x2 ./FreeRTOS/Source/tasks.o
- .bss.xYieldPending
-                0x00800656        0x1 ./FreeRTOS/Source/tasks.o
- .bss.xNumOfOverflows
-                0x00800657        0x1 ./FreeRTOS/Source/tasks.o
- .bss.uxTaskNumber
                 0x00800658        0x1 ./FreeRTOS/Source/tasks.o
- .bss.xNextTaskUnblockTime
-                0x00800659        0x2 ./FreeRTOS/Source/tasks.o
- .bss.xIdleTaskHandle
-                0x0080065b        0x2 ./FreeRTOS/Source/tasks.o
- .bss.uxSchedulerSuspended
+ .bss.xSchedulerRunning
+                0x00800659        0x1 ./FreeRTOS/Source/tasks.o
+ .bss.xPendedTicks
+                0x0080065a        0x2 ./FreeRTOS/Source/tasks.o
+ .bss.xYieldPending
+                0x0080065c        0x1 ./FreeRTOS/Source/tasks.o
+ .bss.xNumOfOverflows
                 0x0080065d        0x1 ./FreeRTOS/Source/tasks.o
+ .bss.uxTaskNumber
+                0x0080065e        0x1 ./FreeRTOS/Source/tasks.o
+ .bss.xNextTaskUnblockTime
+                0x0080065f        0x2 ./FreeRTOS/Source/tasks.o
+ .bss.xIdleTaskHandle
+                0x00800661        0x2 ./FreeRTOS/Source/tasks.o
+ .bss.uxSchedulerSuspended
+                0x00800663        0x1 ./FreeRTOS/Source/tasks.o
  .bss.pxReadyTasksLists
-                0x0080065e       0x24 ./FreeRTOS/Source/tasks.o
+                0x00800664       0x24 ./FreeRTOS/Source/tasks.o
  .bss.xDelayedTaskList1
-                0x00800682        0x9 ./FreeRTOS/Source/tasks.o
+                0x00800688        0x9 ./FreeRTOS/Source/tasks.o
  .bss.xDelayedTaskList2
-                0x0080068b        0x9 ./FreeRTOS/Source/tasks.o
+                0x00800691        0x9 ./FreeRTOS/Source/tasks.o
  .bss.pxDelayedTaskList
-                0x00800694        0x2 ./FreeRTOS/Source/tasks.o
+                0x0080069a        0x2 ./FreeRTOS/Source/tasks.o
  .bss.pxOverflowDelayedTaskList
-                0x00800696        0x2 ./FreeRTOS/Source/tasks.o
+                0x0080069c        0x2 ./FreeRTOS/Source/tasks.o
  .bss.xPendingReadyList
-                0x00800698        0x9 ./FreeRTOS/Source/tasks.o
+                0x0080069e        0x9 ./FreeRTOS/Source/tasks.o
  .bss.xTasksWaitingTermination
-                0x008006a1        0x9 ./FreeRTOS/Source/tasks.o
+                0x008006a7        0x9 ./FreeRTOS/Source/tasks.o
  .bss.Task1Hand
-                0x008006aa        0x2 ./main.o
-                0x008006aa                Task1Hand
+                0x008006b0        0x2 ./main.o
+                0x008006b0                Task1Hand
+ .bss.Task2Hand
+                0x008006b2        0x2 ./main.o
+                0x008006b2                Task2Hand
  *(COMMON)
-                0x008006ac                PROVIDE (__bss_end, .)
-                0x000056fc                __data_load_start = LOADADDR (.data)
-                0x00005708                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008006b4                PROVIDE (__bss_end, .)
+                0x00005722                __data_load_start = LOADADDR (.data)
+                0x00005734                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008006ac        0x0
-                0x008006ac                PROVIDE (__noinit_start, .)
+.noinit         0x008006b4        0x0
+                0x008006b4                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008006ac                PROVIDE (__noinit_end, .)
-                0x008006ac                _end = .
-                0x008006ac                PROVIDE (__heap_start, .)
+                0x008006b4                PROVIDE (__noinit_end, .)
+                0x008006b4                _end = .
+                0x008006b4                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -702,7 +708,7 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x7ca4
+.stab           0x00000000     0x7cd4
  *(.stab)
  .stab          0x00000000      0x738 ./FreeRTOS/Source/portable/MemMang/heap_1.o
  .stab          0x00000738      0x894 ./FreeRTOS/Source/portable/GCC/ATMega323/port.o
@@ -721,12 +727,12 @@ LOAD d:/es_diploma/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\lib
                                0x29ac (size before relaxing)
  .stab          0x00007920      0x168 ./FreeRTOS/Source/timers.o
                                 0x630 (size before relaxing)
- .stab          0x00007a88      0x21c ./main.o
-                                0x69c (size before relaxing)
+ .stab          0x00007a88      0x24c ./main.o
+                                0x6cc (size before relaxing)
 
-.stabstr        0x00000000     0x4b72
+.stabstr        0x00000000     0x4b95
  *(.stabstr)
- .stabstr       0x00000000     0x4b72 ./FreeRTOS/Source/portable/MemMang/heap_1.o
+ .stabstr       0x00000000     0x4b95 ./FreeRTOS/Source/portable/MemMang/heap_1.o
 
 .stab.excl
  *(.stab.excl)

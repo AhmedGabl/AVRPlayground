@@ -3,15 +3,15 @@ OS_RTOS.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000056fc  00000000  00000000  00000094  2**1
+  0 .text         00005722  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000000c  00800060  000056fc  00005790  2**0
+  1 .data         00000012  00800060  00005722  000057b6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000640  0080006c  0080006c  0000579c  2**0
+  2 .bss          00000642  00800072  00800072  000057c8  2**0
                   ALLOC
-  3 .stab         00007ca4  00000000  00000000  0000579c  2**2
+  3 .stab         00007cd4  00000000  00000000  000057c8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00004b72  00000000  00000000  0000d440  2**0
+  4 .stabstr      00004b95  00000000  00000000  0000d49c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -51,8 +51,8 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	ec ef       	ldi	r30, 0xFC	; 252
-      68:	f6 e5       	ldi	r31, 0x56	; 86
+      66:	e2 e2       	ldi	r30, 0x22	; 34
+      68:	f7 e5       	ldi	r31, 0x57	; 87
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
 0000006c <.do_copy_data_loop>:
@@ -60,13 +60,13 @@ Disassembly of section .text:
       6e:	0d 92       	st	X+, r0
 
 00000070 <.do_copy_data_start>:
-      70:	ac 36       	cpi	r26, 0x6C	; 108
+      70:	a2 37       	cpi	r26, 0x72	; 114
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
 
 00000076 <__do_clear_bss>:
       76:	16 e0       	ldi	r17, 0x06	; 6
-      78:	ac e6       	ldi	r26, 0x6C	; 108
+      78:	a2 e7       	ldi	r26, 0x72	; 114
       7a:	b0 e0       	ldi	r27, 0x00	; 0
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -74,11 +74,11 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	ac 3a       	cpi	r26, 0xAC	; 172
+      80:	a4 3b       	cpi	r26, 0xB4	; 180
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 13 2b 	call	0x5626	; 0x5626 <main>
-      8a:	0c 94 7c 2b 	jmp	0x56f8	; 0x56f8 <_exit>
+      8a:	0c 94 8f 2b 	jmp	0x571e	; 0x571e <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -95,20 +95,20 @@ Disassembly of section .text:
       a2:	1a 82       	std	Y+2, r1	; 0x02
       a4:	19 82       	std	Y+1, r1	; 0x01
       a6:	0e 94 d8 1a 	call	0x35b0	; 0x35b0 <vTaskSuspendAll>
-      aa:	80 91 6e 00 	lds	r24, 0x006E
-      ae:	90 91 6f 00 	lds	r25, 0x006F
+      aa:	80 91 74 00 	lds	r24, 0x0074
+      ae:	90 91 75 00 	lds	r25, 0x0075
       b2:	00 97       	sbiw	r24, 0x00	; 0
       b4:	31 f4       	brne	.+12     	; 0xc2 <pvPortMalloc+0x30>
-      b6:	80 e7       	ldi	r24, 0x70	; 112
+      b6:	86 e7       	ldi	r24, 0x76	; 118
       b8:	90 e0       	ldi	r25, 0x00	; 0
-      ba:	90 93 6f 00 	sts	0x006F, r25
-      be:	80 93 6e 00 	sts	0x006E, r24
+      ba:	90 93 75 00 	sts	0x0075, r25
+      be:	80 93 74 00 	sts	0x0074, r24
       c2:	8b 81       	ldd	r24, Y+3	; 0x03
       c4:	9c 81       	ldd	r25, Y+4	; 0x04
       c6:	00 97       	sbiw	r24, 0x00	; 0
       c8:	99 f1       	breq	.+102    	; 0x130 <pvPortMalloc+0x9e>
-      ca:	80 91 6c 00 	lds	r24, 0x006C
-      ce:	90 91 6d 00 	lds	r25, 0x006D
+      ca:	80 91 72 00 	lds	r24, 0x0072
+      ce:	90 91 73 00 	lds	r25, 0x0073
       d2:	2b 81       	ldd	r18, Y+3	; 0x03
       d4:	3c 81       	ldd	r19, Y+4	; 0x04
       d6:	82 0f       	add	r24, r18
@@ -117,33 +117,33 @@ Disassembly of section .text:
       dc:	8b 3d       	cpi	r24, 0xDB	; 219
       de:	92 07       	cpc	r25, r18
       e0:	38 f5       	brcc	.+78     	; 0x130 <pvPortMalloc+0x9e>
-      e2:	20 91 6c 00 	lds	r18, 0x006C
-      e6:	30 91 6d 00 	lds	r19, 0x006D
+      e2:	20 91 72 00 	lds	r18, 0x0072
+      e6:	30 91 73 00 	lds	r19, 0x0073
       ea:	8b 81       	ldd	r24, Y+3	; 0x03
       ec:	9c 81       	ldd	r25, Y+4	; 0x04
       ee:	28 0f       	add	r18, r24
       f0:	39 1f       	adc	r19, r25
-      f2:	80 91 6c 00 	lds	r24, 0x006C
-      f6:	90 91 6d 00 	lds	r25, 0x006D
+      f2:	80 91 72 00 	lds	r24, 0x0072
+      f6:	90 91 73 00 	lds	r25, 0x0073
       fa:	82 17       	cp	r24, r18
       fc:	93 07       	cpc	r25, r19
       fe:	c0 f4       	brcc	.+48     	; 0x130 <pvPortMalloc+0x9e>
-     100:	20 91 6e 00 	lds	r18, 0x006E
-     104:	30 91 6f 00 	lds	r19, 0x006F
-     108:	80 91 6c 00 	lds	r24, 0x006C
-     10c:	90 91 6d 00 	lds	r25, 0x006D
+     100:	20 91 74 00 	lds	r18, 0x0074
+     104:	30 91 75 00 	lds	r19, 0x0075
+     108:	80 91 72 00 	lds	r24, 0x0072
+     10c:	90 91 73 00 	lds	r25, 0x0073
      110:	82 0f       	add	r24, r18
      112:	93 1f       	adc	r25, r19
      114:	9a 83       	std	Y+2, r25	; 0x02
      116:	89 83       	std	Y+1, r24	; 0x01
-     118:	20 91 6c 00 	lds	r18, 0x006C
-     11c:	30 91 6d 00 	lds	r19, 0x006D
+     118:	20 91 72 00 	lds	r18, 0x0072
+     11c:	30 91 73 00 	lds	r19, 0x0073
      120:	8b 81       	ldd	r24, Y+3	; 0x03
      122:	9c 81       	ldd	r25, Y+4	; 0x04
      124:	82 0f       	add	r24, r18
      126:	93 1f       	adc	r25, r19
-     128:	90 93 6d 00 	sts	0x006D, r25
-     12c:	80 93 6c 00 	sts	0x006C, r24
+     128:	90 93 73 00 	sts	0x0073, r25
+     12c:	80 93 72 00 	sts	0x0072, r24
      130:	0e 94 e4 1a 	call	0x35c8	; 0x35c8 <xTaskResumeAll>
      134:	89 81       	ldd	r24, Y+1	; 0x01
      136:	9a 81       	ldd	r25, Y+2	; 0x02
@@ -192,8 +192,8 @@ void vPortInitialiseBlocks( void )
      164:	de b7       	in	r29, 0x3e	; 62
     /* Only required when static memory is not cleared. */
     xNextFreeByte = ( size_t ) 0;
-     166:	10 92 6d 00 	sts	0x006D, r1
-     16a:	10 92 6c 00 	sts	0x006C, r1
+     166:	10 92 73 00 	sts	0x0073, r1
+     16a:	10 92 72 00 	sts	0x0072, r1
 }
      16e:	cf 91       	pop	r28
      170:	df 91       	pop	r29
@@ -209,8 +209,8 @@ size_t xPortGetFreeHeapSize( void )
      178:	cd b7       	in	r28, 0x3d	; 61
      17a:	de b7       	in	r29, 0x3e	; 62
     return( configADJUSTED_HEAP_SIZE - xNextFreeByte );
-     17c:	20 91 6c 00 	lds	r18, 0x006C
-     180:	30 91 6d 00 	lds	r19, 0x006D
+     17c:	20 91 72 00 	lds	r18, 0x0072
+     180:	30 91 73 00 	lds	r19, 0x0073
      184:	8b ed       	ldi	r24, 0xDB	; 219
      186:	95 e0       	ldi	r25, 0x05	; 5
      188:	82 1b       	sub	r24, r18
@@ -738,8 +738,8 @@ BaseType_t xPortStartScheduler( void )
 
 	/* Restore the context of the first task that is going to run. */
 	portRESTORE_CONTEXT();
-     4a4:	a0 91 4c 06 	lds	r26, 0x064C
-     4a8:	b0 91 4d 06 	lds	r27, 0x064D
+     4a4:	a0 91 52 06 	lds	r26, 0x0652
+     4a8:	b0 91 53 06 	lds	r27, 0x0653
      4ac:	cd 91       	ld	r28, X+
      4ae:	cd bf       	out	0x3d, r28	; 61
      4b0:	dd 91       	ld	r29, X+
@@ -851,8 +851,8 @@ void vPortYield( void )
      552:	df 93       	push	r29
      554:	ef 93       	push	r30
      556:	ff 93       	push	r31
-     558:	a0 91 4c 06 	lds	r26, 0x064C
-     55c:	b0 91 4d 06 	lds	r27, 0x064D
+     558:	a0 91 52 06 	lds	r26, 0x0652
+     55c:	b0 91 53 06 	lds	r27, 0x0653
      560:	0d b6       	in	r0, 0x3d	; 61
      562:	0d 92       	st	X+, r0
      564:	0e b6       	in	r0, 0x3e	; 62
@@ -860,8 +860,8 @@ void vPortYield( void )
 	vTaskSwitchContext();
      568:	0e 94 4d 1e 	call	0x3c9a	; 0x3c9a <vTaskSwitchContext>
 	portRESTORE_CONTEXT();
-     56c:	a0 91 4c 06 	lds	r26, 0x064C
-     570:	b0 91 4d 06 	lds	r27, 0x064D
+     56c:	a0 91 52 06 	lds	r26, 0x0652
+     570:	b0 91 53 06 	lds	r27, 0x0653
      574:	cd 91       	ld	r28, X+
      576:	cd bf       	out	0x3d, r28	; 61
      578:	dd 91       	ld	r29, X+
@@ -947,8 +947,8 @@ void vPortYieldFromTick( void )
      604:	df 93       	push	r29
      606:	ef 93       	push	r30
      608:	ff 93       	push	r31
-     60a:	a0 91 4c 06 	lds	r26, 0x064C
-     60e:	b0 91 4d 06 	lds	r27, 0x064D
+     60a:	a0 91 52 06 	lds	r26, 0x0652
+     60e:	b0 91 53 06 	lds	r27, 0x0653
      612:	0d b6       	in	r0, 0x3d	; 61
      614:	0d 92       	st	X+, r0
      616:	0e b6       	in	r0, 0x3e	; 62
@@ -962,8 +962,8 @@ void vPortYieldFromTick( void )
      622:	0e 94 4d 1e 	call	0x3c9a	; 0x3c9a <vTaskSwitchContext>
 	}
 	portRESTORE_CONTEXT();
-     626:	a0 91 4c 06 	lds	r26, 0x064C
-     62a:	b0 91 4d 06 	lds	r27, 0x064D
+     626:	a0 91 52 06 	lds	r26, 0x0652
+     62a:	b0 91 53 06 	lds	r27, 0x0653
      62e:	cd 91       	ld	r28, X+
      630:	cd bf       	out	0x3d, r28	; 61
      632:	dd 91       	ld	r29, X+
@@ -2964,7 +2964,7 @@ BaseType_t xQueueGenericReset( QueueHandle_t xQueue,
     1070:	8f ef       	ldi	r24, 0xFF	; 255
     1072:	9f e7       	ldi	r25, 0x7F	; 127
     1074:	b9 01       	movw	r22, r18
-    1076:	0e 94 58 2b 	call	0x56b0	; 0x56b0 <__udivmodhi4>
+    1076:	0e 94 6b 2b 	call	0x56d6	; 0x56d6 <__udivmodhi4>
     107a:	cb 01       	movw	r24, r22
     107c:	9c 01       	movw	r18, r24
     107e:	e9 81       	ldd	r30, Y+1	; 0x01
@@ -3180,7 +3180,7 @@ BaseType_t xQueueGenericReset( QueueHandle_t xQueue,
     11b6:	8f ef       	ldi	r24, 0xFF	; 255
     11b8:	9f e7       	ldi	r25, 0x7F	; 127
     11ba:	b9 01       	movw	r22, r18
-    11bc:	0e 94 58 2b 	call	0x56b0	; 0x56b0 <__udivmodhi4>
+    11bc:	0e 94 6b 2b 	call	0x56d6	; 0x56d6 <__udivmodhi4>
     11c0:	cb 01       	movw	r24, r22
     11c2:	9c 01       	movw	r18, r24
     11c4:	88 85       	ldd	r24, Y+8	; 0x08
@@ -5327,7 +5327,7 @@ static BaseType_t prvCopyDataToQueue( Queue_t * const pxQueue,
     1c08:	3e 81       	ldd	r19, Y+6	; 0x06
     1c0a:	cb 01       	movw	r24, r22
     1c0c:	b9 01       	movw	r22, r18
-    1c0e:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    1c0e:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
         pxQueue->pcWriteTo += pxQueue->uxItemSize;                                                       /*lint !e9016 Pointer arithmetic on char types ok, especially in this use case where it is the clearest way of conveying intent. */
     1c12:	eb 81       	ldd	r30, Y+3	; 0x03
     1c14:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -5388,7 +5388,7 @@ static BaseType_t prvCopyDataToQueue( Queue_t * const pxQueue,
     1c6e:	3e 81       	ldd	r19, Y+6	; 0x06
     1c70:	cb 01       	movw	r24, r22
     1c72:	b9 01       	movw	r22, r18
-    1c74:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    1c74:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
         pxQueue->u.xQueue.pcReadFrom -= pxQueue->uxItemSize;
     1c78:	eb 81       	ldd	r30, Y+3	; 0x03
     1c7a:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -5570,7 +5570,7 @@ static void prvCopyDataFromQueue( Queue_t * const pxQueue,
     1d7c:	9c 81       	ldd	r25, Y+4	; 0x04
     1d7e:	ba 01       	movw	r22, r20
     1d80:	a9 01       	movw	r20, r18
-    1d82:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    1d82:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
     }
 }
     1d86:	0f 90       	pop	r0
@@ -6175,7 +6175,7 @@ void vStreamBufferDelete( StreamBufferHandle_t xStreamBuffer )
     2048:	70 e0       	ldi	r23, 0x00	; 0
     204a:	4f e0       	ldi	r20, 0x0F	; 15
     204c:	50 e0       	ldi	r21, 0x00	; 0
-    204e:	0e 94 75 2b 	call	0x56ea	; 0x56ea <memset>
+    204e:	0e 94 88 2b 	call	0x5710	; 0x5710 <memset>
     }
 }
     2052:	0f 90       	pop	r0
@@ -8389,7 +8389,7 @@ static size_t prvWriteBytesToBuffer( StreamBuffer_t * const pxStreamBuffer,
     2c98:	49 81       	ldd	r20, Y+1	; 0x01
     2c9a:	5a 81       	ldd	r21, Y+2	; 0x02
     2c9c:	b9 01       	movw	r22, r18
-    2c9e:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    2c9e:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
 
     /* If the number of bytes written was less than the number that could be
      * written in the first write... */
@@ -8425,7 +8425,7 @@ static size_t prvWriteBytesToBuffer( StreamBuffer_t * const pxStreamBuffer,
     2cd2:	cb 01       	movw	r24, r22
     2cd4:	ba 01       	movw	r22, r20
     2cd6:	a9 01       	movw	r20, r18
-    2cd8:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    2cd8:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
     else
     {
         mtCOVERAGE_TEST_MARKER();
@@ -8565,7 +8565,7 @@ static size_t prvReadBytesFromBuffer( StreamBuffer_t * pxStreamBuffer,
     2da2:	3a 81       	ldd	r19, Y+2	; 0x02
     2da4:	ba 01       	movw	r22, r20
     2da6:	a9 01       	movw	r20, r18
-    2da8:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    2da8:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
 
     /* If the total number of wanted bytes is greater than the number
      * that could be read in the first read... */
@@ -8600,7 +8600,7 @@ static size_t prvReadBytesFromBuffer( StreamBuffer_t * pxStreamBuffer,
     2ddc:	cb 01       	movw	r24, r22
     2dde:	ba 01       	movw	r22, r20
     2de0:	a9 01       	movw	r20, r18
-    2de2:	0e 94 6c 2b 	call	0x56d8	; 0x56d8 <memcpy>
+    2de2:	0e 94 7f 2b 	call	0x56fe	; 0x56fe <memcpy>
     {
         mtCOVERAGE_TEST_MARKER();
     }
@@ -8781,7 +8781,7 @@ static size_t prvBytesInBuffer( const StreamBuffer_t * const pxStreamBuffer )
     2ee4:	70 e0       	ldi	r23, 0x00	; 0
     2ee6:	4f e0       	ldi	r20, 0x0F	; 15
     2ee8:	50 e0       	ldi	r21, 0x00	; 0
-    2eea:	0e 94 75 2b 	call	0x56ea	; 0x56ea <memset>
+    2eea:	0e 94 88 2b 	call	0x5710	; 0x5710 <memset>
     pxStreamBuffer->pucBuffer = pucBuffer;
     2eee:	e9 81       	ldd	r30, Y+1	; 0x01
     2ef0:	fa 81       	ldd	r31, Y+2	; 0x02
@@ -8906,7 +8906,7 @@ static size_t prvBytesInBuffer( const StreamBuffer_t * const pxStreamBuffer )
     2fa2:	70 e0       	ldi	r23, 0x00	; 0
     2fa4:	46 e2       	ldi	r20, 0x26	; 38
     2fa6:	50 e0       	ldi	r21, 0x00	; 0
-    2fa8:	0e 94 75 2b 	call	0x56ea	; 0x56ea <memset>
+    2fa8:	0e 94 88 2b 	call	0x5710	; 0x5710 <memset>
 
                     /* Store the stack location in the TCB. */
                     pxNewTCB->pxStack = pxStack;
@@ -9294,13 +9294,13 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     31a8:	0f 92       	push	r0
     {
         uxCurrentNumberOfTasks++;
-    31aa:	80 91 4f 06 	lds	r24, 0x064F
+    31aa:	80 91 55 06 	lds	r24, 0x0655
     31ae:	8f 5f       	subi	r24, 0xFF	; 255
-    31b0:	80 93 4f 06 	sts	0x064F, r24
+    31b0:	80 93 55 06 	sts	0x0655, r24
 
         if( pxCurrentTCB == NULL )
-    31b4:	80 91 4c 06 	lds	r24, 0x064C
-    31b8:	90 91 4d 06 	lds	r25, 0x064D
+    31b4:	80 91 52 06 	lds	r24, 0x0652
+    31b8:	90 91 53 06 	lds	r25, 0x0653
     31bc:	00 97       	sbiw	r24, 0x00	; 0
     31be:	69 f4       	brne	.+26     	; 0x31da <prvAddNewTaskToReadyList+0x46>
         {
@@ -9309,11 +9309,11 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
             pxCurrentTCB = pxNewTCB;
     31c0:	8b 81       	ldd	r24, Y+3	; 0x03
     31c2:	9c 81       	ldd	r25, Y+4	; 0x04
-    31c4:	90 93 4d 06 	sts	0x064D, r25
-    31c8:	80 93 4c 06 	sts	0x064C, r24
+    31c4:	90 93 53 06 	sts	0x0653, r25
+    31c8:	80 93 52 06 	sts	0x0652, r24
 
             if( uxCurrentNumberOfTasks == ( UBaseType_t ) 1 )
-    31cc:	80 91 4f 06 	lds	r24, 0x064F
+    31cc:	80 91 55 06 	lds	r24, 0x0655
     31d0:	81 30       	cpi	r24, 0x01	; 1
     31d2:	b9 f4       	brne	.+46     	; 0x3202 <prvAddNewTaskToReadyList+0x6e>
             {
@@ -9329,13 +9329,13 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
              * current task if it is the highest priority task to be created
              * so far. */
             if( xSchedulerRunning == pdFALSE )
-    31da:	80 91 53 06 	lds	r24, 0x0653
+    31da:	80 91 59 06 	lds	r24, 0x0659
     31de:	88 23       	and	r24, r24
     31e0:	81 f4       	brne	.+32     	; 0x3202 <prvAddNewTaskToReadyList+0x6e>
             {
                 if( pxCurrentTCB->uxPriority <= pxNewTCB->uxPriority )
-    31e2:	e0 91 4c 06 	lds	r30, 0x064C
-    31e6:	f0 91 4d 06 	lds	r31, 0x064D
+    31e2:	e0 91 52 06 	lds	r30, 0x0652
+    31e6:	f0 91 53 06 	lds	r31, 0x0653
     31ea:	96 89       	ldd	r25, Z+22	; 0x16
     31ec:	eb 81       	ldd	r30, Y+3	; 0x03
     31ee:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -9346,17 +9346,17 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
                     pxCurrentTCB = pxNewTCB;
     31f6:	8b 81       	ldd	r24, Y+3	; 0x03
     31f8:	9c 81       	ldd	r25, Y+4	; 0x04
-    31fa:	90 93 4d 06 	sts	0x064D, r25
-    31fe:	80 93 4c 06 	sts	0x064C, r24
+    31fa:	90 93 53 06 	sts	0x0653, r25
+    31fe:	80 93 52 06 	sts	0x0652, r24
             {
                 mtCOVERAGE_TEST_MARKER();
             }
         }
 
         uxTaskNumber++;
-    3202:	80 91 58 06 	lds	r24, 0x0658
+    3202:	80 91 5e 06 	lds	r24, 0x065E
     3206:	8f 5f       	subi	r24, 0xFF	; 255
-    3208:	80 93 58 06 	sts	0x0658, r24
+    3208:	80 93 5e 06 	sts	0x065E, r24
             pxNewTCB->uxTCBNumber = uxTaskNumber;
         }
         #endif /* configUSE_TRACE_FACILITY */
@@ -9366,13 +9366,13 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     320c:	eb 81       	ldd	r30, Y+3	; 0x03
     320e:	fc 81       	ldd	r31, Y+4	; 0x04
     3210:	96 89       	ldd	r25, Z+22	; 0x16
-    3212:	80 91 52 06 	lds	r24, 0x0652
+    3212:	80 91 58 06 	lds	r24, 0x0658
     3216:	89 17       	cp	r24, r25
     3218:	28 f4       	brcc	.+10     	; 0x3224 <prvAddNewTaskToReadyList+0x90>
     321a:	eb 81       	ldd	r30, Y+3	; 0x03
     321c:	fc 81       	ldd	r31, Y+4	; 0x04
     321e:	86 89       	ldd	r24, Z+22	; 0x16
-    3220:	80 93 52 06 	sts	0x0652, r24
+    3220:	80 93 58 06 	sts	0x0658, r24
     3224:	eb 81       	ldd	r30, Y+3	; 0x03
     3226:	fc 81       	ldd	r31, Y+4	; 0x04
     3228:	86 89       	ldd	r24, Z+22	; 0x16
@@ -9388,7 +9388,7 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     323c:	82 0f       	add	r24, r18
     323e:	93 1f       	adc	r25, r19
     3240:	fc 01       	movw	r30, r24
-    3242:	e2 5a       	subi	r30, 0xA2	; 162
+    3242:	ec 59       	subi	r30, 0x9C	; 156
     3244:	f9 4f       	sbci	r31, 0xF9	; 249
     3246:	81 81       	ldd	r24, Z+1	; 0x01
     3248:	92 81       	ldd	r25, Z+2	; 0x02
@@ -9439,7 +9439,7 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     32a2:	99 1f       	adc	r25, r25
     32a4:	82 0f       	add	r24, r18
     32a6:	93 1f       	adc	r25, r19
-    32a8:	82 5a       	subi	r24, 0xA2	; 162
+    32a8:	8c 59       	subi	r24, 0x9C	; 156
     32aa:	99 4f       	sbci	r25, 0xF9	; 249
     32ac:	eb 81       	ldd	r30, Y+3	; 0x03
     32ae:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -9460,7 +9460,7 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     32cc:	82 0f       	add	r24, r18
     32ce:	93 1f       	adc	r25, r19
     32d0:	fc 01       	movw	r30, r24
-    32d2:	e2 5a       	subi	r30, 0xA2	; 162
+    32d2:	ec 59       	subi	r30, 0x9C	; 156
     32d4:	f9 4f       	sbci	r31, 0xF9	; 249
     32d6:	80 81       	ld	r24, Z
     32d8:	8f 5f       	subi	r24, 0xFF	; 255
@@ -9473,15 +9473,15 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     32de:	0f be       	out	0x3f, r0	; 63
 
     if( xSchedulerRunning != pdFALSE )
-    32e0:	80 91 53 06 	lds	r24, 0x0653
+    32e0:	80 91 59 06 	lds	r24, 0x0659
     32e4:	88 23       	and	r24, r24
     32e6:	61 f0       	breq	.+24     	; 0x3300 <prvAddNewTaskToReadyList+0x16c>
     {
         /* If the created task is of a higher priority than the current task
          * then it should run now. */
         if( pxCurrentTCB->uxPriority < pxNewTCB->uxPriority )
-    32e8:	e0 91 4c 06 	lds	r30, 0x064C
-    32ec:	f0 91 4d 06 	lds	r31, 0x064D
+    32e8:	e0 91 52 06 	lds	r30, 0x0652
+    32ec:	f0 91 53 06 	lds	r31, 0x0653
     32f0:	96 89       	ldd	r25, Z+22	; 0x16
     32f2:	eb 81       	ldd	r30, Y+3	; 0x03
     32f4:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -9535,8 +9535,8 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     3328:	9c 81       	ldd	r25, Y+4	; 0x04
     332a:	00 97       	sbiw	r24, 0x00	; 0
     332c:	39 f4       	brne	.+14     	; 0x333c <vTaskDelete+0x2e>
-    332e:	80 91 4c 06 	lds	r24, 0x064C
-    3332:	90 91 4d 06 	lds	r25, 0x064D
+    332e:	80 91 52 06 	lds	r24, 0x0652
+    3332:	90 91 53 06 	lds	r25, 0x0653
     3336:	9e 83       	std	Y+6, r25	; 0x06
     3338:	8d 83       	std	Y+5, r24	; 0x05
     333a:	04 c0       	rjmp	.+8      	; 0x3344 <vTaskDelete+0x36>
@@ -9579,13 +9579,13 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
              * portPRE_TASK_DELETE_HOOK() as in the Windows port that macro will
              * not return. */
             uxTaskNumber++;
-    336c:	80 91 58 06 	lds	r24, 0x0658
+    336c:	80 91 5e 06 	lds	r24, 0x065E
     3370:	8f 5f       	subi	r24, 0xFF	; 255
-    3372:	80 93 58 06 	sts	0x0658, r24
+    3372:	80 93 5e 06 	sts	0x065E, r24
 
             if( pxTCB == pxCurrentTCB )
-    3376:	20 91 4c 06 	lds	r18, 0x064C
-    337a:	30 91 4d 06 	lds	r19, 0x064D
+    3376:	20 91 52 06 	lds	r18, 0x0652
+    337a:	30 91 53 06 	lds	r19, 0x0653
     337e:	89 81       	ldd	r24, Y+1	; 0x01
     3380:	9a 81       	ldd	r25, Y+2	; 0x02
     3382:	82 17       	cp	r24, r18
@@ -9602,7 +9602,7 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
     338c:	9c 01       	movw	r18, r24
     338e:	2e 5f       	subi	r18, 0xFE	; 254
     3390:	3f 4f       	sbci	r19, 0xFF	; 255
-    3392:	81 ea       	ldi	r24, 0xA1	; 161
+    3392:	87 ea       	ldi	r24, 0xA7	; 167
     3394:	96 e0       	ldi	r25, 0x06	; 6
     3396:	b9 01       	movw	r22, r18
     3398:	0e 94 1c 07 	call	0xe38	; 0xe38 <vListInsertEnd>
@@ -9611,9 +9611,9 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
                  * there is a task that has been deleted and that it should therefore
                  * check the xTasksWaitingTermination list. */
                 ++uxDeletedTasksWaitingCleanUp;
-    339c:	80 91 4e 06 	lds	r24, 0x064E
+    339c:	80 91 54 06 	lds	r24, 0x0654
     33a0:	8f 5f       	subi	r24, 0xFF	; 255
-    33a2:	80 93 4e 06 	sts	0x064E, r24
+    33a2:	80 93 54 06 	sts	0x0654, r24
     33a6:	07 c0       	rjmp	.+14     	; 0x33b6 <vTaskDelete+0xa8>
                  * required. */
                 portPRE_TASK_DELETE_HOOK( pxTCB, &xYieldPending );
@@ -9621,9 +9621,9 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
             else
             {
                 --uxCurrentNumberOfTasks;
-    33a8:	80 91 4f 06 	lds	r24, 0x064F
+    33a8:	80 91 55 06 	lds	r24, 0x0655
     33ac:	81 50       	subi	r24, 0x01	; 1
-    33ae:	80 93 4f 06 	sts	0x064F, r24
+    33ae:	80 93 55 06 	sts	0x0655, r24
                 traceTASK_DELETE( pxTCB );
 
                 /* Reset the next expected unblock time in case it referred to
@@ -9640,8 +9640,8 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
          * critical section. If a task deletes itself, prvDeleteTCB is called
          * from prvCheckTasksWaitingTermination which is called from Idle task. */
         if( pxTCB != pxCurrentTCB )
-    33ba:	20 91 4c 06 	lds	r18, 0x064C
-    33be:	30 91 4d 06 	lds	r19, 0x064D
+    33ba:	20 91 52 06 	lds	r18, 0x0652
+    33be:	30 91 53 06 	lds	r19, 0x0653
     33c2:	89 81       	ldd	r24, Y+1	; 0x01
     33c4:	9a 81       	ldd	r25, Y+2	; 0x02
     33c6:	82 17       	cp	r24, r18
@@ -9657,13 +9657,13 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
         /* Force a reschedule if it is the currently running task that has just
          * been deleted. */
         if( xSchedulerRunning != pdFALSE )
-    33d4:	80 91 53 06 	lds	r24, 0x0653
+    33d4:	80 91 59 06 	lds	r24, 0x0659
     33d8:	88 23       	and	r24, r24
     33da:	59 f0       	breq	.+22     	; 0x33f2 <vTaskDelete+0xe4>
         {
             if( pxTCB == pxCurrentTCB )
-    33dc:	20 91 4c 06 	lds	r18, 0x064C
-    33e0:	30 91 4d 06 	lds	r19, 0x064D
+    33dc:	20 91 52 06 	lds	r18, 0x0652
+    33e0:	30 91 53 06 	lds	r19, 0x0653
     33e4:	89 81       	ldd	r24, Y+1	; 0x01
     33e6:	9a 81       	ldd	r25, Y+2	; 0x02
     33e8:	82 17       	cp	r24, r18
@@ -9724,8 +9724,8 @@ static void prvAddNewTaskToReadyList( TCB_t * pxNewTCB )
             /* Minor optimisation.  The tick count cannot change in this
              * block. */
             const TickType_t xConstTickCount = xTickCount;
-    3426:	80 91 50 06 	lds	r24, 0x0650
-    342a:	90 91 51 06 	lds	r25, 0x0651
+    3426:	80 91 56 06 	lds	r24, 0x0656
+    342a:	90 91 57 06 	lds	r25, 0x0657
     342e:	9a 83       	std	Y+2, r25	; 0x02
     3430:	89 83       	std	Y+1, r24	; 0x01
 
@@ -9964,7 +9964,7 @@ void vTaskStartScheduler( void )
     3540:	92 e2       	ldi	r25, 0x22	; 34
     3542:	20 e6       	ldi	r18, 0x60	; 96
     3544:	30 e0       	ldi	r19, 0x00	; 0
-    3546:	eb e5       	ldi	r30, 0x5B	; 91
+    3546:	e1 e6       	ldi	r30, 0x61	; 97
     3548:	f6 e0       	ldi	r31, 0x06	; 6
     354a:	b9 01       	movw	r22, r18
     354c:	45 e5       	ldi	r20, 0x55	; 85
@@ -9999,14 +9999,14 @@ void vTaskStartScheduler( void )
         xNextTaskUnblockTime = portMAX_DELAY;
     3566:	8f ef       	ldi	r24, 0xFF	; 255
     3568:	9f ef       	ldi	r25, 0xFF	; 255
-    356a:	90 93 5a 06 	sts	0x065A, r25
-    356e:	80 93 59 06 	sts	0x0659, r24
+    356a:	90 93 60 06 	sts	0x0660, r25
+    356e:	80 93 5f 06 	sts	0x065F, r24
         xSchedulerRunning = pdTRUE;
     3572:	81 e0       	ldi	r24, 0x01	; 1
-    3574:	80 93 53 06 	sts	0x0653, r24
+    3574:	80 93 59 06 	sts	0x0659, r24
         xTickCount = ( TickType_t ) configINITIAL_TICK_COUNT;
-    3578:	10 92 51 06 	sts	0x0651, r1
-    357c:	10 92 50 06 	sts	0x0650, r1
+    3578:	10 92 57 06 	sts	0x0657, r1
+    357c:	10 92 56 06 	sts	0x0656, r1
 
         traceTASK_SWITCHED_IN();
 
@@ -10020,7 +10020,7 @@ void vTaskStartScheduler( void )
     /* OpenOCD makes use of uxTopUsedPriority for thread debugging. Prevent uxTopUsedPriority
      * from getting optimized out as it is no longer used by the kernel. */
     ( void ) uxTopUsedPriority;
-    3584:	80 91 6b 00 	lds	r24, 0x006B
+    3584:	80 91 71 00 	lds	r24, 0x0071
 }
     3588:	0f 90       	pop	r0
     358a:	0f 90       	pop	r0
@@ -10046,7 +10046,7 @@ void vTaskEndScheduler( void )
     portDISABLE_INTERRUPTS();
     35a0:	f8 94       	cli
     xSchedulerRunning = pdFALSE;
-    35a2:	10 92 53 06 	sts	0x0653, r1
+    35a2:	10 92 59 06 	sts	0x0659, r1
     vPortEndScheduler();
     35a6:	0e 94 81 02 	call	0x502	; 0x502 <vPortEndScheduler>
 }
@@ -10069,9 +10069,9 @@ void vTaskSuspendAll( void )
     /* The scheduler is suspended if uxSchedulerSuspended is non-zero.  An increment
      * is used to allow calls to vTaskSuspendAll() to nest. */
     ++uxSchedulerSuspended;
-    35b8:	80 91 5d 06 	lds	r24, 0x065D
+    35b8:	80 91 63 06 	lds	r24, 0x0663
     35bc:	8f 5f       	subi	r24, 0xFF	; 255
-    35be:	80 93 5d 06 	sts	0x065D, r24
+    35be:	80 93 63 06 	sts	0x0663, r24
 
     /* Enforces ordering for ports and optimised compilers that may otherwise place
      * the above increment elsewhere. */
@@ -10114,18 +10114,18 @@ BaseType_t xTaskResumeAll( void )
     35e6:	0f 92       	push	r0
     {
         --uxSchedulerSuspended;
-    35e8:	80 91 5d 06 	lds	r24, 0x065D
+    35e8:	80 91 63 06 	lds	r24, 0x0663
     35ec:	81 50       	subi	r24, 0x01	; 1
-    35ee:	80 93 5d 06 	sts	0x065D, r24
+    35ee:	80 93 63 06 	sts	0x0663, r24
 
         if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
-    35f2:	80 91 5d 06 	lds	r24, 0x065D
+    35f2:	80 91 63 06 	lds	r24, 0x0663
     35f6:	88 23       	and	r24, r24
     35f8:	09 f0       	breq	.+2      	; 0x35fc <xTaskResumeAll+0x34>
     35fa:	2a c1       	rjmp	.+596    	; 0x3850 <xTaskResumeAll+0x288>
         {
             if( uxCurrentNumberOfTasks > ( UBaseType_t ) 0U )
-    35fc:	80 91 4f 06 	lds	r24, 0x064F
+    35fc:	80 91 55 06 	lds	r24, 0x0655
     3600:	88 23       	and	r24, r24
     3602:	09 f4       	brne	.+2      	; 0x3606 <xTaskResumeAll+0x3e>
     3604:	25 c1       	rjmp	.+586    	; 0x3850 <xTaskResumeAll+0x288>
@@ -10136,8 +10136,8 @@ BaseType_t xTaskResumeAll( void )
                 while( listLIST_IS_EMPTY( &xPendingReadyList ) == pdFALSE )
                 {
                     pxTCB = listGET_OWNER_OF_HEAD_ENTRY( ( &xPendingReadyList ) ); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
-    3608:	e0 91 9d 06 	lds	r30, 0x069D
-    360c:	f0 91 9e 06 	lds	r31, 0x069E
+    3608:	e0 91 a3 06 	lds	r30, 0x06A3
+    360c:	f0 91 a4 06 	lds	r31, 0x06A4
     3610:	86 81       	ldd	r24, Z+6	; 0x06
     3612:	97 81       	ldd	r25, Z+7	; 0x07
     3614:	9b 87       	std	Y+11, r25	; 0x0b
@@ -10267,13 +10267,13 @@ BaseType_t xTaskResumeAll( void )
     3704:	ea 85       	ldd	r30, Y+10	; 0x0a
     3706:	fb 85       	ldd	r31, Y+11	; 0x0b
     3708:	96 89       	ldd	r25, Z+22	; 0x16
-    370a:	80 91 52 06 	lds	r24, 0x0652
+    370a:	80 91 58 06 	lds	r24, 0x0658
     370e:	89 17       	cp	r24, r25
     3710:	28 f4       	brcc	.+10     	; 0x371c <xTaskResumeAll+0x154>
     3712:	ea 85       	ldd	r30, Y+10	; 0x0a
     3714:	fb 85       	ldd	r31, Y+11	; 0x0b
     3716:	86 89       	ldd	r24, Z+22	; 0x16
-    3718:	80 93 52 06 	sts	0x0652, r24
+    3718:	80 93 58 06 	sts	0x0658, r24
     371c:	ea 85       	ldd	r30, Y+10	; 0x0a
     371e:	fb 85       	ldd	r31, Y+11	; 0x0b
     3720:	86 89       	ldd	r24, Z+22	; 0x16
@@ -10289,7 +10289,7 @@ BaseType_t xTaskResumeAll( void )
     3734:	82 0f       	add	r24, r18
     3736:	93 1f       	adc	r25, r19
     3738:	fc 01       	movw	r30, r24
-    373a:	e2 5a       	subi	r30, 0xA2	; 162
+    373a:	ec 59       	subi	r30, 0x9C	; 156
     373c:	f9 4f       	sbci	r31, 0xF9	; 249
     373e:	81 81       	ldd	r24, Z+1	; 0x01
     3740:	92 81       	ldd	r25, Z+2	; 0x02
@@ -10340,7 +10340,7 @@ BaseType_t xTaskResumeAll( void )
     379a:	99 1f       	adc	r25, r25
     379c:	82 0f       	add	r24, r18
     379e:	93 1f       	adc	r25, r19
-    37a0:	82 5a       	subi	r24, 0xA2	; 162
+    37a0:	8c 59       	subi	r24, 0x9C	; 156
     37a2:	99 4f       	sbci	r25, 0xF9	; 249
     37a4:	ea 85       	ldd	r30, Y+10	; 0x0a
     37a6:	fb 85       	ldd	r31, Y+11	; 0x0b
@@ -10361,7 +10361,7 @@ BaseType_t xTaskResumeAll( void )
     37c4:	82 0f       	add	r24, r18
     37c6:	93 1f       	adc	r25, r19
     37c8:	fc 01       	movw	r30, r24
-    37ca:	e2 5a       	subi	r30, 0xA2	; 162
+    37ca:	ec 59       	subi	r30, 0x9C	; 156
     37cc:	f9 4f       	sbci	r31, 0xF9	; 249
     37ce:	80 81       	ld	r24, Z
     37d0:	8f 5f       	subi	r24, 0xFF	; 255
@@ -10373,22 +10373,22 @@ BaseType_t xTaskResumeAll( void )
     37d4:	ea 85       	ldd	r30, Y+10	; 0x0a
     37d6:	fb 85       	ldd	r31, Y+11	; 0x0b
     37d8:	96 89       	ldd	r25, Z+22	; 0x16
-    37da:	e0 91 4c 06 	lds	r30, 0x064C
-    37de:	f0 91 4d 06 	lds	r31, 0x064D
+    37da:	e0 91 52 06 	lds	r30, 0x0652
+    37de:	f0 91 53 06 	lds	r31, 0x0653
     37e2:	86 89       	ldd	r24, Z+22	; 0x16
     37e4:	98 17       	cp	r25, r24
     37e6:	18 f0       	brcs	.+6      	; 0x37ee <xTaskResumeAll+0x226>
                     {
                         xYieldPending = pdTRUE;
     37e8:	81 e0       	ldi	r24, 0x01	; 1
-    37ea:	80 93 56 06 	sts	0x0656, r24
+    37ea:	80 93 5c 06 	sts	0x065C, r24
         {
             if( uxCurrentNumberOfTasks > ( UBaseType_t ) 0U )
             {
                 /* Move any readied tasks from the pending list into the
                  * appropriate ready list. */
                 while( listLIST_IS_EMPTY( &xPendingReadyList ) == pdFALSE )
-    37ee:	80 91 98 06 	lds	r24, 0x0698
+    37ee:	80 91 9e 06 	lds	r24, 0x069E
     37f2:	88 23       	and	r24, r24
     37f4:	09 f0       	breq	.+2      	; 0x37f8 <xTaskResumeAll+0x230>
     37f6:	08 cf       	rjmp	.-496    	; 0x3608 <xTaskResumeAll+0x40>
@@ -10415,8 +10415,8 @@ BaseType_t xTaskResumeAll( void )
                  * time. */
                 {
                     TickType_t xPendedCounts = xPendedTicks; /* Non-volatile copy. */
-    3804:	80 91 54 06 	lds	r24, 0x0654
-    3808:	90 91 55 06 	lds	r25, 0x0655
+    3804:	80 91 5a 06 	lds	r24, 0x065A
+    3808:	90 91 5b 06 	lds	r25, 0x065B
     380c:	9a 83       	std	Y+2, r25	; 0x02
     380e:	89 83       	std	Y+1, r24	; 0x01
 
@@ -10435,7 +10435,7 @@ BaseType_t xTaskResumeAll( void )
                             {
                                 xYieldPending = pdTRUE;
     3820:	81 e0       	ldi	r24, 0x01	; 1
-    3822:	80 93 56 06 	sts	0x0656, r24
+    3822:	80 93 5c 06 	sts	0x065C, r24
                             else
                             {
                                 mtCOVERAGE_TEST_MARKER();
@@ -10454,15 +10454,15 @@ BaseType_t xTaskResumeAll( void )
     3836:	81 f7       	brne	.-32     	; 0x3818 <xTaskResumeAll+0x250>
 
                         xPendedTicks = 0;
-    3838:	10 92 55 06 	sts	0x0655, r1
-    383c:	10 92 54 06 	sts	0x0654, r1
+    3838:	10 92 5b 06 	sts	0x065B, r1
+    383c:	10 92 5a 06 	sts	0x065A, r1
                     {
                         mtCOVERAGE_TEST_MARKER();
                     }
                 }
 
                 if( xYieldPending != pdFALSE )
-    3840:	80 91 56 06 	lds	r24, 0x0656
+    3840:	80 91 5c 06 	lds	r24, 0x065C
     3844:	88 23       	and	r24, r24
     3846:	21 f0       	breq	.+8      	; 0x3850 <xTaskResumeAll+0x288>
                 {
@@ -10516,8 +10516,8 @@ TickType_t xTaskGetTickCount( void )
     3876:	0f 92       	push	r0
     {
         xTicks = xTickCount;
-    3878:	80 91 50 06 	lds	r24, 0x0650
-    387c:	90 91 51 06 	lds	r25, 0x0651
+    3878:	80 91 56 06 	lds	r24, 0x0656
+    387c:	90 91 57 06 	lds	r25, 0x0657
     3880:	9a 83       	std	Y+2, r25	; 0x02
     3882:	89 83       	std	Y+1, r24	; 0x01
     }
@@ -10555,8 +10555,8 @@ TickType_t xTaskGetTickCountFromISR( void )
     38a2:	19 82       	std	Y+1, r1	; 0x01
     {
         xReturn = xTickCount;
-    38a4:	80 91 50 06 	lds	r24, 0x0650
-    38a8:	90 91 51 06 	lds	r25, 0x0651
+    38a4:	80 91 56 06 	lds	r24, 0x0656
+    38a8:	90 91 57 06 	lds	r25, 0x0657
     38ac:	9b 83       	std	Y+3, r25	; 0x03
     38ae:	8a 83       	std	Y+2, r24	; 0x02
     }
@@ -10585,7 +10585,7 @@ UBaseType_t uxTaskGetNumberOfTasks( void )
     /* A critical section is not required because the variables are of type
      * BaseType_t. */
     return uxCurrentNumberOfTasks;
-    38c8:	80 91 4f 06 	lds	r24, 0x064F
+    38c8:	80 91 55 06 	lds	r24, 0x0655
 }
     38cc:	cf 91       	pop	r28
     38ce:	df 91       	pop	r29
@@ -10614,8 +10614,8 @@ char * pcTaskGetName( TaskHandle_t xTaskToQuery ) /*lint !e971 Unqualified char 
     38e6:	9c 81       	ldd	r25, Y+4	; 0x04
     38e8:	00 97       	sbiw	r24, 0x00	; 0
     38ea:	39 f4       	brne	.+14     	; 0x38fa <pcTaskGetName+0x28>
-    38ec:	80 91 4c 06 	lds	r24, 0x064C
-    38f0:	90 91 4d 06 	lds	r25, 0x064D
+    38ec:	80 91 52 06 	lds	r24, 0x0652
+    38f0:	90 91 53 06 	lds	r25, 0x0653
     38f4:	9e 83       	std	Y+6, r25	; 0x06
     38f6:	8d 83       	std	Y+5, r24	; 0x05
     38f8:	04 c0       	rjmp	.+8      	; 0x3902 <pcTaskGetName+0x30>
@@ -10673,14 +10673,14 @@ BaseType_t xTaskCatchUpTicks( TickType_t xTicksToCatchUp )
     393a:	0f 92       	push	r0
     {
         xPendedTicks += xTicksToCatchUp;
-    393c:	20 91 54 06 	lds	r18, 0x0654
-    3940:	30 91 55 06 	lds	r19, 0x0655
+    393c:	20 91 5a 06 	lds	r18, 0x065A
+    3940:	30 91 5b 06 	lds	r19, 0x065B
     3944:	8a 81       	ldd	r24, Y+2	; 0x02
     3946:	9b 81       	ldd	r25, Y+3	; 0x03
     3948:	82 0f       	add	r24, r18
     394a:	93 1f       	adc	r25, r19
-    394c:	90 93 55 06 	sts	0x0655, r25
-    3950:	80 93 54 06 	sts	0x0654, r24
+    394c:	90 93 5b 06 	sts	0x065B, r25
+    3950:	80 93 5a 06 	sts	0x065A, r24
     }
     taskEXIT_CRITICAL();
     3954:	0f 90       	pop	r0
@@ -10726,7 +10726,7 @@ BaseType_t xTaskIncrementTick( void )
     traceTASK_INCREMENT_TICK( xTickCount );
 
     if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
-    3982:	80 91 5d 06 	lds	r24, 0x065D
+    3982:	80 91 63 06 	lds	r24, 0x0663
     3986:	88 23       	and	r24, r24
     3988:	09 f0       	breq	.+2      	; 0x398c <xTaskIncrementTick+0x20>
     398a:	74 c1       	rjmp	.+744    	; 0x3c74 <xTaskIncrementTick+0x308>
@@ -10734,8 +10734,8 @@ BaseType_t xTaskIncrementTick( void )
         /* Minor optimisation.  The tick count cannot change in this
          * block. */
         const TickType_t xConstTickCount = xTickCount + ( TickType_t ) 1;
-    398c:	80 91 50 06 	lds	r24, 0x0650
-    3990:	90 91 51 06 	lds	r25, 0x0651
+    398c:	80 91 56 06 	lds	r24, 0x0656
+    3990:	90 91 57 06 	lds	r25, 0x0657
     3994:	01 96       	adiw	r24, 0x01	; 1
     3996:	9a 87       	std	Y+10, r25	; 0x0a
     3998:	89 87       	std	Y+9, r24	; 0x09
@@ -10745,8 +10745,8 @@ BaseType_t xTaskIncrementTick( void )
         xTickCount = xConstTickCount;
     399a:	89 85       	ldd	r24, Y+9	; 0x09
     399c:	9a 85       	ldd	r25, Y+10	; 0x0a
-    399e:	90 93 51 06 	sts	0x0651, r25
-    39a2:	80 93 50 06 	sts	0x0650, r24
+    399e:	90 93 57 06 	sts	0x0657, r25
+    39a2:	80 93 56 06 	sts	0x0656, r24
 
         if( xConstTickCount == ( TickType_t ) 0U ) /*lint !e774 'if' does not always evaluate to false as it is looking for an overflow. */
     39a6:	89 85       	ldd	r24, Y+9	; 0x09
@@ -10755,21 +10755,21 @@ BaseType_t xTaskIncrementTick( void )
     39ac:	d9 f4       	brne	.+54     	; 0x39e4 <xTaskIncrementTick+0x78>
         {
             taskSWITCH_DELAYED_LISTS();
-    39ae:	80 91 94 06 	lds	r24, 0x0694
-    39b2:	90 91 95 06 	lds	r25, 0x0695
+    39ae:	80 91 9a 06 	lds	r24, 0x069A
+    39b2:	90 91 9b 06 	lds	r25, 0x069B
     39b6:	98 87       	std	Y+8, r25	; 0x08
     39b8:	8f 83       	std	Y+7, r24	; 0x07
-    39ba:	80 91 96 06 	lds	r24, 0x0696
-    39be:	90 91 97 06 	lds	r25, 0x0697
-    39c2:	90 93 95 06 	sts	0x0695, r25
-    39c6:	80 93 94 06 	sts	0x0694, r24
+    39ba:	80 91 9c 06 	lds	r24, 0x069C
+    39be:	90 91 9d 06 	lds	r25, 0x069D
+    39c2:	90 93 9b 06 	sts	0x069B, r25
+    39c6:	80 93 9a 06 	sts	0x069A, r24
     39ca:	8f 81       	ldd	r24, Y+7	; 0x07
     39cc:	98 85       	ldd	r25, Y+8	; 0x08
-    39ce:	90 93 97 06 	sts	0x0697, r25
-    39d2:	80 93 96 06 	sts	0x0696, r24
-    39d6:	80 91 57 06 	lds	r24, 0x0657
+    39ce:	90 93 9d 06 	sts	0x069D, r25
+    39d2:	80 93 9c 06 	sts	0x069C, r24
+    39d6:	80 91 5d 06 	lds	r24, 0x065D
     39da:	8f 5f       	subi	r24, 0xFF	; 255
-    39dc:	80 93 57 06 	sts	0x0657, r24
+    39dc:	80 93 5d 06 	sts	0x065D, r24
     39e0:	0e 94 cd 22 	call	0x459a	; 0x459a <prvResetNextTaskUnblockTime>
 
         /* See if this tick has made a timeout expire.  Tasks are stored in
@@ -10777,8 +10777,8 @@ BaseType_t xTaskIncrementTick( void )
          * has been found whose block time has not expired there is no need to
          * look any further down the list. */
         if( xConstTickCount >= xNextTaskUnblockTime )
-    39e4:	20 91 59 06 	lds	r18, 0x0659
-    39e8:	30 91 5a 06 	lds	r19, 0x065A
+    39e4:	20 91 5f 06 	lds	r18, 0x065F
+    39e8:	30 91 60 06 	lds	r19, 0x0660
     39ec:	89 85       	ldd	r24, Y+9	; 0x09
     39ee:	9a 85       	ldd	r25, Y+10	; 0x0a
     39f0:	82 17       	cp	r24, r18
@@ -10789,8 +10789,8 @@ BaseType_t xTaskIncrementTick( void )
             for( ; ; )
             {
                 if( listLIST_IS_EMPTY( pxDelayedTaskList ) != pdFALSE )
-    39f8:	e0 91 94 06 	lds	r30, 0x0694
-    39fc:	f0 91 95 06 	lds	r31, 0x0695
+    39f8:	e0 91 9a 06 	lds	r30, 0x069A
+    39fc:	f0 91 9b 06 	lds	r31, 0x069B
     3a00:	80 81       	ld	r24, Z
     3a02:	88 23       	and	r24, r24
     3a04:	39 f4       	brne	.+14     	; 0x3a14 <xTaskIncrementTick+0xa8>
@@ -10802,8 +10802,8 @@ BaseType_t xTaskIncrementTick( void )
                     xNextTaskUnblockTime = portMAX_DELAY; /*lint !e961 MISRA exception as the casts are only redundant for some ports. */
     3a06:	8f ef       	ldi	r24, 0xFF	; 255
     3a08:	9f ef       	ldi	r25, 0xFF	; 255
-    3a0a:	90 93 5a 06 	sts	0x065A, r25
-    3a0e:	80 93 59 06 	sts	0x0659, r24
+    3a0a:	90 93 60 06 	sts	0x0660, r25
+    3a0e:	80 93 5f 06 	sts	0x065F, r24
     3a12:	11 c1       	rjmp	.+546    	; 0x3c36 <xTaskIncrementTick+0x2ca>
                 {
                     /* The delayed list is not empty, get the value of the
@@ -10811,8 +10811,8 @@ BaseType_t xTaskIncrementTick( void )
                      * at which the task at the head of the delayed list must
                      * be removed from the Blocked state. */
                     pxTCB = listGET_OWNER_OF_HEAD_ENTRY( pxDelayedTaskList ); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
-    3a14:	e0 91 94 06 	lds	r30, 0x0694
-    3a18:	f0 91 95 06 	lds	r31, 0x0695
+    3a14:	e0 91 9a 06 	lds	r30, 0x069A
+    3a18:	f0 91 9b 06 	lds	r31, 0x069B
     3a1c:	05 80       	ldd	r0, Z+5	; 0x05
     3a1e:	f6 81       	ldd	r31, Z+6	; 0x06
     3a20:	e0 2d       	mov	r30, r0
@@ -10844,8 +10844,8 @@ BaseType_t xTaskIncrementTick( void )
                         xNextTaskUnblockTime = xItemValue;
     3a44:	8c 85       	ldd	r24, Y+12	; 0x0c
     3a46:	9d 85       	ldd	r25, Y+13	; 0x0d
-    3a48:	90 93 5a 06 	sts	0x065A, r25
-    3a4c:	80 93 59 06 	sts	0x0659, r24
+    3a48:	90 93 60 06 	sts	0x0660, r25
+    3a4c:	80 93 5f 06 	sts	0x065F, r24
     3a50:	f2 c0       	rjmp	.+484    	; 0x3c36 <xTaskIncrementTick+0x2ca>
                     {
                         mtCOVERAGE_TEST_MARKER();
@@ -10992,13 +10992,13 @@ BaseType_t xTaskIncrementTick( void )
     3b4a:	ee 85       	ldd	r30, Y+14	; 0x0e
     3b4c:	ff 85       	ldd	r31, Y+15	; 0x0f
     3b4e:	96 89       	ldd	r25, Z+22	; 0x16
-    3b50:	80 91 52 06 	lds	r24, 0x0652
+    3b50:	80 91 58 06 	lds	r24, 0x0658
     3b54:	89 17       	cp	r24, r25
     3b56:	28 f4       	brcc	.+10     	; 0x3b62 <xTaskIncrementTick+0x1f6>
     3b58:	ee 85       	ldd	r30, Y+14	; 0x0e
     3b5a:	ff 85       	ldd	r31, Y+15	; 0x0f
     3b5c:	86 89       	ldd	r24, Z+22	; 0x16
-    3b5e:	80 93 52 06 	sts	0x0652, r24
+    3b5e:	80 93 58 06 	sts	0x0658, r24
     3b62:	ee 85       	ldd	r30, Y+14	; 0x0e
     3b64:	ff 85       	ldd	r31, Y+15	; 0x0f
     3b66:	86 89       	ldd	r24, Z+22	; 0x16
@@ -11014,7 +11014,7 @@ BaseType_t xTaskIncrementTick( void )
     3b7a:	82 0f       	add	r24, r18
     3b7c:	93 1f       	adc	r25, r19
     3b7e:	fc 01       	movw	r30, r24
-    3b80:	e2 5a       	subi	r30, 0xA2	; 162
+    3b80:	ec 59       	subi	r30, 0x9C	; 156
     3b82:	f9 4f       	sbci	r31, 0xF9	; 249
     3b84:	81 81       	ldd	r24, Z+1	; 0x01
     3b86:	92 81       	ldd	r25, Z+2	; 0x02
@@ -11065,7 +11065,7 @@ BaseType_t xTaskIncrementTick( void )
     3be0:	99 1f       	adc	r25, r25
     3be2:	82 0f       	add	r24, r18
     3be4:	93 1f       	adc	r25, r19
-    3be6:	82 5a       	subi	r24, 0xA2	; 162
+    3be6:	8c 59       	subi	r24, 0x9C	; 156
     3be8:	99 4f       	sbci	r25, 0xF9	; 249
     3bea:	ee 85       	ldd	r30, Y+14	; 0x0e
     3bec:	ff 85       	ldd	r31, Y+15	; 0x0f
@@ -11086,7 +11086,7 @@ BaseType_t xTaskIncrementTick( void )
     3c0a:	82 0f       	add	r24, r18
     3c0c:	93 1f       	adc	r25, r19
     3c0e:	fc 01       	movw	r30, r24
-    3c10:	e2 5a       	subi	r30, 0xA2	; 162
+    3c10:	ec 59       	subi	r30, 0x9C	; 156
     3c12:	f9 4f       	sbci	r31, 0xF9	; 249
     3c14:	80 81       	ld	r24, Z
     3c16:	8f 5f       	subi	r24, 0xFF	; 255
@@ -11100,8 +11100,8 @@ BaseType_t xTaskIncrementTick( void )
     3c1a:	ee 85       	ldd	r30, Y+14	; 0x0e
     3c1c:	ff 85       	ldd	r31, Y+15	; 0x0f
     3c1e:	96 89       	ldd	r25, Z+22	; 0x16
-    3c20:	e0 91 4c 06 	lds	r30, 0x064C
-    3c24:	f0 91 4d 06 	lds	r31, 0x064D
+    3c20:	e0 91 52 06 	lds	r30, 0x0652
+    3c24:	f0 91 53 06 	lds	r31, 0x0653
     3c28:	86 89       	ldd	r24, Z+22	; 0x16
     3c2a:	89 17       	cp	r24, r25
     3c2c:	08 f0       	brcs	.+2      	; 0x3c30 <xTaskIncrementTick+0x2c4>
@@ -11117,8 +11117,8 @@ BaseType_t xTaskIncrementTick( void )
         #if ( ( configUSE_PREEMPTION == 1 ) && ( configUSE_TIME_SLICING == 1 ) )
         {
             if( listCURRENT_LIST_LENGTH( &( pxReadyTasksLists[ pxCurrentTCB->uxPriority ] ) ) > ( UBaseType_t ) 1 )
-    3c36:	e0 91 4c 06 	lds	r30, 0x064C
-    3c3a:	f0 91 4d 06 	lds	r31, 0x064D
+    3c36:	e0 91 52 06 	lds	r30, 0x0652
+    3c3a:	f0 91 53 06 	lds	r31, 0x0653
     3c3e:	86 89       	ldd	r24, Z+22	; 0x16
     3c40:	28 2f       	mov	r18, r24
     3c42:	30 e0       	ldi	r19, 0x00	; 0
@@ -11132,7 +11132,7 @@ BaseType_t xTaskIncrementTick( void )
     3c52:	82 0f       	add	r24, r18
     3c54:	93 1f       	adc	r25, r19
     3c56:	fc 01       	movw	r30, r24
-    3c58:	e2 5a       	subi	r30, 0xA2	; 162
+    3c58:	ec 59       	subi	r30, 0x9C	; 156
     3c5a:	f9 4f       	sbci	r31, 0xF9	; 249
     3c5c:	80 81       	ld	r24, Z
     3c5e:	82 30       	cpi	r24, 0x02	; 2
@@ -11147,7 +11147,7 @@ BaseType_t xTaskIncrementTick( void )
         #if ( configUSE_PREEMPTION == 1 )
         {
             if( xYieldPending != pdFALSE )
-    3c66:	80 91 56 06 	lds	r24, 0x0656
+    3c66:	80 91 5c 06 	lds	r24, 0x065C
     3c6a:	88 23       	and	r24, r24
     3c6c:	61 f0       	breq	.+24     	; 0x3c86 <xTaskIncrementTick+0x31a>
             {
@@ -11161,11 +11161,11 @@ BaseType_t xTaskIncrementTick( void )
     else
     {
         ++xPendedTicks;
-    3c74:	80 91 54 06 	lds	r24, 0x0654
-    3c78:	90 91 55 06 	lds	r25, 0x0655
+    3c74:	80 91 5a 06 	lds	r24, 0x065A
+    3c78:	90 91 5b 06 	lds	r25, 0x065B
     3c7c:	01 96       	adiw	r24, 0x01	; 1
-    3c7e:	90 93 55 06 	sts	0x0655, r25
-    3c82:	80 93 54 06 	sts	0x0654, r24
+    3c7e:	90 93 5b 06 	sts	0x065B, r25
+    3c82:	80 93 5a 06 	sts	0x065A, r24
             vApplicationTickHook();
         }
         #endif
@@ -11198,7 +11198,7 @@ void vTaskSwitchContext( void )
     3ca2:	cd b7       	in	r28, 0x3d	; 61
     3ca4:	de b7       	in	r29, 0x3e	; 62
     if( uxSchedulerSuspended != ( UBaseType_t ) pdFALSE )
-    3ca6:	80 91 5d 06 	lds	r24, 0x065D
+    3ca6:	80 91 63 06 	lds	r24, 0x0663
     3caa:	88 23       	and	r24, r24
     3cac:	21 f0       	breq	.+8      	; 0x3cb6 <vTaskSwitchContext+0x1c>
     {
@@ -11206,20 +11206,20 @@ void vTaskSwitchContext( void )
          * switch. */
         xYieldPending = pdTRUE;
     3cae:	81 e0       	ldi	r24, 0x01	; 1
-    3cb0:	80 93 56 06 	sts	0x0656, r24
+    3cb0:	80 93 5c 06 	sts	0x065C, r24
     3cb4:	59 c0       	rjmp	.+178    	; 0x3d68 <vTaskSwitchContext+0xce>
     }
     else
     {
         xYieldPending = pdFALSE;
-    3cb6:	10 92 56 06 	sts	0x0656, r1
+    3cb6:	10 92 5c 06 	sts	0x065C, r1
         }
         #endif
 
         /* Select a new task to run using either the generic C or port
          * optimised asm code. */
         taskSELECT_HIGHEST_PRIORITY_TASK(); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
-    3cba:	80 91 52 06 	lds	r24, 0x0652
+    3cba:	80 91 58 06 	lds	r24, 0x0658
     3cbe:	8b 83       	std	Y+3, r24	; 0x03
     3cc0:	03 c0       	rjmp	.+6      	; 0x3cc8 <vTaskSwitchContext+0x2e>
     3cc2:	8b 81       	ldd	r24, Y+3	; 0x03
@@ -11238,7 +11238,7 @@ void vTaskSwitchContext( void )
     3cdc:	82 0f       	add	r24, r18
     3cde:	93 1f       	adc	r25, r19
     3ce0:	fc 01       	movw	r30, r24
-    3ce2:	e2 5a       	subi	r30, 0xA2	; 162
+    3ce2:	ec 59       	subi	r30, 0x9C	; 156
     3ce4:	f9 4f       	sbci	r31, 0xF9	; 249
     3ce6:	80 81       	ld	r24, Z
     3ce8:	88 23       	and	r24, r24
@@ -11255,7 +11255,7 @@ void vTaskSwitchContext( void )
     3cfe:	99 1f       	adc	r25, r25
     3d00:	82 0f       	add	r24, r18
     3d02:	93 1f       	adc	r25, r19
-    3d04:	82 5a       	subi	r24, 0xA2	; 162
+    3d04:	8c 59       	subi	r24, 0x9C	; 156
     3d06:	99 4f       	sbci	r25, 0xF9	; 249
     3d08:	9a 83       	std	Y+2, r25	; 0x02
     3d0a:	89 83       	std	Y+1, r24	; 0x01
@@ -11298,10 +11298,10 @@ void vTaskSwitchContext( void )
     3d54:	e0 2d       	mov	r30, r0
     3d56:	86 81       	ldd	r24, Z+6	; 0x06
     3d58:	97 81       	ldd	r25, Z+7	; 0x07
-    3d5a:	90 93 4d 06 	sts	0x064D, r25
-    3d5e:	80 93 4c 06 	sts	0x064C, r24
+    3d5a:	90 93 53 06 	sts	0x0653, r25
+    3d5e:	80 93 52 06 	sts	0x0652, r24
     3d62:	8b 81       	ldd	r24, Y+3	; 0x03
-    3d64:	80 93 52 06 	sts	0x0652, r24
+    3d64:	80 93 58 06 	sts	0x0658, r24
              * Block specific to this task. */
             configSET_TLS_BLOCK( pxCurrentTCB->xTLSBlock );
         }
@@ -11337,8 +11337,8 @@ void vTaskPlaceOnEventList( List_t * const pxEventList,
      * The queue that contains the event list is locked, preventing
      * simultaneous access from interrupts. */
     vListInsert( pxEventList, &( pxCurrentTCB->xEventListItem ) );
-    3d88:	80 91 4c 06 	lds	r24, 0x064C
-    3d8c:	90 91 4d 06 	lds	r25, 0x064D
+    3d88:	80 91 52 06 	lds	r24, 0x0652
+    3d8c:	90 91 53 06 	lds	r25, 0x0653
     3d90:	9c 01       	movw	r18, r24
     3d92:	24 5f       	subi	r18, 0xF4	; 244
     3d94:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -11390,8 +11390,8 @@ void vTaskPlaceOnUnorderedEventList( List_t * pxEventList,
      * event list item here as interrupts won't access the event list item of a
      * task that is not in the Blocked state. */
     listSET_LIST_ITEM_VALUE( &( pxCurrentTCB->xEventListItem ), xItemValue | taskEVENT_LIST_ITEM_VALUE_IN_USE );
-    3dd8:	e0 91 4c 06 	lds	r30, 0x064C
-    3ddc:	f0 91 4d 06 	lds	r31, 0x064D
+    3dd8:	e0 91 52 06 	lds	r30, 0x0652
+    3ddc:	f0 91 53 06 	lds	r31, 0x0653
     3de0:	8d 81       	ldd	r24, Y+5	; 0x05
     3de2:	9e 81       	ldd	r25, Y+6	; 0x06
     3de4:	90 68       	ori	r25, 0x80	; 128
@@ -11409,14 +11409,14 @@ void vTaskPlaceOnUnorderedEventList( List_t * pxEventList,
     3df0:	92 81       	ldd	r25, Z+2	; 0x02
     3df2:	9a 83       	std	Y+2, r25	; 0x02
     3df4:	89 83       	std	Y+1, r24	; 0x01
-    3df6:	e0 91 4c 06 	lds	r30, 0x064C
-    3dfa:	f0 91 4d 06 	lds	r31, 0x064D
+    3df6:	e0 91 52 06 	lds	r30, 0x0652
+    3dfa:	f0 91 53 06 	lds	r31, 0x0653
     3dfe:	89 81       	ldd	r24, Y+1	; 0x01
     3e00:	9a 81       	ldd	r25, Y+2	; 0x02
     3e02:	97 87       	std	Z+15, r25	; 0x0f
     3e04:	86 87       	std	Z+14, r24	; 0x0e
-    3e06:	a0 91 4c 06 	lds	r26, 0x064C
-    3e0a:	b0 91 4d 06 	lds	r27, 0x064D
+    3e06:	a0 91 52 06 	lds	r26, 0x0652
+    3e0a:	b0 91 53 06 	lds	r27, 0x0653
     3e0e:	e9 81       	ldd	r30, Y+1	; 0x01
     3e10:	fa 81       	ldd	r31, Y+2	; 0x02
     3e12:	84 81       	ldd	r24, Z+4	; 0x04
@@ -11430,20 +11430,20 @@ void vTaskPlaceOnUnorderedEventList( List_t * pxEventList,
     3e22:	04 80       	ldd	r0, Z+4	; 0x04
     3e24:	f5 81       	ldd	r31, Z+5	; 0x05
     3e26:	e0 2d       	mov	r30, r0
-    3e28:	80 91 4c 06 	lds	r24, 0x064C
-    3e2c:	90 91 4d 06 	lds	r25, 0x064D
+    3e28:	80 91 52 06 	lds	r24, 0x0652
+    3e2c:	90 91 53 06 	lds	r25, 0x0653
     3e30:	0c 96       	adiw	r24, 0x0c	; 12
     3e32:	93 83       	std	Z+3, r25	; 0x03
     3e34:	82 83       	std	Z+2, r24	; 0x02
-    3e36:	80 91 4c 06 	lds	r24, 0x064C
-    3e3a:	90 91 4d 06 	lds	r25, 0x064D
+    3e36:	80 91 52 06 	lds	r24, 0x0652
+    3e3a:	90 91 53 06 	lds	r25, 0x0653
     3e3e:	0c 96       	adiw	r24, 0x0c	; 12
     3e40:	e9 81       	ldd	r30, Y+1	; 0x01
     3e42:	fa 81       	ldd	r31, Y+2	; 0x02
     3e44:	95 83       	std	Z+5, r25	; 0x05
     3e46:	84 83       	std	Z+4, r24	; 0x04
-    3e48:	e0 91 4c 06 	lds	r30, 0x064C
-    3e4c:	f0 91 4d 06 	lds	r31, 0x064D
+    3e48:	e0 91 52 06 	lds	r30, 0x0652
+    3e4c:	f0 91 53 06 	lds	r31, 0x0653
     3e50:	8b 81       	ldd	r24, Y+3	; 0x03
     3e52:	9c 81       	ldd	r25, Y+4	; 0x04
     3e54:	95 8b       	std	Z+21, r25	; 0x15
@@ -11569,7 +11569,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     3f20:	80 83       	st	Z, r24
 
     if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
-    3f22:	80 91 5d 06 	lds	r24, 0x065D
+    3f22:	80 91 63 06 	lds	r24, 0x0663
     3f26:	88 23       	and	r24, r24
     3f28:	09 f0       	breq	.+2      	; 0x3f2c <xTaskRemoveFromEventList+0xaa>
     3f2a:	a4 c0       	rjmp	.+328    	; 0x4074 <xTaskRemoveFromEventList+0x1f2>
@@ -11638,13 +11638,13 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     3fa2:	ea 85       	ldd	r30, Y+10	; 0x0a
     3fa4:	fb 85       	ldd	r31, Y+11	; 0x0b
     3fa6:	96 89       	ldd	r25, Z+22	; 0x16
-    3fa8:	80 91 52 06 	lds	r24, 0x0652
+    3fa8:	80 91 58 06 	lds	r24, 0x0658
     3fac:	89 17       	cp	r24, r25
     3fae:	28 f4       	brcc	.+10     	; 0x3fba <xTaskRemoveFromEventList+0x138>
     3fb0:	ea 85       	ldd	r30, Y+10	; 0x0a
     3fb2:	fb 85       	ldd	r31, Y+11	; 0x0b
     3fb4:	86 89       	ldd	r24, Z+22	; 0x16
-    3fb6:	80 93 52 06 	sts	0x0652, r24
+    3fb6:	80 93 58 06 	sts	0x0658, r24
     3fba:	ea 85       	ldd	r30, Y+10	; 0x0a
     3fbc:	fb 85       	ldd	r31, Y+11	; 0x0b
     3fbe:	86 89       	ldd	r24, Z+22	; 0x16
@@ -11660,7 +11660,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     3fd2:	82 0f       	add	r24, r18
     3fd4:	93 1f       	adc	r25, r19
     3fd6:	fc 01       	movw	r30, r24
-    3fd8:	e2 5a       	subi	r30, 0xA2	; 162
+    3fd8:	ec 59       	subi	r30, 0x9C	; 156
     3fda:	f9 4f       	sbci	r31, 0xF9	; 249
     3fdc:	81 81       	ldd	r24, Z+1	; 0x01
     3fde:	92 81       	ldd	r25, Z+2	; 0x02
@@ -11711,7 +11711,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     4038:	99 1f       	adc	r25, r25
     403a:	82 0f       	add	r24, r18
     403c:	93 1f       	adc	r25, r19
-    403e:	82 5a       	subi	r24, 0xA2	; 162
+    403e:	8c 59       	subi	r24, 0x9C	; 156
     4040:	99 4f       	sbci	r25, 0xF9	; 249
     4042:	ea 85       	ldd	r30, Y+10	; 0x0a
     4044:	fb 85       	ldd	r31, Y+11	; 0x0b
@@ -11732,7 +11732,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     4062:	82 0f       	add	r24, r18
     4064:	93 1f       	adc	r25, r19
     4066:	fc 01       	movw	r30, r24
-    4068:	e2 5a       	subi	r30, 0xA2	; 162
+    4068:	ec 59       	subi	r30, 0x9C	; 156
     406a:	f9 4f       	sbci	r31, 0xF9	; 249
     406c:	80 81       	ld	r24, Z
     406e:	8f 5f       	subi	r24, 0xFF	; 255
@@ -11744,8 +11744,8 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
         /* The delayed and ready lists cannot be accessed, so hold this task
          * pending until the scheduler is resumed. */
         listINSERT_END( &( xPendingReadyList ), &( pxUnblockedTCB->xEventListItem ) );
-    4074:	80 91 99 06 	lds	r24, 0x0699
-    4078:	90 91 9a 06 	lds	r25, 0x069A
+    4074:	80 91 9f 06 	lds	r24, 0x069F
+    4078:	90 91 a0 06 	lds	r25, 0x06A0
     407c:	9a 83       	std	Y+2, r25	; 0x02
     407e:	89 83       	std	Y+1, r24	; 0x01
     4080:	ea 85       	ldd	r30, Y+10	; 0x0a
@@ -11781,21 +11781,21 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
     40bc:	84 83       	std	Z+4, r24	; 0x04
     40be:	ea 85       	ldd	r30, Y+10	; 0x0a
     40c0:	fb 85       	ldd	r31, Y+11	; 0x0b
-    40c2:	88 e9       	ldi	r24, 0x98	; 152
+    40c2:	8e e9       	ldi	r24, 0x9E	; 158
     40c4:	96 e0       	ldi	r25, 0x06	; 6
     40c6:	95 8b       	std	Z+21, r25	; 0x15
     40c8:	84 8b       	std	Z+20, r24	; 0x14
-    40ca:	80 91 98 06 	lds	r24, 0x0698
+    40ca:	80 91 9e 06 	lds	r24, 0x069E
     40ce:	8f 5f       	subi	r24, 0xFF	; 255
-    40d0:	80 93 98 06 	sts	0x0698, r24
+    40d0:	80 93 9e 06 	sts	0x069E, r24
     }
 
     if( pxUnblockedTCB->uxPriority > pxCurrentTCB->uxPriority )
     40d4:	ea 85       	ldd	r30, Y+10	; 0x0a
     40d6:	fb 85       	ldd	r31, Y+11	; 0x0b
     40d8:	96 89       	ldd	r25, Z+22	; 0x16
-    40da:	e0 91 4c 06 	lds	r30, 0x064C
-    40de:	f0 91 4d 06 	lds	r31, 0x064D
+    40da:	e0 91 52 06 	lds	r30, 0x0652
+    40de:	f0 91 53 06 	lds	r31, 0x0653
     40e2:	86 89       	ldd	r24, Z+22	; 0x16
     40e4:	89 17       	cp	r24, r25
     40e6:	30 f4       	brcc	.+12     	; 0x40f4 <xTaskRemoveFromEventList+0x272>
@@ -11811,7 +11811,7 @@ BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
          * "xHigherPriorityTaskWoken" parameter to an ISR safe FreeRTOS function. */
         xYieldPending = pdTRUE;
     40ec:	81 e0       	ldi	r24, 0x01	; 1
-    40ee:	80 93 56 06 	sts	0x0656, r24
+    40ee:	80 93 5c 06 	sts	0x065C, r24
     40f2:	01 c0       	rjmp	.+2      	; 0x40f6 <xTaskRemoveFromEventList+0x274>
     }
     else
@@ -12005,13 +12005,13 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
     422a:	ef 81       	ldd	r30, Y+7	; 0x07
     422c:	f8 85       	ldd	r31, Y+8	; 0x08
     422e:	96 89       	ldd	r25, Z+22	; 0x16
-    4230:	80 91 52 06 	lds	r24, 0x0652
+    4230:	80 91 58 06 	lds	r24, 0x0658
     4234:	89 17       	cp	r24, r25
     4236:	28 f4       	brcc	.+10     	; 0x4242 <vTaskRemoveFromUnorderedEventList+0x138>
     4238:	ef 81       	ldd	r30, Y+7	; 0x07
     423a:	f8 85       	ldd	r31, Y+8	; 0x08
     423c:	86 89       	ldd	r24, Z+22	; 0x16
-    423e:	80 93 52 06 	sts	0x0652, r24
+    423e:	80 93 58 06 	sts	0x0658, r24
     4242:	ef 81       	ldd	r30, Y+7	; 0x07
     4244:	f8 85       	ldd	r31, Y+8	; 0x08
     4246:	86 89       	ldd	r24, Z+22	; 0x16
@@ -12027,7 +12027,7 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
     425a:	82 0f       	add	r24, r18
     425c:	93 1f       	adc	r25, r19
     425e:	fc 01       	movw	r30, r24
-    4260:	e2 5a       	subi	r30, 0xA2	; 162
+    4260:	ec 59       	subi	r30, 0x9C	; 156
     4262:	f9 4f       	sbci	r31, 0xF9	; 249
     4264:	81 81       	ldd	r24, Z+1	; 0x01
     4266:	92 81       	ldd	r25, Z+2	; 0x02
@@ -12078,7 +12078,7 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
     42c0:	99 1f       	adc	r25, r25
     42c2:	82 0f       	add	r24, r18
     42c4:	93 1f       	adc	r25, r19
-    42c6:	82 5a       	subi	r24, 0xA2	; 162
+    42c6:	8c 59       	subi	r24, 0x9C	; 156
     42c8:	99 4f       	sbci	r25, 0xF9	; 249
     42ca:	ef 81       	ldd	r30, Y+7	; 0x07
     42cc:	f8 85       	ldd	r31, Y+8	; 0x08
@@ -12099,7 +12099,7 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
     42ea:	82 0f       	add	r24, r18
     42ec:	93 1f       	adc	r25, r19
     42ee:	fc 01       	movw	r30, r24
-    42f0:	e2 5a       	subi	r30, 0xA2	; 162
+    42f0:	ec 59       	subi	r30, 0x9C	; 156
     42f2:	f9 4f       	sbci	r31, 0xF9	; 249
     42f4:	80 81       	ld	r24, Z
     42f6:	8f 5f       	subi	r24, 0xFF	; 255
@@ -12109,8 +12109,8 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
     42fa:	ef 81       	ldd	r30, Y+7	; 0x07
     42fc:	f8 85       	ldd	r31, Y+8	; 0x08
     42fe:	96 89       	ldd	r25, Z+22	; 0x16
-    4300:	e0 91 4c 06 	lds	r30, 0x064C
-    4304:	f0 91 4d 06 	lds	r31, 0x064D
+    4300:	e0 91 52 06 	lds	r30, 0x0652
+    4304:	f0 91 53 06 	lds	r31, 0x0653
     4308:	86 89       	ldd	r24, Z+22	; 0x16
     430a:	89 17       	cp	r24, r25
     430c:	18 f4       	brcc	.+6      	; 0x4314 <vTaskRemoveFromUnorderedEventList+0x20a>
@@ -12121,7 +12121,7 @@ void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem,
          * occurs immediately that the scheduler is resumed (unsuspended). */
         xYieldPending = pdTRUE;
     430e:	81 e0       	ldi	r24, 0x01	; 1
-    4310:	80 93 56 06 	sts	0x0656, r24
+    4310:	80 93 5c 06 	sts	0x065C, r24
     }
 }
     4314:	2c 96       	adiw	r28, 0x0c	; 12
@@ -12153,13 +12153,13 @@ void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut )
     4338:	0f 92       	push	r0
     {
         pxTimeOut->xOverflowCount = xNumOfOverflows;
-    433a:	80 91 57 06 	lds	r24, 0x0657
+    433a:	80 91 5d 06 	lds	r24, 0x065D
     433e:	e9 81       	ldd	r30, Y+1	; 0x01
     4340:	fa 81       	ldd	r31, Y+2	; 0x02
     4342:	80 83       	st	Z, r24
         pxTimeOut->xTimeOnEntering = xTickCount;
-    4344:	80 91 50 06 	lds	r24, 0x0650
-    4348:	90 91 51 06 	lds	r25, 0x0651
+    4344:	80 91 56 06 	lds	r24, 0x0656
+    4348:	90 91 57 06 	lds	r25, 0x0657
     434c:	e9 81       	ldd	r30, Y+1	; 0x01
     434e:	fa 81       	ldd	r31, Y+2	; 0x02
     4350:	92 83       	std	Z+2, r25	; 0x02
@@ -12189,13 +12189,13 @@ void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut )
     436e:	89 83       	std	Y+1, r24	; 0x01
     /* For internal use only as it does not use a critical section. */
     pxTimeOut->xOverflowCount = xNumOfOverflows;
-    4370:	80 91 57 06 	lds	r24, 0x0657
+    4370:	80 91 5d 06 	lds	r24, 0x065D
     4374:	e9 81       	ldd	r30, Y+1	; 0x01
     4376:	fa 81       	ldd	r31, Y+2	; 0x02
     4378:	80 83       	st	Z, r24
     pxTimeOut->xTimeOnEntering = xTickCount;
-    437a:	80 91 50 06 	lds	r24, 0x0650
-    437e:	90 91 51 06 	lds	r25, 0x0651
+    437a:	80 91 56 06 	lds	r24, 0x0656
+    437e:	90 91 57 06 	lds	r25, 0x0657
     4382:	e9 81       	ldd	r30, Y+1	; 0x01
     4384:	fa 81       	ldd	r31, Y+2	; 0x02
     4386:	92 83       	std	Z+2, r25	; 0x02
@@ -12239,8 +12239,8 @@ BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut,
     {
         /* Minor optimisation.  The tick count cannot change in this block. */
         const TickType_t xConstTickCount = xTickCount;
-    43b6:	80 91 50 06 	lds	r24, 0x0650
-    43ba:	90 91 51 06 	lds	r25, 0x0651
+    43b6:	80 91 56 06 	lds	r24, 0x0656
+    43ba:	90 91 57 06 	lds	r25, 0x0657
     43be:	9c 83       	std	Y+4, r25	; 0x04
     43c0:	8b 83       	std	Y+3, r24	; 0x03
         const TickType_t xElapsedTime = xConstTickCount - pxTimeOut->xTimeOnEntering;
@@ -12263,7 +12263,7 @@ BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut,
     43d6:	ee 81       	ldd	r30, Y+6	; 0x06
     43d8:	ff 81       	ldd	r31, Y+7	; 0x07
     43da:	90 81       	ld	r25, Z
-    43dc:	80 91 57 06 	lds	r24, 0x0657
+    43dc:	80 91 5d 06 	lds	r24, 0x065D
     43e0:	98 17       	cp	r25, r24
     43e2:	81 f0       	breq	.+32     	; 0x4404 <xTaskCheckForTimeOut+0x70>
     43e4:	ee 81       	ldd	r30, Y+6	; 0x06
@@ -12365,7 +12365,7 @@ void vTaskMissedYield( void )
     4468:	de b7       	in	r29, 0x3e	; 62
     xYieldPending = pdTRUE;
     446a:	81 e0       	ldi	r24, 0x01	; 1
-    446c:	80 93 56 06 	sts	0x0656, r24
+    446c:	80 93 5c 06 	sts	0x065C, r24
 }
     4470:	cf 91       	pop	r28
     4472:	df 91       	pop	r29
@@ -12398,7 +12398,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
              * the ready list at the idle priority contains more than one task
              * then a task other than the idle task is ready to execute. */
             if( listCURRENT_LIST_LENGTH( &( pxReadyTasksLists[ tskIDLE_PRIORITY ] ) ) > ( UBaseType_t ) 1 )
-    4488:	80 91 5e 06 	lds	r24, 0x065E
+    4488:	80 91 64 06 	lds	r24, 0x0664
     448c:	82 30       	cpi	r24, 0x02	; 2
     448e:	d0 f3       	brcs	.-12     	; 0x4484 <prvIdleTask+0xe>
             {
@@ -12437,7 +12437,7 @@ static void prvInitialiseTaskLists( void )
     44b6:	99 1f       	adc	r25, r25
     44b8:	82 0f       	add	r24, r18
     44ba:	93 1f       	adc	r25, r19
-    44bc:	82 5a       	subi	r24, 0xA2	; 162
+    44bc:	8c 59       	subi	r24, 0x9C	; 156
     44be:	99 4f       	sbci	r25, 0xF9	; 249
     44c0:	0e 94 e2 06 	call	0xdc4	; 0xdc4 <vListInitialise>
 
@@ -12457,22 +12457,22 @@ static void prvInitialiseTaskLists( void )
     }
 
     vListInitialise( &xDelayedTaskList1 );
-    44d0:	82 e8       	ldi	r24, 0x82	; 130
+    44d0:	88 e8       	ldi	r24, 0x88	; 136
     44d2:	96 e0       	ldi	r25, 0x06	; 6
     44d4:	0e 94 e2 06 	call	0xdc4	; 0xdc4 <vListInitialise>
     vListInitialise( &xDelayedTaskList2 );
-    44d8:	8b e8       	ldi	r24, 0x8B	; 139
+    44d8:	81 e9       	ldi	r24, 0x91	; 145
     44da:	96 e0       	ldi	r25, 0x06	; 6
     44dc:	0e 94 e2 06 	call	0xdc4	; 0xdc4 <vListInitialise>
     vListInitialise( &xPendingReadyList );
-    44e0:	88 e9       	ldi	r24, 0x98	; 152
+    44e0:	8e e9       	ldi	r24, 0x9E	; 158
     44e2:	96 e0       	ldi	r25, 0x06	; 6
     44e4:	0e 94 e2 06 	call	0xdc4	; 0xdc4 <vListInitialise>
 
     #if ( INCLUDE_vTaskDelete == 1 )
     {
         vListInitialise( &xTasksWaitingTermination );
-    44e8:	81 ea       	ldi	r24, 0xA1	; 161
+    44e8:	87 ea       	ldi	r24, 0xA7	; 167
     44ea:	96 e0       	ldi	r25, 0x06	; 6
     44ec:	0e 94 e2 06 	call	0xdc4	; 0xdc4 <vListInitialise>
     }
@@ -12481,15 +12481,15 @@ static void prvInitialiseTaskLists( void )
     /* Start with pxDelayedTaskList using list1 and the pxOverflowDelayedTaskList
      * using list2. */
     pxDelayedTaskList = &xDelayedTaskList1;
-    44f0:	82 e8       	ldi	r24, 0x82	; 130
+    44f0:	88 e8       	ldi	r24, 0x88	; 136
     44f2:	96 e0       	ldi	r25, 0x06	; 6
-    44f4:	90 93 95 06 	sts	0x0695, r25
-    44f8:	80 93 94 06 	sts	0x0694, r24
+    44f4:	90 93 9b 06 	sts	0x069B, r25
+    44f8:	80 93 9a 06 	sts	0x069A, r24
     pxOverflowDelayedTaskList = &xDelayedTaskList2;
-    44fc:	8b e8       	ldi	r24, 0x8B	; 139
+    44fc:	81 e9       	ldi	r24, 0x91	; 145
     44fe:	96 e0       	ldi	r25, 0x06	; 6
-    4500:	90 93 97 06 	sts	0x0697, r25
-    4504:	80 93 96 06 	sts	0x0696, r24
+    4500:	90 93 9d 06 	sts	0x069D, r25
+    4504:	80 93 9c 06 	sts	0x069C, r24
 }
     4508:	0f 90       	pop	r0
     450a:	cf 91       	pop	r28
@@ -12518,8 +12518,8 @@ static void prvCheckTasksWaitingTermination( void )
     4520:	0f 92       	push	r0
             {
                 pxTCB = listGET_OWNER_OF_HEAD_ENTRY( ( &xTasksWaitingTermination ) ); /*lint !e9079 void * is used as this macro is used with timers and co-routines too.  Alignment is known to be fine as the type of the pointer stored and retrieved is the same. */
-    4522:	e0 91 a6 06 	lds	r30, 0x06A6
-    4526:	f0 91 a7 06 	lds	r31, 0x06A7
+    4522:	e0 91 ac 06 	lds	r30, 0x06AC
+    4526:	f0 91 ad 06 	lds	r31, 0x06AD
     452a:	86 81       	ldd	r24, Z+6	; 0x06
     452c:	97 81       	ldd	r25, Z+7	; 0x07
     452e:	9a 83       	std	Y+2, r25	; 0x02
@@ -12530,13 +12530,13 @@ static void prvCheckTasksWaitingTermination( void )
     4536:	02 96       	adiw	r24, 0x02	; 2
     4538:	0e 94 cc 07 	call	0xf98	; 0xf98 <uxListRemove>
                 --uxCurrentNumberOfTasks;
-    453c:	80 91 4f 06 	lds	r24, 0x064F
+    453c:	80 91 55 06 	lds	r24, 0x0655
     4540:	81 50       	subi	r24, 0x01	; 1
-    4542:	80 93 4f 06 	sts	0x064F, r24
+    4542:	80 93 55 06 	sts	0x0655, r24
                 --uxDeletedTasksWaitingCleanUp;
-    4546:	80 91 4e 06 	lds	r24, 0x064E
+    4546:	80 91 54 06 	lds	r24, 0x0654
     454a:	81 50       	subi	r24, 0x01	; 1
-    454c:	80 93 4e 06 	sts	0x064E, r24
+    454c:	80 93 54 06 	sts	0x0654, r24
             }
             taskEXIT_CRITICAL();
     4550:	0f 90       	pop	r0
@@ -12552,7 +12552,7 @@ static void prvCheckTasksWaitingTermination( void )
         /* uxDeletedTasksWaitingCleanUp is used to prevent taskENTER_CRITICAL()
          * being called too often in the idle task. */
         while( uxDeletedTasksWaitingCleanUp > ( UBaseType_t ) 0U )
-    455c:	80 91 4e 06 	lds	r24, 0x064E
+    455c:	80 91 54 06 	lds	r24, 0x0654
     4560:	88 23       	and	r24, r24
     4562:	e1 f6       	brne	.-72     	; 0x451c <prvCheckTasksWaitingTermination+0xc>
 
@@ -12620,8 +12620,8 @@ static void prvResetNextTaskUnblockTime( void )
     459e:	cd b7       	in	r28, 0x3d	; 61
     45a0:	de b7       	in	r29, 0x3e	; 62
     if( listLIST_IS_EMPTY( pxDelayedTaskList ) != pdFALSE )
-    45a2:	e0 91 94 06 	lds	r30, 0x0694
-    45a6:	f0 91 95 06 	lds	r31, 0x0695
+    45a2:	e0 91 9a 06 	lds	r30, 0x069A
+    45a6:	f0 91 9b 06 	lds	r31, 0x069B
     45aa:	80 81       	ld	r24, Z
     45ac:	88 23       	and	r24, r24
     45ae:	39 f4       	brne	.+14     	; 0x45be <prvResetNextTaskUnblockTime+0x24>
@@ -12633,8 +12633,8 @@ static void prvResetNextTaskUnblockTime( void )
         xNextTaskUnblockTime = portMAX_DELAY;
     45b0:	8f ef       	ldi	r24, 0xFF	; 255
     45b2:	9f ef       	ldi	r25, 0xFF	; 255
-    45b4:	90 93 5a 06 	sts	0x065A, r25
-    45b8:	80 93 59 06 	sts	0x0659, r24
+    45b4:	90 93 60 06 	sts	0x0660, r25
+    45b8:	80 93 5f 06 	sts	0x065F, r24
     45bc:	0d c0       	rjmp	.+26     	; 0x45d8 <prvResetNextTaskUnblockTime+0x3e>
     {
         /* The new current delayed list is not empty, get the value of
@@ -12642,15 +12642,15 @@ static void prvResetNextTaskUnblockTime( void )
          * which the task at the head of the delayed list should be removed
          * from the Blocked state. */
         xNextTaskUnblockTime = listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxDelayedTaskList );
-    45be:	e0 91 94 06 	lds	r30, 0x0694
-    45c2:	f0 91 95 06 	lds	r31, 0x0695
+    45be:	e0 91 9a 06 	lds	r30, 0x069A
+    45c2:	f0 91 9b 06 	lds	r31, 0x069B
     45c6:	05 80       	ldd	r0, Z+5	; 0x05
     45c8:	f6 81       	ldd	r31, Z+6	; 0x06
     45ca:	e0 2d       	mov	r30, r0
     45cc:	80 81       	ld	r24, Z
     45ce:	91 81       	ldd	r25, Z+1	; 0x01
-    45d0:	90 93 5a 06 	sts	0x065A, r25
-    45d4:	80 93 59 06 	sts	0x0659, r24
+    45d0:	90 93 60 06 	sts	0x0660, r25
+    45d4:	80 93 5f 06 	sts	0x065F, r24
     }
 }
     45d8:	cf 91       	pop	r28
@@ -12675,8 +12675,8 @@ static void prvResetNextTaskUnblockTime( void )
          * an interrupt and the current TCB will always be the same for any
          * individual execution thread. */
         xReturn = pxCurrentTCB;
-    45e8:	80 91 4c 06 	lds	r24, 0x064C
-    45ec:	90 91 4d 06 	lds	r25, 0x064D
+    45e8:	80 91 52 06 	lds	r24, 0x0652
+    45ec:	90 91 53 06 	lds	r25, 0x0653
     45f0:	9a 83       	std	Y+2, r25	; 0x02
     45f2:	89 83       	std	Y+1, r24	; 0x01
 
@@ -12705,8 +12705,8 @@ TickType_t uxTaskResetEventItemValue( void )
     TickType_t uxReturn;
 
     uxReturn = listGET_LIST_ITEM_VALUE( &( pxCurrentTCB->xEventListItem ) );
-    460c:	e0 91 4c 06 	lds	r30, 0x064C
-    4610:	f0 91 4d 06 	lds	r31, 0x064D
+    460c:	e0 91 52 06 	lds	r30, 0x0652
+    4610:	f0 91 53 06 	lds	r31, 0x0653
     4614:	84 85       	ldd	r24, Z+12	; 0x0c
     4616:	95 85       	ldd	r25, Z+13	; 0x0d
     4618:	9a 83       	std	Y+2, r25	; 0x02
@@ -12715,10 +12715,10 @@ TickType_t uxTaskResetEventItemValue( void )
     /* Reset the event list item to its normal value - so it can be used with
      * queues and semaphores. */
     listSET_LIST_ITEM_VALUE( &( pxCurrentTCB->xEventListItem ), ( ( TickType_t ) configMAX_PRIORITIES - ( TickType_t ) pxCurrentTCB->uxPriority ) ); /*lint !e961 MISRA exception as the casts are only redundant for some ports. */
-    461c:	a0 91 4c 06 	lds	r26, 0x064C
-    4620:	b0 91 4d 06 	lds	r27, 0x064D
-    4624:	e0 91 4c 06 	lds	r30, 0x064C
-    4628:	f0 91 4d 06 	lds	r31, 0x064D
+    461c:	a0 91 52 06 	lds	r26, 0x0652
+    4620:	b0 91 53 06 	lds	r27, 0x0653
+    4624:	e0 91 52 06 	lds	r30, 0x0652
+    4628:	f0 91 53 06 	lds	r31, 0x0653
     462c:	86 89       	ldd	r24, Z+22	; 0x16
     462e:	28 2f       	mov	r18, r24
     4630:	30 e0       	ldi	r19, 0x00	; 0
@@ -12773,8 +12773,8 @@ TickType_t uxTaskResetEventItemValue( void )
         {
             /* Only block if the notification count is not already non-zero. */
             if( pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ] == 0UL )
-    4672:	20 91 4c 06 	lds	r18, 0x064C
-    4676:	30 91 4d 06 	lds	r19, 0x064D
+    4672:	20 91 52 06 	lds	r18, 0x0652
+    4676:	30 91 53 06 	lds	r19, 0x0653
     467a:	8d 81       	ldd	r24, Y+5	; 0x05
     467c:	88 2f       	mov	r24, r24
     467e:	90 e0       	ldi	r25, 0x00	; 0
@@ -12797,8 +12797,8 @@ TickType_t uxTaskResetEventItemValue( void )
             {
                 /* Mark this task as waiting for a notification. */
                 pxCurrentTCB->ucNotifyState[ uxIndexToWait ] = taskWAITING_NOTIFICATION;
-    46a0:	20 91 4c 06 	lds	r18, 0x064C
-    46a4:	30 91 4d 06 	lds	r19, 0x064D
+    46a0:	20 91 52 06 	lds	r18, 0x0652
+    46a4:	30 91 53 06 	lds	r19, 0x0653
     46a8:	8d 81       	ldd	r24, Y+5	; 0x05
     46aa:	88 2f       	mov	r24, r24
     46ac:	90 e0       	ldi	r25, 0x00	; 0
@@ -12843,8 +12843,8 @@ TickType_t uxTaskResetEventItemValue( void )
         {
             traceTASK_NOTIFY_TAKE( uxIndexToWait );
             ulReturn = pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ];
-    46da:	20 91 4c 06 	lds	r18, 0x064C
-    46de:	30 91 4d 06 	lds	r19, 0x064D
+    46da:	20 91 52 06 	lds	r18, 0x0652
+    46de:	30 91 53 06 	lds	r19, 0x0653
     46e2:	8d 81       	ldd	r24, Y+5	; 0x05
     46e4:	88 2f       	mov	r24, r24
     46e6:	90 e0       	ldi	r25, 0x00	; 0
@@ -12881,8 +12881,8 @@ TickType_t uxTaskResetEventItemValue( void )
     471c:	a1 f0       	breq	.+40     	; 0x4746 <ulTaskGenericNotifyTake+0xf6>
                 {
                     pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ] = 0UL;
-    471e:	20 91 4c 06 	lds	r18, 0x064C
-    4722:	30 91 4d 06 	lds	r19, 0x064D
+    471e:	20 91 52 06 	lds	r18, 0x0652
+    4722:	30 91 53 06 	lds	r19, 0x0653
     4726:	8d 81       	ldd	r24, Y+5	; 0x05
     4728:	88 2f       	mov	r24, r24
     472a:	90 e0       	ldi	r25, 0x00	; 0
@@ -12903,8 +12903,8 @@ TickType_t uxTaskResetEventItemValue( void )
                 else
                 {
                     pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ] = ulReturn - ( uint32_t ) 1;
-    4746:	e0 91 4c 06 	lds	r30, 0x064C
-    474a:	f0 91 4d 06 	lds	r31, 0x064D
+    4746:	e0 91 52 06 	lds	r30, 0x0652
+    474a:	f0 91 53 06 	lds	r31, 0x0653
     474e:	8d 81       	ldd	r24, Y+5	; 0x05
     4750:	68 2f       	mov	r22, r24
     4752:	70 e0       	ldi	r23, 0x00	; 0
@@ -12937,8 +12937,8 @@ TickType_t uxTaskResetEventItemValue( void )
             }
 
             pxCurrentTCB->ucNotifyState[ uxIndexToWait ] = taskNOT_WAITING_NOTIFICATION;
-    4782:	20 91 4c 06 	lds	r18, 0x064C
-    4786:	30 91 4d 06 	lds	r19, 0x064D
+    4782:	20 91 52 06 	lds	r18, 0x0652
+    4786:	30 91 53 06 	lds	r19, 0x0653
     478a:	8d 81       	ldd	r24, Y+5	; 0x05
     478c:	88 2f       	mov	r24, r24
     478e:	90 e0       	ldi	r25, 0x00	; 0
@@ -13017,8 +13017,8 @@ TickType_t uxTaskResetEventItemValue( void )
         {
             /* Only block if a notification is not already pending. */
             if( pxCurrentTCB->ucNotifyState[ uxIndexToWait ] != taskNOTIFICATION_RECEIVED )
-    47fc:	20 91 4c 06 	lds	r18, 0x064C
-    4800:	30 91 4d 06 	lds	r19, 0x064D
+    47fc:	20 91 52 06 	lds	r18, 0x0652
+    4800:	30 91 53 06 	lds	r19, 0x0653
     4804:	8a 81       	ldd	r24, Y+2	; 0x02
     4806:	88 2f       	mov	r24, r24
     4808:	90 e0       	ldi	r25, 0x00	; 0
@@ -13035,8 +13035,8 @@ TickType_t uxTaskResetEventItemValue( void )
                  * set  by the notifying task or interrupt.  This can be used to
                  * clear the value to zero. */
                 pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ] &= ~ulBitsToClearOnEntry;
-    481a:	60 91 4c 06 	lds	r22, 0x064C
-    481e:	70 91 4d 06 	lds	r23, 0x064D
+    481a:	60 91 52 06 	lds	r22, 0x0652
+    481e:	70 91 53 06 	lds	r23, 0x0653
     4822:	8a 81       	ldd	r24, Y+2	; 0x02
     4824:	08 2f       	mov	r16, r24
     4826:	10 e0       	ldi	r17, 0x00	; 0
@@ -13083,8 +13083,8 @@ TickType_t uxTaskResetEventItemValue( void )
 
                 /* Mark this task as waiting for a notification. */
                 pxCurrentTCB->ucNotifyState[ uxIndexToWait ] = taskWAITING_NOTIFICATION;
-    4878:	20 91 4c 06 	lds	r18, 0x064C
-    487c:	30 91 4d 06 	lds	r19, 0x064D
+    4878:	20 91 52 06 	lds	r18, 0x0652
+    487c:	30 91 53 06 	lds	r19, 0x0653
     4880:	8a 81       	ldd	r24, Y+2	; 0x02
     4882:	88 2f       	mov	r24, r24
     4884:	90 e0       	ldi	r25, 0x00	; 0
@@ -13138,8 +13138,8 @@ TickType_t uxTaskResetEventItemValue( void )
                 /* Output the current notification value, which may or may not
                  * have changed. */
                 *pulNotificationValue = pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ];
-    48ba:	20 91 4c 06 	lds	r18, 0x064C
-    48be:	30 91 4d 06 	lds	r19, 0x064D
+    48ba:	20 91 52 06 	lds	r18, 0x0652
+    48be:	30 91 53 06 	lds	r19, 0x0653
     48c2:	8a 81       	ldd	r24, Y+2	; 0x02
     48c4:	88 2f       	mov	r24, r24
     48c6:	90 e0       	ldi	r25, 0x00	; 0
@@ -13167,8 +13167,8 @@ TickType_t uxTaskResetEventItemValue( void )
              * task unblocked because of a notification.  Otherwise the task
              * unblocked because of a timeout. */
             if( pxCurrentTCB->ucNotifyState[ uxIndexToWait ] != taskNOTIFICATION_RECEIVED )
-    48ec:	20 91 4c 06 	lds	r18, 0x064C
-    48f0:	30 91 4d 06 	lds	r19, 0x064D
+    48ec:	20 91 52 06 	lds	r18, 0x0652
+    48f0:	30 91 53 06 	lds	r19, 0x0653
     48f4:	8a 81       	ldd	r24, Y+2	; 0x02
     48f6:	88 2f       	mov	r24, r24
     48f8:	90 e0       	ldi	r25, 0x00	; 0
@@ -13190,8 +13190,8 @@ TickType_t uxTaskResetEventItemValue( void )
                 /* A notification was already pending or a notification was
                  * received while the task was waiting. */
                 pxCurrentTCB->ulNotifiedValue[ uxIndexToWait ] &= ~ulBitsToClearOnExit;
-    490c:	60 91 4c 06 	lds	r22, 0x064C
-    4910:	70 91 4d 06 	lds	r23, 0x064D
+    490c:	60 91 52 06 	lds	r22, 0x0652
+    4910:	70 91 53 06 	lds	r23, 0x0653
     4914:	8a 81       	ldd	r24, Y+2	; 0x02
     4916:	08 2f       	mov	r16, r24
     4918:	10 e0       	ldi	r17, 0x00	; 0
@@ -13241,8 +13241,8 @@ TickType_t uxTaskResetEventItemValue( void )
             }
 
             pxCurrentTCB->ucNotifyState[ uxIndexToWait ] = taskNOT_WAITING_NOTIFICATION;
-    496e:	20 91 4c 06 	lds	r18, 0x064C
-    4972:	30 91 4d 06 	lds	r19, 0x064D
+    496e:	20 91 52 06 	lds	r18, 0x0652
+    4972:	30 91 53 06 	lds	r19, 0x0653
     4976:	8a 81       	ldd	r24, Y+2	; 0x02
     4978:	88 2f       	mov	r24, r24
     497a:	90 e0       	ldi	r25, 0x00	; 0
@@ -13651,13 +13651,13 @@ TickType_t uxTaskResetEventItemValue( void )
     4c1e:	ef 81       	ldd	r30, Y+7	; 0x07
     4c20:	f8 85       	ldd	r31, Y+8	; 0x08
     4c22:	96 89       	ldd	r25, Z+22	; 0x16
-    4c24:	80 91 52 06 	lds	r24, 0x0652
+    4c24:	80 91 58 06 	lds	r24, 0x0658
     4c28:	89 17       	cp	r24, r25
     4c2a:	28 f4       	brcc	.+10     	; 0x4c36 <xTaskGenericNotify+0x28c>
     4c2c:	ef 81       	ldd	r30, Y+7	; 0x07
     4c2e:	f8 85       	ldd	r31, Y+8	; 0x08
     4c30:	86 89       	ldd	r24, Z+22	; 0x16
-    4c32:	80 93 52 06 	sts	0x0652, r24
+    4c32:	80 93 58 06 	sts	0x0658, r24
     4c36:	ef 81       	ldd	r30, Y+7	; 0x07
     4c38:	f8 85       	ldd	r31, Y+8	; 0x08
     4c3a:	86 89       	ldd	r24, Z+22	; 0x16
@@ -13673,7 +13673,7 @@ TickType_t uxTaskResetEventItemValue( void )
     4c4e:	82 0f       	add	r24, r18
     4c50:	93 1f       	adc	r25, r19
     4c52:	fc 01       	movw	r30, r24
-    4c54:	e2 5a       	subi	r30, 0xA2	; 162
+    4c54:	ec 59       	subi	r30, 0x9C	; 156
     4c56:	f9 4f       	sbci	r31, 0xF9	; 249
     4c58:	81 81       	ldd	r24, Z+1	; 0x01
     4c5a:	92 81       	ldd	r25, Z+2	; 0x02
@@ -13724,7 +13724,7 @@ TickType_t uxTaskResetEventItemValue( void )
     4cb4:	99 1f       	adc	r25, r25
     4cb6:	82 0f       	add	r24, r18
     4cb8:	93 1f       	adc	r25, r19
-    4cba:	82 5a       	subi	r24, 0xA2	; 162
+    4cba:	8c 59       	subi	r24, 0x9C	; 156
     4cbc:	99 4f       	sbci	r25, 0xF9	; 249
     4cbe:	ef 81       	ldd	r30, Y+7	; 0x07
     4cc0:	f8 85       	ldd	r31, Y+8	; 0x08
@@ -13745,7 +13745,7 @@ TickType_t uxTaskResetEventItemValue( void )
     4cde:	82 0f       	add	r24, r18
     4ce0:	93 1f       	adc	r25, r19
     4ce2:	fc 01       	movw	r30, r24
-    4ce4:	e2 5a       	subi	r30, 0xA2	; 162
+    4ce4:	ec 59       	subi	r30, 0x9C	; 156
     4ce6:	f9 4f       	sbci	r31, 0xF9	; 249
     4ce8:	80 81       	ld	r24, Z
     4cea:	8f 5f       	subi	r24, 0xFF	; 255
@@ -13759,8 +13759,8 @@ TickType_t uxTaskResetEventItemValue( void )
     4cee:	ef 81       	ldd	r30, Y+7	; 0x07
     4cf0:	f8 85       	ldd	r31, Y+8	; 0x08
     4cf2:	96 89       	ldd	r25, Z+22	; 0x16
-    4cf4:	e0 91 4c 06 	lds	r30, 0x064C
-    4cf8:	f0 91 4d 06 	lds	r31, 0x064D
+    4cf4:	e0 91 52 06 	lds	r30, 0x0652
+    4cf8:	f0 91 53 06 	lds	r31, 0x0653
     4cfc:	86 89       	ldd	r24, Z+22	; 0x16
     4cfe:	89 17       	cp	r24, r25
     4d00:	10 f4       	brcc	.+4      	; 0x4d06 <xTaskGenericNotify+0x35c>
@@ -14114,7 +14114,7 @@ TickType_t uxTaskResetEventItemValue( void )
                 configASSERT( listLIST_ITEM_CONTAINER( &( pxTCB->xEventListItem ) ) == NULL );
 
                 if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
-    4f28:	80 91 5d 06 	lds	r24, 0x065D
+    4f28:	80 91 63 06 	lds	r24, 0x0663
     4f2c:	88 23       	and	r24, r24
     4f2e:	09 f0       	breq	.+2      	; 0x4f32 <xTaskGenericNotifyFromISR+0x20c>
     4f30:	a4 c0       	rjmp	.+328    	; 0x507a <xTaskGenericNotifyFromISR+0x354>
@@ -14183,13 +14183,13 @@ TickType_t uxTaskResetEventItemValue( void )
     4fa8:	ea 85       	ldd	r30, Y+10	; 0x0a
     4faa:	fb 85       	ldd	r31, Y+11	; 0x0b
     4fac:	96 89       	ldd	r25, Z+22	; 0x16
-    4fae:	80 91 52 06 	lds	r24, 0x0652
+    4fae:	80 91 58 06 	lds	r24, 0x0658
     4fb2:	89 17       	cp	r24, r25
     4fb4:	28 f4       	brcc	.+10     	; 0x4fc0 <xTaskGenericNotifyFromISR+0x29a>
     4fb6:	ea 85       	ldd	r30, Y+10	; 0x0a
     4fb8:	fb 85       	ldd	r31, Y+11	; 0x0b
     4fba:	86 89       	ldd	r24, Z+22	; 0x16
-    4fbc:	80 93 52 06 	sts	0x0652, r24
+    4fbc:	80 93 58 06 	sts	0x0658, r24
     4fc0:	ea 85       	ldd	r30, Y+10	; 0x0a
     4fc2:	fb 85       	ldd	r31, Y+11	; 0x0b
     4fc4:	86 89       	ldd	r24, Z+22	; 0x16
@@ -14205,7 +14205,7 @@ TickType_t uxTaskResetEventItemValue( void )
     4fd8:	82 0f       	add	r24, r18
     4fda:	93 1f       	adc	r25, r19
     4fdc:	fc 01       	movw	r30, r24
-    4fde:	e2 5a       	subi	r30, 0xA2	; 162
+    4fde:	ec 59       	subi	r30, 0x9C	; 156
     4fe0:	f9 4f       	sbci	r31, 0xF9	; 249
     4fe2:	81 81       	ldd	r24, Z+1	; 0x01
     4fe4:	92 81       	ldd	r25, Z+2	; 0x02
@@ -14256,7 +14256,7 @@ TickType_t uxTaskResetEventItemValue( void )
     503e:	99 1f       	adc	r25, r25
     5040:	82 0f       	add	r24, r18
     5042:	93 1f       	adc	r25, r19
-    5044:	82 5a       	subi	r24, 0xA2	; 162
+    5044:	8c 59       	subi	r24, 0x9C	; 156
     5046:	99 4f       	sbci	r25, 0xF9	; 249
     5048:	ea 85       	ldd	r30, Y+10	; 0x0a
     504a:	fb 85       	ldd	r31, Y+11	; 0x0b
@@ -14277,7 +14277,7 @@ TickType_t uxTaskResetEventItemValue( void )
     5068:	82 0f       	add	r24, r18
     506a:	93 1f       	adc	r25, r19
     506c:	fc 01       	movw	r30, r24
-    506e:	e2 5a       	subi	r30, 0xA2	; 162
+    506e:	ec 59       	subi	r30, 0x9C	; 156
     5070:	f9 4f       	sbci	r31, 0xF9	; 249
     5072:	80 81       	ld	r24, Z
     5074:	8f 5f       	subi	r24, 0xFF	; 255
@@ -14289,8 +14289,8 @@ TickType_t uxTaskResetEventItemValue( void )
                     /* The delayed and ready lists cannot be accessed, so hold
                      * this task pending until the scheduler is resumed. */
                     listINSERT_END( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
-    507a:	80 91 99 06 	lds	r24, 0x0699
-    507e:	90 91 9a 06 	lds	r25, 0x069A
+    507a:	80 91 9f 06 	lds	r24, 0x069F
+    507e:	90 91 a0 06 	lds	r25, 0x06A0
     5082:	9a 83       	std	Y+2, r25	; 0x02
     5084:	89 83       	std	Y+1, r24	; 0x01
     5086:	ea 85       	ldd	r30, Y+10	; 0x0a
@@ -14326,21 +14326,21 @@ TickType_t uxTaskResetEventItemValue( void )
     50c2:	84 83       	std	Z+4, r24	; 0x04
     50c4:	ea 85       	ldd	r30, Y+10	; 0x0a
     50c6:	fb 85       	ldd	r31, Y+11	; 0x0b
-    50c8:	88 e9       	ldi	r24, 0x98	; 152
+    50c8:	8e e9       	ldi	r24, 0x9E	; 158
     50ca:	96 e0       	ldi	r25, 0x06	; 6
     50cc:	95 8b       	std	Z+21, r25	; 0x15
     50ce:	84 8b       	std	Z+20, r24	; 0x14
-    50d0:	80 91 98 06 	lds	r24, 0x0698
+    50d0:	80 91 9e 06 	lds	r24, 0x069E
     50d4:	8f 5f       	subi	r24, 0xFF	; 255
-    50d6:	80 93 98 06 	sts	0x0698, r24
+    50d6:	80 93 9e 06 	sts	0x069E, r24
                 }
 
                 if( pxTCB->uxPriority > pxCurrentTCB->uxPriority )
     50da:	ea 85       	ldd	r30, Y+10	; 0x0a
     50dc:	fb 85       	ldd	r31, Y+11	; 0x0b
     50de:	96 89       	ldd	r25, Z+22	; 0x16
-    50e0:	e0 91 4c 06 	lds	r30, 0x064C
-    50e4:	f0 91 4d 06 	lds	r31, 0x064D
+    50e0:	e0 91 52 06 	lds	r30, 0x0652
+    50e4:	f0 91 53 06 	lds	r31, 0x0653
     50e8:	86 89       	ldd	r24, Z+22	; 0x16
     50ea:	89 17       	cp	r24, r25
     50ec:	58 f4       	brcc	.+22     	; 0x5104 <xTaskGenericNotifyFromISR+0x3de>
@@ -14365,7 +14365,7 @@ TickType_t uxTaskResetEventItemValue( void )
                      * safe FreeRTOS function. */
                     xYieldPending = pdTRUE;
     50fe:	81 e0       	ldi	r24, 0x01	; 1
-    5100:	80 93 56 06 	sts	0x0656, r24
+    5100:	80 93 5c 06 	sts	0x065C, r24
                 }
             }
         }
@@ -14510,7 +14510,7 @@ TickType_t uxTaskResetEventItemValue( void )
                 configASSERT( listLIST_ITEM_CONTAINER( &( pxTCB->xEventListItem ) ) == NULL );
 
                 if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )
-    51d2:	80 91 5d 06 	lds	r24, 0x065D
+    51d2:	80 91 63 06 	lds	r24, 0x0663
     51d6:	88 23       	and	r24, r24
     51d8:	09 f0       	breq	.+2      	; 0x51dc <vTaskGenericNotifyGiveFromISR+0xb8>
     51da:	a4 c0       	rjmp	.+328    	; 0x5324 <vTaskGenericNotifyGiveFromISR+0x200>
@@ -14579,13 +14579,13 @@ TickType_t uxTaskResetEventItemValue( void )
     5252:	e9 85       	ldd	r30, Y+9	; 0x09
     5254:	fa 85       	ldd	r31, Y+10	; 0x0a
     5256:	96 89       	ldd	r25, Z+22	; 0x16
-    5258:	80 91 52 06 	lds	r24, 0x0652
+    5258:	80 91 58 06 	lds	r24, 0x0658
     525c:	89 17       	cp	r24, r25
     525e:	28 f4       	brcc	.+10     	; 0x526a <vTaskGenericNotifyGiveFromISR+0x146>
     5260:	e9 85       	ldd	r30, Y+9	; 0x09
     5262:	fa 85       	ldd	r31, Y+10	; 0x0a
     5264:	86 89       	ldd	r24, Z+22	; 0x16
-    5266:	80 93 52 06 	sts	0x0652, r24
+    5266:	80 93 58 06 	sts	0x0658, r24
     526a:	e9 85       	ldd	r30, Y+9	; 0x09
     526c:	fa 85       	ldd	r31, Y+10	; 0x0a
     526e:	86 89       	ldd	r24, Z+22	; 0x16
@@ -14601,7 +14601,7 @@ TickType_t uxTaskResetEventItemValue( void )
     5282:	82 0f       	add	r24, r18
     5284:	93 1f       	adc	r25, r19
     5286:	fc 01       	movw	r30, r24
-    5288:	e2 5a       	subi	r30, 0xA2	; 162
+    5288:	ec 59       	subi	r30, 0x9C	; 156
     528a:	f9 4f       	sbci	r31, 0xF9	; 249
     528c:	81 81       	ldd	r24, Z+1	; 0x01
     528e:	92 81       	ldd	r25, Z+2	; 0x02
@@ -14652,7 +14652,7 @@ TickType_t uxTaskResetEventItemValue( void )
     52e8:	99 1f       	adc	r25, r25
     52ea:	82 0f       	add	r24, r18
     52ec:	93 1f       	adc	r25, r19
-    52ee:	82 5a       	subi	r24, 0xA2	; 162
+    52ee:	8c 59       	subi	r24, 0x9C	; 156
     52f0:	99 4f       	sbci	r25, 0xF9	; 249
     52f2:	e9 85       	ldd	r30, Y+9	; 0x09
     52f4:	fa 85       	ldd	r31, Y+10	; 0x0a
@@ -14673,7 +14673,7 @@ TickType_t uxTaskResetEventItemValue( void )
     5312:	82 0f       	add	r24, r18
     5314:	93 1f       	adc	r25, r19
     5316:	fc 01       	movw	r30, r24
-    5318:	e2 5a       	subi	r30, 0xA2	; 162
+    5318:	ec 59       	subi	r30, 0x9C	; 156
     531a:	f9 4f       	sbci	r31, 0xF9	; 249
     531c:	80 81       	ld	r24, Z
     531e:	8f 5f       	subi	r24, 0xFF	; 255
@@ -14685,8 +14685,8 @@ TickType_t uxTaskResetEventItemValue( void )
                     /* The delayed and ready lists cannot be accessed, so hold
                      * this task pending until the scheduler is resumed. */
                     listINSERT_END( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
-    5324:	80 91 99 06 	lds	r24, 0x0699
-    5328:	90 91 9a 06 	lds	r25, 0x069A
+    5324:	80 91 9f 06 	lds	r24, 0x069F
+    5328:	90 91 a0 06 	lds	r25, 0x06A0
     532c:	9a 83       	std	Y+2, r25	; 0x02
     532e:	89 83       	std	Y+1, r24	; 0x01
     5330:	e9 85       	ldd	r30, Y+9	; 0x09
@@ -14722,21 +14722,21 @@ TickType_t uxTaskResetEventItemValue( void )
     536c:	84 83       	std	Z+4, r24	; 0x04
     536e:	e9 85       	ldd	r30, Y+9	; 0x09
     5370:	fa 85       	ldd	r31, Y+10	; 0x0a
-    5372:	88 e9       	ldi	r24, 0x98	; 152
+    5372:	8e e9       	ldi	r24, 0x9E	; 158
     5374:	96 e0       	ldi	r25, 0x06	; 6
     5376:	95 8b       	std	Z+21, r25	; 0x15
     5378:	84 8b       	std	Z+20, r24	; 0x14
-    537a:	80 91 98 06 	lds	r24, 0x0698
+    537a:	80 91 9e 06 	lds	r24, 0x069E
     537e:	8f 5f       	subi	r24, 0xFF	; 255
-    5380:	80 93 98 06 	sts	0x0698, r24
+    5380:	80 93 9e 06 	sts	0x069E, r24
                 }
 
                 if( pxTCB->uxPriority > pxCurrentTCB->uxPriority )
     5384:	e9 85       	ldd	r30, Y+9	; 0x09
     5386:	fa 85       	ldd	r31, Y+10	; 0x0a
     5388:	96 89       	ldd	r25, Z+22	; 0x16
-    538a:	e0 91 4c 06 	lds	r30, 0x064C
-    538e:	f0 91 4d 06 	lds	r31, 0x064D
+    538a:	e0 91 52 06 	lds	r30, 0x0652
+    538e:	f0 91 53 06 	lds	r31, 0x0653
     5392:	86 89       	ldd	r24, Z+22	; 0x16
     5394:	89 17       	cp	r24, r25
     5396:	58 f4       	brcc	.+22     	; 0x53ae <vTaskGenericNotifyGiveFromISR+0x28a>
@@ -14761,7 +14761,7 @@ TickType_t uxTaskResetEventItemValue( void )
                      * safe FreeRTOS function. */
                     xYieldPending = pdTRUE;
     53a8:	81 e0       	ldi	r24, 0x01	; 1
-    53aa:	80 93 56 06 	sts	0x0656, r24
+    53aa:	80 93 5c 06 	sts	0x065C, r24
                     mtCOVERAGE_TEST_MARKER();
                 }
             }
@@ -14810,8 +14810,8 @@ TickType_t uxTaskResetEventItemValue( void )
     53e0:	9d 81       	ldd	r25, Y+5	; 0x05
     53e2:	00 97       	sbiw	r24, 0x00	; 0
     53e4:	39 f4       	brne	.+14     	; 0x53f4 <xTaskGenericNotifyStateClear+0x30>
-    53e6:	80 91 4c 06 	lds	r24, 0x064C
-    53ea:	90 91 4d 06 	lds	r25, 0x064D
+    53e6:	80 91 52 06 	lds	r24, 0x0652
+    53ea:	90 91 53 06 	lds	r25, 0x0653
     53ee:	98 87       	std	Y+8, r25	; 0x08
     53f0:	8f 83       	std	Y+7, r24	; 0x07
     53f2:	04 c0       	rjmp	.+8      	; 0x53fc <xTaskGenericNotifyStateClear+0x38>
@@ -14918,8 +14918,8 @@ TickType_t uxTaskResetEventItemValue( void )
     547e:	98 85       	ldd	r25, Y+8	; 0x08
     5480:	00 97       	sbiw	r24, 0x00	; 0
     5482:	39 f4       	brne	.+14     	; 0x5492 <ulTaskGenericNotifyValueClear+0x3c>
-    5484:	80 91 4c 06 	lds	r24, 0x064C
-    5488:	90 91 4d 06 	lds	r25, 0x064D
+    5484:	80 91 52 06 	lds	r24, 0x0652
+    5488:	90 91 53 06 	lds	r25, 0x0653
     548c:	9f 87       	std	Y+15, r25	; 0x0f
     548e:	8e 87       	std	Y+14, r24	; 0x0e
     5490:	04 c0       	rjmp	.+8      	; 0x549a <ulTaskGenericNotifyValueClear+0x44>
@@ -15058,8 +15058,8 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     5572:	6f 83       	std	Y+7, r22	; 0x07
     TickType_t xTimeToWake;
     const TickType_t xConstTickCount = xTickCount;
-    5574:	80 91 50 06 	lds	r24, 0x0650
-    5578:	90 91 51 06 	lds	r25, 0x0651
+    5574:	80 91 56 06 	lds	r24, 0x0656
+    5578:	90 91 57 06 	lds	r25, 0x0657
     557c:	9a 83       	std	Y+2, r25	; 0x02
     557e:	89 83       	std	Y+1, r24	; 0x01
     }
@@ -15068,8 +15068,8 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     /* Remove the task from the ready list before adding it to the blocked list
      * as the same list item is used for both lists. */
     if( uxListRemove( &( pxCurrentTCB->xStateListItem ) ) == ( UBaseType_t ) 0 )
-    5580:	80 91 4c 06 	lds	r24, 0x064C
-    5584:	90 91 4d 06 	lds	r25, 0x064D
+    5580:	80 91 52 06 	lds	r24, 0x0652
+    5584:	90 91 53 06 	lds	r25, 0x0653
     5588:	02 96       	adiw	r24, 0x02	; 2
     558a:	0e 94 cc 07 	call	0xf98	; 0xf98 <uxListRemove>
     #else /* INCLUDE_vTaskSuspend */
@@ -15089,8 +15089,8 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
 
         /* The list item will be inserted in wake time order. */
         listSET_LIST_ITEM_VALUE( &( pxCurrentTCB->xStateListItem ), xTimeToWake );
-    559e:	e0 91 4c 06 	lds	r30, 0x064C
-    55a2:	f0 91 4d 06 	lds	r31, 0x064D
+    559e:	e0 91 52 06 	lds	r30, 0x0652
+    55a2:	f0 91 53 06 	lds	r31, 0x0653
     55a6:	8b 81       	ldd	r24, Y+3	; 0x03
     55a8:	9c 81       	ldd	r25, Y+4	; 0x04
     55aa:	93 83       	std	Z+3, r25	; 0x03
@@ -15107,10 +15107,10 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
         {
             /* Wake time has overflowed.  Place this item in the overflow list. */
             vListInsert( pxOverflowDelayedTaskList, &( pxCurrentTCB->xStateListItem ) );
-    55bc:	80 91 96 06 	lds	r24, 0x0696
-    55c0:	90 91 97 06 	lds	r25, 0x0697
-    55c4:	20 91 4c 06 	lds	r18, 0x064C
-    55c8:	30 91 4d 06 	lds	r19, 0x064D
+    55bc:	80 91 9c 06 	lds	r24, 0x069C
+    55c0:	90 91 9d 06 	lds	r25, 0x069D
+    55c4:	20 91 52 06 	lds	r18, 0x0652
+    55c8:	30 91 53 06 	lds	r19, 0x0653
     55cc:	2e 5f       	subi	r18, 0xFE	; 254
     55ce:	3f 4f       	sbci	r19, 0xFF	; 255
     55d0:	b9 01       	movw	r22, r18
@@ -15121,10 +15121,10 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
         {
             /* The wake time has not overflowed, so the current block list is used. */
             vListInsert( pxDelayedTaskList, &( pxCurrentTCB->xStateListItem ) );
-    55d8:	40 91 94 06 	lds	r20, 0x0694
-    55dc:	50 91 95 06 	lds	r21, 0x0695
-    55e0:	80 91 4c 06 	lds	r24, 0x064C
-    55e4:	90 91 4d 06 	lds	r25, 0x064D
+    55d8:	40 91 9a 06 	lds	r20, 0x069A
+    55dc:	50 91 9b 06 	lds	r21, 0x069B
+    55e0:	80 91 52 06 	lds	r24, 0x0652
+    55e4:	90 91 53 06 	lds	r25, 0x0653
     55e8:	9c 01       	movw	r18, r24
     55ea:	2e 5f       	subi	r18, 0xFE	; 254
     55ec:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -15136,8 +15136,8 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
              * list of blocked tasks then xNextTaskUnblockTime needs to be updated
              * too. */
             if( xTimeToWake < xNextTaskUnblockTime )
-    55f6:	20 91 59 06 	lds	r18, 0x0659
-    55fa:	30 91 5a 06 	lds	r19, 0x065A
+    55f6:	20 91 5f 06 	lds	r18, 0x065F
+    55fa:	30 91 60 06 	lds	r19, 0x0660
     55fe:	8b 81       	ldd	r24, Y+3	; 0x03
     5600:	9c 81       	ldd	r25, Y+4	; 0x04
     5602:	82 17       	cp	r24, r18
@@ -15147,8 +15147,8 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
                 xNextTaskUnblockTime = xTimeToWake;
     5608:	8b 81       	ldd	r24, Y+3	; 0x03
     560a:	9c 81       	ldd	r25, Y+4	; 0x04
-    560c:	90 93 5a 06 	sts	0x065A, r25
-    5610:	80 93 59 06 	sts	0x0659, r24
+    560c:	90 93 60 06 	sts	0x0660, r25
+    5610:	80 93 5f 06 	sts	0x065F, r24
 
         /* Avoid compiler warning when INCLUDE_vTaskSuspend is not 1. */
         ( void ) xCanBlockIndefinitely;
@@ -15166,9 +15166,9 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     5624:	08 95       	ret
 
 00005626 <main>:
- /*Create Task Handles Create */
  xTaskHandle Task1Hand = NULL;
 
+ xTaskHandle Task2Hand = NULL;
 
  int main(void)
 {
@@ -15189,12 +15189,12 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     563e:	81 60       	ori	r24, 0x01	; 1
     5640:	8c 93       	st	X, r24
 	/*Create tasks*/
-	xTaskCreate(LedIntro_code,(const signed char *)"Task1",85,NULL,LedOn_PRIORITY,&Task1Hand);
-    5642:	8a e3       	ldi	r24, 0x3A	; 58
+	xTaskCreate(LedOn_code,(const signed char *)"Task1",85,NULL,LedOn_PRIORITY,&Task1Hand);
+    5642:	89 e4       	ldi	r24, 0x49	; 73
     5644:	9b e2       	ldi	r25, 0x2B	; 43
     5646:	25 e6       	ldi	r18, 0x65	; 101
     5648:	30 e0       	ldi	r19, 0x00	; 0
-    564a:	ea ea       	ldi	r30, 0xAA	; 170
+    564a:	e0 eb       	ldi	r30, 0xB0	; 176
     564c:	f6 e0       	ldi	r31, 0x06	; 6
     564e:	b9 01       	movw	r22, r18
     5650:	45 e5       	ldi	r20, 0x55	; 85
@@ -15205,118 +15205,145 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     565a:	7f 01       	movw	r14, r30
     565c:	0e 94 9b 17 	call	0x2f36	; 0x2f36 <xTaskCreate>
 
+	/*Create tasks*/
+	xTaskCreate(LedOFF_code,(const signed char *)"Task2",85,NULL,LedOFF_PRIORITY,&Task2Hand);
+    5660:	88 e5       	ldi	r24, 0x58	; 88
+    5662:	9b e2       	ldi	r25, 0x2B	; 43
+    5664:	2b e6       	ldi	r18, 0x6B	; 107
+    5666:	30 e0       	ldi	r19, 0x00	; 0
+    5668:	e2 eb       	ldi	r30, 0xB2	; 178
+    566a:	f6 e0       	ldi	r31, 0x06	; 6
+    566c:	b9 01       	movw	r22, r18
+    566e:	45 e5       	ldi	r20, 0x55	; 85
+    5670:	50 e0       	ldi	r21, 0x00	; 0
+    5672:	20 e0       	ldi	r18, 0x00	; 0
+    5674:	30 e0       	ldi	r19, 0x00	; 0
+    5676:	03 e0       	ldi	r16, 0x03	; 3
+    5678:	7f 01       	movw	r14, r30
+    567a:	0e 94 9b 17 	call	0x2f36	; 0x2f36 <xTaskCreate>
+
+
 	/*start Scheduler */
 	vTaskStartScheduler();
-    5660:	0e 94 97 1a 	call	0x352e	; 0x352e <vTaskStartScheduler>
+    567e:	0e 94 97 1a 	call	0x352e	; 0x352e <vTaskStartScheduler>
 
 	/*Never Enter Here */
 	return 0;
-    5664:	80 e0       	ldi	r24, 0x00	; 0
-    5666:	90 e0       	ldi	r25, 0x00	; 0
+    5682:	80 e0       	ldi	r24, 0x00	; 0
+    5684:	90 e0       	ldi	r25, 0x00	; 0
 }
-    5668:	cf 91       	pop	r28
-    566a:	df 91       	pop	r29
-    566c:	0f 91       	pop	r16
-    566e:	ff 90       	pop	r15
-    5670:	ef 90       	pop	r14
-    5672:	08 95       	ret
+    5686:	cf 91       	pop	r28
+    5688:	df 91       	pop	r29
+    568a:	0f 91       	pop	r16
+    568c:	ff 90       	pop	r15
+    568e:	ef 90       	pop	r14
+    5690:	08 95       	ret
 
-00005674 <LedIntro_code>:
+00005692 <LedOn_code>:
 
 /*Task1 Code */
- void LedIntro_code(void*pvParamter)
-{
-    5674:	df 93       	push	r29
-    5676:	cf 93       	push	r28
-    5678:	00 d0       	rcall	.+0      	; 0x567a <LedIntro_code+0x6>
-    567a:	cd b7       	in	r28, 0x3d	; 61
-    567c:	de b7       	in	r29, 0x3e	; 62
-    567e:	9a 83       	std	Y+2, r25	; 0x02
-    5680:	89 83       	std	Y+1, r24	; 0x01
+
+
+ void LedOn_code( void* pvParamter){
+    5692:	df 93       	push	r29
+    5694:	cf 93       	push	r28
+    5696:	00 d0       	rcall	.+0      	; 0x5698 <LedOn_code+0x6>
+    5698:	cd b7       	in	r28, 0x3d	; 61
+    569a:	de b7       	in	r29, 0x3e	; 62
+    569c:	9a 83       	std	Y+2, r25	; 0x02
+    569e:	89 83       	std	Y+1, r24	; 0x01
+
 	for (;;)
 	{
-
-		/*Toggle Led */
+		/*Turn On  Led */
 		PORTB |= 0x01;
-    5682:	a8 e3       	ldi	r26, 0x38	; 56
-    5684:	b0 e0       	ldi	r27, 0x00	; 0
-    5686:	e8 e3       	ldi	r30, 0x38	; 56
-    5688:	f0 e0       	ldi	r31, 0x00	; 0
-    568a:	80 81       	ld	r24, Z
-    568c:	81 60       	ori	r24, 0x01	; 1
-    568e:	8c 93       	st	X, r24
+    56a0:	a8 e3       	ldi	r26, 0x38	; 56
+    56a2:	b0 e0       	ldi	r27, 0x00	; 0
+    56a4:	e8 e3       	ldi	r30, 0x38	; 56
+    56a6:	f0 e0       	ldi	r31, 0x00	; 0
+    56a8:	80 81       	ld	r24, Z
+    56aa:	81 60       	ori	r24, 0x01	; 1
+    56ac:	8c 93       	st	X, r24
+    56ae:	f8 cf       	rjmp	.-16     	; 0x56a0 <LedOn_code+0xe>
 
-		/*Send Task in Blocked Queue for 2000 Ticks */
+000056b0 <LedOFF_code>:
+
+	}
+ }
+ void LedOFF_code( void* pvParamter){
+    56b0:	df 93       	push	r29
+    56b2:	cf 93       	push	r28
+    56b4:	00 d0       	rcall	.+0      	; 0x56b6 <LedOFF_code+0x6>
+    56b6:	cd b7       	in	r28, 0x3d	; 61
+    56b8:	de b7       	in	r29, 0x3e	; 62
+    56ba:	9a 83       	std	Y+2, r25	; 0x02
+    56bc:	89 83       	std	Y+1, r24	; 0x01
+
 		vTaskDelay(2000);
-    5690:	80 ed       	ldi	r24, 0xD0	; 208
-    5692:	97 e0       	ldi	r25, 0x07	; 7
-    5694:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
+    56be:	80 ed       	ldi	r24, 0xD0	; 208
+    56c0:	97 e0       	ldi	r25, 0x07	; 7
+    56c2:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
+		for (;;)
+		{
+			/*Turn Off Led */
+			PORTB &= 0xFE;
+    56c6:	a8 e3       	ldi	r26, 0x38	; 56
+    56c8:	b0 e0       	ldi	r27, 0x00	; 0
+    56ca:	e8 e3       	ldi	r30, 0x38	; 56
+    56cc:	f0 e0       	ldi	r31, 0x00	; 0
+    56ce:	80 81       	ld	r24, Z
+    56d0:	8e 7f       	andi	r24, 0xFE	; 254
+    56d2:	8c 93       	st	X, r24
+    56d4:	f8 cf       	rjmp	.-16     	; 0x56c6 <LedOFF_code+0x16>
 
-		/*Toggle Led */
-		PORTB &= 0xFE;
-    5698:	a8 e3       	ldi	r26, 0x38	; 56
-    569a:	b0 e0       	ldi	r27, 0x00	; 0
-    569c:	e8 e3       	ldi	r30, 0x38	; 56
-    569e:	f0 e0       	ldi	r31, 0x00	; 0
-    56a0:	80 81       	ld	r24, Z
-    56a2:	8e 7f       	andi	r24, 0xFE	; 254
-    56a4:	8c 93       	st	X, r24
+000056d6 <__udivmodhi4>:
+    56d6:	aa 1b       	sub	r26, r26
+    56d8:	bb 1b       	sub	r27, r27
+    56da:	51 e1       	ldi	r21, 0x11	; 17
+    56dc:	07 c0       	rjmp	.+14     	; 0x56ec <__udivmodhi4_ep>
 
-		/*Send Task in Blocked Queue for 2000 Ticks */
-		vTaskDelay(2000);
-    56a6:	80 ed       	ldi	r24, 0xD0	; 208
-    56a8:	97 e0       	ldi	r25, 0x07	; 7
-    56aa:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
-    56ae:	e9 cf       	rjmp	.-46     	; 0x5682 <LedIntro_code+0xe>
+000056de <__udivmodhi4_loop>:
+    56de:	aa 1f       	adc	r26, r26
+    56e0:	bb 1f       	adc	r27, r27
+    56e2:	a6 17       	cp	r26, r22
+    56e4:	b7 07       	cpc	r27, r23
+    56e6:	10 f0       	brcs	.+4      	; 0x56ec <__udivmodhi4_ep>
+    56e8:	a6 1b       	sub	r26, r22
+    56ea:	b7 0b       	sbc	r27, r23
 
-000056b0 <__udivmodhi4>:
-    56b0:	aa 1b       	sub	r26, r26
-    56b2:	bb 1b       	sub	r27, r27
-    56b4:	51 e1       	ldi	r21, 0x11	; 17
-    56b6:	07 c0       	rjmp	.+14     	; 0x56c6 <__udivmodhi4_ep>
+000056ec <__udivmodhi4_ep>:
+    56ec:	88 1f       	adc	r24, r24
+    56ee:	99 1f       	adc	r25, r25
+    56f0:	5a 95       	dec	r21
+    56f2:	a9 f7       	brne	.-22     	; 0x56de <__udivmodhi4_loop>
+    56f4:	80 95       	com	r24
+    56f6:	90 95       	com	r25
+    56f8:	bc 01       	movw	r22, r24
+    56fa:	cd 01       	movw	r24, r26
+    56fc:	08 95       	ret
 
-000056b8 <__udivmodhi4_loop>:
-    56b8:	aa 1f       	adc	r26, r26
-    56ba:	bb 1f       	adc	r27, r27
-    56bc:	a6 17       	cp	r26, r22
-    56be:	b7 07       	cpc	r27, r23
-    56c0:	10 f0       	brcs	.+4      	; 0x56c6 <__udivmodhi4_ep>
-    56c2:	a6 1b       	sub	r26, r22
-    56c4:	b7 0b       	sbc	r27, r23
+000056fe <memcpy>:
+    56fe:	fb 01       	movw	r30, r22
+    5700:	dc 01       	movw	r26, r24
+    5702:	02 c0       	rjmp	.+4      	; 0x5708 <memcpy+0xa>
+    5704:	01 90       	ld	r0, Z+
+    5706:	0d 92       	st	X+, r0
+    5708:	41 50       	subi	r20, 0x01	; 1
+    570a:	50 40       	sbci	r21, 0x00	; 0
+    570c:	d8 f7       	brcc	.-10     	; 0x5704 <memcpy+0x6>
+    570e:	08 95       	ret
 
-000056c6 <__udivmodhi4_ep>:
-    56c6:	88 1f       	adc	r24, r24
-    56c8:	99 1f       	adc	r25, r25
-    56ca:	5a 95       	dec	r21
-    56cc:	a9 f7       	brne	.-22     	; 0x56b8 <__udivmodhi4_loop>
-    56ce:	80 95       	com	r24
-    56d0:	90 95       	com	r25
-    56d2:	bc 01       	movw	r22, r24
-    56d4:	cd 01       	movw	r24, r26
-    56d6:	08 95       	ret
+00005710 <memset>:
+    5710:	dc 01       	movw	r26, r24
+    5712:	01 c0       	rjmp	.+2      	; 0x5716 <memset+0x6>
+    5714:	6d 93       	st	X+, r22
+    5716:	41 50       	subi	r20, 0x01	; 1
+    5718:	50 40       	sbci	r21, 0x00	; 0
+    571a:	e0 f7       	brcc	.-8      	; 0x5714 <memset+0x4>
+    571c:	08 95       	ret
 
-000056d8 <memcpy>:
-    56d8:	fb 01       	movw	r30, r22
-    56da:	dc 01       	movw	r26, r24
-    56dc:	02 c0       	rjmp	.+4      	; 0x56e2 <memcpy+0xa>
-    56de:	01 90       	ld	r0, Z+
-    56e0:	0d 92       	st	X+, r0
-    56e2:	41 50       	subi	r20, 0x01	; 1
-    56e4:	50 40       	sbci	r21, 0x00	; 0
-    56e6:	d8 f7       	brcc	.-10     	; 0x56de <memcpy+0x6>
-    56e8:	08 95       	ret
+0000571e <_exit>:
+    571e:	f8 94       	cli
 
-000056ea <memset>:
-    56ea:	dc 01       	movw	r26, r24
-    56ec:	01 c0       	rjmp	.+2      	; 0x56f0 <memset+0x6>
-    56ee:	6d 93       	st	X+, r22
-    56f0:	41 50       	subi	r20, 0x01	; 1
-    56f2:	50 40       	sbci	r21, 0x00	; 0
-    56f4:	e0 f7       	brcc	.-8      	; 0x56ee <memset+0x4>
-    56f6:	08 95       	ret
-
-000056f8 <_exit>:
-    56f8:	f8 94       	cli
-
-000056fa <__stop_program>:
-    56fa:	ff cf       	rjmp	.-2      	; 0x56fa <__stop_program>
+00005720 <__stop_program>:
+    5720:	ff cf       	rjmp	.-2      	; 0x5720 <__stop_program>
