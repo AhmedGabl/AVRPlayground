@@ -1,0 +1,22 @@
+/*
+ * CTRL.h
+ *
+ *  Created on: Nov 18, 2023
+ *      Author: AhmedAbogabl
+ */
+
+#ifndef APP_CTRL_CTRL_H_
+#define APP_CTRL_CTRL_H_
+
+void BTCTRL_Init(void);
+
+u8 BTCTRL_Receive(void);
+
+void BTCTRL_Send(u8 data);
+
+u32 BTCTRL_ReceiveNumber() ;
+
+void BTCTRL_TransmitString(const u8* str) ;
+
+
+#endif /* APP_CTRL_CTRL_H_ */

@@ -1,0 +1,13 @@
+/*
+ * BT.h
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: AhmedAbogabl
+ */
+
+#ifndef HAL_BLUETOOTH_BT_H_
+#define HAL_BLUETOOTH_BT_H_
+
+
+
+#endif /* HAL_BLUETOOTH_BT_H_ */

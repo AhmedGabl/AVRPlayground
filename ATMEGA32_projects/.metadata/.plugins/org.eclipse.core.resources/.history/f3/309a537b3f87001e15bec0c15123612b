@@ -1,0 +1,62 @@
+/*
+ * main.c
+ * Description: Door access control system using AVR microcontroller
+ * Author: AhmedAbogabl
+ * Created on: Oct 17, 2023
+ */
+
+#include <avr/delay.h>
+
+#include "HAL/EEPROM/EEPROM_interface.h"
+#include "MCAL/DIO/DIO_interface.h"
+#include "MCAL/PORT/PORT.h"
+#include "MCAL/SPI/includes/SPI_interface.h"A
+#include "MCAL/GI/GI_interface.h"
+#include "MCAL/UART/includes/UART_interface.h"
+#include "HAL/LCD/LCD.h"
+#include "HAL/SRVM/SRVM_interface.h"
+//#include <avr/io.h>
+//#include <util/delay.h>
+
+#include "HAL/MOTOR/WHM.h"
+
+int main(void) {
+
+    Port_Init(pin_cfg);
+    TMR0_voidInit();
+//    Lcd_Init();
+//    UART_Init();
+//    SPI_voidInit();
+//    EEPROM_voidInit();
+    GI_voidEnable();
+
+    /* Initialize the motor driver */
+    MOTOR_voidInit();
+
+    while (1) {
+        /* Turn on the speed motor in clockwise direction */
+        MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
+        /* Control the speed of the speed motor */
+        MOTOR_voidControlSpeed(SPEED_MOTOR, 50);  // Adjust speed as needed
+        _delay_ms(5000);  // Run for 5 seconds
+        /* Turn off the speed motor */
+        MOTOR_voidOff(SPEED_MOTOR);
+
+        /* Delay before repeating the task */
+        _delay_ms(5000);
+
+        /* Turn on the steering motor in clockwise direction */
+        MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+        /* Control the speed of the steering motor (if applicable) */
+        MOTOR_voidControlSpeed(STEERING_MOTOR, 50);  // Adjust speed as needed
+        _delay_ms(5000);  // Run for 5 seconds
+        /* Turn off the steering motor */
+        MOTOR_voidOff(STEERING_MOTOR);
+
+        /* Delay before repeating the task */
+        _delay_ms(5000);
+    }
+
+    /* Never reach here */
+    return 0;
+}

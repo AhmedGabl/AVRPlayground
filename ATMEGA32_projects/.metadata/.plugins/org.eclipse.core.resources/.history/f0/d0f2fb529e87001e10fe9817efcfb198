@@ -1,0 +1,114 @@
+/*
+ * main.c
+ * Description: Door access control system using AVR microcontroller
+ * Author: AhmedAbogabl
+ * Created on: Oct 17, 2023
+ */
+
+#include "MCAL/DIO/DIO_interface.h"
+#include "MCAL/PORT/PORT.h"
+#include "MCAL/GI/GI_interface.h"
+
+//car
+#include "HAL/SRVM/SRVM_interface.h"
+#include "HAL/MOTOR/WHM.h"
+#include "HAL/BLUETOOTH/BT.h"
+#include "OS/OS_interface.h"
+
+/*
+ * fun prototypes
+ */
+void WHM_SpeedOff(void);
+void WHM_SteeringOff(void);
+
+#define ForgetGiveSemaphore		 pdFALSE
+#define FrogetGlobalInterrupt 		0  /* 0  for Nodefect 1 for Defect **/
+
+void BT(void );
+void WHM(void);
+
+#define WHMPr (2)
+
+void init(void);
+
+/*** Global Variable ****/
+u8 ButtonState = 1;
+
+u8 BT_read_vlaue = 0;
+int main(void) {
+	init();
+
+//	while (1) {
+
+//		BT();
+//
+//		WHM();
+//	}
+
+	OS_voidCreateTask(0,100,0,BT);
+	OS_voidCreateTask(1,200,1,WHM);
+
+	/*Never Enter Here */
+	OS_voidStartScheduler();
+	while(1)
+	{
+
+	}
+	return 0;
+}
+
+void init(void) {
+	Port_Init(pin_cfg);
+	BT_Init();
+	MOTOR_voidInit();
+}
+
+void BT(void) {
+	if (ButtonState == 1) {
+		/*Change the State **/
+		BT_read_vlaue = BT_Receive();
+		ButtonState = 0;
+	}
+}
+
+void WHM(void ) {
+
+	/* if the Push Button is Pressed */
+	if (ButtonState == 0) {
+
+		switch (BT_read_vlaue) {
+		case 'W':
+			MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
+			ButtonState = 1;
+			break;
+		case 'P':
+			MOTOR_voidOff(SPEED_MOTOR);
+			ButtonState = 1;
+			break;
+		case 'S':
+			MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
+			ButtonState = 1;
+			break;
+		case 'D':
+			MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+			ButtonState = 1;
+			break;
+		case 'A':
+			MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
+			ButtonState = 1;
+			break;
+		default:
+			break;
+		}
+
+		ButtonState = 1;
+	}
+}
+
+void WHM_SpeedOff(void) {
+	MOTOR_voidOff(SPEED_MOTOR);
+}
+
+void WHM_SteeringOff(void) {
+	MOTOR_voidOff(STEERING_MOTOR);
+}

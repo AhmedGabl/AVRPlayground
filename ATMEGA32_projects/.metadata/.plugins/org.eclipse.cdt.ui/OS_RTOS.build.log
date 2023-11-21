@@ -1,11 +1,11 @@
-14:56:43 **** Incremental Build of configuration Debug for project OS_RTOS ****
+06:17:43 **** Incremental Build of configuration Debug for project OS_RTOS ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS\FreeRTOS\Source\portable\GCC\ATMega323" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
 ../main.c: In function 'main':
-../main.c:29: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
 ../main.c:31: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
+../main.c:32: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
 Finished building: ../main.c
  
 Building target: OS_RTOS.elf
@@ -27,15 +27,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   22370 bytes (68.3% Full)
+Program:   22394 bytes (68.3% Full)
 (.text + .data + .bootloader)
 
-Data:       1621 bytes (79.2% Full)
+Data:       1622 bytes (79.2% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-14:56:43 Build Finished (took 686ms)
+06:17:44 Build Finished (took 663ms)
 

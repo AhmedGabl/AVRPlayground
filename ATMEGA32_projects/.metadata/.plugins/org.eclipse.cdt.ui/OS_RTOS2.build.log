@@ -1,0 +1,25 @@
+15:09:42 **** Incremental Build of configuration Debug for project OS_RTOS2 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS2\FreeRTOS\Source\include" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS2\FreeRTOS\Source\portable\GCC\ATMega323" -I"D:\GitHub\AVRPlayground\ATMEGA32_projects\OS_RTOS2\FreeRTOS" -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:41: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
+../main.c:44: warning: pointer targets in passing argument 2 of 'xTaskCreate' differ in signedness
+../main.c: In function 'PushButton2':
+../main.c:103: warning: passing argument 1 of 'vTaskPrioritySet' from incompatible pointer type
+../main.c:112: warning: passing argument 1 of 'vTaskPrioritySet' from incompatible pointer type
+Finished building: ../main.c
+ 
+Building target: OS_RTOS2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,OS_RTOS2.map -mmcu=atmega32 -o "OS_RTOS2.elf"  ./FreeRTOS/Source/portable/MemMang/heap_1.o  ./FreeRTOS/Source/portable/GCC/ATMega323/port.o  ./FreeRTOS/Source/croutine.o ./FreeRTOS/Source/event_groups.o ./FreeRTOS/Source/list.o ./FreeRTOS/Source/queue.o ./FreeRTOS/Source/stream_buffer.o ./FreeRTOS/Source/tasks.o ./FreeRTOS/Source/timers.o  ./main.o   
+./main.o: In function `main':
+../main.c:50: undefined reference to `vTaskPrioritySet'
+../main.c:60: undefined reference to `vTaskPrioritySet'
+../main.c:44: undefined reference to `vTaskPrioritySet'
+../main.c:50: undefined reference to `vTaskPrioritySet'
+make: *** [OS_RTOS2.elf] Error 1
+
+15:09:42 Build Finished (took 435ms)
+

@@ -1,0 +1,71 @@
+/*
+ * CTRL.c
+ *
+ *  Created on: Nov 18, 2023
+ *      Author: AhmedAbogabl
+ */
+
+//include uart
+
+#include "CTRL.h"
+
+
+// Function to edit a user
+void EDIT_user() {
+    u8 user[4];
+    UART_TransmitString("\r\n Enter user id to edit (1-20):");
+    user[0] = (u8)UART_Receive();
+    UART_TransmitString("\r\n Enter NEW password(****):");
+    user[1] = (u8)UART_Receive();
+    user[2] = (u8)UART_Receive();
+    user[3] = (u8)UART_Receive();
+
+    EEPROM_voidWritePage(EEPROM_ID_FIRST_ADDR + ((user[0] - '0') * 4), user, 4);
+}
+Lcd_PutString("HI");
+   while (1) {
+       UART_TransmitString("ENTER PASSWORD:");
+       admin = UART_ReceiveNumber();
+
+       if (admin == ADMIN_PASSWORD) {
+           access = 1;
+           break;
+       } else {
+           access = 0;
+       }
+
+       if (trials == 3) {
+           access = 0;
+           break;
+       }
+       trials++;
+   }
+
+   if (access) {
+       while (1) {
+           UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+           UART_TransmitString("\r\n 1 FOR ADDING NEW USER:\r\n");
+           UART_TransmitString(" 2 FOR DELETING A USER:\r\n");
+           UART_TransmitString(" 3 FOR EDITING A USER \r\n");
+           UART_TransmitString(" 4 ACCEPT USERS\r\n");
+
+           if (tryAgain_flag == 1) {
+               RunForUsers();
+           } else {
+               Users_Pick = UART_ReceiveNumber();
+               Handle_user(Users_Pick);
+           }
+       }
+   } else {
+       // Lock the system if out of trials
+       UART_TransmitString("CLS\r\n");
+       UART_TransmitString("\r\n OUT OF TRIALS :\r\n");
+       UART_TransmitString("\r\n SYSTEM LOCKED :\r\n");
+
+       Dio_WriteChannel(BUZZ, STD_HIGH);
+       Dio_WriteChannel(RED_LED, STD_HIGH);
+       exit(1);
+   }
+
+   return 0;
+}

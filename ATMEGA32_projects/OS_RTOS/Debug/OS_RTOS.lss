@@ -3,15 +3,15 @@ OS_RTOS.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00005750  00000000  00000000  00000094  2**1
+  0 .text         00005768  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000012  00800060  00005750  000057e4  2**0
+  1 .data         00000012  00800060  00005768  000057fc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000643  00800072  00800072  000057f6  2**0
+  2 .bss          00000644  00800072  00800072  0000580e  2**0
                   ALLOC
-  3 .stab         00007d28  00000000  00000000  000057f8  2**2
+  3 .stab         00007d58  00000000  00000000  00005810  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00004ba9  00000000  00000000  0000d520  2**0
+  4 .stabstr      00004bbe  00000000  00000000  0000d568  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -51,7 +51,7 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e0 e5       	ldi	r30, 0x50	; 80
+      66:	e8 e6       	ldi	r30, 0x68	; 104
       68:	f7 e5       	ldi	r31, 0x57	; 87
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -74,11 +74,11 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	a5 3b       	cpi	r26, 0xB5	; 181
+      80:	a6 3b       	cpi	r26, 0xB6	; 182
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 13 2b 	call	0x5626	; 0x5626 <main>
-      8a:	0c 94 a6 2b 	jmp	0x574c	; 0x574c <_exit>
+      8a:	0c 94 b2 2b 	jmp	0x5764	; 0x5764 <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -2964,7 +2964,7 @@ BaseType_t xQueueGenericReset( QueueHandle_t xQueue,
     1070:	8f ef       	ldi	r24, 0xFF	; 255
     1072:	9f e7       	ldi	r25, 0x7F	; 127
     1074:	b9 01       	movw	r22, r18
-    1076:	0e 94 82 2b 	call	0x5704	; 0x5704 <__udivmodhi4>
+    1076:	0e 94 8e 2b 	call	0x571c	; 0x571c <__udivmodhi4>
     107a:	cb 01       	movw	r24, r22
     107c:	9c 01       	movw	r18, r24
     107e:	e9 81       	ldd	r30, Y+1	; 0x01
@@ -3180,7 +3180,7 @@ BaseType_t xQueueGenericReset( QueueHandle_t xQueue,
     11b6:	8f ef       	ldi	r24, 0xFF	; 255
     11b8:	9f e7       	ldi	r25, 0x7F	; 127
     11ba:	b9 01       	movw	r22, r18
-    11bc:	0e 94 82 2b 	call	0x5704	; 0x5704 <__udivmodhi4>
+    11bc:	0e 94 8e 2b 	call	0x571c	; 0x571c <__udivmodhi4>
     11c0:	cb 01       	movw	r24, r22
     11c2:	9c 01       	movw	r18, r24
     11c4:	88 85       	ldd	r24, Y+8	; 0x08
@@ -5327,7 +5327,7 @@ static BaseType_t prvCopyDataToQueue( Queue_t * const pxQueue,
     1c08:	3e 81       	ldd	r19, Y+6	; 0x06
     1c0a:	cb 01       	movw	r24, r22
     1c0c:	b9 01       	movw	r22, r18
-    1c0e:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    1c0e:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
         pxQueue->pcWriteTo += pxQueue->uxItemSize;                                                       /*lint !e9016 Pointer arithmetic on char types ok, especially in this use case where it is the clearest way of conveying intent. */
     1c12:	eb 81       	ldd	r30, Y+3	; 0x03
     1c14:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -5388,7 +5388,7 @@ static BaseType_t prvCopyDataToQueue( Queue_t * const pxQueue,
     1c6e:	3e 81       	ldd	r19, Y+6	; 0x06
     1c70:	cb 01       	movw	r24, r22
     1c72:	b9 01       	movw	r22, r18
-    1c74:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    1c74:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
         pxQueue->u.xQueue.pcReadFrom -= pxQueue->uxItemSize;
     1c78:	eb 81       	ldd	r30, Y+3	; 0x03
     1c7a:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -5570,7 +5570,7 @@ static void prvCopyDataFromQueue( Queue_t * const pxQueue,
     1d7c:	9c 81       	ldd	r25, Y+4	; 0x04
     1d7e:	ba 01       	movw	r22, r20
     1d80:	a9 01       	movw	r20, r18
-    1d82:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    1d82:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
     }
 }
     1d86:	0f 90       	pop	r0
@@ -6175,7 +6175,7 @@ void vStreamBufferDelete( StreamBufferHandle_t xStreamBuffer )
     2048:	70 e0       	ldi	r23, 0x00	; 0
     204a:	4f e0       	ldi	r20, 0x0F	; 15
     204c:	50 e0       	ldi	r21, 0x00	; 0
-    204e:	0e 94 9f 2b 	call	0x573e	; 0x573e <memset>
+    204e:	0e 94 ab 2b 	call	0x5756	; 0x5756 <memset>
     }
 }
     2052:	0f 90       	pop	r0
@@ -8389,7 +8389,7 @@ static size_t prvWriteBytesToBuffer( StreamBuffer_t * const pxStreamBuffer,
     2c98:	49 81       	ldd	r20, Y+1	; 0x01
     2c9a:	5a 81       	ldd	r21, Y+2	; 0x02
     2c9c:	b9 01       	movw	r22, r18
-    2c9e:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    2c9e:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
 
     /* If the number of bytes written was less than the number that could be
      * written in the first write... */
@@ -8425,7 +8425,7 @@ static size_t prvWriteBytesToBuffer( StreamBuffer_t * const pxStreamBuffer,
     2cd2:	cb 01       	movw	r24, r22
     2cd4:	ba 01       	movw	r22, r20
     2cd6:	a9 01       	movw	r20, r18
-    2cd8:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    2cd8:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
     else
     {
         mtCOVERAGE_TEST_MARKER();
@@ -8565,7 +8565,7 @@ static size_t prvReadBytesFromBuffer( StreamBuffer_t * pxStreamBuffer,
     2da2:	3a 81       	ldd	r19, Y+2	; 0x02
     2da4:	ba 01       	movw	r22, r20
     2da6:	a9 01       	movw	r20, r18
-    2da8:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    2da8:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
 
     /* If the total number of wanted bytes is greater than the number
      * that could be read in the first read... */
@@ -8600,7 +8600,7 @@ static size_t prvReadBytesFromBuffer( StreamBuffer_t * pxStreamBuffer,
     2ddc:	cb 01       	movw	r24, r22
     2dde:	ba 01       	movw	r22, r20
     2de0:	a9 01       	movw	r20, r18
-    2de2:	0e 94 96 2b 	call	0x572c	; 0x572c <memcpy>
+    2de2:	0e 94 a2 2b 	call	0x5744	; 0x5744 <memcpy>
     {
         mtCOVERAGE_TEST_MARKER();
     }
@@ -8781,7 +8781,7 @@ static size_t prvBytesInBuffer( const StreamBuffer_t * const pxStreamBuffer )
     2ee4:	70 e0       	ldi	r23, 0x00	; 0
     2ee6:	4f e0       	ldi	r20, 0x0F	; 15
     2ee8:	50 e0       	ldi	r21, 0x00	; 0
-    2eea:	0e 94 9f 2b 	call	0x573e	; 0x573e <memset>
+    2eea:	0e 94 ab 2b 	call	0x5756	; 0x5756 <memset>
     pxStreamBuffer->pucBuffer = pucBuffer;
     2eee:	e9 81       	ldd	r30, Y+1	; 0x01
     2ef0:	fa 81       	ldd	r31, Y+2	; 0x02
@@ -8906,7 +8906,7 @@ static size_t prvBytesInBuffer( const StreamBuffer_t * const pxStreamBuffer )
     2fa2:	70 e0       	ldi	r23, 0x00	; 0
     2fa4:	46 e2       	ldi	r20, 0x26	; 38
     2fa6:	50 e0       	ldi	r21, 0x00	; 0
-    2fa8:	0e 94 9f 2b 	call	0x573e	; 0x573e <memset>
+    2fa8:	0e 94 ab 2b 	call	0x5756	; 0x5756 <memset>
 
                     /* Store the stack location in the TCB. */
                     pxNewTCB->pxStack = pxStack;
@@ -15166,9 +15166,9 @@ static void prvAddCurrentTaskToDelayedList( TickType_t xTicksToWait,
     5624:	08 95       	ret
 
 00005626 <main>:
-xTaskHandle Task1Hand = NULL;
 xTaskHandle Task2Hand = NULL;
-char flag = 0 ;
+
+char flag = 0, Onflag = 0;
 
 int main(void)
 {
@@ -15179,16 +15179,17 @@ int main(void)
     562e:	cf 93       	push	r28
     5630:	cd b7       	in	r28, 0x3d	; 61
     5632:	de b7       	in	r29, 0x3e	; 62
-	DDRA = 0x01 ;
+    DDRA = 0x03;
     5634:	ea e3       	ldi	r30, 0x3A	; 58
     5636:	f0 e0       	ldi	r31, 0x00	; 0
-    5638:	81 e0       	ldi	r24, 0x01	; 1
+    5638:	83 e0       	ldi	r24, 0x03	; 3
     563a:	80 83       	st	Z, r24
-	DDRB =0x00;
+
+    DDRB = 0x00;
     563c:	e7 e3       	ldi	r30, 0x37	; 55
     563e:	f0 e0       	ldi	r31, 0x00	; 0
     5640:	10 82       	st	Z, r1
-	PORTB |=0x01;
+    PORTB |= 0x01;
     5642:	a8 e3       	ldi	r26, 0x38	; 56
     5644:	b0 e0       	ldi	r27, 0x00	; 0
     5646:	e8 e3       	ldi	r30, 0x38	; 56
@@ -15196,12 +15197,13 @@ int main(void)
     564a:	80 81       	ld	r24, Z
     564c:	81 60       	ori	r24, 0x01	; 1
     564e:	8c 93       	st	X, r24
-	xTaskCreate(LedIntro_code,(const signed char *)"Task1",85,NULL,LedOn_PRIORITY,&Task1Hand);
-    5650:	80 e5       	ldi	r24, 0x50	; 80
+
+    xTaskCreate(ButtonIntro_code, (const signed char *)"Task2", 85, NULL, ButtonOn_PRIORITY, &Task2Hand);
+    5650:	86 e7       	ldi	r24, 0x76	; 118
     5652:	9b e2       	ldi	r25, 0x2B	; 43
     5654:	25 e6       	ldi	r18, 0x65	; 101
     5656:	30 e0       	ldi	r19, 0x00	; 0
-    5658:	e0 eb       	ldi	r30, 0xB0	; 176
+    5658:	e2 eb       	ldi	r30, 0xB2	; 178
     565a:	f6 e0       	ldi	r31, 0x06	; 6
     565c:	b9 01       	movw	r22, r18
     565e:	45 e5       	ldi	r20, 0x55	; 85
@@ -15211,29 +15213,28 @@ int main(void)
     5666:	03 e0       	ldi	r16, 0x03	; 3
     5668:	7f 01       	movw	r14, r30
     566a:	0e 94 9b 17 	call	0x2f36	; 0x2f36 <xTaskCreate>
-
-	xTaskCreate(ButtonIntro_code,(const signed char *)"Task2",85,NULL,ButtonOn_PRIORITY,&Task2Hand);
-    566e:	8a e6       	ldi	r24, 0x6A	; 106
+    xTaskCreate(MOTOR_DIR_Intro_code, (const signed char *)"Task1", 85, NULL, MOTOR_DIR_PRIORITY, &Task1Hand);
+    566e:	80 e5       	ldi	r24, 0x50	; 80
     5670:	9b e2       	ldi	r25, 0x2B	; 43
     5672:	2b e6       	ldi	r18, 0x6B	; 107
     5674:	30 e0       	ldi	r19, 0x00	; 0
-    5676:	e2 eb       	ldi	r30, 0xB2	; 178
+    5676:	e0 eb       	ldi	r30, 0xB0	; 176
     5678:	f6 e0       	ldi	r31, 0x06	; 6
     567a:	b9 01       	movw	r22, r18
     567c:	45 e5       	ldi	r20, 0x55	; 85
     567e:	50 e0       	ldi	r21, 0x00	; 0
     5680:	20 e0       	ldi	r18, 0x00	; 0
     5682:	30 e0       	ldi	r19, 0x00	; 0
-    5684:	02 e0       	ldi	r16, 0x02	; 2
+    5684:	01 e0       	ldi	r16, 0x01	; 1
     5686:	7f 01       	movw	r14, r30
     5688:	0e 94 9b 17 	call	0x2f36	; 0x2f36 <xTaskCreate>
 
-	/*start Scheduler */
-	vTaskStartScheduler();
+    /* start Scheduler */
+    vTaskStartScheduler();
     568c:	0e 94 97 1a 	call	0x352e	; 0x352e <vTaskStartScheduler>
 
-	/*Never Enter Here */
-	return 0;
+    /* Never Enter Here */
+    return 0;
     5690:	80 e0       	ldi	r24, 0x00	; 0
     5692:	90 e0       	ldi	r25, 0x00	; 0
 }
@@ -15244,129 +15245,143 @@ int main(void)
     569c:	ef 90       	pop	r14
     569e:	08 95       	ret
 
-000056a0 <LedIntro_code>:
+000056a0 <MOTOR_DIR_Intro_code>:
 
-/*Task1 Code */
-void LedIntro_code(void*pvParamter)
+/* Task1 Code */
+void MOTOR_DIR_Intro_code(void *pvParamter)
 {
     56a0:	df 93       	push	r29
     56a2:	cf 93       	push	r28
-    56a4:	00 d0       	rcall	.+0      	; 0x56a6 <LedIntro_code+0x6>
+    56a4:	00 d0       	rcall	.+0      	; 0x56a6 <MOTOR_DIR_Intro_code+0x6>
     56a6:	cd b7       	in	r28, 0x3d	; 61
     56a8:	de b7       	in	r29, 0x3e	; 62
     56aa:	9a 83       	std	Y+2, r25	; 0x02
     56ac:	89 83       	std	Y+1, r24	; 0x01
-
-	while(1){
-		vTaskDelay(200);
-    56ae:	88 ec       	ldi	r24, 0xC8	; 200
-    56b0:	90 e0       	ldi	r25, 0x00	; 0
+    // vTaskDelete(&Task3Hand);
+    while (1)
+    {
+        vTaskDelay(1000);
+    56ae:	88 ee       	ldi	r24, 0xE8	; 232
+    56b0:	93 e0       	ldi	r25, 0x03	; 3
     56b2:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
-		if (flag == 1)
+        if (flag == 1)
     56b6:	80 91 b4 06 	lds	r24, 0x06B4
     56ba:	81 30       	cpi	r24, 0x01	; 1
-    56bc:	c1 f7       	brne	.-16     	; 0x56ae <LedIntro_code+0xe>
-		{
+    56bc:	c1 f7       	brne	.-16     	; 0x56ae <MOTOR_DIR_Intro_code+0xe>
+        {
+        	if(Onflag == 0)
+    56be:	80 91 b5 06 	lds	r24, 0x06B5
+    56c2:	88 23       	and	r24, r24
+    56c4:	41 f4       	brne	.+16     	; 0x56d6 <MOTOR_DIR_Intro_code+0x36>
+        	{
+                PORTA = 0x02;
+    56c6:	eb e3       	ldi	r30, 0x3B	; 59
+    56c8:	f0 e0       	ldi	r31, 0x00	; 0
+    56ca:	82 e0       	ldi	r24, 0x02	; 2
+    56cc:	80 83       	st	Z, r24
+                Onflag =1 ;
+    56ce:	81 e0       	ldi	r24, 0x01	; 1
+    56d0:	80 93 b5 06 	sts	0x06B5, r24
+    56d4:	ec cf       	rjmp	.-40     	; 0x56ae <MOTOR_DIR_Intro_code+0xe>
+        	}else{
+            PORTA ^= 0x01;
+    56d6:	ab e3       	ldi	r26, 0x3B	; 59
+    56d8:	b0 e0       	ldi	r27, 0x00	; 0
+    56da:	eb e3       	ldi	r30, 0x3B	; 59
+    56dc:	f0 e0       	ldi	r31, 0x00	; 0
+    56de:	90 81       	ld	r25, Z
+    56e0:	81 e0       	ldi	r24, 0x01	; 1
+    56e2:	89 27       	eor	r24, r25
+    56e4:	8c 93       	st	X, r24
+            /* Send Task in Blocked Queue for 200 Ticks */
+            flag = 0;
+    56e6:	10 92 b4 06 	sts	0x06B4, r1
+    56ea:	e1 cf       	rjmp	.-62     	; 0x56ae <MOTOR_DIR_Intro_code+0xe>
 
-			PORTA ^= 0x01;
-    56be:	ab e3       	ldi	r26, 0x3B	; 59
-    56c0:	b0 e0       	ldi	r27, 0x00	; 0
-    56c2:	eb e3       	ldi	r30, 0x3B	; 59
-    56c4:	f0 e0       	ldi	r31, 0x00	; 0
-    56c6:	90 81       	ld	r25, Z
-    56c8:	81 e0       	ldi	r24, 0x01	; 1
-    56ca:	89 27       	eor	r24, r25
-    56cc:	8c 93       	st	X, r24
-			/*Send Task in Blocked Queue for 200 Ticks */
-			flag = 0;
-    56ce:	10 92 b4 06 	sts	0x06B4, r1
-    56d2:	ed cf       	rjmp	.-38     	; 0x56ae <LedIntro_code+0xe>
-
-000056d4 <ButtonIntro_code>:
-
-
+000056ec <ButtonIntro_code>:
+        }
+    }
 }
 
-void ButtonIntro_code (void * pvParamter)
+void ButtonIntro_code(void *pvParamter)
 {
-    56d4:	df 93       	push	r29
-    56d6:	cf 93       	push	r28
-    56d8:	00 d0       	rcall	.+0      	; 0x56da <ButtonIntro_code+0x6>
-    56da:	cd b7       	in	r28, 0x3d	; 61
-    56dc:	de b7       	in	r29, 0x3e	; 62
-    56de:	9a 83       	std	Y+2, r25	; 0x02
-    56e0:	89 83       	std	Y+1, r24	; 0x01
+    56ec:	df 93       	push	r29
+    56ee:	cf 93       	push	r28
+    56f0:	00 d0       	rcall	.+0      	; 0x56f2 <ButtonIntro_code+0x6>
+    56f2:	cd b7       	in	r28, 0x3d	; 61
+    56f4:	de b7       	in	r29, 0x3e	; 62
+    56f6:	9a 83       	std	Y+2, r25	; 0x02
+    56f8:	89 83       	std	Y+1, r24	; 0x01
+    while (1)
+    {
+        vTaskDelay(100);
+    56fa:	84 e6       	ldi	r24, 0x64	; 100
+    56fc:	90 e0       	ldi	r25, 0x00	; 0
+    56fe:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
+        if (((PINB)&0x01) == 0)
+    5702:	e6 e3       	ldi	r30, 0x36	; 54
+    5704:	f0 e0       	ldi	r31, 0x00	; 0
+    5706:	80 81       	ld	r24, Z
+    5708:	88 2f       	mov	r24, r24
+    570a:	90 e0       	ldi	r25, 0x00	; 0
+    570c:	81 70       	andi	r24, 0x01	; 1
+    570e:	90 70       	andi	r25, 0x00	; 0
+    5710:	00 97       	sbiw	r24, 0x00	; 0
+    5712:	99 f7       	brne	.-26     	; 0x56fa <ButtonIntro_code+0xe>
+        {
+            flag = 1;
+    5714:	81 e0       	ldi	r24, 0x01	; 1
+    5716:	80 93 b4 06 	sts	0x06B4, r24
+    571a:	ef cf       	rjmp	.-34     	; 0x56fa <ButtonIntro_code+0xe>
 
-	while(1)
-	{
-		vTaskDelay(100);
-    56e2:	84 e6       	ldi	r24, 0x64	; 100
-    56e4:	90 e0       	ldi	r25, 0x00	; 0
-    56e6:	0e 94 75 1a 	call	0x34ea	; 0x34ea <vTaskDelay>
-		if ( ( (PINB >> 0) & 0x01 ) == 0 )
-    56ea:	e6 e3       	ldi	r30, 0x36	; 54
-    56ec:	f0 e0       	ldi	r31, 0x00	; 0
-    56ee:	80 81       	ld	r24, Z
-    56f0:	88 2f       	mov	r24, r24
-    56f2:	90 e0       	ldi	r25, 0x00	; 0
-    56f4:	81 70       	andi	r24, 0x01	; 1
-    56f6:	90 70       	andi	r25, 0x00	; 0
-    56f8:	00 97       	sbiw	r24, 0x00	; 0
-    56fa:	99 f7       	brne	.-26     	; 0x56e2 <ButtonIntro_code+0xe>
-		{
-			flag = 1 ;
-    56fc:	81 e0       	ldi	r24, 0x01	; 1
-    56fe:	80 93 b4 06 	sts	0x06B4, r24
-    5702:	ef cf       	rjmp	.-34     	; 0x56e2 <ButtonIntro_code+0xe>
+0000571c <__udivmodhi4>:
+    571c:	aa 1b       	sub	r26, r26
+    571e:	bb 1b       	sub	r27, r27
+    5720:	51 e1       	ldi	r21, 0x11	; 17
+    5722:	07 c0       	rjmp	.+14     	; 0x5732 <__udivmodhi4_ep>
 
-00005704 <__udivmodhi4>:
-    5704:	aa 1b       	sub	r26, r26
-    5706:	bb 1b       	sub	r27, r27
-    5708:	51 e1       	ldi	r21, 0x11	; 17
-    570a:	07 c0       	rjmp	.+14     	; 0x571a <__udivmodhi4_ep>
+00005724 <__udivmodhi4_loop>:
+    5724:	aa 1f       	adc	r26, r26
+    5726:	bb 1f       	adc	r27, r27
+    5728:	a6 17       	cp	r26, r22
+    572a:	b7 07       	cpc	r27, r23
+    572c:	10 f0       	brcs	.+4      	; 0x5732 <__udivmodhi4_ep>
+    572e:	a6 1b       	sub	r26, r22
+    5730:	b7 0b       	sbc	r27, r23
 
-0000570c <__udivmodhi4_loop>:
-    570c:	aa 1f       	adc	r26, r26
-    570e:	bb 1f       	adc	r27, r27
-    5710:	a6 17       	cp	r26, r22
-    5712:	b7 07       	cpc	r27, r23
-    5714:	10 f0       	brcs	.+4      	; 0x571a <__udivmodhi4_ep>
-    5716:	a6 1b       	sub	r26, r22
-    5718:	b7 0b       	sbc	r27, r23
+00005732 <__udivmodhi4_ep>:
+    5732:	88 1f       	adc	r24, r24
+    5734:	99 1f       	adc	r25, r25
+    5736:	5a 95       	dec	r21
+    5738:	a9 f7       	brne	.-22     	; 0x5724 <__udivmodhi4_loop>
+    573a:	80 95       	com	r24
+    573c:	90 95       	com	r25
+    573e:	bc 01       	movw	r22, r24
+    5740:	cd 01       	movw	r24, r26
+    5742:	08 95       	ret
 
-0000571a <__udivmodhi4_ep>:
-    571a:	88 1f       	adc	r24, r24
-    571c:	99 1f       	adc	r25, r25
-    571e:	5a 95       	dec	r21
-    5720:	a9 f7       	brne	.-22     	; 0x570c <__udivmodhi4_loop>
-    5722:	80 95       	com	r24
-    5724:	90 95       	com	r25
-    5726:	bc 01       	movw	r22, r24
-    5728:	cd 01       	movw	r24, r26
-    572a:	08 95       	ret
+00005744 <memcpy>:
+    5744:	fb 01       	movw	r30, r22
+    5746:	dc 01       	movw	r26, r24
+    5748:	02 c0       	rjmp	.+4      	; 0x574e <memcpy+0xa>
+    574a:	01 90       	ld	r0, Z+
+    574c:	0d 92       	st	X+, r0
+    574e:	41 50       	subi	r20, 0x01	; 1
+    5750:	50 40       	sbci	r21, 0x00	; 0
+    5752:	d8 f7       	brcc	.-10     	; 0x574a <memcpy+0x6>
+    5754:	08 95       	ret
 
-0000572c <memcpy>:
-    572c:	fb 01       	movw	r30, r22
-    572e:	dc 01       	movw	r26, r24
-    5730:	02 c0       	rjmp	.+4      	; 0x5736 <memcpy+0xa>
-    5732:	01 90       	ld	r0, Z+
-    5734:	0d 92       	st	X+, r0
-    5736:	41 50       	subi	r20, 0x01	; 1
-    5738:	50 40       	sbci	r21, 0x00	; 0
-    573a:	d8 f7       	brcc	.-10     	; 0x5732 <memcpy+0x6>
-    573c:	08 95       	ret
+00005756 <memset>:
+    5756:	dc 01       	movw	r26, r24
+    5758:	01 c0       	rjmp	.+2      	; 0x575c <memset+0x6>
+    575a:	6d 93       	st	X+, r22
+    575c:	41 50       	subi	r20, 0x01	; 1
+    575e:	50 40       	sbci	r21, 0x00	; 0
+    5760:	e0 f7       	brcc	.-8      	; 0x575a <memset+0x4>
+    5762:	08 95       	ret
 
-0000573e <memset>:
-    573e:	dc 01       	movw	r26, r24
-    5740:	01 c0       	rjmp	.+2      	; 0x5744 <memset+0x6>
-    5742:	6d 93       	st	X+, r22
-    5744:	41 50       	subi	r20, 0x01	; 1
-    5746:	50 40       	sbci	r21, 0x00	; 0
-    5748:	e0 f7       	brcc	.-8      	; 0x5742 <memset+0x4>
-    574a:	08 95       	ret
+00005764 <_exit>:
+    5764:	f8 94       	cli
 
-0000574c <_exit>:
-    574c:	f8 94       	cli
-
-0000574e <__stop_program>:
-    574e:	ff cf       	rjmp	.-2      	; 0x574e <__stop_program>
+00005766 <__stop_program>:
+    5766:	ff cf       	rjmp	.-2      	; 0x5766 <__stop_program>

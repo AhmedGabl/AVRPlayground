@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="TickCount" key="selection"/>
+		<item value="BTHandle" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="PushHandle"/>
+			<item value="Led"/>
+			<item value="PushButton"/>
+			<item value="UART"/>
+			<item value="delay"/>
+			<item value="DCM"/>
+			<item value="Task2"/>
 			<item value="TickCount"/>
-			<item value="LCD"/>
-			<item value="LCD_PutChar"/>
-			<item value="current_pos"/>
-			<item value="El"/>
-			<item value="Arabi"/>
-			<item value="Mahmoud"/>
-			<item value="lcd4_disply_string"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BTHandle"/>
+			<item value="WHM"/>
+			<item value="BT"/>
+			<item value="STEERINGM"/>
+			<item value="SPEEDM"/>
+			<item value="WHM_SPEED"/>
 			<item value="LCD_PutString"/>
 			<item value="abo"/>
-			<item value="gabl"/>
-			<item value="Ahmed"/>
-			<item value="PORTD"/>
-			<item value="PORTB"/>
-			<item value="PORTA"/>
-			<item value="PB_4"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

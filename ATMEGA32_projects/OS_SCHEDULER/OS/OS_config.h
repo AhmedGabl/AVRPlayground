@@ -9,7 +9,7 @@
 
 //#define OS_TICK_TIME	1000 //1ms
 #define OS_NUMBER_OF_TASKS	4
-
+#define OS_PRIMITIVE 0
 
 
 #endif /* OS_CONFIG_H_ */

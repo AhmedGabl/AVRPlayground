@@ -5,259 +5,249 @@
  * Created on: Oct 17, 2023
  */
 
-#include <avr/delay.h>
 
-#include "HAL/EEPROM/EEPROM_interface.h"
 #include "MCAL/DIO/DIO_interface.h"
 #include "MCAL/PORT/PORT.h"
-#include "MCAL/SPI/includes/SPI_interface.h"A
 #include "MCAL/GI/GI_interface.h"
-#include "MCAL/UART/includes/UART_interface.h"
-#include "HAL/LCD/LCD.h"
+
+
+//car
 #include "HAL/SRVM/SRVM_interface.h"
+#include "HAL/MOTOR/WHM.h"
+#include "HAL/BLUETOOTH/BT.h"
 
-// Admin predefined password
-#define ADMIN_PASSWORD 1234
-#define EEPROM_ID_FIRST_ADDR 0x00
+//////////////RTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "FreeRTOSConfig.h"
+#include "std_types.h"
+#include "semphr.h"
+#include "projdefs.h"
 
-// Alert system pins
-#define BUZZ PA_5
-#define RED_LED PA_4
-#define FeedBack PA_6
+#ifndef NULL
+#define NULL (void *)0
+#endif
 
-// User-related variables
-static u8 USERS[10];
-u8 ids_index = 0;
 
-// SPI communication variables
-u8 RX_USER[4];
-static u8 INDEX = 0;
-u8 userTrials = 0;
-u8 tryAgain_flag = 0;
+void BT(void * pvparam);
+#define BTPr (1)
 
-// Function prototypes
-void ADD_user(void);
-void EDIT_user(void);
-void DELETE_user(void);
-void Handle_user(u8 Users_Pick);
-void check_user(void);
-void get_user(u8 copy_u8RxData);
-void RunForUsers(void);
+void WHM(void * pvparam);
+#define WHMPr (2)
 
-int main() {
-    // Initialization
-    u8 access = 0;
-    u8 trials = 0;
-    u16 admin = 0;
-    u8 Users_Pick = 0;
+void init(void);
 
-    Port_Init(pin_cfg);
-    Lcd_Init();
-    UART_Init();
-    SPI_voidInit();
-    EEPROM_voidInit();
-    GI_voidEnable();
+/*** Global Variable ****/
+u8 ButtonState = 1;
 
-    // Admin authentication
-    Lcd_PutString("HI");
-    while (1) {
-        UART_TransmitString("ENTER PASSWORD:");
-        admin = UART_ReceiveNumber();
+#define ForgetGiveSemaphore pdFALSE
 
-        if (admin == ADMIN_PASSWORD) {
-            access = 1;
-            break;
-        } else {
-            access = 0;
-        }
+xSemaphoreHandle ButtonSemaphore = NULL;
 
-        if (trials == 3) {
-            access = 0;
-            break;
-        }
-        trials++;
-    }
+#define FrogetGlobalInterrupt 0  /* 0  for Nodefect 1 for Defect **/
 
-    if (access) {
-        while (1) {
-            UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
-            UART_TransmitString("\r\n 1 FOR ADDING NEW USER:\r\n");
-            UART_TransmitString(" 2 FOR DELETING A USER:\r\n");
-            UART_TransmitString(" 3 FOR EDITING A USER \r\n");
-            UART_TransmitString(" 4 ACCEPT USERS\r\n");
+ int main(void)
+{
 
-            if (tryAgain_flag == 1) {
-                RunForUsers();
-            } else {
-                Users_Pick = UART_ReceiveNumber();
-                Handle_user(Users_Pick);
-            }
-        }
-    } else {
-        // Lock the system if out of trials
-        UART_TransmitString("CLS\r\n");
-        UART_TransmitString("\r\n OUT OF TRIALS :\r\n");
-        UART_TransmitString("\r\n SYSTEM LOCKED :\r\n");
+	 /* Creation of the Task*/
+	 xTaskHandle BTHandle  = NULL;
+	 xTaskCreate(BT,(const signed char*)"BT",85,NULL,BTPr,&BTHandle);
 
-        Dio_WriteChannel(BUZZ, STD_HIGH);
-        Dio_WriteChannel(RED_LED, STD_HIGH);
-        exit(1);
-    }
+	 xTaskHandle WHMHandle = NULL ;
+	 xTaskCreate(WHM,(const signed char*)"WHM ",85,NULL,WHMPr,&WHMHandle);
 
-    return 0;
+	 /*Init Function*/
+	 init();
+
+	 /*Create Semaphore for the Button */
+	 vSemaphoreCreateBinary(ButtonSemaphore);
+
+	/*start Scheduler */
+	vTaskStartScheduler();
+
+
+
+	/*Never Enter Here */
+	return 0;
 }
 
-// Function to add a new user
-void ADD_user() {
-    u8 user[4];
-    u16 pw_rx = 0;
-    u8 data;
-
-    UART_TransmitString("\r\n Enter user id (0-9):");
-
-    while (1) {
-        data = UART_Receive();
-        if (data != '\n' && data != '\r') {
-            user[0] = data;
-            break;
-        }
-    }
-
-    UART_TransmitString("\r\n Enter user password (***):");
-
-    for (u8 i = 1; i < 4; ++i) {
-        while (1) {
-            data = UART_Receive();
-            if (data != '\n' && data != '\r') {
-                user[i] = data;
-                pw_rx = (pw_rx * 10) + (data - '0');
-                break;
-            }
-        }
-    }
-
-    USERS[user[0]] = ids_index;
-    EEPROM_voidWritePage(EEPROM_ID_FIRST_ADDR + ((user[0] - '0') * 4), user, 4);
-    ids_index++;
+void init(void){
+	Port_Init(pin_cfg);
+BT_Init();
+MOTOR_voidInit();
 }
 
-// Function to edit a user
-void EDIT_user() {
-    u8 user[4];
-    UART_TransmitString("\r\n Enter user id to edit (1-20):");
-    user[0] = (u8)UART_Receive();
-    UART_TransmitString("\r\n Enter NEW password(****):");
-    user[1] = (u8)UART_Receive();
-    user[2] = (u8)UART_Receive();
-    user[3] = (u8)UART_Receive();
+ void BT(void * pvparam){
+	 portTickType Freq = 100;
+	 portTickType Start = xTaskGetTickCount();
 
-    EEPROM_voidWritePage(EEPROM_ID_FIRST_ADDR + ((user[0] - '0') * 4), user, 4);
-}
+	 while (1){
+		 /* if the Push Button is Pressed */
+		// if ((PINC & 0x01) == 0){
 
-// Function to delete a user
-void DELETE_user() {
-    u8 user[4] = {0};
-    UART_TransmitString("\r\n Enter user id to delete (1-20):");
-    user[0] = (u8)UART_Receive();
-    EEPROM_voidWritePage(EEPROM_ID_FIRST_ADDR + ((user[0] - '0') * 4), user, 4);
-}
+			 /* If the Resource No One is Using so Take the Semaphore  **/
+			 if(pdTRUE == xSemaphoreTake(ButtonSemaphore,100)){
 
-// Function to handle user-related actions
-void Handle_user(u8 Users_Pick) {
-    switch (Users_Pick) {
-        case 1:
-            ADD_user();
-            break;
-        case 2:
-            DELETE_user();
-            break;
-        case 3:
-            EDIT_user();
-            break;
-        case 4:
-            RunForUsers();
-            break;
-        default:
-            break;
-    }
-}
+				 /*Change the State **/
+				 ButtonState = BT_Receive();
 
-// Function to check user credentials
-void check_user() {
-    u8 fetch_UserPW[3];
-    EEPROM_voidSequentialRead((EEPROM_ID_FIRST_ADDR + ((RX_USER[0]) * 4) + 1), fetch_UserPW, 3);
+				 /**Give the Semaphore */
+				 ////////////////////////////////////////////////////////////////////////////
+				if( ForgetGiveSemaphore == pdFALSE)
+				 xSemaphoreGive(ButtonSemaphore);
+				 ///////////////////////////////////////////////////////////////////////////////
+				//#endif
+			 }
+			 /*Else Delay 1000 Tick till the Resource is Free **/
+			 else {
+				 vTaskDelay(100);
+			 }
+		 //}
 
-    if ((RX_USER[1] + '0' == fetch_UserPW[0]) && (RX_USER[2] + '0' == fetch_UserPW[1]) && (RX_USER[3] + '0' == fetch_UserPW[2])) {
-        SRVM_voidOn(0);
+		 /*Make the Task Periodic with Period 50 Tick */
+		 vTaskDelayUntil(&Start,Freq);
+	 }
 
-        UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
-        UART_TransmitString("USER ID : ");
-        UART_Send(RX_USER[0] + '0');
-        UART_TransmitString("\r\n GOT ACCESS");
-        UART_TransmitString("\r\n DOOR OPEN FOR 5 SECONDS");
+ }
 
-        _delay_ms(100);
-        SPI_voidTransieve(1, &userTrials);
-        _delay_ms(5000);
-        SRVM_voidOn(90);
-        UART_TransmitString("\r\n\r\n");
 
-        tryAgain_flag = 0;
-        userTrials = 0;
-    } else {
-        tryAgain_flag = 1;
+ void WHM(void * pvparam){
+	 portTickType Freq = 100;
+	 portTickType Start = xTaskGetTickCount();
 
-        _delay_ms(100);
-        SPI_voidTransieve(2, &userTrials);
-        _delay_ms(300);
-        UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
-        UART_TransmitString("\r\n USER ID : ");
-        UART_Send(RX_USER[0] + '0');
-        UART_TransmitString("\r\n ACCESS DENIED");
+	 while (1){
+		 MOTOR_voidOff(SPEED_MOTOR);
+		 MOTOR_voidOff(STEERING_MOTOR);
+		 /* if the Push Button is Pressed */
+		 if(pdTRUE == xSemaphoreTake(ButtonSemaphore,100)){
+			switch (ButtonState) {
+				case 'W':
+					MOTOR_voidOn(SPEED_MOTOR,MOTOR_CW);
+					break;
+				case 'P':
+					MOTOR_voidOff(SPEED_MOTOR);
+					break;
+				case 'S':
+					MOTOR_voidOn(SPEED_MOTOR,MOTOR_CCW);
+					break;
 
-        Lcd_PutChar(userTrials + '0');
-        if (userTrials == 3)
-            tryAgain_flag = 0;
-    }
-}
+				case 'D':
+					MOTOR_voidOn(STEERING_MOTOR,MOTOR_CW);
+					break;
+				case 'A':
+					MOTOR_voidOn(STEERING_MOTOR,MOTOR_CCW);
+					break;
+				default:
+					break;
+			}
 
-// Function to get user input during SPI communication
-void get_user(u8 copy_u8RxData) {
-    switch (INDEX) {
-        case 0:
-            RX_USER[0] = copy_u8RxData;
-            INDEX++;
-            break;
-        case 1:
-            RX_USER[1] = copy_u8RxData;
-            INDEX++;
-            break;
-        case 2:
-            RX_USER[2] = copy_u8RxData;
-            INDEX++;
-            break;
-        case 3:
-            RX_USER[3] = copy_u8RxData;
-            INDEX = 0;
-            check_user();
-            break;
-        default:
-            break;
-    }
-}
+			 if (ButtonState == 0){
+				 PORTB ^= 0x01;
+				 ButtonState = 1;
+			 }
+			 /**Give the Semaphore */
+			 xSemaphoreGive(ButtonSemaphore);
+		 }
+		 /*Else Delay 1000 Tick till the Resource is Free **/
+		 else {
+			 vTaskDelay(1000);
+		 }
+		 /*Make the Task Periodic with Period 50 Tick */
+		 vTaskDelayUntil(&Start,Freq);
+	 }
 
-// Function to run for user input during a waiting state
-void RunForUsers(void) {
-    UART_TransmitString("\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
-    UART_TransmitString("WAITING FOR USER'S PASSWORD");
 
-    while (0 == Dio_ReadChannel(FeedBack)) {
-    }
+ }
 
-    u8 Digits = 0;
-    while (Digits < 4) {
-        _delay_ms(100);
-        SPI_voidTransmitAsynchronous(3, get_user);
-        Digits++;
-    }
-}
+ /*
+  * fun prototypes
+  */
+ void WHM_SpeedOff(void);
+ void WHM_SteeringOff(void);
+
+ #define ForgetGiveSemaphore		 pdFALSE
+ #define FrogetGlobalInterrupt 		0  /* 0  for Nodefect 1 for Defect **/
+
+ void BT(void );
+ void WHM(void);
+
+ #define WHMPr (2)
+
+ void init(void);
+
+ /*** Global Variable ****/
+ u8 ButtonState = 1;
+
+ u8 BT_read_vlaue = 0;
+ int main(void) {
+ 	init();
+
+ //	while (1) {
+
+ //		BT();
+ //
+ //		WHM();
+ //	}
+
+
+ 	OS_voidCreateTask(0,100,0,BT);
+ 	OS_voidCreateTask(1,200,1,WHM);
+
+ 	/*Never Enter Here */
+ 	OS_voidStartScheduler();
+ 	while(1)
+ 	{
+
+ 	}
+ 	return 0;
+ }
+
+ void init(void) {
+ 	Port_Init(pin_cfg);
+ 	BT_Init();
+ 	GI_voidEnable();
+
+ 	MOTOR_voidInit();
+ }
+
+ void BT(void) {
+ 	if (ButtonState == 1) {
+ 		/*Change the State **/
+ 		BT_read_vlaue = BT_Receive();
+ 		ButtonState = 0;
+ 	}
+ }
+
+ void WHM(void ) {
+
+ 	/* if the Push Button is Pressed */
+ 	if (ButtonState == 0) {
+
+ 		switch (BT_read_vlaue) {
+ 		case 'W':
+ 			MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
+ 			ButtonState = 1;
+ 			break;
+ 		case 'P':
+ 			MOTOR_voidOff(SPEED_MOTOR);
+ 			ButtonState = 1;
+ 			break;
+ 		case 'S':
+ 			MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
+ 			ButtonState = 1;
+ 			break;
+ 		case 'D':
+ 			MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+ 			ButtonState = 1;
+ 			break;
+ 		case 'A':
+ 			MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
+ 			ButtonState = 1;
+ 			break;
+ 		default:
+ 			break;
+ 		}
+
+ 		ButtonState = 1;
+ 	}
+ }

@@ -1,0 +1,90 @@
+/*
+ * main.c
+ * Description: Door access control system using AVR microcontroller
+ * Author: AhmedAbogabl
+ * Created on: Oct 17, 2023
+ */
+
+#include "MCAL/DIO/DIO_interface.h"
+#include "MCAL/PORT/PORT.h"
+#include "MCAL/GI/GI_interface.h"
+
+//car
+#include "HAL/SRVM/SRVM_interface.h"
+#include "HAL/MOTOR/WHM.h"
+#include "HAL/BLUETOOTH/BT.h"
+
+/*
+ * fun prototypes
+ */
+void WHM_SpeedOff(void);
+void WHM_SteeringOff(void);
+
+#define ForgetGiveSemaphore pdFALSE
+#define FrogetGlobalInterrupt 0  /* 0  for Nodefect 1 for Defect **/
+
+
+void BT(void * pvparam);
+void WHM(void * pvparam);
+
+#define WHMPr (2)
+
+void init(void);
+
+/*** Global Variable ****/
+u8 ButtonState = 1;
+
+
+int main(void) {
+	init();
+	OS_voidCreateTask(0,1,0,BT);
+	OS_voidCreateTask(0,1,1,WHM);
+	/*Never Enter Here */
+	OS_voidStartScheduler();
+	return 0;
+}
+
+void init(void) {
+	Port_Init(pin_cfg);
+	BT_Init();
+	MOTOR_voidInit();
+}
+
+void BT(void * pvparam) {
+	/*Change the State **/
+	ButtonState = BT_Receive();
+
+}
+
+void WHM(void * pvparam) {
+
+	/* if the Push Button is Pressed */
+	switch (ButtonState) {
+	case 'W':
+		MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
+		break;
+	case 'P':
+		MOTOR_voidOff(SPEED_MOTOR);
+		break;
+	case 'S':
+		MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
+		break;
+	case 'D':
+		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+		break;
+	case 'A':
+		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
+		break;
+	default:
+		break;
+	}
+	ButtonState = 1;
+}
+
+void WHM_SpeedOff(void) {
+	MOTOR_voidOff(SPEED_MOTOR);
+}
+
+void WHM_SteeringOff(void) {
+	MOTOR_voidOff(STEERING_MOTOR);
+}
