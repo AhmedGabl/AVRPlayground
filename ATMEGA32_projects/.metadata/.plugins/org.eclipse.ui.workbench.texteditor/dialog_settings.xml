@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="BTHandle" key="selection"/>
+		<item value="Dio_ReadChannel" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="digitalRead"/>
 			<item value="PushHandle"/>
 			<item value="Led"/>
 			<item value="PushButton"/>
@@ -15,9 +16,9 @@
 			<item value="delay"/>
 			<item value="DCM"/>
 			<item value="Task2"/>
-			<item value="TickCount"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Dio_ReadChannel"/>
 			<item value="BTHandle"/>
 			<item value="WHM"/>
 			<item value="BT"/>
@@ -25,7 +26,6 @@
 			<item value="SPEEDM"/>
 			<item value="WHM_SPEED"/>
 			<item value="LCD_PutString"/>
-			<item value="abo"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

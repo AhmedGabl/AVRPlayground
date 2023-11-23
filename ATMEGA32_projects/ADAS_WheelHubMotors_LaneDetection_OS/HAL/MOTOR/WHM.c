@@ -31,12 +31,16 @@ void MOTOR_voidInit(void) {
 /* Function to turn on a DC motor */
 void MOTOR_voidOn(u8 Copy_u8Motor, u8 Copy_u8Direction) {
     if (Copy_u8Motor == SPEED_MOTOR) {
+		UART_TransmitString("inside On speed  motor \r\n");
+
         Dio_WriteChannel(SPEEDM_IN1, GET_BIT(Copy_u8Direction, 0));
         Dio_WriteChannel(SPEEDM_IN2, GET_BIT(Copy_u8Direction, 1));
         MOTOR_voidControlSpeed(SPEED_MOTOR, INITIAL_SPEED);  // Enable the speed motor
 
     } else if (Copy_u8Motor == STEERING_MOTOR) {
-        Dio_WriteChannel(STEERINGM_EN, STD_HIGH);  // Enable the steering motor
+		UART_TransmitString("inside On steering  motor \r\n");
+
+    	Dio_WriteChannel(STEERINGM_EN, STD_HIGH);  // Enable the steering motor
         Dio_WriteChannel(STEERINGM_IN1, GET_BIT(Copy_u8Direction, 0));
         Dio_WriteChannel(STEERINGM_IN2, GET_BIT(Copy_u8Direction, 1));
     }

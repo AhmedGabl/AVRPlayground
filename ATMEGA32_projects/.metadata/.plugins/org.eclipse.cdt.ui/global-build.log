@@ -1,75 +1,15 @@
-07:33:55 **** Incremental Build of configuration Debug for project ADAS_WheelHubMotors_LaneDetection_OS ****
+16:23:15 **** Incremental Build of configuration Debug for project OS_SCHEDULER_Version1 ****
 make all 
-Building file: ../main.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../MCAL/GI/GI_interface.h:11,
-                 from ../main.c:10:
-../MCAL/GI/GI_register.h:13:1: warning: "SREG" redefined
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:410,
-                 from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
-In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
-                 from ../main.c:11:
-../MCAL/ADC/includes/../includes/ADC_register.h:12:1: warning: "ADMUX" redefined
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
-                 from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:66:1: warning: this is the location of the previous definition
-In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
-                 from ../main.c:11:
-../MCAL/ADC/includes/../includes/ADC_register.h:24:1: warning: "ADCSRA" redefined
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
-                 from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:65:1: warning: this is the location of the previous definition
-In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
-                 from ../main.c:11:
-../MCAL/ADC/includes/../includes/ADC_register.h:36:1: warning: "ADCH" redefined
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
-                 from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:64:1: warning: this is the location of the previous definition
-In file included from ../MCAL/ADC/includes/ADC_interface.h:13,
-                 from ../main.c:11:
-../MCAL/ADC/includes/../includes/ADC_register.h:38:1: warning: "ADCL" redefined
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
-                 from ../MCAL/DIO/DIO_interface.h:13,
-                 from ../main.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:63:1: warning: this is the location of the previous definition
-../main.c: In function 'WHM':
-../main.c:110: warning: implicit declaration of function 'UART_TransmitString'
-../main.c:150: warning: implicit declaration of function 'LaneAssist'
-../main.c:157: warning: comparisons like X<=Y<=Z do not have their mathematical meaning
-../main.c: At top level:
-../main.c:174: warning: conflicting types for 'LaneAssist'
-../main.c:150: warning: previous implicit declaration of 'LaneAssist' was here
-Finished building: ../main.c
- 
-Building target: ADAS_WheelHubMotors_LaneDetection_OS.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,ADAS_WheelHubMotors_LaneDetection_OS.map -mmcu=atmega32 -o "ADAS_WheelHubMotors_LaneDetection_OS.elf"  ./OS/OS_program.o  ./MCAL/UART/src/UART_program.o  ./MCAL/TIMERS/TIMER2/src/TMR2_program.o  ./MCAL/TIMERS/TIMER1/src/TMR1_program.o  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI__program.o  ./MCAL/DIO/DIO_program.o  ./MCAL/ADC/src/ADC_program.o  ./HAL/SRVM/SRVM_program.o  ./HAL/MOTOR/WHM.o  ./HAL/BLUETOOTH/BT.o  ./main.o   
-Finished building target: ADAS_WheelHubMotors_LaneDetection_OS.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S ADAS_WheelHubMotors_LaneDetection_OS.elf  >"ADAS_WheelHubMotors_LaneDetection_OS.lss"
-Finished building: ADAS_WheelHubMotors_LaneDetection_OS.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADAS_WheelHubMotors_LaneDetection_OS.elf  "ADAS_WheelHubMotors_LaneDetection_OS.hex"
-Finished building: ADAS_WheelHubMotors_LaneDetection_OS.hex
- 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 ADAS_WheelHubMotors_LaneDetection_OS.elf
+avr-size --format=avr --mcu=atmega32 OS_SCHEDULER_Version1.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   12272 bytes (37.5% Full)
+Program:   15768 bytes (48.1% Full)
 (.text + .data + .bootloader)
 
-Data:        696 bytes (34.0% Full)
+Data:        410 bytes (20.0% Full)
 (.data + .bss + .noinit)
 
 

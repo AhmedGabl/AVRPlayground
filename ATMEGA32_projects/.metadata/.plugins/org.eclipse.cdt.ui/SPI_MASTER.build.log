@@ -1,4 +1,4 @@
-07:15:10 **** Build of configuration Debug for project SPI_MASTER ****
+11:08:26 **** Incremental Build of configuration Debug for project SPI_MASTER ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 SPI_MASTER.elf
@@ -16,5 +16,5 @@ Data:        400 bytes (19.5% Full)
 Finished building: sizedummy
  
 
-07:15:11 Build Finished (took 254ms)
+11:08:26 Build Finished (took 236ms)
 

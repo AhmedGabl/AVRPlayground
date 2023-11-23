@@ -1,0 +1,17 @@
+MCAL/HICU/src/HICU_program.o MCAL/HICU/src/HICU_program.o:  \
+ ../MCAL/HICU/src/HICU_program.c \
+  ../MCAL/HICU/src/../includes/HICU_interface.h \
+  ../MCAL/HICU/src/../includes/../../../utils/STD_TYPES.h \
+  ../MCAL/HICU/src/../includes/HICU_registers.h \
+  ../MCAL/HICU/src/../../../utils/BIT_MATH.h \
+  ../MCAL/HICU/src/../../../utils/STD_TYPES.h
+
+../MCAL/HICU/src/../includes/HICU_interface.h:
+
+../MCAL/HICU/src/../includes/../../../utils/STD_TYPES.h:
+
+../MCAL/HICU/src/../includes/HICU_registers.h:
+
+../MCAL/HICU/src/../../../utils/BIT_MATH.h:
+
+../MCAL/HICU/src/../../../utils/STD_TYPES.h:

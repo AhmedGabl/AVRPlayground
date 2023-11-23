@@ -1,0 +1,20 @@
+16:23:15 **** Incremental Build of configuration Debug for project OS_SCHEDULER_Version1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 OS_SCHEDULER_Version1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   15768 bytes (48.1% Full)
+(.text + .data + .bootloader)
+
+Data:        410 bytes (20.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:23:15 Build Finished (took 192ms)
+

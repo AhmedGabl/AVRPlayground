@@ -11,7 +11,7 @@
 // Constants for DC motor control
 
 // Initial speed for PWM
-#define INITIAL_SPEED 50
+#define INITIAL_SPEED 20
 
 // Pin configurations for the speed motor
 #define SPEEDM_EN  PB_3  // Enable pin for speed motor
