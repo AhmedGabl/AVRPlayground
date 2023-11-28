@@ -1,5 +1,114 @@
-11:21:33 **** Incremental Build of configuration Debug for project ADAS_WheelHubMotors_LaneDetection_OS ****
+14:24:26 **** Incremental Build of configuration Debug for project ADAS_WheelHubMotors_LaneDetection_OS ****
 make all 
+Building file: ../OS/OS_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"OS/OS_program.d" -MT"OS/OS_program.o" -c -o "OS/OS_program.o" "../OS/OS_program.c"
+Finished building: ../OS/OS_program.c
+ 
+Building file: ../MCAL/UART/src/UART_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/UART/src/UART_program.d" -MT"MCAL/UART/src/UART_program.o" -c -o "MCAL/UART/src/UART_program.o" "../MCAL/UART/src/UART_program.c"
+../MCAL/UART/src/UART_program.c: In function 'UART_ReceiveNumber':
+../MCAL/UART/src/UART_program.c:111: warning: implicit declaration of function 'atoi'
+Finished building: ../MCAL/UART/src/UART_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER2/src/TMR2_program.d" -MT"MCAL/TIMERS/TIMER2/src/TMR2_program.o" -c -o "MCAL/TIMERS/TIMER2/src/TMR2_program.o" "../MCAL/TIMERS/TIMER2/src/TMR2_program.c"
+Finished building: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER1/src/TMR1_program.d" -MT"MCAL/TIMERS/TIMER1/src/TMR1_program.o" -c -o "MCAL/TIMERS/TIMER1/src/TMR1_program.o" "../MCAL/TIMERS/TIMER1/src/TMR1_program.c"
+Finished building: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
+ 
+Building file: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER0/src/TMR0_program.d" -MT"MCAL/TIMERS/TIMER0/src/TMR0_program.o" -c -o "MCAL/TIMERS/TIMER0/src/TMR0_program.o" "../MCAL/TIMERS/TIMER0/src/TMR0_program.c"
+Finished building: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
+ 
+Building file: ../MCAL/SPI/src/SPI_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/SPI/src/SPI_program.d" -MT"MCAL/SPI/src/SPI_program.o" -c -o "MCAL/SPI/src/SPI_program.o" "../MCAL/SPI/src/SPI_program.c"
+Finished building: ../MCAL/SPI/src/SPI_program.c
+ 
+Building file: ../MCAL/PORT/PORT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT.d" -MT"MCAL/PORT/PORT.o" -c -o "MCAL/PORT/PORT.o" "../MCAL/PORT/PORT.c"
+Finished building: ../MCAL/PORT/PORT.c
+ 
+Building file: ../MCAL/PORT/PORT_cnf.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT_cnf.d" -MT"MCAL/PORT/PORT_cnf.o" -c -o "MCAL/PORT/PORT_cnf.o" "../MCAL/PORT/PORT_cnf.c"
+Finished building: ../MCAL/PORT/PORT_cnf.c
+ 
+Building file: ../MCAL/GI/GI__program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/GI/GI__program.d" -MT"MCAL/GI/GI__program.o" -c -o "MCAL/GI/GI__program.o" "../MCAL/GI/GI__program.c"
+Finished building: ../MCAL/GI/GI__program.c
+ 
+Building file: ../MCAL/DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/DIO/DIO_program.d" -MT"MCAL/DIO/DIO_program.o" -c -o "MCAL/DIO/DIO_program.o" "../MCAL/DIO/DIO_program.c"
+Finished building: ../MCAL/DIO/DIO_program.c
+ 
+Building file: ../MCAL/ADC/src/ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/ADC/src/ADC_program.d" -MT"MCAL/ADC/src/ADC_program.o" -c -o "MCAL/ADC/src/ADC_program.o" "../MCAL/ADC/src/ADC_program.c"
+Finished building: ../MCAL/ADC/src/ADC_program.c
+ 
+Building file: ../HAL/SRVM/SRVM_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"HAL/SRVM/SRVM_program.d" -MT"HAL/SRVM/SRVM_program.o" -c -o "HAL/SRVM/SRVM_program.o" "../HAL/SRVM/SRVM_program.c"
+Finished building: ../HAL/SRVM/SRVM_program.c
+ 
+Building file: ../HAL/MOTOR/WHM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"HAL/MOTOR/WHM.d" -MT"HAL/MOTOR/WHM.o" -c -o "HAL/MOTOR/WHM.o" "../HAL/MOTOR/WHM.c"
+In file included from ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../HAL/MOTOR/WHM.c:14:
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:16:1: warning: "TCCR0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:13,
+                 from ../HAL/MOTOR/WHM.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:148:1: warning: this is the location of the previous definition
+In file included from ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../HAL/MOTOR/WHM.c:14:
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:27:1: warning: "TCNT0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:13,
+                 from ../HAL/MOTOR/WHM.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:147:1: warning: this is the location of the previous definition
+In file included from ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../HAL/MOTOR/WHM.c:14:
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:30:1: warning: "OCR0" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:13,
+                 from ../HAL/MOTOR/WHM.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:165:1: warning: this is the location of the previous definition
+In file included from ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../HAL/MOTOR/WHM.c:14:
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:33:1: warning: "TIMSK" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:13,
+                 from ../HAL/MOTOR/WHM.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:159:1: warning: this is the location of the previous definition
+In file included from ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:11,
+                 from ../HAL/MOTOR/WHM.c:14:
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:38:1: warning: "TIFR" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:206,
+                 from ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:13,
+                 from ../HAL/MOTOR/WHM.c:13:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/iom32.h:158:1: warning: this is the location of the previous definition
+../HAL/MOTOR/WHM.c: In function 'MOTOR_voidOn':
+../HAL/MOTOR/WHM.c:35: warning: implicit declaration of function 'UART_TransmitString'
+Finished building: ../HAL/MOTOR/WHM.c
+ 
+Building file: ../HAL/BLUETOOTH/BT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"HAL/BLUETOOTH/BT.d" -MT"HAL/BLUETOOTH/BT.o" -c -o "HAL/BLUETOOTH/BT.o" "../HAL/BLUETOOTH/BT.c"
+Finished building: ../HAL/BLUETOOTH/BT.c
+ 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
@@ -10,20 +119,17 @@ In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../av
                  from ../MCAL/DIO/DIO_interface.h:13,
                  from ../main.c:8:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
-../main.c: In function 'init':
-../main.c:85: warning: implicit declaration of function 'SPI_voidInit'
 ../main.c: In function 'BT':
-../main.c:102: warning: implicit declaration of function 'UART_Send'
-../main.c:103: warning: implicit declaration of function 'SPI_voidTransmitAsynchronous'
+../main.c:95: warning: implicit declaration of function 'UART_Send'
 ../main.c: In function 'WHM':
-../main.c:117: warning: implicit declaration of function 'UART_TransmitString'
-../main.c:159: warning: comparisons like X<=Y<=Z do not have their mathematical meaning
-../main.c:170: warning: implicit declaration of function 'LaneAssist'
+../main.c:109: warning: implicit declaration of function 'UART_TransmitString'
+../main.c:151: warning: comparisons like X<=Y<=Z do not have their mathematical meaning
+../main.c:162: warning: implicit declaration of function 'LaneAssist'
 ../main.c: At top level:
-../main.c:173: warning: conflicting types for 'LaneAssist'
-../main.c:170: warning: previous implicit declaration of 'LaneAssist' was here
+../main.c:165: warning: conflicting types for 'LaneAssist'
+../main.c:162: warning: previous implicit declaration of 'LaneAssist' was here
 ../main.c: In function 'AutoPark':
-../main.c:218: warning: implicit declaration of function 'ADC_ReadChannel'
+../main.c:210: warning: implicit declaration of function 'ADC_ReadChannel'
 Finished building: ../main.c
  
 Building target: ADAS_WheelHubMotors_LaneDetection_OS.elf
@@ -45,7 +151,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   13070 bytes (39.9% Full)
+Program:   13022 bytes (39.7% Full)
 (.text + .data + .bootloader)
 
 Data:        804 bytes (39.3% Full)

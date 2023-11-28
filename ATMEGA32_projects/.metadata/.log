@@ -10620,3 +10620,81 @@ java.io.FileNotFoundException: http://gnuarmeclipse.sourceforge.net/updates/cont
 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.getAvailableRepositories(UpdateChecker.java:152)
 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.checkForUpdates(UpdateChecker.java:130)
 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:74)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2023-11-28 14:23:39.443
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2023-11-28 14:23:39.444
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.446
+!MESSAGE Resource '/ADAS_WheelHubMotors_LaneDetection' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.449
+!MESSAGE Resource '/ADC' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.449
+!MESSAGE Resource '/DCMOTOR_H_BRIDGE' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.450
+!MESSAGE Resource '/HW_ICU' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.450
+!MESSAGE Resource '/I2C_TWI_EEPROM_RW_TESET' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.450
+!MESSAGE Resource '/LDR' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.450
+!MESSAGE Resource '/Login_system' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.451
+!MESSAGE Resource '/OS_RTOS' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.451
+!MESSAGE Resource '/OS_RTOS2' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.451
+!MESSAGE Resource '/OS_SCHEDULER_Version1' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.451
+!MESSAGE Resource '/OS_SCHEDULER_Version2' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.452
+!MESSAGE Resource '/OS_SCHEDULER_Version3' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.452
+!MESSAGE Resource '/OS_SCHEDULER_Version4' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.452
+!MESSAGE Resource '/RemoteSystemsTempFiles' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.453
+!MESSAGE Resource '/SMART_HOME_ADMIN' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.453
+!MESSAGE Resource '/SMART_HOME_USER' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.453
+!MESSAGE Resource '/SPI_MASTER' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.454
+!MESSAGE Resource '/SPI_SLAVE' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.454
+!MESSAGE Resource '/TIMER0' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.454
+!MESSAGE Resource '/TIMER1_TO_DRIVE_SERVOMOTOR' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.454
+!MESSAGE Resource '/TIMER2' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.454
+!MESSAGE Resource '/UART' is not open.
+
+!ENTRY org.eclipse.core.resources 4 372 2023-11-28 14:23:39.455
+!MESSAGE Resource '/WATCHDOG' is not open.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-28 14:23:40.357
+!MESSAGE Indexed 'ADAS_WheelHubMotors_LaneDetection_OS_SPI' (15 sources, 46 headers) in 0.237 sec: 531 declarations; 1,936 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

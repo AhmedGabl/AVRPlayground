@@ -82,26 +82,18 @@ void init(void) {
     BT_Init(BT);
     MOTOR_voidInit();
 
-    SPI_voidInit();
+//    SPI_voidInit();
     GI_voidEnable();
 
     Dio_WriteChannel(PC_0, STD_HIGH);
     Dio_WriteChannel(PC_1, STD_HIGH);
 }
 
-
-void MASTER_WHM_cntl(u8 SPI_Rxdata)
-{
-	BT_read_vlaue = SPI_Rxdata;
-	ButtonState = 0 ;
-}
-
 void BT(u8 Rxdata) {
     /*Change the State **/
     BT_read_vlaue = Rxdata;
     UART_Send(Rxdata);
-    SPI_voidTransmitAsynchronous(BT_read_vlaue,MASTER_WHM_cntl);
-  //  ButtonState = 0;
+    ButtonState = 0;
 }
 void WHM(void) {
    static  u8 speed = 0;
