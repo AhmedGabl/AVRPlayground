@@ -7,22 +7,21 @@
 
 
 #include "../includes/UART_interface.h"
-#include <stdbool.h>
-#include <stdlib.h>
 
 
-#define NULLPTR '\0'
-//static void(*UART_RX_Fptr)(void)=NULLPTR;
-//static void(*UART_TX_Fptr)(void)=NULLPTR;
-//
+//#define NULL '\0'
+static void(*UART_RX_Fptr)(u8 RXdata)=NULL;
+//static void(*UART_TX_Fptr)(void)=NULL;
+
 
 void UART_Init(void)
 {
 	//baud rate 9600
-	UBRRL=(1000000/(BAUDRATE))-1;
+	UBRRL= (1000000/(2*((BAUDRATE))))-1;
 
 	//normal speed
 	CLR_BIT(UCSRA,U2X);
+
 
 	//frame (stop ,data ,parity) 1 STOP NO PARITY 8 DATA
 
@@ -30,6 +29,7 @@ void UART_Init(void)
 	SET_BIT(UCSRB,RXEN);
 	SET_BIT(UCSRB,TXEN);
 }
+
 void UART_Send(u8 data)
 {
 	while(!GET_BIT(UCSRA,UDRE));
@@ -66,6 +66,8 @@ u8 UART_ReceivePerodic(u8*pdata)
 	}
 	return 0;
 }
+
+
 
 void UART_TransmitString(const char* str) {
     // Iterate over each character in the string until the null terminator is reached
@@ -111,16 +113,21 @@ int UART_ReceiveNumber() {
     return receivedNumber;
 }
 
-//
-//void UART_RX_InterruptEnable(void)
-//{
-//	SET_BIT(UCSRB,RXCIE);
-//}
-//
-//void UART_RX_InterruptDisable(void)
-//{
-//	CLR_BIT(UCSRB,RXCIE);
-//}
+
+/*
+ * interrupt
+ */
+
+void UART_RX_InterruptEnable(void)
+{
+	SET_BIT(UCSRB,RXCIE);
+}
+
+void UART_RX_InterruptDisable(void)
+{
+	CLR_BIT(UCSRB,RXCIE);
+}
+
 //
 //void UART_TX_InterruptEnable(void)
 //{
@@ -131,13 +138,32 @@ int UART_ReceiveNumber() {
 //{
 //	CLR_BIT(UCSRB,TXCIE);
 //}
-//
-//void UART_RX_SetCallBack(void (*LocalFptr)(void))
-//{
-//	UART_RX_Fptr = LocalFptr;
-//}
+
+void UART_RX_SetCallBack(void (*LocalFptr)(u8))
+{
+	UART_RX_Fptr = LocalFptr;
+}
 //
 //void UART_TX_SetCallBack(void (*LocalFptr)(void))
 //{
 //	UART_TX_Fptr = LocalFptr;
+//}
+
+
+void __vector_13(void) __attribute__((signal));
+void __vector_13(void)
+{
+	if (UART_RX_Fptr!=NULL)
+	{
+		UART_RX_Fptr(UDR);
+	}
+}
+//
+//void __vector_15(void) __attribute__((signal));
+//void __vector_15(void)
+//{
+//	if (UART_TX_Fptr!=NULL)
+//	{
+//		UART_TX_Fptr();
+//	}
 //}

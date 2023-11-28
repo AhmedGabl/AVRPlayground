@@ -7,14 +7,22 @@
 
 #include "../../MCAL/UART/includes/UART_interface.h"
 
-void BT_Init(void) {
+void BT_Init(void (*LocalFptr)(u8)) {
 	UART_Init();
 	UART_TransmitString("Ready\r\n");
+
+	UART_TransmitString(" 0-10  SPEED CONTROL\r\n");
 	UART_TransmitString(" W  FORWARD\r\n");
 	UART_TransmitString(" S  REVERSE\r\n");
 	UART_TransmitString(" A  LEFT\r\n");
-	UART_TransmitString(" D  RIGHT\r\n");
-	UART_TransmitString(" 1  LANE ASSISTANT\r\n");
+	UART_TransmitString(" D  RIGHT\r\n\r\n");
+	UART_TransmitString("Auxiliary functions\r\n");
+	UART_TransmitString(" L  LANE ASSISTANT\r\n");
+
+	UART_RX_InterruptEnable();
+
+	UART_RX_SetCallBack(LocalFptr);
+
 }
 
 void BT_Send(u8 data) {
@@ -26,11 +34,6 @@ u8 BT_Receive(void) {
 //	UART_Send(dummy);
 	return dummy;
 }
-//
-//u8 BT_ReceivePerodic(u8 * pdata)
-//{
-//
-//}
 
 u32 BT_ReceiveNumber() {
 	return UART_ReceiveNumber();

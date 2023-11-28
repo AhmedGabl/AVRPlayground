@@ -28,14 +28,17 @@ int SPI_MASTER_ASYNCH_ISR_TEST() {
 	GI_voidEnable();
 	SPI_voidInit();
 
+
+
+
 	while (1) {
-		Dio_WriteChannel(PB_4, STD_HIGH);
-		_delay_ms(1);
-		Dio_WriteChannel(PB_4, STD_LOW);
+//		Dio_WriteChannel(PB_4, STD_HIGH);
+//		_delay_ms(1);
+//		Dio_WriteChannel(PB_4, STD_LOW);
 
 	SPI_voidTransmitAsynchronous(2,&Action);
 
-	_delay_ms(300);
+//	_delay_ms(300);
 	}
 	return 0;
 }

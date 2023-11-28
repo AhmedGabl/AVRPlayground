@@ -8,7 +8,7 @@
 #define OS_CONFIG_H_
 
 //#define OS_TICK_TIME	1000 //1ms
-#define OS_NUMBER_OF_TASKS	2
+#define OS_NUMBER_OF_TASKS	3
 
 
 

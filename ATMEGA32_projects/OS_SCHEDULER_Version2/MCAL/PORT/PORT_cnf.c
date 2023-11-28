@@ -18,16 +18,6 @@ Port_ConfigType pin_cfg[33] = {
 		 { Dio_PORTA, PORT_PIN4, PORT_PIN_OUT },
 		 { Dio_PORTA, PORT_PIN5, PORT_PIN_OUT },
 		 { Dio_PORTA, PORT_PIN6, PORT_PIN_OUT },
-
-		 //Lcd
-		 { Dio_PORTB, PORT_PIN4, PORT_PIN_OUT },
-		 { Dio_PORTA, PORT_PIN3, PORT_PIN_OUT },
-		 { Dio_PORTA, PORT_PIN2, PORT_PIN_OUT },
-		 { Dio_PORTB, PORT_PIN0, PORT_PIN_OUT },
-		 { Dio_PORTB, PORT_PIN1, PORT_PIN_OUT },
-		 { Dio_PORTB, PORT_PIN2, PORT_PIN_OUT },
-	//	 { Dio_PORTB, PORT_PIN3, PORT_PIN_OUT },
-		{Dio_PORTD , PORT_PIN6,PORT_PIN_IN},
 		 { -1 }
 };
 

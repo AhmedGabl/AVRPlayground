@@ -14,9 +14,7 @@ RM := rm -rf
 -include MCAL/TIMERS/TIMER1/src/subdir.mk
 -include MCAL/TIMERS/TIMER0/src/subdir.mk
 -include MCAL/PORT/subdir.mk
--include MCAL/HICU/src/subdir.mk
 -include MCAL/GI/subdir.mk
--include MCAL/EXTI/src/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include HAL/LCD/subdir.mk
 -include subdir.mk
@@ -41,47 +39,47 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-OS_SCHEDULER2.lss \
+OS_SCHEDULER_Version2.lss \
 
 FLASH_IMAGE += \
-OS_SCHEDULER2.hex \
+OS_SCHEDULER_Version2.hex \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: OS_SCHEDULER2.elf secondary-outputs
+all: OS_SCHEDULER_Version2.elf secondary-outputs
 
 # Tool invocations
-OS_SCHEDULER2.elf: $(OBJS) $(USER_OBJS)
+OS_SCHEDULER_Version2.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,OS_SCHEDULER2.map -mmcu=atmega32 -o "OS_SCHEDULER2.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,OS_SCHEDULER_Version2.map -mmcu=atmega32 -o "OS_SCHEDULER_Version2.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-OS_SCHEDULER2.lss: OS_SCHEDULER2.elf
+OS_SCHEDULER_Version2.lss: OS_SCHEDULER_Version2.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S OS_SCHEDULER2.elf  >"OS_SCHEDULER2.lss"
+	-avr-objdump -h -S OS_SCHEDULER_Version2.elf  >"OS_SCHEDULER_Version2.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-OS_SCHEDULER2.hex: OS_SCHEDULER2.elf
+OS_SCHEDULER_Version2.hex: OS_SCHEDULER_Version2.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex OS_SCHEDULER2.elf  "OS_SCHEDULER2.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex OS_SCHEDULER_Version2.elf  "OS_SCHEDULER_Version2.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: OS_SCHEDULER2.elf
+sizedummy: OS_SCHEDULER_Version2.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 OS_SCHEDULER2.elf
+	-avr-size --format=avr --mcu=atmega32 OS_SCHEDULER_Version2.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) OS_SCHEDULER2.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) OS_SCHEDULER_Version2.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)

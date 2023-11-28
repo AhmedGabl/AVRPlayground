@@ -49,14 +49,25 @@ Port_ConfigType pin_cfg[33] = {
 //			//	 { Dio_PORTB, PORT_PIN3, PORT_PIN_OUT },
 
 
-		//MOTOR 1 speed
-					{ Dio_PORTB, PORT_PIN3, PORT_PIN_OUT },
-				   { Dio_PORTB, PORT_PIN4, PORT_PIN_OUT },
-				   { Dio_PORTB, PORT_PIN5, PORT_PIN_OUT },
-		//MOTOR 2 steering
+
+
+			 //MOTOR 2 steering
 				   { Dio_PORTD, PORT_PIN3, PORT_PIN_OUT },
 				   { Dio_PORTD, PORT_PIN4, PORT_PIN_OUT },
 				   { Dio_PORTD, PORT_PIN5, PORT_PIN_OUT },
 
-		 { -1 }
+		     //MOTOR 1 speed
+					{ Dio_PORTB, PORT_PIN3, PORT_PIN_OUT },
+				   { Dio_PORTB, PORT_PIN2, PORT_PIN_OUT },
+				   { Dio_PORTB, PORT_PIN1, PORT_PIN_OUT },
+
+
+
+				   //SPI pins
+			   		{Dio_PORTB ,PORT_PIN4 ,PORT_PIN_IN},
+			   		{Dio_PORTB ,PORT_PIN5 ,PORT_PIN_IN},
+			   		{Dio_PORTB ,PORT_PIN6 ,PORT_PIN_OUT},
+			   		{Dio_PORTB ,PORT_PIN7 ,PORT_PIN_IN},
+
+				   { -1 }
 };

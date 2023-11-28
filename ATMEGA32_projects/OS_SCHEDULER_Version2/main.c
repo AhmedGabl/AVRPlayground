@@ -32,15 +32,11 @@ void LED6(void)
 int main() {
 
 Port_Init(pin_cfg);
-Dio_WriteChannel(PA_4,STD_LOW);
-Dio_WriteChannel(PA_5,STD_LOW);
-Dio_WriteChannel(PA_6,STD_LOW);
 GI_voidEnable();
 
-
-	OS_voidCreateTask(0,1,200,0,LED4);
-	OS_voidCreateTask(1,1,200,0,LED5);
-	OS_voidCreateTask(2,2,200,0,LED6);
+	OS_voidCreateTask(0 , 200, 0, LED4);
+	OS_voidCreateTask(1 , 200, 50, LED5);
+	OS_voidCreateTask(2 , 200, 100, LED6);
 
 	OS_voidStartScheduler();
 

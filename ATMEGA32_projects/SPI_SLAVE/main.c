@@ -14,7 +14,7 @@
 #include "MCAL/GI/GI_interface.h"
 
 
-//#define SPI_SLAVE_TEST_ISR
+#define   SPI_SLAVE_TEST main
 
 void Action(u8 copy_u8RxData)
 {
@@ -24,7 +24,7 @@ void Action(u8 copy_u8RxData)
 }
 
 
-int main(){
+int SMART_HOME_USR_TEST(){
 	Port_Init(pin_cfg);
 Lcd_Init();
 	//slave select low
@@ -75,24 +75,24 @@ Lcd_Init();
 	return 0;
 }
 
-//
-//int SPI_SLAVE_TEST(){
-//	Port_Init(pin_cfg);
-//
-//	//slave select low
-////	Dio_WriteChannel(PB_4,STD_LOW);
+
+int SPI_SLAVE_TEST(){
+	Port_Init(pin_cfg);
+
+	//slave select low
+//	Dio_WriteChannel(PB_4,STD_LOW);
 //	Dio_WriteChannel(PA_4,STD_LOW);
-//
-//	SPI_voidInit();
-//
-//	u8 Local_u8RXData;
-//	while(1){
-//	SPI_voidTransieve(70,&Local_u8RXData);
-//	if(Local_u8RXData == 2)
-//	{
-//		Dio_FlipChannel(PA_4);
-//		_delay_ms(1000);
-//	}
-//	}
-//	return 0;
-//}
+
+	SPI_voidInit();
+
+	u8 Local_u8RXData;
+	while(1){
+	SPI_voidTransieve(70,&Local_u8RXData);
+	if(Local_u8RXData == 2)
+	{
+		Dio_FlipChannel(PA_4);
+		_delay_ms(1000);
+	}
+	}
+	return 0;
+}

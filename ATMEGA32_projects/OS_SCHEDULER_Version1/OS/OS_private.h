@@ -10,7 +10,7 @@
 #define OS_PRIVATE_H_
 
 typedef struct{
-	u8 Periodicity;
+	u16 Periodicity;
 	u8 TaskID;
 	void (*Fptr)(void);
 }Task;

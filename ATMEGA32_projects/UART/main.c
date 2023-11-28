@@ -16,12 +16,17 @@
 
 #include "MCAL/UART/includes/UART_interface.h"
 
-#include "HAL/LCD/LCD_interface.h"
+//#include "HAL/LCD/LCD_interface.h"
 #include "MCAL/EXTI/includes/EXTI_interface.h"
 #include "MCAL/TIMERS/TIMER0/includes/TMR0_interface.h"
 
+void LED (u8 data){
+    UART_Send(data);
+}
+u8 intdata=0;
 int main() {
 	Port_Init(pin_cfg);
+	GI_voidEnable();
 	 // Initialize UART with baud rate 9600
 	    UART_Init();
 
@@ -35,10 +40,16 @@ int main() {
 	    if (receivedData == 'A')
 //	        // If 'A' was received, send a 'B'
 	        UART_Send('B');
-//	    }
 
+
+	    UART_RX_InterruptEnable();
+	    UART_RX_SetCallBack(LED);
+
+	    //	    }
 	    // Loop to continuously check for incoming data
 	    while (1) {
+	    	//if(intdata != 0)
+	    		//UART_Send(intdata);
 //	        if (UART_ReceivePerodic(&receivedData)) {
 	            // Process the received data
 	            // For example, toggle an LED or perform an action based on the received data

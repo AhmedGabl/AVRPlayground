@@ -9,7 +9,7 @@
 #define HAL_BLUETOOTH_BT_H_
 
 
-void BT_Init(void);
+void BT_Init(void (*LocalFptr)(u8));
 
 void BT_Send(u8 data);
 

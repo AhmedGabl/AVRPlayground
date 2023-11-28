@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ADAS_WheelHubMotors_LaneDetection_RTOS&apos;" deleteContents="false" description="Delete resource &apos;ADAS_WheelHubMotors_LaneDetection_RTOS&apos;" element1="/ADAS_WheelHubMotors_LaneDetection_RTOS" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1701083034711"/>
+</session>

@@ -14,6 +14,7 @@
 #include "../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h"
 #include "../../MCAL/DIO/DIO_interface.h"
 #include "WHM.h"
+#include "WHM_config.h"
 
 /* Function to initialize the motor driver */
 void MOTOR_voidInit(void) {
