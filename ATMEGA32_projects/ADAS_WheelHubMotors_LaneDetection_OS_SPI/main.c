@@ -92,7 +92,8 @@ void init(void) {
 
 void MASTER_WHM_cntl(u8 SPI_Rxdata)
 {
-	BT_read_vlaue = SPI_Rxdata;
+	SPI_voidTransieve(BT_read_vlaue,&BT_read_vlaue);
+//	BT_read_vlaue = SPI_Rxdata;
 	ButtonState = 0 ;
 }
 
@@ -100,7 +101,7 @@ void BT(u8 Rxdata) {
     /*Change the State **/
     BT_read_vlaue = Rxdata;
     UART_Send(Rxdata);
-    SPI_voidTransmitAsynchronous(BT_read_vlaue,MASTER_WHM_cntl);
+    SPI_voidTransmitAsynchronous(55,MASTER_WHM_cntl);
   //  ButtonState = 0;
 }
 void WHM(void) {
