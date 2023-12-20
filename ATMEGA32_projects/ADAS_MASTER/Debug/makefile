@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include MCAL/UART/src/subdir.mk
 -include MCAL/TIMERS/TIMER2/src/subdir.mk
 -include MCAL/TIMERS/TIMER1/src/subdir.mk
 -include MCAL/TIMERS/TIMER0/src/subdir.mk

@@ -6,7 +6,8 @@ main.o main.o: ../main.c ../MCAL/DIO/DIO_interface.h \
   ../MCAL/SPI/includes/../../../utils/BIT_MATH.h \
   ../MCAL/SPI/includes/../../../utils/STD_TYPES.h \
   ../MCAL/GI/GI_interface.h ../MCAL/GI/GI_register.h \
-  ../MCAL/GI/../../utils/BIT_MATH.h ../MCAL/GI/../../utils/STD_TYPES.h
+  ../MCAL/GI/../../utils/BIT_MATH.h ../MCAL/GI/../../utils/STD_TYPES.h \
+  ../ADAS_APP.h
 
 ../MCAL/DIO/DIO_interface.h:
 
@@ -33,3 +34,5 @@ main.o main.o: ../main.c ../MCAL/DIO/DIO_interface.h \
 ../MCAL/GI/../../utils/BIT_MATH.h:
 
 ../MCAL/GI/../../utils/STD_TYPES.h:
+
+../ADAS_APP.h:

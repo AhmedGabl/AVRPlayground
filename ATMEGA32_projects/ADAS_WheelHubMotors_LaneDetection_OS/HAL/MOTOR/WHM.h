@@ -15,6 +15,9 @@
 #define MOTOR_CW    1  // Clockwise direction
 #define MOTOR_CCW   2  // Counterclockwise direction
 
+
+
+#define Forward
 // Motor identifiers
 #define SPEED_MOTOR     0
 #define STEERING_MOTOR  1

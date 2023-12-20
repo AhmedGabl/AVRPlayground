@@ -25,6 +25,9 @@ Port_ConfigType pin_cfg[33] = {
 
 		//timer1
 		{Dio_PORTD ,PORT_PIN5 ,PORT_PIN_OUT},
+
+		//input to simulate command
+		{Dio_PORTA ,PORT_PIN5 ,PORT_PIN_IN},
 ////initialize 7 segment Enable Pins
 //,{Dio_PORTA ,PORT_PIN3 ,PORT_PIN_OUT}
 //,{Dio_PORTA ,PORT_PIN2 ,PORT_PIN_OUT}

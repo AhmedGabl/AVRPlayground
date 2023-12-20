@@ -1,0 +1,59 @@
+10:53:23 **** Incremental Build of configuration Debug for project ADAS_WheelHubMotors_LaneDetection_OS_SPI ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../MCAL/GI/GI_interface.h:11,
+                 from ../main.c:10:
+../MCAL/GI/GI_register.h:13:1: warning: "SREG" redefined
+In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/io.h:410,
+                 from ../MCAL/DIO/DIO_interface.h:13,
+                 from ../main.c:8:
+d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
+../main.c: In function 'init':
+../main.c:75: warning: implicit declaration of function 'SPI_voidInit'
+../main.c: In function 'GiveAccess':
+../main.c:84: warning: implicit declaration of function 'UART_TransmitString'
+../main.c:85: warning: implicit declaration of function 'UART_Send'
+../main.c: In function 'MASTER_WHM_cntl':
+../main.c:92: warning: implicit declaration of function 'SPI_voidTransmitAsynchronous'
+../main.c: In function 'WHM':
+../main.c:168: warning: implicit declaration of function 'LaneAssist'
+../main.c: At top level:
+../main.c:171: warning: conflicting types for 'LaneAssist'
+../main.c:168: warning: previous implicit declaration of 'LaneAssist' was here
+../main.c: In function 'AutoPark':
+../main.c:216: warning: implicit declaration of function 'ADC_ReadChannel'
+Finished building: ../main.c
+ 
+Building target: ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADAS_WheelHubMotors_LaneDetection_OS_SPI.map -mmcu=atmega32 -o "ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf"  ./OS/OS_program.o  ./MCAL/UART/src/UART_program.o  ./MCAL/TIMERS/TIMER2/src/TMR2_program.o  ./MCAL/TIMERS/TIMER1/src/TMR1_program.o  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/SPI/src/SPI_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI__program.o  ./MCAL/DIO/DIO_program.o  ./MCAL/ADC/src/ADC_program.o  ./HAL/SRVM/SRVM_program.o  ./HAL/MOTOR/WHM.o  ./HAL/BLUETOOTH/BT.o  ./main.o   
+Finished building target: ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf  >"ADAS_WheelHubMotors_LaneDetection_OS_SPI.lss"
+Finished building: ADAS_WheelHubMotors_LaneDetection_OS_SPI.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf  "ADAS_WheelHubMotors_LaneDetection_OS_SPI.hex"
+Finished building: ADAS_WheelHubMotors_LaneDetection_OS_SPI.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADAS_WheelHubMotors_LaneDetection_OS_SPI.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   13184 bytes (40.2% Full)
+(.text + .data + .bootloader)
+
+Data:        849 bytes (41.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:53:24 Build Finished (took 878ms)
+

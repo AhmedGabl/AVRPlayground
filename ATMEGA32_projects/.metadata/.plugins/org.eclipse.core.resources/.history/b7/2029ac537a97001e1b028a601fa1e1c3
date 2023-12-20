@@ -1,0 +1,39 @@
+HAL/MOTOR/WHM.o HAL/MOTOR/WHM.o: ../HAL/MOTOR/WHM.c \
+  ../HAL/MOTOR/../../utils/STD_TYPES.h \
+  ../HAL/MOTOR/../../utils/BIT_MATH.h \
+  ../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h \
+  ../HAL/MOTOR/../../MCAL/DIO/../../utils/BIT_MATH.h \
+  ../HAL/MOTOR/../../MCAL/DIO/../../utils/STD_TYPES.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_private.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/STD_TYPES.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_config.h \
+  ../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/BIT_MATH.h \
+  ../HAL/MOTOR/WHM.h ../HAL/MOTOR/WHM_config.h
+
+../HAL/MOTOR/../../utils/STD_TYPES.h:
+
+../HAL/MOTOR/../../utils/BIT_MATH.h:
+
+../HAL/MOTOR/../../MCAL/DIO/DIO_interface.h:
+
+../HAL/MOTOR/../../MCAL/DIO/../../utils/BIT_MATH.h:
+
+../HAL/MOTOR/../../MCAL/DIO/../../utils/STD_TYPES.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_private.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/STD_TYPES.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/TMR0_config.h:
+
+../HAL/MOTOR/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/BIT_MATH.h:
+
+../HAL/MOTOR/WHM.h:
+
+../HAL/MOTOR/WHM_config.h:

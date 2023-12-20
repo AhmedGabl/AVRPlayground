@@ -38,15 +38,10 @@ void Delay_ms(u32 Copy_u32Time);
 
 void BT(u8 Rxdata); // BLUETOOTH FUNCTON
 void WHM(void);      // MOTOR CONTROL FUNCTION
-
-#define WHMPr (2) // MOTOR CONTROL FUNCTION PRIORITY
-
 void init(void);
-
 void LED5(void) {
     Dio_FlipChannel(PA_5);
 }
-
 void LED4(void) {
     Dio_FlipChannel(PA_4);
 }
@@ -58,15 +53,12 @@ void LED6(void) {
 /*** Global Variable ****/
 u8 ButtonState = 1;
 u8 Lane_Asses = 0;
-
 u8 BT_read_vlaue = 0;
+
+u8 SPI_TAKE=0;
 
 int main(void) {
     init();
-    //	OS_voidCreateTask(0, 2, 0, BT);
-    //	OS_voidCreateTask(1, 4, 1, WHM);
-
-    //	OS_voidStartScheduler();
 
     while (1) {
         //BT();
@@ -77,31 +69,40 @@ int main(void) {
 
 void init(void) {
     Port_Init(pin_cfg);
-   // ADC_Init(); //pin 0 and 1
-
     BT_Init(BT);
     MOTOR_voidInit();
 
-    SPI_voidInit();
     GI_voidEnable();
+    SPI_voidInit();
 
     Dio_WriteChannel(PC_0, STD_HIGH);
     Dio_WriteChannel(PC_1, STD_HIGH);
 }
 
+void GiveAccess(u8 DATA){
+
+	ButtonState = 0 ;
+	UART_TransmitString(" GIVE ACCESS HERE2 : ");
+	UART_Send(DATA);
+}
 
 void MASTER_WHM_cntl(u8 SPI_Rxdata)
 {
-	SPI_voidTransieve(BT_read_vlaue,&BT_read_vlaue);
+
+	UART_TransmitString(" GIVE ACCESS HERE1 : ");
+		UART_Send(SPI_Rxdata);
+
+		if(SPI_Rxdata == 'H')
+		SPI_voidTransmitAsynchronous(BT_read_vlaue,&GiveAccess);
+//	SPI_voidTransieve(BT_read_vlaue,&BT_read_vlaue);
 //	BT_read_vlaue = SPI_Rxdata;
-	ButtonState = 0 ;
 }
 
 void BT(u8 Rxdata) {
     /*Change the State **/
     BT_read_vlaue = Rxdata;
-    UART_Send(Rxdata);
-    SPI_voidTransmitAsynchronous(55,MASTER_WHM_cntl);
+    //UART_Send(Rxdata);
+    SPI_voidTransmitAsynchronous(32,MASTER_WHM_cntl);
   //  ButtonState = 0;
 }
 void WHM(void) {
@@ -157,11 +158,11 @@ void WHM(void) {
             break;
 
         default:
-            if ('0' <= BT_read_vlaue <= '9') {
+            if (BT_read_vlaue >= '0' && BT_read_vlaue <= '9') {
                 speed = (BT_read_vlaue - '0') * 10;
                 MOTOR_voidControlSpeed(SPEED_MOTOR, speed);
             } else {
-                MOTOR_voidOff(STEERING_MOTOR);
+                //MOTOR_voidOff(STEERING_MOTOR);
             }
             ButtonState = 1;
             UART_TransmitString("inside default \r\n");

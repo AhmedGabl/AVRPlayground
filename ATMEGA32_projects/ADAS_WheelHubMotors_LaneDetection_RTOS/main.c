@@ -27,8 +27,8 @@
 #define BACK_SENSOR PC1
 #define LEFT_SENSOR PC2
 #define RIGHT_SENSOR PC3
-
-void AutoPark(void);
+//
+//void AutoPark(void);
 void Delay_ms(u32 Copy_u32Time);
 
 /*
@@ -59,10 +59,11 @@ u8 ButtonState = 1;
 u8 BT_read_vlaue = 0;
 int main(void) {
 	init();
+
 	OS_voidCreateTask(0, 2, 0, BT);
 	OS_voidCreateTask(1, 4, 1, WHM);
-
 	OS_voidStartScheduler();
+
 	while (1) {
 //		BT();
 //		WHM();
@@ -229,52 +230,52 @@ void LaneAssist(u8 Copy_u8NormalSpeed) {
 		}
 	}
 }
-
-void AutoPark(void) {
-	// Set default speed
-	MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
-	MOTOR_voidControlSpeed(SPEED_MOTOR, 10);
-
-	// Move forward until obstacle is detected in front
-	while (ADC_ReadChannel(FRONT_SENSOR) < 100) {
-		// Continue moving forward until obstacle is detected
-		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
-	}
-
-	// Stop and delay for a while
-	MOTOR_voidOff(STEERING_MOTOR);
-	MOTOR_voidOff(SPEED_MOTOR);
-	Delay_ms(2000);
-
-	// Turn right until it's clear
-	MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
-	Delay_ms(1000);
-
-	// Move backward until obstacle is detected at the back
-	MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
-	while (ADC_ReadChannel(BACK_SENSOR) < 100) {
-		// Continue moving backward until obstacle is detected
-		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
-	}
-
-	// Stop and delay for a while
-	MOTOR_voidOff(STEERING_MOTOR);
-	MOTOR_voidOff(SPEED_MOTOR);
-	Delay_ms(2000);
-
-	// Turn left until it's clear
-	MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
-	Delay_ms(1000);
-
-	// Stop and drop steering
-	MOTOR_voidOff(STEERING_MOTOR);
-	MOTOR_voidOff(SPEED_MOTOR);
-}
-
-void Delay_ms(u32 Copy_u32Time) {
-	for (u32 i = 0; i < Copy_u32Time; i++) {
-		for (u16 j = 0; j < 1200; j++) {
-			// Adjust this loop for the desired delay
-		}
-	}
-}
+//
+//void AutoPark(void) {
+//	// Set default speed
+//	MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
+//	MOTOR_voidControlSpeed(SPEED_MOTOR, 10);
+//
+//	// Move forward until obstacle is detected in front
+//	while (ADC_ReadChannel(FRONT_SENSOR) < 100) {
+//		// Continue moving forward until obstacle is detected
+//		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+//	}
+//
+//	// Stop and delay for a while
+//	MOTOR_voidOff(STEERING_MOTOR);
+//	MOTOR_voidOff(SPEED_MOTOR);
+//	Delay_ms(2000);
+//
+//	// Turn right until it's clear
+//	MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
+//	Delay_ms(1000);
+//
+//	// Move backward until obstacle is detected at the back
+//	MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
+//	while (ADC_ReadChannel(BACK_SENSOR) < 100) {
+//		// Continue moving backward until obstacle is detected
+//		MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
+//	}
+//
+//	// Stop and delay for a while
+//	MOTOR_voidOff(STEERING_MOTOR);
+//	MOTOR_voidOff(SPEED_MOTOR);
+//	Delay_ms(2000);
+//
+//	// Turn left until it's clear
+//	MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
+//	Delay_ms(1000);
+//
+//	// Stop and drop steering
+//	MOTOR_voidOff(STEERING_MOTOR);
+//	MOTOR_voidOff(SPEED_MOTOR);
+//}
+//
+//void Delay_ms(u32 Copy_u32Time) {
+//	for (u32 i = 0; i < Copy_u32Time; i++) {
+//		for (u16 j = 0; j < 1200; j++) {
+//			// Adjust this loop for the desired delay
+//		}
+//	}
+//}

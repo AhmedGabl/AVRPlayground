@@ -1,72 +1,5 @@
-07:21:43 **** Build of configuration Debug for project ADAS_MASTER ****
+02:56:07 **** Incremental Build of configuration Debug for project ADAS_MASTER ****
 make all 
-Building file: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER2/src/TMR2_program.d" -MT"MCAL/TIMERS/TIMER2/src/TMR2_program.o" -c -o "MCAL/TIMERS/TIMER2/src/TMR2_program.o" "../MCAL/TIMERS/TIMER2/src/TMR2_program.c"
-Finished building: ../MCAL/TIMERS/TIMER2/src/TMR2_program.c
- 
-Building file: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER1/src/TMR1_program.d" -MT"MCAL/TIMERS/TIMER1/src/TMR1_program.o" -c -o "MCAL/TIMERS/TIMER1/src/TMR1_program.o" "../MCAL/TIMERS/TIMER1/src/TMR1_program.c"
-Finished building: ../MCAL/TIMERS/TIMER1/src/TMR1_program.c
- 
-Building file: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/TIMERS/TIMER0/src/TMR0_program.d" -MT"MCAL/TIMERS/TIMER0/src/TMR0_program.o" -c -o "MCAL/TIMERS/TIMER0/src/TMR0_program.o" "../MCAL/TIMERS/TIMER0/src/TMR0_program.c"
-Finished building: ../MCAL/TIMERS/TIMER0/src/TMR0_program.c
- 
-Building file: ../MCAL/SPI/src/SPI_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/SPI/src/SPI_program.d" -MT"MCAL/SPI/src/SPI_program.o" -c -o "MCAL/SPI/src/SPI_program.o" "../MCAL/SPI/src/SPI_program.c"
-Finished building: ../MCAL/SPI/src/SPI_program.c
- 
-Building file: ../MCAL/PORT/PORT.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT.d" -MT"MCAL/PORT/PORT.o" -c -o "MCAL/PORT/PORT.o" "../MCAL/PORT/PORT.c"
-Finished building: ../MCAL/PORT/PORT.c
- 
-Building file: ../MCAL/PORT/PORT_cnf.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/PORT/PORT_cnf.d" -MT"MCAL/PORT/PORT_cnf.o" -c -o "MCAL/PORT/PORT_cnf.o" "../MCAL/PORT/PORT_cnf.c"
-Finished building: ../MCAL/PORT/PORT_cnf.c
- 
-Building file: ../MCAL/GI/GI__program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/GI/GI__program.d" -MT"MCAL/GI/GI__program.o" -c -o "MCAL/GI/GI__program.o" "../MCAL/GI/GI__program.c"
-Finished building: ../MCAL/GI/GI__program.c
- 
-Building file: ../MCAL/EXTI/src/EXTI_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/EXTI/src/EXTI_program.d" -MT"MCAL/EXTI/src/EXTI_program.o" -c -o "MCAL/EXTI/src/EXTI_program.o" "../MCAL/EXTI/src/EXTI_program.c"
-Finished building: ../MCAL/EXTI/src/EXTI_program.c
- 
-Building file: ../MCAL/DIO/DIO_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"MCAL/DIO/DIO_program.d" -MT"MCAL/DIO/DIO_program.o" -c -o "MCAL/DIO/DIO_program.o" "../MCAL/DIO/DIO_program.c"
-Finished building: ../MCAL/DIO/DIO_program.c
- 
-Building file: ../HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.d" -MT"HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.o" -c -o "HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.o" "../HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.c"
-In file included from ../HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.c:10:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
-                 from ../HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.c:10:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.c
- 
-Building file: ../HAL/LCD/LCD.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"HAL/LCD/LCD.d" -MT"HAL/LCD/LCD.o" -c -o "HAL/LCD/LCD.o" "../HAL/LCD/LCD.c"
-In file included from ../HAL/LCD/LCD.h:10,
-                 from ../HAL/LCD/LCD.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
-In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
-                 from ../HAL/LCD/LCD.h:10,
-                 from ../HAL/LCD/LCD.c:8:
-d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../HAL/LCD/LCD.c
- 
 Building file: ../main.c
 Invoking: AVR Compiler
 avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
@@ -82,11 +15,15 @@ In file included from d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../av
                  from ../MCAL/DIO/DIO_interface.h:13,
                  from ../main.c:10:
 d:/es_diploma/tools/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/common.h:103:1: warning: this is the location of the previous definition
+../main.c: In function 'Act':
+../main.c:26: warning: implicit declaration of function 'UART_TransmitString'
+../main.c: In function 'main':
+../main.c:57: warning: implicit declaration of function 'UART_Init'
 Finished building: ../main.c
  
 Building target: ADAS_MASTER.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,ADAS_MASTER.map -mmcu=atmega32 -o "ADAS_MASTER.elf"  ./MCAL/TIMERS/TIMER2/src/TMR2_program.o  ./MCAL/TIMERS/TIMER1/src/TMR1_program.o  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/SPI/src/SPI_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI__program.o  ./MCAL/EXTI/src/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.o  ./HAL/LCD/LCD.o  ./main.o   
+avr-gcc -Wl,-Map,ADAS_MASTER.map -mmcu=atmega32 -o "ADAS_MASTER.elf"  ./MCAL/UART/src/UART_program.o  ./MCAL/TIMERS/TIMER2/src/TMR2_program.o  ./MCAL/TIMERS/TIMER1/src/TMR1_program.o  ./MCAL/TIMERS/TIMER0/src/TMR0_program.o  ./MCAL/SPI/src/SPI_program.o  ./MCAL/PORT/PORT.o ./MCAL/PORT/PORT_cnf.o  ./MCAL/GI/GI__program.o  ./MCAL/EXTI/src/EXTI_program.o  ./MCAL/DIO/DIO_program.o  ./HAL/SEVEN_SEGMENT/SEVEN_SEGMENT.o  ./HAL/LCD/LCD.o  ./main.o   
 Finished building target: ADAS_MASTER.elf
  
 Invoking: AVR Create Extended Listing
@@ -103,15 +40,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   17762 bytes (54.2% Full)
+Program:   22736 bytes (69.4% Full)
 (.text + .data + .bootloader)
 
-Data:        400 bytes (19.5% Full)
+Data:        506 bytes (24.7% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-07:21:45 Build Finished (took 2s.288ms)
+02:56:08 Build Finished (took 1s.338ms)
 

@@ -1,0 +1,17 @@
+HAL/BLUETOOTH/BT_program.o HAL/BLUETOOTH/BT_program.o:  \
+ ../HAL/BLUETOOTH/BT_program.c \
+  ../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_interface.h \
+  ../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_config.h \
+  ../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_register.h \
+  ../HAL/BLUETOOTH/../../MCAL/UART/includes/../../../utils/STD_TYPES.h \
+  ../HAL/BLUETOOTH/../../MCAL/UART/includes/../../../utils/BIT_MATH.h
+
+../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_interface.h:
+
+../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_config.h:
+
+../HAL/BLUETOOTH/../../MCAL/UART/includes/UART_register.h:
+
+../HAL/BLUETOOTH/../../MCAL/UART/includes/../../../utils/STD_TYPES.h:
+
+../HAL/BLUETOOTH/../../MCAL/UART/includes/../../../utils/BIT_MATH.h:

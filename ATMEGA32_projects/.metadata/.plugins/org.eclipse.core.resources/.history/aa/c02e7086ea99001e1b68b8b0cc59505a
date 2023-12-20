@@ -1,0 +1,8 @@
+main.o main.o: ../main.c ../utils/BIT_MATH.h ../utils/STD_TYPES.h \
+  ../APP/ADAS_APP.h
+
+../utils/BIT_MATH.h:
+
+../utils/STD_TYPES.h:
+
+../APP/ADAS_APP.h:

@@ -16,6 +16,9 @@
 #include "WHM.h"
 #include "WHM_config.h"
 
+
+/* * static private functions
+ * **/
 /* Function to initialize the motor driver */
 void MOTOR_voidInit(void) {
 	TMR0_voidInit();

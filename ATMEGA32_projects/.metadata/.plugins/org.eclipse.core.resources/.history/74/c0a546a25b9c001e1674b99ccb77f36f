@@ -1,0 +1,70 @@
+/*
+ * main.c
+ * Description: Automotive ECU responsible for WHM Bluetooth control and some auxiliary functions
+ * Author: AhmedAbogabl
+ * Created on: Oct 17, 2023
+ */
+
+#include "utils/BIT_MATH.h"
+#include "utils/STD_TYPES.h"
+#include "APP/ADAS_APP.h"
+
+// Spi communication management
+u8 Spi_ResponseOnceFlag = NOT_YET;
+u8 Spi_Request = NULL;
+
+/*
+ * Function: Spi_Router
+ * Description: Handles SPI communication and processes received data.
+ *              Routes SPI data based on specific requests.
+ * Parameters:
+ *   - Copy_u8RxData: Received SPI data
+ */
+void Spi_Router(u8 Copy_u8RxData) {
+    static u8 GIVE_CONTROL = FALSE;
+
+    if (Copy_u8RxData == APP_VEHICLE_ACCESS_INFO_REQUEST) {
+        if (VehicleAccess == TRUE) {
+            Spi_Request = APP_VEHICLE_UNLOCKED;
+        }
+        Spi_ResponseOnceFlag = NOT_YET;
+    } else if (Copy_u8RxData == APP_AUXILIARY_FUN_STATE) {
+        if (FunctionToActivate == TRUE)
+            Spi_Request = Functoin_Type;
+        Functoin_Type = 0;
+        Spi_ResponseOnceFlag = NOT_YET;
+    } else if (Copy_u8RxData == APP_MOTORS_CONTROL_REQUEST) {
+        GIVE_CONTROL = TRUE;
+        Spi_ResponseOnceFlag = NOT_YET;
+    } else if (GIVE_CONTROL == TRUE) {
+        BT_read_value = Copy_u8RxData;
+        ButtonState = 0;
+        GIVE_CONTROL = FALSE;
+        Spi_Request = 0xEE;
+        Spi_ResponseOnceFlag = NOT_YET;
+    } else {
+        Spi_ResponseOnceFlag = NOT_YET;
+    }
+}
+
+int main(void) {
+    // Initialize hardware
+    HW_init();
+
+    while (1) {
+        // Main application logic
+        WHM();
+
+        // Check for SPI response flag
+        if (Spi_ResponseOnceFlag == NOT_YET) {
+            // Transmit SPI data asynchronously
+            SPI_voidTransmitAsynchronous(Spi_Request, Spi_Router);
+
+            // Reset SPI request and set the response flag
+            Spi_Request = NULL;
+            Spi_ResponseOnceFlag = DONE;
+        }
+    }
+
+    return 0;
+}

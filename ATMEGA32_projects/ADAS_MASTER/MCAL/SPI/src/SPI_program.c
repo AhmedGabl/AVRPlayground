@@ -73,6 +73,10 @@ void SPI_voidTransmitAsynchronous(u8 copy_u8TxData, void(*ptrToFun)(u8 copy_u8Rx
         // Send data
         SPI->SPDR = copy_u8TxData;
     }
+    else
+    {
+
+    }
 }
 
 // ISR (Interrupt Service Routine) for SPI communication

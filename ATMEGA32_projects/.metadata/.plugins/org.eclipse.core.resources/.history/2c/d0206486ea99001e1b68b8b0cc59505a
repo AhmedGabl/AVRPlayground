@@ -1,0 +1,45 @@
+APP/ADAS_APP.o APP/ADAS_APP.o: ../APP/ADAS_APP.c \
+  ../APP/../utils/BIT_MATH.h ../APP/../utils/STD_TYPES.h \
+  ../APP/../MCAL/DIO/DIO_interface.h \
+  ../APP/../MCAL/DIO/../../utils/BIT_MATH.h \
+  ../APP/../MCAL/DIO/../../utils/STD_TYPES.h ../APP/../MCAL/PORT/PORT.h \
+  ../APP/../MCAL/PORT/PORT_cnf.h \
+  ../APP/../MCAL/PORT/../DIO/DIO_interface.h \
+  ../APP/../MCAL/GI/GI_interface.h ../APP/../MCAL/GI/GI_register.h \
+  ../APP/../MCAL/GI/../../utils/BIT_MATH.h \
+  ../APP/../MCAL/GI/../../utils/STD_TYPES.h \
+  ../APP/../HAL/BLUETOOTH/BT_interface.h \
+  ../APP/../HAL/BLUETOOTH/../../utils/STD_TYPES.h \
+  ../APP/../HAL/WHM/WHM_interface.h ../APP/ADAS_APP.h
+
+../APP/../utils/BIT_MATH.h:
+
+../APP/../utils/STD_TYPES.h:
+
+../APP/../MCAL/DIO/DIO_interface.h:
+
+../APP/../MCAL/DIO/../../utils/BIT_MATH.h:
+
+../APP/../MCAL/DIO/../../utils/STD_TYPES.h:
+
+../APP/../MCAL/PORT/PORT.h:
+
+../APP/../MCAL/PORT/PORT_cnf.h:
+
+../APP/../MCAL/PORT/../DIO/DIO_interface.h:
+
+../APP/../MCAL/GI/GI_interface.h:
+
+../APP/../MCAL/GI/GI_register.h:
+
+../APP/../MCAL/GI/../../utils/BIT_MATH.h:
+
+../APP/../MCAL/GI/../../utils/STD_TYPES.h:
+
+../APP/../HAL/BLUETOOTH/BT_interface.h:
+
+../APP/../HAL/BLUETOOTH/../../utils/STD_TYPES.h:
+
+../APP/../HAL/WHM/WHM_interface.h:
+
+../APP/ADAS_APP.h:

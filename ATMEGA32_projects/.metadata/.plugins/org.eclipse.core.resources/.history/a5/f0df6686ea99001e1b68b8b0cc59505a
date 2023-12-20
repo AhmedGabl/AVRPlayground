@@ -1,0 +1,38 @@
+HAL/WHM/WHM_program.o HAL/WHM/WHM_program.o: ../HAL/WHM/WHM_program.c \
+  ../HAL/WHM/../../utils/STD_TYPES.h ../HAL/WHM/../../utils/BIT_MATH.h \
+  ../HAL/WHM/../../MCAL/DIO/DIO_interface.h \
+  ../HAL/WHM/../../MCAL/DIO/../../utils/BIT_MATH.h \
+  ../HAL/WHM/../../MCAL/DIO/../../utils/STD_TYPES.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_private.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/STD_TYPES.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_config.h \
+  ../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/BIT_MATH.h \
+  ../HAL/WHM/../WHM/WHM_config.h ../HAL/WHM/WHM_interface.h
+
+../HAL/WHM/../../utils/STD_TYPES.h:
+
+../HAL/WHM/../../utils/BIT_MATH.h:
+
+../HAL/WHM/../../MCAL/DIO/DIO_interface.h:
+
+../HAL/WHM/../../MCAL/DIO/../../utils/BIT_MATH.h:
+
+../HAL/WHM/../../MCAL/DIO/../../utils/STD_TYPES.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_interface.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_private.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_register.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/STD_TYPES.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/TMR0_config.h:
+
+../HAL/WHM/../../MCAL/TIMERS/TIMER0/includes/../../../../utils/BIT_MATH.h:
+
+../HAL/WHM/../WHM/WHM_config.h:
+
+../HAL/WHM/WHM_interface.h:

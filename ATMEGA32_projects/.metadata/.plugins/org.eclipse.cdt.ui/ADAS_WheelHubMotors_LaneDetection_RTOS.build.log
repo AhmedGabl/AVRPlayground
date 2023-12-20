@@ -1,0 +1,34 @@
+12:24:07 **** Incremental Build of configuration Debug for project ADAS_WheelHubMotors_LaneDetection_RTOS ****
+make all 
+Building file: ../FreeRTOS/Source/portable/MemMang/heap_1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"FreeRTOS/Source/portable/MemMang/heap_1.d" -MT"FreeRTOS/Source/portable/MemMang/heap_1.o" -c -o "FreeRTOS/Source/portable/MemMang/heap_1.o" "../FreeRTOS/Source/portable/MemMang/heap_1.c"
+../FreeRTOS/Source/portable/MemMang/heap_1.c:44:22: error: FreeRTOS.h: No such file or directory
+../FreeRTOS/Source/portable/MemMang/heap_1.c:45:18: error: task.h: No such file or directory
+../FreeRTOS/Source/portable/MemMang/heap_1.c:50:6: error: #error This file must not be used if configSUPPORT_DYNAMIC_ALLOCATION is 0
+../FreeRTOS/Source/portable/MemMang/heap_1.c:63: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'ucHeap'
+../FreeRTOS/Source/portable/MemMang/heap_1.c: In function 'pvPortMalloc':
+../FreeRTOS/Source/portable/MemMang/heap_1.c:74: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+../FreeRTOS/Source/portable/MemMang/heap_1.c:74: error: 'pucAlignedHeap' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:74: error: (Each undeclared identifier is reported only once
+../FreeRTOS/Source/portable/MemMang/heap_1.c:74: error: for each function it appears in.)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:79: error: 'portBYTE_ALIGNMENT_MASK' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:82: error: 'portBYTE_ALIGNMENT' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:94: warning: implicit declaration of function 'vTaskSuspendAll'
+../FreeRTOS/Source/portable/MemMang/heap_1.c:99: error: 'uint8_t' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:99: error: expected expression before ')' token
+../FreeRTOS/Source/portable/MemMang/heap_1.c:99: error: 'portPOINTER_SIZE_TYPE' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:99: error: expected ')' before 'portBYTE_ALIGNMENT_MASK'
+../FreeRTOS/Source/portable/MemMang/heap_1.c:104: error: 'configTOTAL_HEAP_SIZE' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:113: warning: implicit declaration of function 'traceMALLOC'
+../FreeRTOS/Source/portable/MemMang/heap_1.c:115: warning: implicit declaration of function 'xTaskResumeAll'
+../FreeRTOS/Source/portable/MemMang/heap_1.c: In function 'vPortFree':
+../FreeRTOS/Source/portable/MemMang/heap_1.c:138: warning: implicit declaration of function 'configASSERT'
+../FreeRTOS/Source/portable/MemMang/heap_1.c: In function 'xPortGetFreeHeapSize':
+../FreeRTOS/Source/portable/MemMang/heap_1.c:151: error: 'configTOTAL_HEAP_SIZE' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:151: error: 'portBYTE_ALIGNMENT' undeclared (first use in this function)
+../FreeRTOS/Source/portable/MemMang/heap_1.c:152: warning: control reaches end of non-void function
+make: *** [FreeRTOS/Source/portable/MemMang/heap_1.o] Error 1
+
+12:24:09 Build Finished (took 1s.312ms)
+

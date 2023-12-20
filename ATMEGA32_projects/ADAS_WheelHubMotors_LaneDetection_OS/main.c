@@ -10,64 +10,63 @@
 #include "MCAL/GI/GI_interface.h"
 //#include "MCAL/ADC/includes/ADC_interface.h"
 //car
-
+#include "util/delay.h"
 #include "HAL/MOTOR/WHM.h"//tmr0
 #include "HAL/BLUETOOTH/BT.h"//uart
-
-#include "OS/OS_interface.h"
-
-#define L_S PC_0
-#define R_S PC_1
-
+//#include "ADAS"
+//#include "OS/OS_interface.h"
 /*
  * *****************************************************************************************
  */
 
-// Constants for obstacle detection sensors
-#define FRONT_SENSOR PC0
-#define BACK_SENSOR PC1
-#define LEFT_SENSOR PC2
-#define RIGHT_SENSOR PC3
+//LANE CORRECTION SENSORS (lINE FOLLOWERS )
+#define L_S PC_0
+#define R_S PC_1
 
+// Constants for obstacle detection sensors
+#define FRONT_SENSOR PA0
+#define BACK_SENSOR  PA1
+#define LEFT_SENSOR  PA2
+#define RIGHT_SENSOR PA3
+
+
+#define WHMPr (2) // MOTOR CONTROL FUNCTION PRIORITY
+
+/*
+ * Functions prototypes*********************************************************************************************
+ */
+
+
+void BT(u8 Rxdata); // BLUETOOTH FUNCTON
+void WHM(void);      // MOTOR CONTROL FUNCTION
+void HW_init(void);
+
+//test leds
+void LED5(void){Dio_FlipChannel(PA_5);}
+void LED4(void){Dio_FlipChannel(PA_4);}
+void LED6(void){Dio_FlipChannel(PA_6);}
+
+//autopark functionality
 void AutoPark(void);
 void Delay_ms(u32 Copy_u32Time);
 
 /*
- * *********************************************************************************************
- */
-
-void BT(u8 Rxdata); // BLUETOOTH FUNCTON
-void WHM(void);      // MOTOR CONTROL FUNCTION
-
-#define WHMPr (2) // MOTOR CONTROL FUNCTION PRIORITY
-
-void init(void);
-
-void LED5(void) {
-    Dio_FlipChannel(PA_5);
-}
-
-void LED4(void) {
-    Dio_FlipChannel(PA_4);
-}
-
-void LED6(void) {
-    Dio_FlipChannel(PA_6);
-}
-
-/*** Global Variable ****/
+ * ** Global Variable *********************************************************************************************************
+ * */
 u8 ButtonState = 1;
 u8 Lane_Asses = 0;
-
 u8 BT_read_vlaue = 0;
 
+
+
+/***********************************************************************************************************************
+ *
+ */
 int main(void) {
-    init();
+	HW_init();
     //	OS_voidCreateTask(0, 2, 0, BT);
     //	OS_voidCreateTask(1, 4, 1, WHM);
-
     //	OS_voidStartScheduler();
-
     while (1) {
         //BT();
         WHM();
@@ -75,9 +74,9 @@ int main(void) {
     return 0;
 }
 
-void init(void) {
+void HW_init(void) {
     Port_Init(pin_cfg);
-   // ADC_Init(); //pin 0 and 1
+   // ADC_Init(); //pin 0 and 1  if needed for autopark
 
     BT_Init(BT);
     MOTOR_voidInit();
@@ -85,6 +84,7 @@ void init(void) {
 //    SPI_voidInit();
     GI_voidEnable();
 
+    //pull up
     Dio_WriteChannel(PC_0, STD_HIGH);
     Dio_WriteChannel(PC_1, STD_HIGH);
 }
@@ -92,11 +92,11 @@ void init(void) {
 void BT(u8 Rxdata) {
     /*Change the State **/
     BT_read_vlaue = Rxdata;
-    UART_Send(Rxdata);
     ButtonState = 0;
 }
+
 void WHM(void) {
-   static  u8 speed = 0;
+   static  u8 speed = 60;
     /* if the Push Button is Pressed */
     if (ButtonState == 0) {
         Lane_Asses = 0;
@@ -130,6 +130,9 @@ void WHM(void) {
             break;
         // stop speed
         case 'P':
+            MOTOR_voidOn(SPEED_MOTOR, MOTOR_CCW);
+            MOTOR_voidControlSpeed(SPEED_MOTOR, 100);
+            _delay_ms(40);
             MOTOR_voidOff(SPEED_MOTOR);
             UART_TransmitString("inside p \r\n");
             ButtonState = 1;
@@ -146,13 +149,14 @@ void WHM(void) {
             ButtonState = 1;
             UART_TransmitString("inside L \r\n");
             break;
-
         default:
-            if ('0' <= BT_read_vlaue <= '9') {
+            if ((BT_read_vlaue >= '0') && (BT_read_vlaue <= '9')) {
                 speed = (BT_read_vlaue - '0') * 10;
+     //           if((speed < 60) && (speed != 0)) speed = 60 ;
                 MOTOR_voidControlSpeed(SPEED_MOTOR, speed);
             } else {
                 MOTOR_voidOff(STEERING_MOTOR);
+                MOTOR_voidOff(SPEED_MOTOR);
             }
             ButtonState = 1;
             UART_TransmitString("inside default \r\n");
@@ -165,11 +169,11 @@ void WHM(void) {
 void LaneAssist(u8 Copy_u8NormalSpeed) {
     // set default speed
     UART_TransmitString("inside Lane assistant \r\n");
-
+//if(Copy_u8NormalSpeed < 50) Copy_u8NormalSpeed = 50;
     //	while (1)
     {
         // if Right Sensor and Left Sensor are at White color then it will call forword function
-        if ((Dio_ReadChannel(R_S) == 1) && (Dio_ReadChannel(L_S) == 1)) {
+        if ((Dio_ReadChannel(R_S) == 0) && (Dio_ReadChannel(L_S) == 0)) {
             // forward
             UART_TransmitString("inside motor 1  \r\n");
             MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
@@ -191,8 +195,8 @@ void LaneAssist(u8 Copy_u8NormalSpeed) {
       //      MOTOR_voidControlSpeed(SPEED_MOTOR, 10);
             MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
         }
-        // if Right Sensor and Left Sensor are at Black color then it will call Stop function
-        if ((Dio_ReadChannel(R_S) == 0) && (Dio_ReadChannel(L_S) == 0)) {
+       //  if Right Sensor and Left Sensor are at Black color then it will call Stop function
+        if ((Dio_ReadChannel(R_S) == 1) && (Dio_ReadChannel(L_S) == 1)) {
             // Stop
             UART_TransmitString("inside motor 4  \r\n");
             MOTOR_voidOff(STEERING_MOTOR);
@@ -204,7 +208,7 @@ void LaneAssist(u8 Copy_u8NormalSpeed) {
 void AutoPark(void) {
     // Set default speed
     MOTOR_voidOn(SPEED_MOTOR, MOTOR_CW);
-    MOTOR_voidControlSpeed(SPEED_MOTOR, 10);
+   // MOTOR_voidControlSpeed(SPEED_MOTOR, 10);
 
     // Move forward until obstacle is detected in front
     while (ADC_ReadChannel(FRONT_SENSOR) < 100) {
@@ -215,7 +219,7 @@ void AutoPark(void) {
     // Stop and delay for a while
     MOTOR_voidOff(STEERING_MOTOR);
     MOTOR_voidOff(SPEED_MOTOR);
-    Delay_ms(2000);
+    Delay_ms(1000);
 
     // Turn right until it's clear
     MOTOR_voidOn(STEERING_MOTOR, MOTOR_CCW);
@@ -231,7 +235,7 @@ void AutoPark(void) {
     // Stop and delay for a while
     MOTOR_voidOff(STEERING_MOTOR);
     MOTOR_voidOff(SPEED_MOTOR);
-    Delay_ms(2000);
+    Delay_ms(1000);
 
     // Turn left until it's clear
     MOTOR_voidOn(STEERING_MOTOR, MOTOR_CW);
