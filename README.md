@@ -4,7 +4,8 @@ Your go-to source for AVR microcontroller drivers, projects, and programs to fue
 
 
 ldr 
-https://github.com/AhmedGabl/AVRPlayground/assets/63268983/9e31ddb9-9afc-480f-8aa6-1c7c6fbe4785
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/aa91164b-caab-4b37-996f-c05193aa334a
+
 
 door
 https://github.com/AhmedGabl/AVRPlayground/assets/63268983/40f74f0a-5875-4611-9de1-8ef45b880d97
