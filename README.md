@@ -18,5 +18,4 @@ https://github.com/AhmedGabl/AVRPlayground/assets/63268983/225be644-1ba6-4ce1-a3
 # Lane Correction 
 Bluetooth control L298 to control wheel and lane correction algo implemented
 
-https://github.com/AhmedGabl/AVRPlayground/assets/63268983/9c9a13f2-f336-40cc-b77b-f86c5b560ebc
-
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/f2ddceca-90dc-43e4-8d9f-50f2bf65deb8
