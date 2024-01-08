@@ -10,6 +10,13 @@ https://github.com/AhmedGabl/AVRPlayground/assets/63268983/aa91164b-caab-4b37-99
 https://github.com/AhmedGabl/AVRPlayground/assets/63268983/40f74f0a-5875-4611-9de1-8ef45b880d97
 
 
-#smart home
+# Smart Home
 
 https://github.com/AhmedGabl/AVRPlayground/assets/63268983/225be644-1ba6-4ce1-a3c9-112b59d59625
+
+
+# Lane Correction 
+Bluetooth control L298 to control wheel and lane correction algo implemented
+
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/9c9a13f2-f336-40cc-b77b-f86c5b560ebc
+
