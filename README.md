@@ -10,26 +10,35 @@ Explore the variety of AVR projects available in this repository:
 
 Discover the LDR project, which demonstrates interfacing with a light-dependent resistor using AVR microcontrollers.
 
-[View LDR Project](avr_projects/LDR)
-- [Watch LDR Project Video](https://github.com/AhmedGabl/AVRPlayground/blob/main/avr_projects/LDR/LDR_Project_Video.mp4)
+#(avr_projects/LDR)
+
+
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/aa91164b-caab-4b37-996f-c05193aa334a
+
 
 ### Login System Project
 
 Check out the Login System project, showcasing AVR microcontroller applications for secure user authentication.
 
-[View Login System Project](avr_projects/Login_system)
-- [Watch Login System Project Video](https://github.com/AhmedGabl/AVRPlayground/blob/main/avr_projects/Login_system/Login_System_Project_Video.mp4)
+#(avr_projects/Login_system)
+
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/40f74f0a-5875-4611-9de1-8ef45b880d97
+
 
 ### Smart Home Project
 
 Dive into the Smart Home project, featuring AVR microcontroller applications for home automation.
 
-[View Smart Home Project](avr_projects/Smart_Home)
-- [Watch Smart Home Project Video](https://github.com/AhmedGabl/AVRPlayground/blob/main/avr_projects/Smart_Home/Smart_Home_Project_Video.mp4)
+#(avr_projects/Smart_Home)
+
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/225be644-1ba6-4ce1-a3c9-112b59d59625
+
+
 
 ### ADAS (Advanced Driver Assistance Systems) Project
 
 Explore the ADAS Systems project, implementing advanced features for vehicle assistance using AVR microcontrollers.
 
-[View ADAS Systems Project](avr_projects/ADAS_SYSTEMS)
-- [Watch ADAS Systems Project Video](https://github.com/AhmedGabl/AVRPlayground/blob/main/avr_projects/ADAS_SYSTEMS/ADAS_Systems_Project_Video.mp4)
+#(avr_projects/ADAS_SYSTEMS)
+
+https://github.com/AhmedGabl/AVRPlayground/assets/63268983/f2ddceca-90dc-43e4-8d9f-50f2bf65deb8
