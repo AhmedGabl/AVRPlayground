@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SMART_HOME_ADMIN/HAL/EEPROM&apos; to &apos;EEPROM2&apos;" description="Rename resource &apos;EEPROM&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="HAL/EEPROM" name="EEPROM2" stamp="1699273270448" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SMART_HOME_ADMIN/HAL/EEPROM2&apos; to &apos;EEPROM&apos;" description="Rename resource &apos;EEPROM2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="HAL/EEPROM2" name="EEPROM" stamp="1699273517365" updateReferences="true"/>
-</session>

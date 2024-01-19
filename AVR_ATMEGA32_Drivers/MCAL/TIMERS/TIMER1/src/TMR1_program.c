@@ -13,7 +13,6 @@ void TMR1_voidSetFrequencyMode14FastPWM(u16 copy_u16Frequency_hz) {
 	#if TMR1_PRESCALER == TMR1_PRESCALER_64
 	ICR1 = ((1000000UL / copy_u16Frequency_hz) / 4) - 1;
 	#endif// TMR1_PRESCALER
-
 }
 
 void TMR1_voidSetDutyCycleMode14FastPWM(F32 copy_u8_duty) {
@@ -53,7 +52,7 @@ void TMR1_voidInit(void) {
 	SET_BIT(TCCR1A,COM1A0);
 	SET_BIT(TCCR1A,COM1A1);
 #endif
-	TMR1_voidSetFrequencyMode14FastPWM(50);
+	//TMR1_voidSetFrequencyMode14FastPWM(50);
 
 #endif
 }
